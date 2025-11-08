@@ -1,0 +1,107 @@
+## Design Phase
+
+This is the phase where we can make ideas tangible to work on in the development phase. It's a critical step of planning, alignment, and setting the direction for the team.
+Without direction the team can end up working on the wrong things, leading to rework and wasted effort.
+
+Metrics to track when designing new feature work:
+
+- The time spent during design sessions (in each session and total time as cost to company)
+- The number of people required in each design session
+- The number of iterations before sending the design to development
+- The defect rate in the architecture
+- The number of feedback loops with stakeholders
+
+We need to watch out for analysis paralysis and over-engineering so put your systems thinking cap on and work closely with the YAGNI approach (You Ain't Gonna Need It) to focus on the essentials with foresight. Gearing towards the perfect architecture design can end up in countless debates, unused diagrams and a waste of invaluable time to the project's deadline and its individual contributors. On the flip side, if careful thought is not put into the design, then it can lead to a high defect rate with numerous downstream issues.
+
+## Development Phase
+
+Here we want to focus on writing code that won't make future developers cry. Code should be maintainable, scalable, testable and follow the design provided in the previous phase.
+
+> Development should NOT commence on a one-lined feature on a board as it will lead to confusion, rework and chaos in the development of the system.
+
+Prioritize your craft in terms of agreeing to deliver the best code that can possibly be delivered under the given constraints of system (codebase, architecture, infrastructure), environment (workload, timelines) and self (understanding, skills). Your team should have buy-in to adopt specific coding standards, best practices, and guidelines that will be followed throughout the development phase. The goal should be to write code that is consistent, maintainable, testable, and scalable. Create a work agreement that outlines the team's commitment to quality and the steps they will take to ensure that quality is maintained throughout the development process.
+
+Metrics to track during the development phase:
+
+- WIP (Work In Progress) which are the number of features in progress at any given time
+- Cycle time which is the time taken from picking up a ticket to merging the code
+- Write tests and track the coverage of the codebase. Don't make this a KPI for developers as the quality of tests will degrade. The metric should purely be a factor of confidence in the codebase.
+- Scan your codebase for vulnerabilities, linting, complexity, and maintainability. You could identify and work through technical debt in the codebase with these metrics.
+- Make manageable and easy to read Pull Requests (PRs) or Merge Requests (MRs) that are easy to review and less likely to break everything. Track the size of these over time.
+- Review code and track the number of defects. This will help you identify areas where developers are struggling and need additional support.
+- Track code churn which is the number of times a developer needs to address a defect in the code after its been released. Here you can determine communication issues, lack of understanding of requirements, or lack of understanding of the codebase.
+
+We need to watch out for batching, context-switching, unclear requirements, and a lot of "waiting on someone else." These are all signs that the development process is not running smoothly and that there are bottlenecks that need to be addressed. Batching is a process of grouping similar tasks together and releasing them in one go. This leads to delays and dependencies. Context-switching is the process of moving from one task to another without completing the first task. This leads to incomplete work, inefficiencies and errors. Unclear requirements are a common problem in software development. If the requirements are not clear, the developers will not be able to deliver the right product. If the developers are waiting on someone else to complete a task, they will not be able to deliver the product on time.
+
+## Quality Assurance
+
+Once a feature is developed, you need to ensure that it works and doesn't break in embarrassing ways.
+
+Quality Assurance (QA) is the process of ensuring that the product meets the requirements and is free of defects. The goal of QA is to identify defects early in the development process so that they can be fixed before the product is released to the customer.
+
+- Track the defect escape rate which are bugs that make it past QA to production
+- Track the automated test coverage which is the percentage of code covered by automated end-to-end tests
+- Track the testing cycle time to measure the time it takes to run tests and provide results
+- Track the bug severity distribution to ensure that you are fixing critical issues and not just trivial ones
+
+Testing should be automated as much as possible to reduce the time it takes to test the product and to ensure that the product is tested thoroughly. Manual testing should be used sparingly and only for things that cannot be automated.
+
+## Release Phase
+
+Now it's time to get the feature into the hands of our users. This is where business value is realized.
+
+Metrics to track:
+
+- Lead time for changes: Time from code commit to production.
+- Change failure rate: % of releases that require rollback or hot fixes.
+- Release frequency: Are we shipping regularly, or is every release a Herculean effort?
+- Deployment downtime: How much downtime occurs during releases?
+
+We need to watch out for overly complex release processes or waiting too long between releases because this can lead to bottlenecks and higher risk of failure. The goal should be to release frequently and with minimal, preferably zero, downtime.
+
+## Monitoring Phase
+
+Once the feature is released we want to make sure it behaves and stays alive so you need to monitor it to ensure that it is working as expected and to identify any issues that arise.
+
+This monitoring phase should not require a person so sit on the edge of their chair watching logs and dashboards. This should be an automated step that alerts the team when something goes wrong.
+
+Metrics to track:
+
+- Uptime: The percentage of time the system is up and running.
+- Latency: How fast the system responds to user actions.
+- Uptime: % of time the system is available and functioning.
+- Response time: How long it takes for the system to respond to a user request.
+- Incident resolution time: The time it takes from an alert to the time the team responds and releases a fix.
+- Error rate: The number of errors that occur in the system.
+- User satisfaction: The percentage of users who are satisfied with the product.
+- Success rate: The percentage of successful user interactions with the system.
+- Impact factor: Did the feature do what it was supposed to do?
+
+Watch out for Monitoring irrelevant metrics or ignoring alerts.
+
+## Support
+
+It's live, the system is working but users have questions and/or need help. We need to help our users without burning out the team.
+I believe that everyone on the team should rotate through support engineering to understand the pain points of the users and to build empathy for them.
+It's critical to understand the user's perspective and to be able to communicate effectively with them.
+
+Metrics to track:
+
+- Ticket resolution time: How quickly support issues are resolved.
+- Support ticket volume: Is the number growing or shrinking?
+- Root cause analysis success: % of issues with clear follow-up fixes.
+- Customer satisfaction: % of users who are satisfied with the support they receive.
+
+We need to watch out for repeat questions or issues due to lack of documentation or known bugs not being prioritized.
+
+## Conclusion
+
+Tracking metrics over time leads to invaluable data that you can use to analyze your processes and flows. You can define problems that you can effectively measure, analyze them, then improve and control.
+
+For every metric, make sure it:
+
+- Reflects the team's goals.
+- Is actionable (no vanity metrics like "lines of code written").
+- Helps reduce waste or improve flow.
+
+The real magic happens when these metrics create alignment and empower the team to improve without turning into a game of "let’s hit the numbers." or finger pointing.

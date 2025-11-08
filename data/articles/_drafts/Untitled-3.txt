@@ -1,0 +1,62 @@
+
+
+
+
+There are so many concepts and things to know and learn. When Have you heard of analysis paralysis or burnout? These are some of the worrying effects of software engineering.
+
+But worry is a natural response to the high stakes and constant change. You can harness this constructively, using it as a tool which can improve systems, processes, and personal growth.
+
+Here are some common worries in software engineering:
+
+
+
+## The Effects in Software Engineering
+
+Admit it. You're here because of Software Engineering. The field that is inherently complex, uncertain and fast-paced (so brutally so). It's rapidly changing and evolving. If you come from JavaScript land, you won't be a stranger to [JavaScript Fatigue](https://www.freecodecamp.org/news/the-cure-to-js-fatigue/).
+
+!["Wait! What?! There's a new JavaScript something every...single...minute...! meme from imgflip.com"](./javascript-meme.jpg)
+
+Let's dive right into to
+
+### Fear of AI Taking our Jobs
+
+We ship bugs, break systems in production, make wrong design decisions that p!ss off our colleagues, managers, and sometimes even our clients. All of a sudden, Devin-some-version-in-the-future is the hero of the day because it can do your job faster, better and more reliably than you. YouTubers are releasing videos aggressively hinting that AI will steal our jobs and worry is the price tag we wear.
+
+`youtube:https://www.youtube.com/embed/GhIm-Dk1pzk`
+
+> **Tip**: We can’t change what we can’t control, but we can improve what’s within our reach. Instead of running from the AI hype, why not learn from it? Adapt, embrace, and use it to your advantage. New tools, skills, and technologies are emerging every day—stay dynamic and ready to evolve.
+
+### Fear of Losing our Jobs
+
+Stock crash. Strategic measures. Downsizing. Restructuring. Layoffs. This is some seriously worrying stuff.
+I picture company layoffs, for instance, and I'm tagged as it. The heavy sinking feeling of having to try find another job, dreading the application process, algorithms, interview process, phone calls, in-ability to pay the bills. The fear of the unknown gets to me.
+
+`youtube:https://www.youtube.com/embed/Xg9ihH15Uto`
+
+> **Tip**: The strategies laid out by Jeff Delaney in his Fireship video above is to build a strong portfolio, network effectively, enhance your skills, tailor your resume, prepare for interviews, leverage online platforms, consider contract work, negotiate salaries, seek mentorship, and stay persistent.
+
+### Fear of Failure
+
+After all these [mistakes](https://en.wikipedia.org/wiki/List_of_software_bugs) we make with minimal to million dollars impact or even - sadly enough - death, we come to realize that failure is some seriously scary sh!t.
+
+`youtube:https://www.youtube.com/embed/Iq_r7IcNmUk`
+
+Mistakes are inevitable, and worrying doesn’t ship features or fix bugs—it just eats at our mental RAM. Instead, focus on what you can control: write usefule tests to back up the integrity of the systems you are developing, set up alerts and monitoring to keep that integrity strong, and embrace tools like AI as co-pilots (Devin isn’t coming for your job _today_).
+
+Accept that imperfection is part of the process—every mistake is an unintentional experiment—and channel that energy into action instead of spiraling into “what-ifs.” Share the load, ask for help, and find humor in the chaos—because when your face is in every Slack channel after a crash, laughing at the absurdity beats crying into your keyboard. Remember: it’s less about avoiding failure and more about recovering like a pro.
+
+### Imposter Syndrome
+
+Worry about making the “perfect” decision can cause delays, but reframing worry into productive questioning (e.g., “What’s the worst that can happen?”) encourages action.
+
+We're not good enough. We're not smart enough. We're not fast enough. AI is better than me. I'm not a good engineer. I'm not a good team player. I'm not a good communicator. I'm not a good leader. I'm not a good person. I'm not good enough. You get the picture. We've all been there. And many of us are still here. Let's make that [imposter](/blog/how-to-reframe-your-inner-imposter/) work for us instead.
+
+### Burnout
+
+Chronic worry about deadlines, performance, or new challenges can lead to overwork and burnout.
+
+## Conclusion
+
+Worry is a natural response to uncertainty, but it doesn’t have to be a burden. By acknowledging your worries, breaking them down, and taking action, you can transform worry into a tool for growth and improvement. Remember: worry is a waste of time, but action is a step forward.
+
+Pick up Dale Carnegie's book and watch all the [Fireship](https://fireship.io) videos for some humor.
