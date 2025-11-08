@@ -4,7 +4,7 @@ import { getCourses } from '@/lib/courses';
 import { getResume } from '@/lib/resume';
 import { getScribbles } from '@/lib/scribbles';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/components/link';
 import { FaNodeJs } from 'react-icons/fa';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa6';
 import { RiNextjsFill } from 'react-icons/ri';
@@ -13,48 +13,51 @@ import { SiClojure, SiGooglecloud } from 'react-icons/si';
 function Socials() {
   return (
     <>
-      <a
+      <Link
         href="https://github.com/cbillowes"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
       >
         <FaGithub className="text-black dark:text-white text-2xl" />
-      </a>
-      <a
+      </Link>
+      <Link
         href="https://www.linkedin.com/in/cbouwer/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
       >
         <FaLinkedin className="text-black dark:text-white text-2xl" />
-      </a>
-      <a
+      </Link>
+      <Link
         href="https://stackoverflow.com/users/849986/clarice-bouwer"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
       >
         <FaStackOverflow className="text-black dark:text-white text-2xl" />
-      </a>
-      <a
+      </Link>
+      <div>
+        |
+      </div>
+      <Link
         href="https://clojure.org/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
       >
         <SiClojure className="text-black dark:text-white text-2xl" />
-      </a>
-      <a
+      </Link>
+      <Link
         href="https://nodejs.org/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
       >
         <FaNodeJs className="text-black dark:text-white text-2xl" />
-      </a>
-      <a
+      </Link>
+      <Link
         href="https://nextjs.org/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
       >
         <RiNextjsFill className="text-black dark:text-white text-2xl" />
-      </a>
-      <a
+      </Link>
+      <Link
         href="https://cloud.google.com/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
       >
         <SiGooglecloud className="text-black dark:text-white text-2xl" />
-      </a>
+      </Link>
     </>
   );
 }
@@ -132,7 +135,7 @@ export default function Home() {
             </Link>
             <Link
               href="/blog"
-              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-black dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-black dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
             >
               My blog
             </Link>
@@ -184,7 +187,7 @@ export default function Home() {
       <section className="bg-gray-100 dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-7xl sm:py-16 lg:px-6">
           <div className="max-w-3xl mb-8 lg:mb-16">
-            <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 dark:text-black dark:text-white md:text-4xl">
+            <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 text-black dark:text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
             <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
@@ -208,7 +211,7 @@ export default function Home() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="mb-2 text-xl font-bold dark:text-black dark:text-white text-gray-900">
+              <h3 className="mb-2 text-xl font-bold text-black dark:text-white text-gray-900">
                 Soft Skills
               </h3>
               <ul className="my-6 lg:mb-0 space-y-4">
@@ -327,7 +330,7 @@ export default function Home() {
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
                 </svg>
               </div>
-              <h3 className="mb-2 text-xl font-bold dark:text-black dark:text-white text-gray-900">
+              <h3 className="mb-2 text-xl font-bold text-black dark:text-white text-gray-900">
                 Software Engineering
               </h3>
               <ul className="my-6 lg:mb-0 space-y-4">
@@ -434,7 +437,7 @@ export default function Home() {
                   <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
                 </svg>
               </div>
-              <h3 className="mb-2 text-xl font-bold dark:text-black dark:text-white text-gray-900">
+              <h3 className="mb-2 text-xl font-bold text-black dark:text-white text-gray-900">
                 Engineering Toolkit
               </h3>
               <ul className="my-6 lg:mb-0 space-y-4">
@@ -553,7 +556,7 @@ export default function Home() {
         className="py-8 bg-white dark:bg-gray-900 lg:py-16 antialiased"
       >
         <div className="px-4 mx-auto w-full max-w-7xl">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-black dark:text-white">
+          <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">
             Featured articles
           </h2>
           <div>
@@ -575,7 +578,7 @@ export default function Home() {
                           src="/avatar.png"
                           alt="Clarice Bouwer"
                         />
-                        <div className="font-medium dark:text-black dark:text-white">
+                        <div className="font-medium text-black dark:text-white">
                           <div>Clarice Bouwer</div>
                           <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
                             <Metadata
@@ -586,7 +589,7 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      <h3 className="mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-black dark:text-white">
+                      <h3 className="mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl text-black dark:text-white">
                         <Link href={node.fields.slug}>
                           {node.frontmatter.title}
                         </Link>
