@@ -16,7 +16,8 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: 'Curious Programmer',
-  description: 'Explore a spectrum of skills at Curious Programmer—soft to technical. Articles, courses, and notes for continuous learning in software engineering.',
+  description:
+    'Explore a spectrum of skills at Curious Programmer—soft to technical. Articles, courses, and notes for continuous learning in software engineering.',
 };
 
 export default function RootLayout({
@@ -29,9 +30,7 @@ export default function RootLayout({
       <head>
         <ThemeModeScript />
       </head>
-      <body
-        className={`${openSans.variable} ${firaCode.variable} antialiased`}
-      >
+      <body className={`${openSans.variable} ${firaCode.variable} antialiased`}>
         <ThemeProvider theme={flowbiteTheme}>{children}</ThemeProvider>
       </body>
     </html>

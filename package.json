@@ -13,11 +13,13 @@
     "flowbite-react": "^0.12.10",
     "graphql": "^16.12.0",
     "graphql-yoga": "^5.16.2",
+    "lucide-react": "^0.553.0",
     "next": "16.0.1",
     "next-seo": "^7.0.1",
     "next-sitemap": "^4.2.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-icons": "^5.5.0",
     "swr": "^2.3.6"
   },
   "devDependencies": {
