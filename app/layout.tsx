@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { ThemeModeScript, ThemeProvider } from 'flowbite-react';
 import { Open_Sans, Fira_Code } from 'next/font/google';
 import { flowbiteTheme } from '@/components/theme';
-import './globals.css';
+import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import './globals.css';
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
@@ -33,6 +34,7 @@ export default function RootLayout({
       </head>
       <body className={`${openSans.variable} ${firaCode.variable} antialiased`}>
         <ThemeProvider theme={flowbiteTheme}>
+          <Header />
           {children}
           <Footer />
         </ThemeProvider>

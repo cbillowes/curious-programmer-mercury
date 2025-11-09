@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 
@@ -20,6 +20,9 @@
     --foreground: #ededed;
   }
 }
+
+/* https://github.com/themesberg/flowbite-react/issues/1583#issuecomment-2974265404 */
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
   background: var(--background);
