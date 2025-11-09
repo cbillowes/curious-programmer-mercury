@@ -1,14 +1,14 @@
-import Backdrop from '@/components/backdrop';
-import { getArticles } from '@/lib/articles';
-import { getCourses } from '@/lib/courses';
-import { getResume } from '@/lib/resume';
-import { getScribbles } from '@/lib/scribbles';
 import Image from 'next/image';
+import { getArticles } from '@/lib/articles';
+import { Backdrop } from '@/components/backdrop';
 import { Link } from '@/components/link';
-import { FaNodeJs } from 'react-icons/fa';
+import { FaArrowRight, FaNodeJs } from 'react-icons/fa';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa6';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiClojure, SiGooglecloud } from 'react-icons/si';
+import Ribbon from '@/components/ribbon';
+import Metadata from '@/components/metadata';
+import { Thumbnail } from '@/components/thumbnail';
 
 function Socials() {
   return (
@@ -31,9 +31,7 @@ function Socials() {
       >
         <FaStackOverflow className="text-black dark:text-white text-2xl" />
       </Link>
-      <div>
-        |
-      </div>
+      <div>|</div>
       <Link
         href="https://clojure.org/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
@@ -183,16 +181,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <hr className="dark:border-blue-900 border-blue-400" />
-      <section className="bg-gray-100 dark:bg-gray-900">
+      <hr className="dark:border-t-blue-900 border-t-blue-400" />
+      <section className="bg-blue-300 dark:bg-blue-950">
         <div className="py-8 px-4 mx-auto max-w-7xl sm:py-16 lg:px-6">
           <div className="max-w-3xl mb-8 lg:mb-16">
             <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 text-black dark:text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
-            <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-              I&rsquo;m love learning new things or how to improve on existing
-              things, so I share the gems I uncover along the way. ✨
+            <p className="font-light sm:text-xl">
+              I love learning new things and how to improve on existing things,
+              so I share the gems I uncover along the way. ✨
             </p>
           </div>
           <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
@@ -556,73 +554,77 @@ export default function Home() {
         className="py-8 bg-white dark:bg-gray-900 lg:py-16 antialiased"
       >
         <div className="px-4 mx-auto w-full max-w-7xl">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">
+          <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 text-black dark:text-white md:text-4xl">
             Featured articles
           </h2>
           <div>
             <div className="relative">
               <div className="bg-white duration-700 ease-in-out dark:bg-gray-900 mb-4">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {/* {edges.map(({ node }) => (
-                    <article
-                      key={node.fields.slug}
-                      className="relative p-4 mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
-                    >
-                      <Ribbon>#{node.fields.number}</Ribbon>
-                      <Link href={node.fields.slug}>
-                        <Thumbnail {...node.fields.hero} />
-                      </Link>
-                      <div className="flex items-center mb-3 space-x-2">
-                        <Image
-                          className="w-8 h-8 rounded-full"
-                          src="/avatar.png"
-                          alt="Clarice Bouwer"
-                        />
-                        <div className="font-medium text-black dark:text-white">
-                          <div>Clarice Bouwer</div>
-                          <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                            <Metadata
-                              date={node.fields.date}
-                              timeToRead={node.timeToRead}
-                              type={node.fields.type}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <h3 className="mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl text-black dark:text-white">
-                        <Link href={node.fields.slug}>
-                          {node.frontmatter.title}
-                        </Link>
-                      </h3>
-                      <p className="mb-3 text-gray-500 dark:text-gray-400">
-                        {node.excerpt}
-                      </p>
-                      <Link
-                        href={node.fields.slug}
-                        className="inline-flex items-center font-medium
-                          text-primary-600 hover:text-blue-800
-                          dark:text-primary-500 hover:dark:text-blue-600 hover:no-underline"
-                      >
-                        {' '}
-                        Read more{' '}
-                        <svg
-                          className="mt-px ml-1 w-3 h-3"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 14 10"
+                  {getArticles()
+                    .filter((a) => a.featured)
+                    .sort((a, b) => b.number - a.number)
+                    .slice(0, 9)
+                    .map(
+                      ({
+                        slug,
+                        title,
+                        date,
+                        number,
+                        timeToRead,
+                        cover,
+                        abstract,
+                      }) => (
+                        <article
+                          key={slug}
+                          className="relative p-4 mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
                         >
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M1 5h12m0 0L9 1m4 4L9 9"
-                          />
-                        </svg>
-                      </Link>
-                    </article>
-                  ))} */}
+                          <Ribbon>#{number}</Ribbon>
+                          <Link href={slug}>
+                            <Thumbnail
+                              src={cover}
+                              alt={title}
+                              width={600}
+                              height={150}
+                            />
+                          </Link>
+                          <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
+                            <Link href={slug}>{title}</Link>
+                          </h3>
+                          <div className="flex items-center mb-3 space-x-3">
+                            <Image
+                              className="w-8 h-8 rounded-full"
+                              src="/headshot.webp"
+                              alt="Clarice Bouwer"
+                              width={32}
+                              height={32}
+                            />
+                            <div className="font-medium text-black dark:text-white">
+                              <div>Clarice Bouwer</div>
+                              <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                                <Metadata
+                                  date={date}
+                                  timeToRead={timeToRead}
+                                  type="article"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <p className="mb-3 text-gray-500 dark:text-gray-400">
+                            {abstract}
+                          </p>
+                          <Link
+                            href={slug}
+                            className="inline-flex gap-2 items-center font-medium
+                          text-pink-600 hover:text-pink-800
+                          dark:text-pink-500 hover:dark:text-pink-600 hover:no-underline"
+                          >
+                            Read more
+                            <FaArrowRight />
+                          </Link>
+                        </article>
+                      ),
+                    )}
                 </div>
               </div>
             </div>

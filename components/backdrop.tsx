@@ -1,4 +1,4 @@
-export default function Backdrop() {
+export function Backdrop() {
   return (
     <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
       <div className="w-432 flex-none flex justify-end blur opacity-60">
