@@ -1,10 +1,24 @@
 import type { NextConfig } from 'next';
-import { withContentCollections } from "@content-collections/next";
-import withFlowbiteReact from "flowbite-react/plugin/nextjs";
+import { withContentCollections } from '@content-collections/next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'curiousprogrammer.dev',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 // withContentCollections must be the outermost plugin
-export default withFlowbiteReact(withContentCollections(nextConfig));
+export default withContentCollections(nextConfig);

@@ -5,8 +5,8 @@ import { cn } from '@/lib/utils';
 import { ReactNode, useState } from 'react';
 import { Link } from '@/components/link';
 import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
-import { FaSearch } from 'react-icons/fa';
 import { useThemeMode } from 'flowbite-react';
+import { Search } from './search';
 
 function MenuItemLink({
   active,
@@ -24,8 +24,8 @@ function MenuItemLink({
       href={to}
       className={cn(
         'text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 px-4 space-2 flex items-center py-2 mx-2 gap-2',
-        active.startsWith(to) &&
-          'bg-primary-600 text-primary-200 hover:bg-pink-500 dark:hover:bg-pink-500 hover:text-white',
+        // active.startsWith(to) &&
+        //   'bg-primary-600 text-primary-200 hover:bg-pink-500 dark:hover:bg-pink-500 hover:text-white',
       )}
     >
       {icon}
@@ -161,12 +161,7 @@ export function Header() {
                 </Link>
               </div>
               <div className="flex items-center gap-2">
-                <button
-                  className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-lg p-2.5"
-                  // onClick={() => navigate('/search')}
-                >
-                  <FaSearch className="block" />
-                </button>
+                <Search />
                 <button
                   className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-lg p-2.5"
                   onClick={toggleMode}
