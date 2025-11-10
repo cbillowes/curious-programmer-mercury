@@ -157,7 +157,7 @@ export function Search() {
         className="text-black dark:text-white"
       >
         <ModalHeader className="border-gray-200 dark:border-gray-800">
-          <h2>Search for something</h2>
+          Search for something
         </ModalHeader>
         <ModalBody>
           <CustomSearchBox />
