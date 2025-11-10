@@ -24,8 +24,8 @@ function MenuItemLink({
       href={to}
       className={cn(
         'text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 px-4 space-2 flex items-center py-2 mx-2 gap-2',
-        // active.startsWith(to) &&
-        //   'bg-primary-600 text-primary-200 hover:bg-pink-500 dark:hover:bg-pink-500 hover:text-white',
+        active.startsWith(to) &&
+          'bg-primary-600 text-primary-200 hover:bg-pink-500 dark:hover:bg-pink-500 hover:text-white',
       )}
     >
       {icon}
