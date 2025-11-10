@@ -2,7 +2,7 @@
 
 import { getGroup, sidebarItems } from '@/data/sidebar';
 import { cn } from '@/lib/utils';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Link } from '@/components/link';
 import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
 import { useThemeMode } from 'flowbite-react';
@@ -141,7 +141,14 @@ function ToggleSidebar({
 export function Header() {
   const active = typeof window !== 'undefined' ? window.location.pathname : '';
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [mounted, setMounted] = useState(false);
   const { mode, toggleMode } = useThemeMode();
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
     <>
       <nav className="fixed z-50 w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl">
@@ -167,8 +174,8 @@ export function Header() {
                   onClick={toggleMode}
                 >
                   <span className="sr-only">Toggle theme</span>
-                  {mode === 'dark' && <FaSun />}
-                  {mode === 'light' && <FaMoon />}
+                  {mounted && mode === 'dark' && <FaSun />}
+                  {mounted && mode === 'light' && <FaMoon />}
                 </button>
               </div>
             </div>
