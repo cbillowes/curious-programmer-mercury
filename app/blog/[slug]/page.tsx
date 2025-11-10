@@ -75,6 +75,17 @@ export default async function ArticlePage({ params }: Props) {
     }
   }
 
+  if (data.length === 0) {
+    return (
+      <Page>
+        <Container>
+          <h1>No Articles Found</h1>
+          <p>Nothing to see here. It looks like I did very little this year.</p>
+        </Container>
+      </Page>
+    );
+  }
+
   return (
     <Page>
       <Container>
