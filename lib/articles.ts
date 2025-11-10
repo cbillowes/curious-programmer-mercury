@@ -16,3 +16,21 @@ export function getArticles() {
       };
     });
 }
+
+export function getArticlesByYear(year: number) {
+  return getArticles()
+    .filter((article) => article.date.getFullYear() === year)
+    .sort((a, b) => b.date.getTime() - a.date.getTime());
+}
+
+export function getArticleSlug(slug: string) {
+  return getArticles().find((article) => article.slug.endsWith(slug));
+}
+
+export function getArticlesByYearOrSlug(param: string) {
+  const article = getArticleSlug(param);
+  if (article) {
+    return article;
+  }
+  return getArticlesByYear(parseInt(param, 10));
+}
