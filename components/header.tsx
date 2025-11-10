@@ -24,7 +24,7 @@ function MenuItemLink({
       href={to}
       className={cn(
         'text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 px-4 space-2 flex items-center py-2 mx-2 gap-2',
-        active.startsWith(to) &&
+        active === to &&
           'bg-primary-600 text-primary-200 hover:bg-pink-500 dark:hover:bg-pink-500 hover:text-white',
       )}
     >
@@ -141,13 +141,7 @@ function ToggleSidebar({
 export function Header() {
   const active = typeof window !== 'undefined' ? window.location.pathname : '';
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [mounted, setMounted] = useState(false);
   const { mode, toggleMode } = useThemeMode();
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
 
   return (
     <>
@@ -174,8 +168,8 @@ export function Header() {
                   onClick={toggleMode}
                 >
                   <span className="sr-only">Toggle theme</span>
-                  {mounted && mode === 'dark' && <FaSun />}
-                  {mounted && mode === 'light' && <FaMoon />}
+                  {mode === 'dark' && <FaSun />}
+                  {mode === 'light' && <FaMoon />}
                 </button>
               </div>
             </div>

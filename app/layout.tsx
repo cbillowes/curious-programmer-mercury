@@ -33,11 +33,7 @@ export default function RootLayout({
         <ThemeModeScript />
       </head>
       <body className={`${openSans.variable} ${firaCode.variable} antialiased`}>
-        <ThemeProvider theme={flowbiteTheme}>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <ThemeProvider theme={flowbiteTheme}>{children}</ThemeProvider>
       </body>
     </html>
   );

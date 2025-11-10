@@ -9,6 +9,7 @@ import { SiClojure, SiGooglecloud } from 'react-icons/si';
 import Ribbon from '@/components/ribbon';
 import Metadata from '@/components/metadata';
 import { Thumbnail } from '@/components/thumbnail';
+import { Page } from '@/components/page';
 
 function Socials() {
   return (
@@ -62,9 +63,8 @@ function Socials() {
 
 export default function Home() {
   return (
-    <div>
+    <Page>
       <section className="bg-gray-50 dark:bg-gray-900 py-5">
-        <Backdrop />
         <div className="px-4 sm:px-32 grid max-w-7xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <div className="lg:hidden flex items-center justify-start">
@@ -79,7 +79,7 @@ export default function Home() {
                 <Socials />
               </div>
             </div>
-            <h1 className="max-w-2xl mb-8 text-4xl font-extrabold tracking-tighter lg:leading-16 md:text-5xl xl:text-6xl text-black dark:text-white">
+            <h1 className="max-w-5xl mb-8 text-4xl font-extrabold tracking-tighter lg:leading-16 md:text-5xl xl:text-6xl text-black dark:text-white">
               Leading teams with{' '}
               <span className="text-transparent bg-clip-text bg-linear-to-r to-blue-600 from-green-400">
                 empathy
@@ -90,7 +90,7 @@ export default function Home() {
               </span>
               .
             </h1>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300">
+            <p className="max-w-5xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300">
               A highly accomplished and passionate polyglot full-stack software
               engineer with {new Date().getFullYear() - 2005} years of
               experience delivering impactful digital solutions across diverse
@@ -138,7 +138,7 @@ export default function Home() {
               My blog
             </Link>
           </div>
-          <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+          <div className="hidden lg:mt-0 lg:col-span-4 lg:flex justify-end">
             <div>
               <div className="flex justify-center items-center flex-col">
                 <Image
@@ -185,7 +185,7 @@ export default function Home() {
       <section className="bg-blue-300 dark:bg-blue-950">
         <div className="py-8 px-4 mx-auto max-w-7xl sm:py-16 lg:px-6">
           <div className="max-w-3xl mb-8 lg:mb-16">
-            <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 text-black dark:text-white md:text-4xl">
+            <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 dark:text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
             <p className="font-light sm:text-xl">
@@ -631,6 +631,6 @@ export default function Home() {
           </div>
         </div>
       </aside>
-    </div>
+    </Page>
   );
 }
