@@ -68,8 +68,12 @@ export default async function ArticlePage({ params }: Props) {
       return (
         <Page>
           <Container>
-            <h1>Article Not Found</h1>
-            <p>The article you are looking for does not exist.</p>
+            <h1 className="text-4xl font-bold text-center mb-4">
+              No articles found
+            </h1>
+            <p className="text-center">
+              The article you are looking for does not exist.
+            </p>
           </Container>
         </Page>
       );
@@ -80,8 +84,12 @@ export default async function ArticlePage({ params }: Props) {
     return (
       <Page>
         <Container>
-          <h1>No Articles Found</h1>
-          <p>Nothing to see here. It looks like I did very little this year.</p>
+          <h1 className="text-4xl font-bold text-center mb-4">
+            No articles found
+          </h1>
+          <p className="text-center">
+            Nothing to see here. It looks like I did very little this year.
+          </p>
         </Container>
       </Page>
     );
@@ -90,7 +98,7 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <Page>
       <Container>
-        <h1 className="text-4xl font-bold text-center">{slug} Articles</h1>
+        <h1 className="text-4xl font-bold text-center mb-4">{slug} Articles</h1>
         <ul>
           {data.map((article, index) => (
             <Preview key={index} index={index} type="article" data={article} />
