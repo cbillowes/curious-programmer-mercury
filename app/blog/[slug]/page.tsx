@@ -90,6 +90,7 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <Page>
       <Container>
+        <h1 className="text-4xl font-bold text-center">{slug} Articles</h1>
         <ul>
           {data.map((article, index) => (
             <Preview key={index} index={index} type="article" data={article} />
