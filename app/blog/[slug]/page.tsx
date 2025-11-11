@@ -3,6 +3,7 @@ import { Page } from '@/components/page';
 import { Container } from '@/components/container';
 import { getArticlesByYearOrSlug } from '@/lib/articles';
 import { Preview } from '@/components/preview';
+import { PageHeading } from '@/components/page-heading';
 
 type Props = {
   params: {
@@ -58,7 +59,7 @@ export default async function ArticlePage({ params }: Props) {
       return (
         <Page>
           <Container>
-            <h1>{data.title}</h1>
+            <PageHeading>{data.title}</PageHeading>
             <p>{data.date.toDateString()}</p>
             <div dangerouslySetInnerHTML={{ __html: data.content }} />
           </Container>
@@ -68,9 +69,7 @@ export default async function ArticlePage({ params }: Props) {
       return (
         <Page>
           <Container>
-            <h1 className="text-4xl font-bold text-center mb-4">
-              No articles found
-            </h1>
+            <PageHeading>No articles found</PageHeading>
             <p className="text-center">
               The article you are looking for does not exist.
             </p>
@@ -84,9 +83,7 @@ export default async function ArticlePage({ params }: Props) {
     return (
       <Page>
         <Container>
-          <h1 className="text-4xl font-bold text-center mb-4">
-            No articles found
-          </h1>
+          <PageHeading>No articles found</PageHeading>
           <p className="text-center">
             Nothing to see here. It looks like I did very little this year.
           </p>
@@ -98,7 +95,7 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <Page>
       <Container>
-        <h1 className="text-4xl font-bold text-center mb-4">{slug} Articles</h1>
+        <PageHeading>{slug} Articles</PageHeading>
         <ul>
           {data.map((article, index) => (
             <Preview key={index} index={index} type="article" data={article} />
