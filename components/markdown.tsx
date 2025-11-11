@@ -3,6 +3,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import * as emoji from 'node-emoji';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -30,6 +31,8 @@ function YouTubeEmbed({ url }: { url: string }) {
 }
 
 export function Markdown({ content }: { content: string }) {
+  const processedContent = emoji.emojify(content);
+
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
@@ -66,7 +69,7 @@ export function Markdown({ content }: { content: string }) {
         },
       }}
     >
-      {content}
+      {processedContent}
     </ReactMarkdown>
   );
 }
