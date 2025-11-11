@@ -3,29 +3,25 @@
 @source "../.flowbite-react/class-list.json";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-light-mode: #111827;
+  --background-light-mode: #e8e6e6;
+  --foreground-dark-mode: #e8e6e6;
+  --background-dark-mode: #111827;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background-light-mode: var(--background-light-mode);
+  --color-foreground-light-mode: var(--foreground-light-mode);
+  --color-background-dark-mode: var(--background-dark-mode);
+  --color-foreground-dark-mode: var(--foreground-dark-mode);
   --font-sans: var(--font-open-sans);
   --font-mono: var(--font-fira-code);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 /* https://github.com/themesberg/flowbite-react/issues/1583#issuecomment-2974265404 */
 @custom-variant dark (&:where(.dark, .dark *));
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  @apply font-sans;
+  @apply font-sans bg-background-light-mode text-foreground-light-mode dark:bg-background-dark-mode dark:text-foreground-dark-mode;
 }
