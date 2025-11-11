@@ -4,6 +4,7 @@ import { Container } from '@/components/container';
 import { getArticlesByYearOrSlug } from '@/lib/articles';
 import { Preview } from '@/components/preview';
 import { PageHeading } from '@/components/page-heading';
+import { Content } from '@/components/content';
 
 type Props = {
   params: {
@@ -60,8 +61,7 @@ export default async function ArticlePage({ params }: Props) {
         <Page>
           <Container>
             <PageHeading>{data.title}</PageHeading>
-            <p>{data.date.toDateString()}</p>
-            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+            <Content {...data} />
           </Container>
         </Page>
       );

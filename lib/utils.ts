@@ -15,7 +15,10 @@ export const toDateString = (date: Date) => {
   });
 };
 
-export function extractExcerpt(content: string, maxLength: number = 160): string {
+export function extractExcerpt(
+  content: string,
+  maxLength: number = 160,
+): string {
   // Remove markdown
   const text = removeMd(content).replace(/\s+/g, ' ').trim();
 
@@ -33,4 +36,10 @@ export function extractExcerpt(content: string, maxLength: number = 160): string
   }
 
   return excerpt + '...';
+}
+
+export function toProperCase(value: string) {
+  return value.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
+  });
 }

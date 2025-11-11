@@ -5,6 +5,7 @@ import { extractExcerpt } from '@/lib/utils';
 import { slugify } from '@/lib/slugify';
 
 export interface Article {
+  type: 'article';
   slug: string;
   date: Date;
   number: number;
@@ -40,21 +41,24 @@ export function getArticles() {
         timeToRead: Math.ceil(readingTime(content).minutes),
         abstract: abstract ?? extractExcerpt(content),
         cover: cover.startsWith('http') ? cover : `/blog/${cover}`,
+        type: 'article' as const,
       };
     });
 }
 
-export function getArticlesByYear(year: number) {
+export function getArticlesByYear(year: number): Article[] {
   return getArticles()
     .filter((article) => article.date.getFullYear() === year)
     .sort((a, b) => b.date.getTime() - a.date.getTime());
 }
 
-export function getArticleSlug(slug: string) {
+export function getArticleSlug(slug: string): Article | undefined {
   return getArticles().find((article) => article.slug.endsWith(slug));
 }
 
-export function getArticlesByYearOrSlug(param: string) {
+export function getArticlesByYearOrSlug(
+  param: string,
+): Article[] | Article | undefined {
   const article = getArticleSlug(param);
   if (article) {
     return article;

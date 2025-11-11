@@ -15,7 +15,7 @@ export function Metadata({
     <div className="text-gray-600 dark:text-gray-400">
       <div>
         {date && <span>{toDateString(date)}</span>}
-        <br />
+        &nbsp;&middot;&nbsp;
         {timeToRead &&
           ['article', 'scribble', 'chapter', 'resume'].indexOf(type) > -1 && (
             <span>Estimated {timeToRead} minute read</span>
