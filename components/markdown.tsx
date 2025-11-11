@@ -78,7 +78,7 @@ export function Markdown({ content }: { content: string }) {
               return (
                 <GifPlayer
                   src={ast.filename}
-                  still={ast.filename.replace('.gif', '_still.png')}
+                  still={ast.filename.replace('.gif', '-still.png')}
                   alt={ast.caption}
                 />
               );

@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "public"
+  ],
+  "ext": "gif",
+  "exec": "node scripts/process-gifs.js public/"
+}
