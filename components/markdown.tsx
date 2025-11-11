@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
+import { GifPlayer, parseAst } from '@/components/gif-player';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -65,10 +66,23 @@ export function Markdown({ content }: { content: string }) {
         },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         code: ({ inline, children, ...props }: any) => {
-          if (typeof children === 'string' && children.startsWith('youtube:')) {
-            return (
-              <YouTubeEmbed url={children.replace('youtube:', '').trim()} />
-            );
+          if (typeof children === 'string') {
+            if (children.startsWith('youtube:')) {
+              return (
+                <YouTubeEmbed url={children.replace('youtube:', '').trim()} />
+              );
+            }
+            if (children.startsWith('gif:')) {
+              const ast = parseAst(children);
+              if (!ast) return null;
+              return (
+                <GifPlayer
+                  src={ast.filename}
+                  still={ast.filename.replace('.gif', '_still.png')}
+                  alt={ast.caption}
+                />
+              );
+            }
           }
           return inline ? (
             <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props}>
