@@ -1,18 +1,45 @@
 import { allArticles } from 'content-collections';
-import { slugify } from './slugify';
 import readingTime from 'reading-time';
+import { extractExcerpt } from '@/lib/utils';
+// TODO: move slugify to lib/utils.ts
+import { slugify } from '@/lib/slugify';
+
+export interface Article {
+  slug: string;
+  date: Date;
+  number: number;
+  timeToRead: number;
+  title: string;
+  cover: string;
+  content: string;
+  creditSource?: string | undefined;
+  creditLink?: string | undefined;
+  abstract?: string | undefined;
+  tags?: string[] | undefined;
+  featured?: boolean | undefined;
+  _meta: {
+    filePath: string;
+    fileName: string;
+    directory: string;
+    path: string;
+    extension: string;
+  };
+}
 
 export function getArticles() {
   return allArticles
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .map((article, i) => {
+      const { date, content, abstract, cover } = article;
       const slug = slugify(article.slug ?? article.title);
       return {
         ...article,
         slug: `/blog/${slug}`,
-        date: new Date(article.date),
+        date: new Date(date),
         number: i + 1,
-        timeToRead: Math.ceil(readingTime(article.content).minutes),
+        timeToRead: Math.ceil(readingTime(content).minutes),
+        abstract: abstract ?? extractExcerpt(content),
+        cover: cover.startsWith('http') ? cover : `/blog/${cover}`,
       };
     });
 }

@@ -17,6 +17,7 @@
     "flowbite-react": "^0.12.10",
     "graphql": "^16.12.0",
     "graphql-yoga": "^5.16.2",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.553.0",
     "next": "16.0.1",
     "next-seo": "^7.0.1",
@@ -26,6 +27,7 @@
     "react-icons": "^5.5.0",
     "react-instantsearch": "^7.18.0",
     "reading-time": "^1.5.0",
+    "remove-markdown": "^0.6.2",
     "swr": "^2.3.6",
     "tailwind-merge": "^3.3.1"
   },
@@ -33,6 +35,7 @@
     "@content-collections/core": "^0.12.0",
     "@content-collections/next": "^0.2.9",
     "@tailwindcss/postcss": "^4",
+    "@types/lodash": "^4.17.20",
     "@types/node": "^24.10.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",

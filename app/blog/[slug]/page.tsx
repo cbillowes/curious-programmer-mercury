@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
 import { getArticlesByYearOrSlug } from '@/lib/articles';
+import { Preview } from '@/components/preview';
 
 type Props = {
   params: {
@@ -90,11 +91,8 @@ export default async function ArticlePage({ params }: Props) {
     <Page>
       <Container>
         <ul>
-          {data.map((article) => (
-            <li key={article.slug}>
-              <a href={article.slug}>{article.title}</a> -{' '}
-              {article.date.toDateString()}
-            </li>
+          {data.map((article, index) => (
+            <Preview key={index} index={index} type="article" data={article} />
           ))}
         </ul>
       </Container>

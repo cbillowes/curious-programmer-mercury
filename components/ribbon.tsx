@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export default function Ribbon({ children }: { children?: ReactNode }) {
+export function Ribbon({ children }: { children?: ReactNode }) {
   if (!children) return <></>;
   return (
     <div className="ribbon absolute right-0 z-40">

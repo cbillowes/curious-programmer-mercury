@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import { getArticles } from '@/lib/articles';
-import { Backdrop } from '@/components/backdrop';
 import { Link } from '@/components/link';
 import { FaArrowRight, FaNodeJs } from 'react-icons/fa';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa6';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiClojure, SiGooglecloud } from 'react-icons/si';
-import Ribbon from '@/components/ribbon';
-import Metadata from '@/components/metadata';
+import { Ribbon } from '@/components/ribbon';
+import { Metadata } from '@/components/metadata';
 import { Thumbnail } from '@/components/thumbnail';
 import { Page } from '@/components/page';
 
