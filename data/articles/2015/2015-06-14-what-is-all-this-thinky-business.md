@@ -1,7 +1,7 @@
 ---
 title: "What is all this Thinky business?"
-cover: 'https://picsum.photos/1600/800/?image=532'
-date: 2015-06-14
+cover: https://picsum.photos/1600/800/?image=532
+date: 2015-06-14 00:00:00
 tags:
   - Systems Thinking
   - Collaboration
