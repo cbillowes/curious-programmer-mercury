@@ -1,6 +1,5 @@
 export const sidebarItems = [
   { to: '/', name: 'Home' },
-  { to: '/about', name: 'About' },
   { to: '/resume', name: 'Resume' },
   {
     to: '/blog',
