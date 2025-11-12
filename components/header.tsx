@@ -13,19 +13,22 @@ function MenuItemLink({
   to,
   icon,
   name,
+  className,
 }: {
   active: string;
   to: string;
   name: string;
   icon?: ReactNode;
+  className?: string;
 }) {
   return (
     <Link
       href={to}
       className={cn(
-        'text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 px-4 space-2 flex items-center py-2 mx-2 gap-2',
+        'w-[255px] text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 px-4 space-2 flex items-center py-2 mx-2 gap-2',
         active === to &&
           'bg-primary-600 text-primary-200 hover:bg-pink-500 dark:hover:bg-pink-500 hover:text-white',
+        className,
       )}
     >
       {icon}
@@ -57,7 +60,7 @@ function MenuItemDropdown({
       <button
         type="button"
         className={cn(
-          'px-4 flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group dark:text-gray-200',
+          'w-[255px] text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 space-2 flex items-center justify-between px-4 py-2 ml-2 mr-2 gap-2',
           expand
             ? 'bg-gray-100 dark:bg-gray-700'
             : 'hover:bg-gray-100 dark:hover:bg-gray-700',
@@ -67,7 +70,7 @@ function MenuItemDropdown({
         onClick={() => setExpand(!expand)}
       >
         {icon}
-        <span className="flex-1 ml-3 text-left whitespace-nowrap">{name}</span>
+        <span className="flex-0 text-left whitespace-nowrap">{name}</span>
         <svg
           className={cn('w-6 h-6', expand ? 'transform rotate-180' : '')}
           fill="currentColor"
@@ -83,8 +86,8 @@ function MenuItemDropdown({
       </button>
       <ul id={id} className={cn('py-2 space-y-2', expand ? 'block' : 'hidden')}>
         {items.map((item) => (
-          <div key={item.to} className={cn('px-4')}>
-            <MenuItemLink active={active} {...item} />
+          <div key={item.to}>
+            <MenuItemLink {...item} active={active} className="pl-6" />
           </div>
         ))}
       </ul>
@@ -194,7 +197,7 @@ export function Header() {
                 <ul className="px-2 pb-2 space-y-2">
                   {sidebarItems.map(({ items = [], ...rest }) => {
                     return (
-                      <li key={rest.name}>
+                      <li key={rest.name} className="relative">
                         {items.length === 0 && (
                           <MenuItemLink
                             {...rest}
