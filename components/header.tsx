@@ -140,8 +140,15 @@ function ToggleSidebar({
 
 export function Header() {
   const active = typeof window !== 'undefined' ? window.location.pathname : '';
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const sidebar = localStorage.getItem('sidebar');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
   const { mode, toggleMode } = useThemeMode();
+
+  const toggleSidebarState = () => {
+    const newState = !isSidebarOpen;
+    setIsSidebarOpen(newState);
+    localStorage.setItem('sidebar', newState ? 'open' : 'closed');
+  };
 
   return (
     <>
@@ -152,7 +159,7 @@ export function Header() {
               <div className="flex items-center justify-start">
                 <ToggleSidebar
                   isOpen={isSidebarOpen}
-                  toggle={() => setIsSidebarOpen(!isSidebarOpen)}
+                  toggle={toggleSidebarState}
                 />
                 <Link href="/" className="flex ml-2 md:mr-4">
                   <span className="self-center text-lg sm:text-xl whitespace-nowrap text-gray-900 dark:text-white font-light">
