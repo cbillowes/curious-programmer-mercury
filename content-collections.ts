@@ -8,7 +8,7 @@ const articles = defineCollection({
   schema: z.object({
     slug: z.string().optional(),
     title: z.string(),
-    cover: z.string(),
+    cover: z.string().optional(),
     creditSource: z.string().optional(),
     creditLink: z.url().optional(),
     date: z.string(),

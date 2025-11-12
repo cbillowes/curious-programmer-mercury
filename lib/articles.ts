@@ -11,7 +11,7 @@ export interface Article {
   number: number;
   timeToRead: number;
   title: string;
-  cover: string;
+  cover?: string;
   content: string;
   creditSource?: string | undefined;
   creditLink?: string | undefined;
@@ -42,7 +42,7 @@ export function getArticles() {
         number: i + 1,
         timeToRead: Math.ceil(readingTime(content).minutes),
         abstract: abstract ?? extractExcerpt(content),
-        cover: cover.startsWith('http') ? cover : `/blog/${cover}`,
+        cover: cover ? cover.startsWith('http') ? cover : `/blog/${cover}` : "/blog/default-05.jpg",
         type: 'article' as const,
       };
     });
