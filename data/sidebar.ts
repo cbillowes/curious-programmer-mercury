@@ -6,7 +6,6 @@ export const sidebarItems = [
     to: '/blog',
     name: 'Blog',
     items: [
-      { to: '/blog', name: 'All' },
       ...new Array(new Date().getFullYear() + 1 - 2015)
         .fill(0)
         .map((_, i) => ({ to: `/blog/${2015 + i}`, name: 2015 + i }))
