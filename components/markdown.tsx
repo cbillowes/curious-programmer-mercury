@@ -5,9 +5,9 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
 import { GifPlayer, parseAst } from '@/components/gif-player';
-import { Tooltip, useThemeMode } from 'flowbite-react';
+import { Tooltip } from 'flowbite-react';
 import { CodeBlock } from './code-block';
-import { Check, Heading, Link } from 'lucide-react';
+import { Link } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 
 function YouTubeEmbed({ url }: { url: string }) {
