@@ -25,3 +25,108 @@ html,
 body {
   @apply font-sans bg-background-light-mode text-foreground-light-mode dark:bg-background-dark-mode dark:text-foreground-dark-mode;
 }
+
+#article {
+  @apply leading-relaxed;
+}
+
+#article h1 {
+  @apply border-b border-dashed mb-2.5 text-4xl;
+}
+
+#article h2,
+#article h3,
+#article h4,
+#article h5,
+#article h6 {
+  @apply mb-4 font-bold tracking-tighter;
+}
+
+#article h2 {
+  @apply text-4xl leading-9 pb-1;
+}
+
+#article h2:after {
+  @apply block h-16 max-w-1/3 mt-2;
+}
+
+#article h3 {
+  @apply text-3xl;
+}
+
+#article h3:after {
+  @apply block h-16 max-w-1/3 mt-2;
+}
+
+#article h4 {
+  @apply text-2xl;
+}
+
+#article h5 {
+  @apply text-base;
+}
+
+#article p,
+#article td,
+#article th {
+  @apply mb-8 leading-9 text-2xl font-light;
+}
+
+#article li {
+  @apply mb-0.5 leading-9 text-2xl font-light;
+}
+
+#article table {
+  @apply w-full mb-6;
+}
+
+#article th {
+  @apply font-bold bg-pink-600 text-white text-left;
+}
+
+#article th,
+#article td {
+  @apply transition-colors duration-300 ease-in-out border-pink-600 px-1 py-2;
+}
+
+#article th:hover,
+#article td:hover {
+  @apply bg-pink-600 text-white;
+}
+
+#article a {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-blue-600 via-purple-600 to-indigo-600 font-bold hover:from-green-600 hover:via-yellow-600 hover:to-red-600;
+}
+
+#article ul,
+#article ol {
+  @apply list-disc ml-6 mb-6;
+}
+
+#article ol li {
+  @apply list-inside pl-2;
+}
+
+#article ol li p {
+  @apply mb-0;
+}
+
+#article ol {
+  @apply list-decimal;
+}
+
+#article blockquote {
+  @apply border-l-8 border-pink-600 pl-4 mb-8;
+}
+
+#article hr {
+  @apply border-t-2 border-dashed border-gray-300 mb-8;
+}
+
+#article img {
+  @apply max-w-full mx-auto;
+}
+
+#article strong {
+  @apply font-bold;
+}
