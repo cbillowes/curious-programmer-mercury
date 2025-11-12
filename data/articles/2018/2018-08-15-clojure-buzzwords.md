@@ -8,8 +8,6 @@ tags:
   - Clojure
 ---
 
-<div id="accordion"></div>
-
 When I first started with Clojure, my mind was foggy and filled with a swarm of buzzwords. There were tools, plugins, libraries, patterns and frameworks with names that were all new to me. This is a blog post of all the buzzwords that I am learning.
 
 I have been a .NET and SQL web developer for the last decade. I now find myself in the land of Infrastructure as a Service (IaaS) as a senior systems and web/full stack developer in completely new paradigms.
