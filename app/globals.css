@@ -77,7 +77,7 @@ body {
 }
 
 #article table {
-  @apply w-full mb-6;
+  @apply w-full mb-6 border-l border-pink-600;
 }
 
 #article th {
@@ -86,7 +86,7 @@ body {
 
 #article th,
 #article td {
-  @apply transition-colors duration-300 ease-in-out border-pink-600 px-1 py-2;
+  @apply transition-colors duration-300 ease-in-out border-r border-b border-pink-600 px-1 py-2;
 }
 
 #article th:hover,
