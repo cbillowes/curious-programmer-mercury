@@ -5,6 +5,12 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
 import { GifPlayer, parseAst } from '@/components/gif-player';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { useThemeMode } from 'flowbite-react';
+import {
+  materialDark,
+  materialLight,
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -32,6 +38,7 @@ function YouTubeEmbed({ url }: { url: string }) {
 }
 
 export function Markdown({ content }: { content: string }) {
+  const { mode } = useThemeMode();
   const processedContent = emoji.emojify(content);
 
   return (
@@ -65,7 +72,7 @@ export function Markdown({ content }: { content: string }) {
           );
         },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        code: ({ inline, children, ...props }: any) => {
+        code: ({ inline, className, children, ...props }: any) => {
           if (typeof children === 'string') {
             if (children.startsWith('youtube:')) {
               return (
@@ -84,15 +91,24 @@ export function Markdown({ content }: { content: string }) {
               );
             }
           }
-          return inline ? (
-            <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props}>
-              {children}
-            </code>
+          const match = /language-(\w+)/.exec(className || '');
+          const language = match ? match[1] : '';
+
+          return !inline && language ? (
+            <div className="mb-4">
+              <SyntaxHighlighter
+                style={mode === 'light' ? materialLight : materialDark}
+                language={language}
+                PreTag="div"
+                className="rounded-lg mt-4 border-4 border-gray-200 dark:border-gray-600"
+                showLineNumbers
+                {...props}
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
+            </div>
           ) : (
-            <code
-              className="block bg-muted p-4 rounded-lg my-4 overflow-x-auto"
-              {...props}
-            >
+            <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props}>
               {children}
             </code>
           );
