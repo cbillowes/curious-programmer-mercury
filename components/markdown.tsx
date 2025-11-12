@@ -8,7 +8,8 @@ import * as emoji from 'node-emoji';
 import { Tooltip } from 'flowbite-react';
 import { GifPlayer, parseAst } from '@/components/gif-player';
 import { CodeBlock, CodeInline } from '@/components/code-block';
-import { Link } from 'lucide-react';
+import { Link } from '@/components/link';
+import { ExternalLink, Link as LinkIcon } from 'lucide-react';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -65,7 +66,7 @@ function HeadingLink({
         aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
       >
         <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'}>
-          <Link className="opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
+          <LinkIcon className="opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
         </Tooltip>
       </button>
       <a id={id}></a>
@@ -99,9 +100,21 @@ export function Markdown({ content }: { content: string }) {
           );
         },
         p: ({ ...props }) => <p className="mb-4 leading-7" {...props} />,
-        a: ({ ...props }) => (
-          <a className="text-primary hover:underline" {...props} />
-        ),
+        a: ({ href, children, ...props }) =>
+          href?.startsWith('https') ? (
+            <a
+              className="inline-flex items-center gap-1"
+              target="_blank"
+              rel="noreferrer nofollow"
+              href={`${href}?utm_source=curious_programmer.dev&utm_medium=referral&utm_campaign=external_link`}
+              {...props}
+            >
+              {children}
+              <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
+            </a>
+          ) : (
+            <Link href={href ?? ''} {...props} />
+          ),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         img: ({ src, alt }: any) => {
           const imageUrl = src.startsWith('http')
@@ -146,9 +159,7 @@ export function Markdown({ content }: { content: string }) {
               </CodeBlock>
             </div>
           ) : (
-            <CodeInline language={language}>
-              {children}
-            </CodeInline>
+            <CodeInline language={language}>{children}</CodeInline>
           );
         },
       }}
