@@ -5,8 +5,10 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
 import { GifPlayer, parseAst } from '@/components/gif-player';
-import { useThemeMode } from 'flowbite-react';
+import { Tooltip, useThemeMode } from 'flowbite-react';
 import { CodeBlock } from './code-block';
+import { Check, Heading, Link } from 'lucide-react';
+import { ReactNode, useState } from 'react';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -33,8 +35,46 @@ function YouTubeEmbed({ url }: { url: string }) {
   );
 }
 
+function getHeadingId(children: string | ReactNode) {
+  return typeof children === 'string'
+    ? children.replace(/\s+/g, '-').toLowerCase()
+    : '';
+}
+
+function HeadingLink({
+  id,
+  children,
+}: {
+  id: string;
+  children: string | ReactNode;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    const url = window.location.href.split('#')[0];
+    await navigator.clipboard.writeText(`${url}#${id}`);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="flex items-center justify-start gap-4">
+      <button
+        onClick={handleCopy}
+        className="text-black! dark:text-white! cursor-pointer"
+        aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
+      >
+        <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'}>
+          <Link className="opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
+        </Tooltip>
+      </button>
+      <a id={id}></a>
+      {children}
+    </div>
+  );
+}
+
 export function Markdown({ content }: { content: string }) {
-  const { mode } = useThemeMode();
   const processedContent = emoji.emojify(content);
 
   return (
@@ -42,18 +82,28 @@ export function Markdown({ content }: { content: string }) {
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
       components={{
-        h1: ({ ...props }) => (
-          <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />
-        ),
-        h2: ({ ...props }) => (
-          <h2 className="text-3xl font-bold mt-6 mb-3" {...props} />
-        ),
+        h2: ({ children }) => {
+          const id = getHeadingId(children);
+          return (
+            <HeadingLink id={id}>
+              <h2>{children}</h2>
+            </HeadingLink>
+          );
+        },
+        h3: ({ children }) => {
+          const id = getHeadingId(children);
+          return (
+            <HeadingLink id={id}>
+              <h3>{children}</h3>
+            </HeadingLink>
+          );
+        },
         p: ({ ...props }) => <p className="mb-4 leading-7" {...props} />,
         a: ({ ...props }) => (
           <a className="text-primary hover:underline" {...props} />
         ),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        img: ({ src, ...props }: any) => {
+        img: ({ src, alt }: any) => {
           const imageUrl = src.startsWith('http')
             ? src
             : src.replace('./', '/articles/');
@@ -61,14 +111,13 @@ export function Markdown({ content }: { content: string }) {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               className="max-w-full rounded-lg my-4 mx-auto"
-              alt={props.alt || ''}
+              alt={alt ?? ''}
               src={imageUrl}
-              {...props}
             />
           );
         },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        code: ({ inline, className, children, ...props }: any) => {
+        code: ({ inline, className, children }: any) => {
           if (typeof children === 'string') {
             if (children.startsWith('youtube:')) {
               return (
@@ -97,7 +146,7 @@ export function Markdown({ content }: { content: string }) {
               </CodeBlock>
             </div>
           ) : (
-            <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props}>
+            <code className="bg-muted px-1.5 py-0.5 rounded text-sm">
               {children}
             </code>
           );
