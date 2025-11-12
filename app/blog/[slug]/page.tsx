@@ -60,7 +60,6 @@ export default async function ArticlePage({ params }: Props) {
       return (
         <Page>
           <Container>
-            <PageHeading>{data.title}</PageHeading>
             <Content {...data} />
           </Container>
         </Page>
