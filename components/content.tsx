@@ -68,9 +68,34 @@ export function Content({
   timeToRead,
   date,
   content,
+  next,
+  previous,
 }: Article) {
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+      <nav>
+        {previous && (
+          <div className="float-left">
+            <Link
+              href={previous.slug}
+              className="text-sm hover:underline flex items-center"
+            >
+              &larr; #{previous.number} - {previous.title}
+            </Link>
+          </div>
+        )}
+        {next && (
+          <div className="float-right">
+            <Link
+              href={next.slug}
+              className="text-sm hover:underline flex items-center"
+            >
+              #{next.number} - {next.title} &rarr;
+            </Link>
+          </div>
+        )}
+        <div className="clear-both"></div>
+      </nav>
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
         <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">

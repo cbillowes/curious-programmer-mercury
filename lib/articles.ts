@@ -25,6 +25,8 @@ export interface Article {
     path: string;
     extension: string;
   };
+  next?: Article;
+  previous?: Article;
 }
 
 export function getArticles() {
@@ -52,8 +54,38 @@ export function getArticlesByYear(year: number): Article[] {
     .sort((a, b) => b.date.getTime() - a.date.getTime());
 }
 
+function getNextArticle(currentSlug: string): Article | undefined {
+  const articles = getArticles();
+  const index = articles.findIndex((article) =>
+    article.slug.endsWith(currentSlug),
+  );
+  if (index >= 0 && index < articles.length - 1) {
+    return articles[index + 1];
+  }
+  return undefined;
+}
+
+function getPreviousArticle(currentSlug: string): Article | undefined {
+  const articles = getArticles();
+  const index = articles.findIndex((article) =>
+    article.slug.endsWith(currentSlug),
+  );
+  if (index > 0) {
+    return articles[index - 1];
+  }
+  return undefined;
+}
+
 export function getArticleSlug(slug: string): Article | undefined {
-  return getArticles().find((article) => article.slug.endsWith(slug));
+  const article = getArticles().find((article) => article.slug.endsWith(slug));
+  if (!article) {
+    return undefined;
+  }
+  return {
+    ...article,
+    next: getNextArticle(slug),
+    previous: getPreviousArticle(slug),
+  };
 }
 
 export function getArticlesByYearOrSlug(
