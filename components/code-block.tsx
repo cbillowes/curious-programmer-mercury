@@ -56,3 +56,23 @@ export function CodeBlock({
     </div>
   );
 }
+
+export function CodeInline({
+  language,
+  children,
+}: {
+  language: string;
+  children: string;
+}) {
+  const { mode } = useThemeMode();
+  return (
+    <SyntaxHighlighter
+      PreTag="code"
+      style={mode === 'dark' ? materialDark : materialLight}
+      language={language}
+      customStyle={{ padding: '0.25rem 0.5rem', borderRadius: '0.375rem', fontSize: '1rem' }}
+    >
+      {children}
+    </SyntaxHighlighter>
+  );
+}

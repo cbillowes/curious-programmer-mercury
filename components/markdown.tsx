@@ -1,14 +1,14 @@
 'use client';
 
+import { ReactNode, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
-import { GifPlayer, parseAst } from '@/components/gif-player';
 import { Tooltip } from 'flowbite-react';
-import { CodeBlock } from './code-block';
+import { GifPlayer, parseAst } from '@/components/gif-player';
+import { CodeBlock, CodeInline } from '@/components/code-block';
 import { Link } from 'lucide-react';
-import { ReactNode, useState } from 'react';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -146,9 +146,9 @@ export function Markdown({ content }: { content: string }) {
               </CodeBlock>
             </div>
           ) : (
-            <code className="bg-muted px-1.5 py-0.5 rounded text-sm">
+            <CodeInline language={language}>
               {children}
-            </code>
+            </CodeInline>
           );
         },
       }}
