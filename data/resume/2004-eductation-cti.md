@@ -5,7 +5,7 @@ resume:
   category: Education
   logo: cti.png
   company: Computer Training Institute
-  jobTitle: Student
+  jobTitle: Information Systems Software Development
   type: Full-Time
   location: Bedfordview, South Africa
   arrangement: Onsite
@@ -15,9 +15,8 @@ resume:
     - C#
     - VB.NET
     - SQL
-  summary: Information Systems Software Development (2004) - 83%,
-    Computer Science - Internet Development (2004) - 86%
-    VB.NET Certificate - 93%
+  summary:
+    Computer Science - Internet Development (2004) - 86% (Bursary Awarded)
 ---
 
 # Description

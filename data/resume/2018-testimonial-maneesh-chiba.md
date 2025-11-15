@@ -1,12 +1,13 @@
 ---
 slug: testimonial-from-maneesh-chiba
+share: speech-bubble.webp
 resume:
   category: Testimonial
   logo: maneesh-chiba.jpeg
   name: Maneesh Chiba
   start: 2018-03-07
   jobTitle: Team Lead at Higher Logic
-  description: March 7, 2018, we worked on the same team
+  description: We worked on the same team
   summary: Maneesh commends me for my exceptional knowledge and extensive experience in real-world implementations across various web, app, and software solutions, noting my commitment to refining skills, adherence to industry standards, and valuable contributions as an intelligent and questioning team player, expressing a strong desire to work with me again and highly recommending me to others.
 ---
 

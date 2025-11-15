@@ -1,11 +1,12 @@
 ---
 slug: testimonial-from-david-sieff
+share: speech-bubble.webp
 resume:
   category: Testimonial
   logo: david-sieff.jpeg
   name: David Sieff
   start: 2012-05-23
-  description: May 23, 2012, my client
+  description: My client
   summary: David praises me for my dedication and hard work in developing a critical transactional web portal, highlighting my flexibility in accommodating changes throughout the project milestones, and commending my excellent attention to detail and creativity in overcoming challenges with viable alternatives.
 ---
 

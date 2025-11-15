@@ -1,11 +1,12 @@
 ---
 slug: testimonial-from-suzaan-hepburn
+share: speech-bubble.webp
 resume:
   category: Testimonial
   name: Suzaan Hepburn
   start: 2018-03-08
   jobTitle: Scrum Master at Momentum
-  description: March 7, 2018, we worked on the same team
+  description: We worked on the same team
   summary: Suzaan commends me as a versatile and thoughtful developer, highlighting my ability to lead and collaborate effectively, particularly during our work together on the DStv Now project, where I consistently sought innovative, customer-centric solutions, promoted agility in delivery, and prioritized quality, earning Suzaan's full recommendation.
 ---
 

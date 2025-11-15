@@ -1,11 +1,14 @@
 ---
 slug: podcast-on-developer-on-fire
+share: microphone.webp
 resume:
   logo: developer-on-fire.png
   category: Podcast
   name: Episode 202 | Clarice Bouwer - Leaving Comfort Behind
   description: ZA Dev Chat
   start: 2017-08-28
+  summary: >
+    An episode about collaboration, empathy, fear, and being an impostor.
 ---
 
 # Podcast

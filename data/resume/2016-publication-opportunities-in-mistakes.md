@@ -1,11 +1,14 @@
 ---
 slug: published-article-about-finding-opportunities-in-mistakes
+share: typewriter.webp
 resume:
   logo: alistapart.png
   category: Publication
   name: Finding Opportunities in the Mistakes We Make
   description: A List Apart
   start: 2016-08-02
+  summary: >
+    An article about how I used the mistakes I made to find opportunities for growth and improvement.
 ---
 
 # Publication

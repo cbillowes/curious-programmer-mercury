@@ -1,12 +1,14 @@
 ---
 slug: published-article-about-chrome-devtools
-share: offerzen.png
+share: typewriter.png
 resume:
   logo: offerzen.png
   category: Publication
   name: Debugging with Chrome DevTools - Quick Front End Fixes
   description: OfferZen
   start: 2018-07-22
+  summary: >
+    An article about familiarizing yourself with the Chrome DevTools to debug front-end issues quickly.
 ---
 
 # Publication

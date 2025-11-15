@@ -1,11 +1,14 @@
 ---
 slug: podcast-on-za-dev-chat
+share: microphone.webp
 resume:
   logo: zadevchat.png
   category: Podcast
   name: 67 - The Imposter Within with Clarice Bouwer
   description: ZA Dev Chat
   start: 2017-08-28
+  summary: >
+    An episode about imposter syndrome, what it is and how to overcome it.
 ---
 
 # Podcast

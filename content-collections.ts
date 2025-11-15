@@ -45,6 +45,8 @@ const resume = defineCollection({
     slug: z.string(),
     share: z.string(),
     resume: z.object({
+      name: z.string().optional(),
+      description: z.string().optional(),
       logo: z.string().optional(),
       category: z.string().optional(),
       company: z.string().optional(),
@@ -52,7 +54,7 @@ const resume = defineCollection({
       type: z.string().optional(),
       arrangement: z.string().optional(),
       location: z.string().optional(),
-      start: z.string(),
+      start: z.string().optional(),
       end: z.string().optional(),
       os: z.string().optional(),
       tech: z.array(z.string()).optional(),

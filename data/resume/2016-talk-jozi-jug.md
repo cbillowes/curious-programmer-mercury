@@ -1,10 +1,14 @@
 ---
 slug: talk-at-jozi-jug-2016
+share: microphone.webp
 resume:
   category: Talk
   name: Branding Your Identity
   description: Java 9 and Women in tech Unconference with International guest Heather VanCura
   start: 2016-06-04
+  logo: talk-generic.webp
+  summary: >
+    A talk about how software developers can create a name for themselves by creating their own brand.
 ---
 
 # Presentation

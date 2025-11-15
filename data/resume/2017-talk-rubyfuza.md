@@ -1,11 +1,15 @@
 ---
 slug: talk-at-rubyfuza-2017
+share: microphone.webp
 resume:
   website: https://www.rubyfuza.org/
   category: Talk
   name: The Imposter Within
   description: Rubyfuza 2017 Conference
   start: 2017-02-03
+  logo: talk-ruby-fuza.webp
+  summary: >
+    A talk about imposter syndrome, how it affects developers, and ways to overcome it.
 ---
 
 # Presentation

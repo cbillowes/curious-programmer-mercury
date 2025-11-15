@@ -1,12 +1,13 @@
 ---
 slug: testimonial-from-john-gillespie
+share: speech-bubble.webp
 resume:
   category: Testimonial
   logo: john-gillespie.jpeg
   name: John Gillespie
   start: 2018-03-20
   jobTitle: Certified Scrum Master and IT Professional
-  description: March 20, 2018, we worked on the same team
+  description: We worked on the same team
   summary: John commends me as an exceptional and collaborative team member, praising my commitment to exceeding expectations, technical competence, and eagerness to continually learn and grow.
 ---
 

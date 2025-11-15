@@ -5,7 +5,7 @@ resume:
   category: Education
   logo: cti.png
   company: Computer Training Institute
-  jobTitle: Student
+  jobTitle: Computer Science - Internet Development
   type: Full-Time
   location: Bedfordview, South Africa
   arrangement: Onsite
@@ -15,14 +15,13 @@ resume:
     - C#
     - VB.NET
     - SQL
-  summary: Information Systems Software Development (2004) - 83%,
-    Computer Science - Internet Development (2004) - 86%
-    VB.NET Certificate - 93%
+  summary:
+    Information Systems Software Development (2004) - 83%
 ---
 
 # Description
 
-Completed diploma with an 83% average, earning a bursary for further study. Developed a strong foundation in software development principles, including software engineering, program design, and relational database modeling (SQL Server 2000). Gained practical experience with Java, XML, and web technologies such as DHTML and Perl, enabling the creation of dynamic web applications. Proficient in Linux and fundamental computing concepts.
+Completed my initial diploma, earning a bursary for further study. Developed a strong foundation in software development principles, including software engineering, program design, and relational database modeling (SQL Server 2000). Gained practical experience with Java, XML, and web technologies such as DHTML and Perl, enabling the creation of dynamic web applications. Proficient in Linux and fundamental computing concepts.
 
 ## Skills
 
