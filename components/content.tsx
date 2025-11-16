@@ -137,3 +137,39 @@ export function Content({
     </article>
   );
 }
+
+export function ResumeContent({
+  resume,
+  content,
+}: {
+  resume: {
+    name?: string;
+    description?: string;
+    start?: string;
+    logo?: string;
+    category?: string;
+    company?: string;
+    jobTitle?: string;
+    type?: string;
+    arrangement?: string;
+    location?: string;
+    end?: string;
+    os?: string;
+    tech?: string[];
+    summary?: string;
+  };
+  content: string;
+}) {
+  return (
+    <article id="article">
+      <header className="mb-2 lg:mb-4 not-format">
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+          {resume.company ?? resume.name}
+        </h1>
+      </header>
+      <section id="resume" className="max-w-3xl mx-auto">
+        <Markdown content={content} />
+      </section>
+    </article>
+  );
+}

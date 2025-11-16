@@ -279,11 +279,12 @@ export function Timeline() {
                     className={`text-4xl rounded-full p-2 mr-1 ${nodeColor.button} inline xl:hidden`}
                   />
                   <Link
-                    href={`/resume/${slug}`}
+                    href={slug}
                     title={`${jobTitle} at ${company}`}
                     className="font-bold"
                   >
-                    <span className={nodeColor.heading}>{jobTitle}</span> at{' '}
+                    <span className={nodeColor.heading}>{jobTitle}</span>
+                    <br />
                     <span>{company}</span>
                   </Link>
                 </h2>
@@ -297,7 +298,7 @@ export function Timeline() {
                       category={category}
                       className={`text-4xl rounded-full p-2 mr-1 ${nodeColor.button} inline xl:hidden`}
                     />
-                    <Link href={`/resume/${slug}`} title={name}>
+                    <Link href={slug} title={name}>
                       {name}
                     </Link>
                   </h2>
@@ -350,7 +351,7 @@ export function Timeline() {
                     'rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:text-blue-200 xl:mr-2',
                     nodeColor.button,
                   )}
-                  href={`/resume/${slug}`}
+                  href={slug}
                   title={company}
                 >
                   Read more
