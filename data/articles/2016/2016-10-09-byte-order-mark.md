@@ -10,7 +10,7 @@ tags:
 > found at the beginning of a text stream.
 
 We recently changed static HTML on a web page and all Unicode characters
-displayed incorrectly. This was [caused](/rca/unicode-displaying-incorrectly/)
+displayed incorrectly. This was [caused](/blog/unicode-displaying-incorrectly/)
 by the missing byte order mark in the UTF-8 file which Windows actually requires.
 
 This post was inspired by my curiosity and investigation of the byte order mark
@@ -163,7 +163,7 @@ When the BOM exists it acts as an **encoding signature** only. In this case it
 is referred to as the UTF-8 signature.
 
 Although it is optional and doesn't signify the byte order, some applications
-require its presence. I learned the [hard way](/rca/unicode-displaying-incorrectly)
+require its presence. I learned the [hard way](/blog/unicode-displaying-incorrectly/)
 with Microsoft Windows and some of its applications.
 
 > Microsoft compilers and interpreters, and many pieces of software on
@@ -229,7 +229,7 @@ identify the invisible bytes in a file.
 
 ## References
 
-- [Root cause analysis](/rca/unicode-displaying-incorrectly/) inspiring this post
+- [Root cause analysis](/blog/unicode-displaying-incorrectly/) inspiring this post
 - [What is Unicode?](http://unicode.org/standard/WhatIsUnicode.html) - Unicode.org
 - [Introduction to Unicode](http://www.joelonsoftware.com/articles/Unicode.html) - Joel on Software
 - [Unicode code point](https://en.wikipedia.org/wiki/Code_point) - Wikipedia.org

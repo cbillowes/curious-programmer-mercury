@@ -1,6 +1,6 @@
 ---
 layout: rca
-slug: /rca/unicode-displaying-incorrectly
+slug: unicode-displaying-incorrectly
 title: Unicode displaying incorrectly
 date: 2016-10-03 10:27:54 +0200
 ---
