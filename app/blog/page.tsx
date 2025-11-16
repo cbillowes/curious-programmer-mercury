@@ -1,4 +1,3 @@
-import { Articles } from '@/components/articles';
 import { Container } from '@/components/container';
 import { Link } from '@/components/link';
 import { Page } from '@/components/page';
