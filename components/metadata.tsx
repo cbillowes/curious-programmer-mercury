@@ -1,16 +1,22 @@
 import { toDateString } from '@/lib/utils';
+import { Link } from './link';
 
 export function Metadata({
   type,
   date,
   timeToRead,
   modified,
+  link,
 }: {
   type: string;
-  date: Date;
+  date?: Date;
   timeToRead?: number;
   modified?: Date;
+  link?: string;
 }) {
+  if (!date && !timeToRead && !modified) {
+    return null;
+  }
   return (
     <div className="text-gray-600 dark:text-gray-400">
       <div>
@@ -22,6 +28,7 @@ export function Metadata({
           )}
       </div>
       {modified && <div>Modified on {toDateString(modified)}</div>}
+      <Link>{link}</Link>
     </div>
   );
 }

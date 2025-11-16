@@ -8,6 +8,7 @@ import { MdOutlineSchool } from 'react-icons/md';
 import { TbScribble } from 'react-icons/tb';
 import { cn, toProperCase } from '@/lib/utils';
 import { Article } from '@/lib/articles';
+import { Scribble } from '@/lib/scribbles';
 
 type IconProps = {
   icon: string;
@@ -68,9 +69,10 @@ export function Content({
   timeToRead,
   date,
   content,
+  devTo,
   next,
   previous,
-}: Article) {
+}: Article | Scribble) {
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <nav>
@@ -102,7 +104,12 @@ export function Content({
           {title}
         </h1>
         <div className="text-center">
-          <Metadata timeToRead={timeToRead} date={date} type={type} />
+          <Metadata
+            timeToRead={timeToRead}
+            date={date}
+            type={type}
+            link={devTo}
+          />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
