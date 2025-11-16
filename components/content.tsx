@@ -163,6 +163,15 @@ export function ResumeContent({
   return (
     <article id="article">
       <header className="mb-2 lg:mb-4 not-format">
+        {resume.logo && (
+          <Image
+            src={`/logos/${resume.logo}`}
+            alt={resume.company ?? (resume.name || 'Logo')}
+            width={100}
+            height={100}
+            className="mx-auto mb-4 rounded-md"
+          />
+        )}
         <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
           {resume.company ?? resume.name}
         </h1>
