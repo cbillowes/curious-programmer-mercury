@@ -37,7 +37,11 @@ function YouTubeEmbed({ url }: { url: string }) {
 }
 
 function Tag({ tag }: { tag: string }) {
-  return <Badge className="bg-pink-600! text-pink-100! text-lg rounded-md px-4 hover:bg-blue-600!">{tag}</Badge>;
+  return (
+    <Badge className="bg-pink-600! text-pink-100! text-lg rounded-md px-4 hover:bg-blue-600!">
+      {tag}
+    </Badge>
+  );
 }
 
 function getHeadingId(children: string | ReactNode) {
@@ -104,21 +108,11 @@ export function Markdown({ content }: { content: string }) {
           );
         },
         p: ({ ...props }) => <p className="mb-4 leading-7" {...props} />,
-        a: ({ href, children, ...props }) =>
-          href?.startsWith('https') ? (
-            <a
-              className="inline-flex items-center gap-1"
-              target="_blank"
-              rel="noreferrer nofollow"
-              href={`${href}?utm_source=curious_programmer.dev&utm_medium=referral&utm_campaign=external_link`}
-              {...props}
-            >
-              {children}
-              <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
-            </a>
-          ) : (
-            <Link href={href ?? ''} {...props} />
-          ),
+        a: ({ href, children, ...props }) => (
+          <Link href={href ?? ''} {...props}>
+            {children}
+          </Link>
+        ),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         img: ({ src, alt }: any) => {
           const imageUrl = src.startsWith('http')

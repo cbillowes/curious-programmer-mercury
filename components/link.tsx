@@ -1,5 +1,7 @@
 'use client';
 
+import { cn } from '@/lib/utils';
+import { ExternalLink } from 'lucide-react';
 import NextLink from 'next/link';
 
 export function Link(props: React.ComponentProps<'a'>) {
@@ -8,12 +10,13 @@ export function Link(props: React.ComponentProps<'a'>) {
     return (
       <a
         {...rest}
-        href={href}
-        className={className}
+        className={cn('inline-flex items-center gap-1', className)}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noreferrer nofollow"
+        href={`${href}?utm_source=curious_programmer.dev&utm_medium=referral&utm_campaign=external_link`}
       >
         {children}
+        <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
       </a>
     );
   }
