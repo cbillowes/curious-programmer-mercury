@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
-import { Preview } from '@/components/preview';
-import { PageHeading } from '@/components/page-heading';
-import { Content, ResumeContent } from '@/components/content';
+import { ResumeContent } from '@/components/content';
 import { getResumeBySlug } from '@/lib/resume';
 import { notFound } from 'next/navigation';
 
