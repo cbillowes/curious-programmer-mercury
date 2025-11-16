@@ -1,6 +1,6 @@
 ---
-title: Why you will see the error 'Loading chunk \d+ failed'
-devTo: https://dev.to/cbillowes/why-you-will-see-the-error-loading-chunk-d-failed-1ne4
+title: How to get a list of Git commits for a given file
+devTo: https://dev.to/cbillowes/how-to-get-a-list-of-git-commits-for-a-given-file-15og
 date: 2022-01-19
 cover: git.png
 credit: Vasil Enchev
