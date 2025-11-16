@@ -31,7 +31,7 @@ body {
 }
 
 #article h1 {
-  @apply border-b border-dashed mb-2.5 text-4xl;
+  @apply mb-2.5 text-7xl;
 }
 
 #article h2,
