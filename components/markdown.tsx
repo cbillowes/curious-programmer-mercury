@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
-import { Tooltip } from 'flowbite-react';
+import { Badge, Tooltip } from 'flowbite-react';
 import { GifPlayer, parseAst } from '@/components/gif-player';
 import { CodeBlock, CodeInline } from '@/components/code-block';
 import { Link } from '@/components/link';
@@ -34,6 +34,10 @@ function YouTubeEmbed({ url }: { url: string }) {
       />
     </div>
   );
+}
+
+function Tag({ tag }: { tag: string }) {
+  return <Badge className="bg-pink-600! text-pink-100! text-lg rounded-md px-4 hover:bg-blue-600!">{tag}</Badge>;
 }
 
 function getHeadingId(children: string | ReactNode) {
@@ -146,6 +150,16 @@ export function Markdown({ content }: { content: string }) {
                   still={ast.filename.replace('.gif', '-still.png')}
                   alt={ast.caption}
                 />
+              );
+            }
+            if (children.startsWith('tags:')) {
+              const tags = children.replace('tags:', '').trim().split(',');
+              return (
+                <div className="flex flex-wrap gap-2 my-4">
+                  {tags.map((tag) => (
+                    <Tag key={tag.trim()} tag={tag.trim()} />
+                  ))}
+                </div>
               );
             }
           }
