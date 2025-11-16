@@ -43,3 +43,10 @@ export function toProperCase(value: string) {
     return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
   });
 }
+
+export function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .replace(/[',\.]+/gi, '')
+    .replace(/[^a-z0-9]+/gi, '-');
+}

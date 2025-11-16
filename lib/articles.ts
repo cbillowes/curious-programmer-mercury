@@ -1,8 +1,6 @@
 import { allArticles } from 'content-collections';
 import readingTime from 'reading-time';
-import { extractExcerpt } from '@/lib/utils';
-// TODO: move slugify to lib/utils.ts
-import { slugify } from '@/lib/slugify';
+import { extractExcerpt, slugify } from '@/lib/utils';
 
 export interface Article {
   type: 'article';
@@ -42,7 +40,11 @@ export function getArticles() {
         number: i + 1,
         timeToRead: Math.ceil(readingTime(content).minutes),
         abstract: abstract ?? extractExcerpt(content),
-        cover: cover ? cover.startsWith('http') ? cover : `/blog/${cover}` : "/blog/default-05.jpg",
+        cover: cover
+          ? cover.startsWith('http')
+            ? cover
+            : `/blog/${cover}`
+          : '/blog/default-05.jpg',
         type: 'article' as const,
       };
     });

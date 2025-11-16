@@ -1,5 +1,5 @@
 import { allScribbles } from 'content-collections';
-import { slugify } from './slugify';
+import { slugify } from '@/lib/utils';
 import readingTime from 'reading-time';
 
 export interface Scribble {

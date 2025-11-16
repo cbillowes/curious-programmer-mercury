@@ -1,5 +1,5 @@
 import { allCourses } from 'content-collections';
-import { slugify } from './slugify';
+import { slugify } from '@/lib/utils';
 
 export function getCourses() {
   return allCourses
