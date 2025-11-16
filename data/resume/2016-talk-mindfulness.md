@@ -11,8 +11,6 @@ resume:
     A talk about mindfulness and how it can help software developers be more productive.
 ---
 
-# Presentation
-
 The Unconference is an invite-only software development weekend retreat.
 
 I shared how practicing the art of mindfulness calmed me

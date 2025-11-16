@@ -24,8 +24,6 @@ resume:
   summary: Worked as a freelance web developer together with local businesses to create and maintain their online presence.
 ---
 
-# Description
-
 I started my career as a freelance web developer in 2002, working with local businesses to create and maintain their online presence.
 During this time, I honed my skills in web design and development, learning to work independently and manage client relationships effectively.
 

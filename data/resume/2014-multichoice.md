@@ -27,8 +27,6 @@ resume:
     Contributed to high-visibility media and entertainment platforms including Idols, Big Brother, AMVCA, Survivor, and later DStv Now, providing online streaming to millions of households across Africa. Architected, engineered, and supported complex distributed web solutions within Agile Scrum teams, with a strong emphasis on code quality, test automation, CI/CD, and DevOps practices. Beyond technical delivery, mentored junior developers, ensured platform stability during team transitions, and collaborated closely with stakeholders to meet business needs while resolving critical issues and supporting customer queries.
 ---
 
-# Description
-
 MultiChoice Group is a South African-based media & entertainment company that operates key subscription video platforms serving over 20 million households across sub-Saharan Africa.
 
 Joined the MultiChoice Group in the DStv Digital Media division as an outsourced professional through Britehouse (formerly 3Fifteen) and transitioned to MultiChoice directly in 2016.

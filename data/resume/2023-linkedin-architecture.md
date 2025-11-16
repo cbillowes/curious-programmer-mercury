@@ -19,8 +19,6 @@ resume:
     Apply the correct architecture to new systems and recognize patterns in existing systems. Covered the application landscape patterns such as microservices, application structure patterns like event sourcing, as well as UI patterns like model-view-controller (MVC) with pros and cons that help you determine which patterns to use.
 ---
 
-# Description
-
 - **Understanding Patterns**: The course explains various software architecture patterns, including application landscape patterns like microservices and application structure patterns like event sourcing.
 - **Application and Recognition**: It covers how to apply the correct architecture to new systems and recognize patterns in existing systems, helping you solve complex architectural problems effectively.
 

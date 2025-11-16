@@ -11,8 +11,6 @@ resume:
     An episode about imposter syndrome, what it is and how to overcome it.
 ---
 
-# Podcast
-
 [Listen](https://zadevchat.io/67/) to the episode where I talk about imposter syndrome,
 what it is and how to overcome it. Join us as we learn about this and other issues around the often overlooked topics of mental well-being.
 

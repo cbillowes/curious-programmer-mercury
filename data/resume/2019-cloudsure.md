@@ -25,8 +25,6 @@ resume:
     Co-leading a distributed team of 15 engineers across two time zones while fostering collaboration, mentorship, and improved team morale. Architect and develop complex distributed systems on GCP, oversee daily code reviews, and maintain high standards in UX and DevX, ensuring both product and developer experiences are seamless. Beyond technical delivery, drive business impact by onboarding new partners, contributing to major revenue growth, proactively resolving critical issues, and embedding systems thinking and post-mortems to prevent recurring challenges.
 ---
 
-# Description
-
 Cloudsure offers a white-labeled digital insurance platform to financial service providers. One of their biggest partners is Simply Financial Services. I started as a Senior Software Engineer at Simply Financial Services, moved to the partner company (Cloudsure Limited) based in Mauritius and was promoted to team lead on 1 November 2022.
 
 ## Leadership & Team Management

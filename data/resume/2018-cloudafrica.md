@@ -24,8 +24,6 @@ resume:
     Radical career change from .NET to Clojure and Datomic in a DevOps powered virtualization environment. Develop software across the stack from web to infrastructure using Linux. Developed and maintained cloud-based solutions in Clojure and JavaScript, including a user-friendly interface for managing virtual machine firewall rules and NATs, which reduced manual support calls by 70% and boosted user efficiency. I also improved system performance, delivered full lifecycle projects, and implemented Grafana and Prometheus dashboards for real-time monitoring and proactive issue resolution.
 ---
 
-# Description
-
 CloudAfrica delivers high-performance, locally-hosted IaaS (cloud compute, storage, networking, backup) to businesses, developers and MSPs across South Africa.
 
 - Developed and maintained cloud-based software solutions using Clojure and JavaScript, contributing to a 70% reduction in manual support calls related to firewall and NAT management that integrates virtual machines and hosts.

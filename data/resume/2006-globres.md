@@ -24,8 +24,6 @@ resume:
   summary: Developed and maintained the Global Hotel Reservation web application, a core tool for managing hotel bookings, while designing and implementing new features driven by user feedback to boost efficiency and satisfaction. Provided ongoing support and troubleshooting, ensuring smooth operations and minimal disruption for the business.
 ---
 
-# Description
-
 Globres is a Swiss-based hospitality technology company providing hotel e-distribution and revenue-management solutions.
 
 - Developed and maintained the Global Hotel Reservation web application, a critical internal tool used to manage hotel bookings.

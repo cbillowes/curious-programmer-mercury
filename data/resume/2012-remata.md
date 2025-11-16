@@ -25,8 +25,6 @@ resume:
     Collaborated with stakeholders to translate complex printing requirements into automated software solutions, developing features with C#, SQL, and Visual Studio that streamlined processes and boosted efficiency. By integrating with XMPie for on-demand variable data printing, enhanced personalization for clients and reduced turnaround times.
 ---
 
-# Description
-
 Remata offers digital and litho printing, point-of-sale materials, packaging, variable-data and cross-channel marketing, design/layout services and a unique Web-2-print online storefront.
 
 - Collaborated with stakeholders to understand printing process requirements and translate them into automated software solutions.

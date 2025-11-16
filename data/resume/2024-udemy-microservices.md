@@ -23,8 +23,6 @@ resume:
     Real-world experience about all architecture positions from monolithic to event-driven microservices architecture.
 ---
 
-# Description
-
 ## Certification
 
 This [certificate](https://www.udemy.com/certificate/UC-d6274ef0-2c8f-4c3d-a7d0-18edf0d4f6a0/) verifies that Clarice Bouwer successfully completed the course Design Microservices Architecture with Patterns & Principles on 12/30/2024 as taught by Mehmet Ozkaya on Udemy. The certificate indicates the entire course was completed as validated by the student. The course duration represents the total video hours of the course at time of most recent completion.

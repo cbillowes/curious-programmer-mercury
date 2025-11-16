@@ -19,8 +19,6 @@ resume:
     Information Systems Software Development (2004) - 83%
 ---
 
-# Description
-
 Completed my initial diploma, earning a bursary for further study. Developed a strong foundation in software development principles, including software engineering, program design, and relational database modeling (SQL Server 2000). Gained practical experience with Java, XML, and web technologies such as DHTML and Perl, enabling the creation of dynamic web applications. Proficient in Linux and fundamental computing concepts.
 
 ## Skills

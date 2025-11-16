@@ -11,9 +11,7 @@ resume:
     A talk about how software developers can create a name for themselves by creating their own brand.
 ---
 
-# Presentation
-
 [Jozi-JUG](https://www.meetup.com/Jozi-JUG/) is a Johannesburg, South Africa JVM User Group (Jozi-JUG) is a User Group.
 
-[This](/blog/branding-your-identity) was my first talk.
+This was my first talk.
 I shared how software developers can create a name for themselves by creating their own brand.

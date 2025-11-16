@@ -11,8 +11,6 @@ resume:
     An article about familiarizing yourself with the Chrome DevTools to debug front-end issues quickly.
 ---
 
-# Publication
-
 [Read](https://www.offerzen.com/blog/debugging-with-chrome-devtools-quick-front-end-fixes) about familiarizing yourself with the Chrome DevTools.
 
 Debugging is an art form. Often, it feels like you need a series of serendipitous insights

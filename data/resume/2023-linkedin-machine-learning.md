@@ -19,8 +19,6 @@ resume:
     An introduction to machine learning, covering supervised, unsupervised, and reinforcement learning methods. It guides you through the machine learning lifecycle, from sourcing and preparing data to training and evaluating models, and building a machine learning pipeline.
 ---
 
-# Description
-
 Learned the basics of machine learning, including supervised, unsupervised, and reinforcement learning methods. Gained insights into the machine learning lifecycle from framing problems to identifying pre-built models and tools for training. Discovered how to obtain, visualize, and perform feature engineering on data to prepare it for machine learning. Explored various learning algorithms for classification and regression.
 
 - **Understanding Machine Learning**: Learn about the basics of machine learning, including how machines learn and the different types of machine learning methods (supervised, unsupervised, and reinforcement).

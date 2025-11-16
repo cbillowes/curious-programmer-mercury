@@ -23,8 +23,6 @@ resume:
     A hands-on and intensive part-time bootcamp that provided me with a solid foundation in data science and artificial intelligence. The program covered a wide range of topics, including data analysis, machine learning, deep learning, and natural language processing. Through practical projects and real-world applications, I gained valuable skills in programming (Python, SQL), data visualization, statistical analysis, and model deployment. This bootcamp has equipped me with the knowledge and confidence to pursue a career in data science and AI.
 ---
 
-# Description
-
 A hands-on and intensive part-time bootcamp that provided me with a solid foundation in data science and artificial intelligence. The program covered a wide range of topics, including data analysis, machine learning, deep learning, and natural language processing. Through practical projects and real-world applications, I gained valuable skills in programming (Python, SQL), data visualization, statistical analysis, and model deployment. This bootcamp has equipped me with the knowledge and confidence to pursue a career in data science and AI.
 
 ## Certifications

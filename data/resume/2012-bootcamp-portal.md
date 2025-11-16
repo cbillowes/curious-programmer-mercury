@@ -25,8 +25,6 @@ resume:
     Hand-rolling each project took a lot of development effort. Streamlined the process by introducing a portal to build fully customizable, multi-tenancy Bootcamps for event registrations geared for Microsoft but generic enough to be used by other vendors.
 ---
 
-# Description
-
 Hand-rolling each project took a lot of development effort. Streamlined the process by introducing a portal to build fully customizable, multi-tenancy Bootcamps for event registrations geared for Microsoft but generic enough to be used by other vendors.
 
 - Cut development effort by 70% per project by architecting and implementing a multi-tenant Bootcamp registration portal, replacing hand-rolled event builds.
