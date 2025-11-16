@@ -1,14 +1,12 @@
 import Image from 'next/image';
 import { getArticles } from '@/lib/articles';
 import { Link } from '@/components/link';
-import { FaArrowRight, FaNodeJs } from 'react-icons/fa';
+import { FaNodeJs } from 'react-icons/fa';
 import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa6';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiClojure, SiGooglecloud } from 'react-icons/si';
-import { Ribbon } from '@/components/ribbon';
-import { Metadata } from '@/components/metadata';
-import { Thumbnail } from '@/components/thumbnail';
 import { Page } from '@/components/page';
+import { Articles } from '@/components/articles';
 
 function Socials() {
   return (
@@ -553,78 +551,18 @@ export default function Home() {
         className="py-8 bg-white dark:bg-gray-900 lg:py-16 antialiased"
       >
         <div className="px-4 mx-auto w-full max-w-7xl">
-          <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 text-black dark:text-white md:text-4xl">
+          <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 dark:text-white md:text-4xl">
             Featured articles
           </h2>
           <div>
             <div className="relative">
               <div className="bg-white duration-700 ease-in-out dark:bg-gray-900 mb-4">
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {getArticles()
+                <Articles
+                  articles={getArticles()
                     .filter((a) => a.featured)
                     .sort((a, b) => b.number - a.number)
-                    .slice(0, 9)
-                    .map(
-                      ({
-                        slug,
-                        title,
-                        date,
-                        number,
-                        timeToRead,
-                        cover,
-                        abstract,
-                      }) => (
-                        <article
-                          key={slug}
-                          className="relative p-4 mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
-                        >
-                          <Ribbon>#{number}</Ribbon>
-                          <Link href={slug}>
-                            <Thumbnail
-                              src={cover}
-                              alt={title}
-                              width={600}
-                              height={150}
-                            />
-                          </Link>
-                          <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
-                            <Link href={slug}>{title}</Link>
-                          </h3>
-                          <div className="flex items-center mb-3 space-x-3">
-                            <Image
-                              className="w-8 h-8 rounded-full"
-                              src="/headshot.webp"
-                              alt="Clarice Bouwer"
-                              width={32}
-                              height={32}
-                            />
-                            <div className="font-medium text-black dark:text-white">
-                              <div>Clarice Bouwer</div>
-                              <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                <Metadata
-                                  date={date}
-                                  timeToRead={timeToRead}
-                                  type="article"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <p className="mb-3 text-gray-500 dark:text-gray-400">
-                            {abstract}
-                          </p>
-                          <Link
-                            href={slug}
-                            className="inline-flex gap-2 items-center font-medium
-                          text-pink-600 hover:text-pink-800
-                          dark:text-pink-500 hover:dark:text-pink-600 hover:no-underline"
-                          >
-                            Read more
-                            <FaArrowRight />
-                          </Link>
-                        </article>
-                      ),
-                    )}
-                </div>
+                    .slice(0, 9)}
+                />
               </div>
             </div>
           </div>
