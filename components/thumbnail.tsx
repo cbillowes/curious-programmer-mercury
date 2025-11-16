@@ -30,7 +30,7 @@ export function Thumbnail({
   return (
     <Image
       className={classNames}
-      src={`/blog/${src}`}
+      src={src}
       alt={alt}
       width={width}
       height={height}
