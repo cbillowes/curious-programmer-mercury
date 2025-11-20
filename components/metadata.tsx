@@ -10,8 +10,8 @@ export function Metadata({
 }: {
   type: string;
   date?: Date;
-  timeToRead?: number;
   modified?: Date;
+  timeToRead?: number;
   link?: string;
 }) {
   if (!date && !timeToRead && !modified) {

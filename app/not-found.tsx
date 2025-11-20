@@ -14,7 +14,7 @@ export default async function NotFoundPage() {
         </p>
         {
           <Articles
-            articles={getArticles()
+            data={getArticles()
               .filter((a) => a.featured)
               .sort((a, b) => b.number - a.number)
               .slice(0, 9)}

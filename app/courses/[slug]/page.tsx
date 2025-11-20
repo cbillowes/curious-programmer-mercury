@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
-import { getScribbleBySlug } from '@/lib/scribbles';
-import { ScribbleContent } from '@/components/content';
+import { CourseContent } from '@/components/content';
+import { getCourseBySlug } from '@/lib/courses';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -16,34 +16,34 @@ export async function generateMetadata({
 }: Props): Promise<Metadata | undefined> {
   const { slug } = await params;
 
-  const data = getScribbleBySlug(slug);
+  const data = getCourseBySlug(slug);
   if (data) {
     const title = `${data.title} | Curious Programmer`;
     return {
       title,
       openGraph: {
         title,
-        images: [data.cover],
+        images: [data.cover ?? ''],
       },
       twitter: {
         card: 'summary_large_image',
         title,
-        images: [data.cover],
+        images: [data.cover ?? ''],
       },
     };
   }
 }
 
-export default async function ScribblePage({ params }: Props) {
+export default async function CoursePage({ params }: Props) {
   const { slug } = await params;
 
-  const data = getScribbleBySlug(slug);
+  const data = getCourseBySlug(slug);
   if (!data) notFound();
 
   return (
     <Page>
       <Container>
-        <ScribbleContent {...data} />
+        <CourseContent {...data} />
       </Container>
     </Page>
   );

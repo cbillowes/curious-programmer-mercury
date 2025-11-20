@@ -9,7 +9,7 @@ export interface Article {
   number: number;
   timeToRead: number;
   title: string;
-  cover?: string;
+  cover: string;
   content: string;
   creditSource?: string | undefined;
   creditLink?: string | undefined;

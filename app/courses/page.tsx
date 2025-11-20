@@ -2,12 +2,12 @@ import { Articles } from '@/components/articles';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
-import { getScribbles } from '@/lib/scribbles';
+import { getCourses } from '@/lib/courses';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Scribbles | Curious Programmer`;
+  const title = `Courses | Curious Programmer`;
   return {
     title,
     openGraph: {
@@ -20,14 +20,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function ScribblesPage() {
-  const data = getScribbles();
+export default async function CoursesPage() {
+  const data = getCourses();
   if (!data) notFound();
 
   return (
     <Page>
       <Container>
-        <PageHeading>Scribbles</PageHeading>
+        <PageHeading>Courses</PageHeading>
         <Articles data={data} />
       </Container>
     </Page>

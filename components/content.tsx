@@ -9,6 +9,7 @@ import { TbScribble } from 'react-icons/tb';
 import { cn, toProperCase } from '@/lib/utils';
 import { Article } from '@/lib/articles';
 import { Scribble } from '@/lib/scribbles';
+import { Course, CoursePage } from '@/lib/courses';
 
 type IconProps = {
   icon: string;
@@ -61,7 +62,73 @@ const Type = ({ type, to, number, inline }: TypeProps) => {
   );
 };
 
-export function Content({
+function Navigation({
+  previous,
+  next,
+}: {
+  previous?: Article | Scribble | Course | CoursePage;
+  next?: Article | Scribble | Course | CoursePage;
+}) {
+  return (
+    <nav className="w-full">
+      {previous && (
+        <div className="float-left">
+          <Link
+            href={previous.slug}
+            className="text-sm hover:underline flex items-center"
+          >
+            <span className="w-96 overflow-hidden whitespace-nowrap text-ellipsis">
+              &larr; #{previous.number} - {previous.title}
+            </span>
+          </Link>
+        </div>
+      )}
+      {next && (
+        <div className="float-right">
+          <Link
+            href={next.slug}
+            className="text-sm hover:underline flex items-center truncate overflow-hidden whitespace-nowrap text-ellipsis max-w-96"
+          >
+            <span className="w-96 overflow-hidden whitespace-nowrap text-ellipsis text-right">
+              #{next.number} - {next.title} &rarr;
+            </span>
+          </Link>
+        </div>
+      )}
+      <div className="clear-both"></div>
+    </nav>
+  );
+}
+
+function Author() {
+  return (
+    <aside className="flex items-center mt-8 mb-6 not-italic max-w-2xl mx-auto">
+      <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+        <Image
+          className="mr-4 w-16 h-16 rounded-full"
+          src="/headshot.webp"
+          alt="Clarice Bouwer"
+          width={80}
+          height={80}
+        />
+        <div>
+          <a
+            href="/about"
+            rel="author"
+            className="text-xl font-bold text-gray-900 dark:text-white"
+          >
+            Clarice Bouwer
+          </a>
+          <p className="font-medium tracking-tight text-base text-gray-500 dark:text-gray-400">
+            Senior Software Engineer
+          </p>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+export function ArticleContent({
   type,
   number,
   title,
@@ -69,78 +136,29 @@ export function Content({
   timeToRead,
   date,
   content,
-  devTo,
   next,
   previous,
-}: Article | Scribble) {
+}: Article) {
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-      <nav>
-        {previous && (
-          <div className="float-left">
-            <Link
-              href={previous.slug}
-              className="text-sm hover:underline flex items-center"
-            >
-              &larr; #{previous.number} - {previous.title}
-            </Link>
-          </div>
-        )}
-        {next && (
-          <div className="float-right">
-            <Link
-              href={next.slug}
-              className="text-sm hover:underline flex items-center"
-            >
-              #{next.number} - {next.title} &rarr;
-            </Link>
-          </div>
-        )}
-        <div className="clear-both"></div>
-      </nav>
+      <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
         <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
           {title}
         </h1>
         <div className="text-center">
-          <Metadata
-            timeToRead={timeToRead}
-            date={date}
-            type={type}
-            link={devTo}
-          />
+          <Metadata timeToRead={timeToRead} date={date} type={type} />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
         </div>
-        <address className="flex items-center mt-8 mb-6 not-italic max-w-2xl mx-auto">
-          <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-            <Image
-              className="mr-4 w-16 h-16 rounded-full"
-              src="/headshot.webp"
-              alt="Clarice Bouwer"
-              width={80}
-              height={80}
-            />
-            <div>
-              <a
-                href="/about"
-                rel="author"
-                className="text-xl font-bold text-gray-900 dark:text-white"
-              >
-                Clarice Bouwer
-              </a>
-              <p className="font-medium tracking-tight text-base text-gray-500 dark:text-gray-400">
-                Senior Software Engineer
-              </p>
-            </div>
-          </div>
-        </address>
+        <Author />
       </header>
-      <section id="article" className="max-w-3xl mx-auto">
+      <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
+      <Navigation previous={previous} next={next} />
     </article>
   );
 }
@@ -183,9 +201,151 @@ export function ResumeContent({
           {resume.company ?? resume.name}
         </h1>
       </header>
-      <section id="resume" className="max-w-3xl mx-auto">
+      <section id="resume" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
+    </article>
+  );
+}
+
+export function ScribbleContent({
+  type,
+  number,
+  title,
+  tags,
+  timeToRead,
+  date,
+  content,
+  devTo,
+  next,
+  previous,
+}: Scribble) {
+  return (
+    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+      <Navigation previous={previous} next={next} />
+      <header className="mb-2 lg:mb-4 not-format">
+        <Type type={type} to="/blog" number={number} />
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+          {title}
+        </h1>
+        <div className="text-center">
+          <Metadata
+            timeToRead={timeToRead}
+            date={date}
+            type={type}
+            link={devTo}
+          />
+        </div>
+        <div className="text-center">
+          {tags && <Tags tags={tags} redirect={true} isButton={true} />}
+        </div>
+
+        <Author />
+      </header>
+      <section id="article" className="max-w-3xl mx-auto mb-8">
+        <Markdown content={content} />
+      </section>
+      <Navigation previous={previous} next={next} />
+    </article>
+  );
+}
+
+export function CourseContent({
+  type,
+  number,
+  title,
+  tags,
+  timeToRead,
+  date,
+  modified,
+  content,
+  pages,
+  next,
+  previous,
+}: Course) {
+  return (
+    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+      <Navigation previous={previous} next={next} />
+      <header className="mb-2 lg:mb-4 not-format">
+        <Type type={type} to="/blog" number={number} />
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+          {title}
+        </h1>
+        <div className="text-center">
+          <Metadata
+            timeToRead={timeToRead}
+            date={date}
+            type={type}
+            modified={modified}
+          />
+        </div>
+        <div className="text-center">
+          {tags && <Tags tags={tags} redirect={true} isButton={true} />}
+        </div>
+
+        <Author />
+      </header>
+      <section id="article" className="max-w-3xl mx-auto mb-8">
+        <Markdown content={content} />
+        <nav>
+          <h2>Pages</h2>
+          {pages.map((page, index) => (
+            <div key={index} className="hover:bg-pink-600">
+              <Link
+                href={page.slug}
+                className="border-b border-dashed py-4 block text-black! dark:text-white! hover:text-white! font-normal! px-4"
+              >
+                {page.number}. {page.title}
+              </Link>
+            </div>
+          ))}
+        </nav>
+      </section>
+      <Navigation previous={previous} next={next} />
+    </article>
+  );
+}
+
+export function CoursePageContent({
+  type,
+  number,
+  title,
+  tags,
+  timeToRead,
+  date,
+  modified,
+  content,
+  next,
+  previous,
+  course,
+}: CoursePage) {
+  return (
+    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+      <Navigation previous={previous} next={next} />
+      <header className="mb-2 lg:mb-4 not-format">
+        <Type type={type} to="/blog" number={number} />
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+          {title}
+        </h1>
+        <div className="text-center">
+          {course && <Link href={course.slug} className="mb-2 block">{course.title}</Link>}
+          <Metadata
+            timeToRead={timeToRead}
+            date={date}
+            type={type}
+            modified={modified}
+          />
+        </div>
+        <div className="text-center">
+          {tags && <Tags tags={tags} redirect={true} isButton={true} />}
+        </div>
+
+        <Author />
+      </header>
+      <section id="article" className="max-w-3xl mx-auto mb-8">
+        <Markdown content={content} />
+      </section>
+      <Navigation previous={previous} next={next} />
     </article>
   );
 }

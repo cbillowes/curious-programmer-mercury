@@ -1,19 +1,20 @@
 import { allScribbles } from 'content-collections';
-import { slugify } from '@/lib/utils';
+import { extractExcerpt, slugify } from '@/lib/utils';
 import readingTime from 'reading-time';
 
 export interface Scribble {
-  type: string;
+  type: 'scribble';
   slug: string;
   number: number;
   title: string;
   date: Date;
   cover: string;
   content: string;
-  devTo?: string | undefined;
-  credit?: string | undefined;
-  creditLink?: string | undefined;
-  tags?: string[] | undefined;
+  devTo?: string;
+  credit?: string;
+  creditLink?: string;
+  tags?: string[];
+  abstract?: string;
   timeToRead: number;
   _meta: {
     filePath: string;
@@ -33,16 +34,17 @@ export function getScribbles() {
       const slug = slugify(scribble.title);
       return {
         ...scribble,
-        type: 'scribble' as const,
         slug: `/scribbles/${slug}`,
         date: new Date(scribble.date),
         timeToRead: Math.ceil(readingTime(scribble.content).minutes),
+        abstract: extractExcerpt(scribble.content, 160),
         cover: scribble.cover
           ? scribble.cover.startsWith('http')
             ? scribble.cover
             : `/blog/${scribble.cover}`
           : '/blog/default-05.jpg',
         number: i + 1,
+        type: 'scribble' as const,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

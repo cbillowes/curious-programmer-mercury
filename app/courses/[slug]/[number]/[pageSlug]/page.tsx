@@ -1,22 +1,27 @@
 import { Metadata } from 'next';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
-import { getScribbleBySlug } from '@/lib/scribbles';
-import { ScribbleContent } from '@/components/content';
+import { CoursePageContent } from '@/components/content';
+import { getCourseBySlug, getCoursePageBySlug } from '@/lib/courses';
 import { notFound } from 'next/navigation';
 
 type Props = {
   params: {
     slug: string;
+    number: string;
+    pageSlug: string;
   };
 };
+
+function getPageSlug(slug: string, number :string, pageSlug: string) {
+  return `/courses/${slug}/${number.padStart(2, '0')}/${pageSlug}`;
+}
 
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata | undefined> {
-  const { slug } = await params;
-
-  const data = getScribbleBySlug(slug);
+  const { slug, number, pageSlug } = await params;
+  const data = getCoursePageBySlug(getPageSlug(slug, number, pageSlug));
   if (data) {
     const title = `${data.title} | Curious Programmer`;
     return {
@@ -34,16 +39,15 @@ export async function generateMetadata({
   }
 }
 
-export default async function ScribblePage({ params }: Props) {
-  const { slug } = await params;
-
-  const data = getScribbleBySlug(slug);
+export default async function CoursePagePage({ params }: Props) {
+  const { slug, number, pageSlug } = await params;
+  const data = getCoursePageBySlug(getPageSlug(slug, number, pageSlug));
   if (!data) notFound();
 
   return (
     <Page>
       <Container>
-        <ScribbleContent {...data} />
+        <CoursePageContent {...data} />
       </Container>
     </Page>
   );

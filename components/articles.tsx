@@ -6,11 +6,16 @@ import { Thumbnail } from '@/components/thumbnail';
 import { Metadata } from '@/components/metadata';
 import { FaArrowRight } from 'react-icons/fa6';
 import { Scribble } from '@/lib/scribbles';
+import { Course } from '@/lib/courses';
 
-export function Articles({ articles }: { articles: Article[] | Scribble[] }) {
+export function Articles({
+  data,
+}: {
+  data: Article[] | Scribble[] | Course[];
+}) {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
-      {articles.map(
+      {data.map(
         ({ slug, title, date, number, timeToRead, cover, abstract }) => (
           <article
             key={slug}

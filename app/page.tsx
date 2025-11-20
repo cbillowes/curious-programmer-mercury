@@ -558,7 +558,7 @@ export default function Home() {
             <div className="relative">
               <div className="bg-white duration-700 ease-in-out dark:bg-gray-900 mb-4">
                 <Articles
-                  articles={getArticles()
+                  data={getArticles()
                     .filter((a) => a.featured)
                     .sort((a, b) => b.number - a.number)
                     .slice(0, 9)}
