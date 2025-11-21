@@ -7,6 +7,7 @@ import { PageHeading } from '@/components/page-heading';
 import { ArticleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
+import { getMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
@@ -30,21 +31,8 @@ export async function generateMetadata({
     }
 
     const title = `${data.title} | Curious Programmer`;
-    return {
-      title,
-      description: data.abstract,
-      openGraph: {
-        title,
-        description: data.abstract,
-        images: [data.cover],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title,
-        description: data.abstract,
-        images: [data.cover],
-      },
-    };
+    const description = data.abstract ?? '';
+    return getMetadata(title, description, data.cover);
   }
 }
 
