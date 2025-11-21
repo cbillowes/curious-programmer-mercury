@@ -7,9 +7,16 @@ import { FaCheckCircle, FaSpider } from 'react-icons/fa';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import { SiLevelsdotfyi } from 'react-icons/si';
 import { GiDramaMasks } from 'react-icons/gi';
-import { cn } from '@/lib/utils';
+import { cn, getMetadata } from '@/lib/utils';
 import { Timeline } from '@/components/timeline';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `Resume | Curious Programmer`;
+  const description = 'Clarice Bouwer - Senior Software Engineer Resume.';
+  return getMetadata(title, description, '/headshot.webp');
+}
 
 const Pillar = ({
   icon,
