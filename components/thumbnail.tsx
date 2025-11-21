@@ -1,7 +1,8 @@
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import { Credit } from '@/components/credit';
 
-export function Thumbnail({
+function ThumbnailImage({
   src,
   alt,
   width,
@@ -12,9 +13,7 @@ export function Thumbnail({
   width: number;
   height: number;
 }) {
-  const classNames = cn(
-    `w-full object-cover w-full h-50`,
-  );
+  const classNames = cn(`w-full object-cover w-full h-50`);
   if (src.startsWith('http')) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
@@ -35,5 +34,34 @@ export function Thumbnail({
       width={width}
       height={height}
     />
+  );
+}
+
+export function Thumbnail({
+  src,
+  alt,
+  width,
+  height,
+  credit,
+  creditSource,
+  creditLink,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  credit?: string;
+  creditSource?: string;
+  creditLink?: string;
+}) {
+  return (
+    <div className="relative">
+      <ThumbnailImage src={src} alt={alt} width={width} height={height} />
+      <Credit
+        credit={credit}
+        creditSource={creditSource}
+        creditLink={creditLink}
+      />
+    </div>
   );
 }

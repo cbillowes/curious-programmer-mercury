@@ -16,7 +16,18 @@ export function Articles({
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
       {data.map(
-        ({ slug, title, date, number, timeToRead, cover, abstract }) => (
+        ({
+          slug,
+          title,
+          date,
+          number,
+          timeToRead,
+          cover,
+          abstract,
+          credit,
+          creditLink,
+          creditSource,
+        }) => (
           <article
             key={slug}
             className="relative p-4 mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
@@ -24,7 +35,15 @@ export function Articles({
             <Ribbon>#{number}</Ribbon>
             <Link href={slug}>
               {cover && (
-                <Thumbnail src={cover} alt={title} width={600} height={150} />
+                <Thumbnail
+                  src={cover}
+                  alt={title}
+                  width={600}
+                  height={150}
+                  credit={credit}
+                  creditLink={creditLink}
+                  creditSource={creditSource}
+                />
               )}
             </Link>
             <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">

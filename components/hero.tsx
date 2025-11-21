@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Credit } from '@/components/credit';
 
 export function Hero({
   image,
@@ -18,18 +19,15 @@ export function Hero({
       <Image
         src={image}
         alt={title}
-        width={1200}
+        width={1600}
         height={600}
-        className="w-full h-[600px] object-cover"
+        className="w-full h-[800px] object-cover"
       />
-      {creditLink && (
-        <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white text-sm px-2 py-1 rounded">
-          <a href={creditLink} target="_blank" rel="noopener noreferrer">
-            {credit && <span>{credit} | </span>}{' '}
-            {creditSource || 'Image Source'}
-          </a>
-        </div>
-      )}
+      <Credit
+        credit={credit}
+        creditSource={creditSource}
+        creditLink={creditLink}
+      />
     </div>
   );
 }
