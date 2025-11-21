@@ -18,7 +18,7 @@ export function ShareWidget({ title, url }: { title: string; url: string }) {
   const encodedUrl = encodeURIComponent(`${WEBSITE_URL}/${url}`);
   return (
     <section className="mt-8 p-8">
-      <h2 className="mb-8 mx-2 text-center">Share this article on…</h2>
+      <h2 className="mb-8 mx-2 text-center">Share this page on…</h2>
       <ul className="flex gap-8 justify-center items-center flex-wrap w-full">
         <li>
           <a
