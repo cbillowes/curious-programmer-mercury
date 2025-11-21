@@ -10,6 +10,7 @@ import { cn, toProperCase } from '@/lib/utils';
 import { Article } from '@/lib/articles';
 import { Scribble } from '@/lib/scribbles';
 import { Course, CoursePage } from '@/lib/courses';
+import { ShareWidget } from '@/components/share';
 
 type IconProps = {
   icon: string;
@@ -130,6 +131,7 @@ function Author() {
 
 export function ArticleContent({
   type,
+  slug,
   number,
   title,
   tags,
@@ -158,6 +160,7 @@ export function ArticleContent({
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
+      <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
     </article>
   );
@@ -210,6 +213,7 @@ export function ResumeContent({
 
 export function ScribbleContent({
   type,
+  slug,
   number,
   title,
   tags,
@@ -245,6 +249,7 @@ export function ScribbleContent({
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
+      <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
     </article>
   );
@@ -252,6 +257,7 @@ export function ScribbleContent({
 
 export function CourseContent({
   type,
+  slug,
   number,
   title,
   tags,
@@ -301,6 +307,7 @@ export function CourseContent({
           ))}
         </nav>
       </section>
+      <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
     </article>
   );
@@ -308,6 +315,7 @@ export function CourseContent({
 
 export function CoursePageContent({
   type,
+  slug,
   number,
   title,
   tags,
@@ -328,7 +336,11 @@ export function CoursePageContent({
           {title}
         </h1>
         <div className="text-center">
-          {course && <Link href={course.slug} className="mb-2 block">{course.title}</Link>}
+          {course && (
+            <Link href={course.slug} className="mb-2 block">
+              {course.title}
+            </Link>
+          )}
           <Metadata
             timeToRead={timeToRead}
             date={date}
@@ -345,6 +357,7 @@ export function CoursePageContent({
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
+      <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
     </article>
   );
