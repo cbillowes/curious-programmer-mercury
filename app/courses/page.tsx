@@ -1,24 +1,16 @@
-import { Articles } from '@/components/articles';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { Preview } from '@/components/preview';
 import { getCourses } from '@/lib/courses';
+import { getMetadata } from '@/lib/utils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Courses | Curious Programmer`;
-  return {
-    title,
-    openGraph: {
-      title,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-    },
-  };
+  const description = 'Explore a range of programming courses.';
+  return getMetadata(title, description, '/courses.webp');
 }
 
 export default async function CoursesPage() {
