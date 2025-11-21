@@ -105,7 +105,7 @@ function Author() {
     <aside className="flex items-center mt-8 mb-6 not-italic max-w-2xl mx-auto">
       <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
         <Image
-          className="mr-4 w-16 h-16 rounded-full"
+          className="mr-4 w-16 h-16 rounded-full border-4 border-white"
           src="/headshot.webp"
           alt="Clarice Bouwer"
           width={80}

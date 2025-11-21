@@ -95,7 +95,7 @@ export function Preview({
           >
             <Image
               className={cn(
-                'w-8 h-8 rounded-full',
+                'w-8 h-8 rounded-full border-2 border-white',
                 isEven ? 'xl:mr-2' : 'xl:ml-4',
               )}
               src="/headshot.webp"

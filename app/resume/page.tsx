@@ -97,7 +97,7 @@ export default function ResumePage() {
             alt="Head shot of Clarice Bouwer"
             width={80}
             height={80}
-            className="rounded-full mb-4 mx-auto"
+            className="rounded-full mb-4 mx-auto border-4 border-white"
           />
           <h2 className="text-2xl font-bold text-center">Clarice Bouwer</h2>
           <h3 className="text-lg font-semibold text-center">
@@ -114,7 +114,7 @@ export default function ResumePage() {
               alt="Head shot of Clarice Bouwer"
               width={80}
               height={80}
-              className="rounded-full mb-4"
+              className="rounded-full mb-4 border-4 border-white"
             />
             <h2 className="text-lg font-bold">Clarice Bouwer</h2>
             <h3 className="text-lg">

@@ -51,7 +51,7 @@ export function Articles({
             </h3>
             <div className="flex items-center mb-3 space-x-3">
               <Image
-                className="w-8 h-8 rounded-full"
+                className="w-8 h-8 rounded-full border-4 border-white"
                 src="/headshot.webp"
                 alt="Clarice Bouwer"
                 width={32}
