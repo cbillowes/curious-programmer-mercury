@@ -20,6 +20,9 @@ abstract:
   host your app on AppEngine on the Google Cloud Platform
   (hosting options requires billing to be enabled).
 cover: firebase-react-gcp.png
+credit: Clarice Bouwer
+creditSource: Photopea
+creditLink: https://www.photopea.com/
 ---
 
 At the end of this course you would have created a web application that can list things,

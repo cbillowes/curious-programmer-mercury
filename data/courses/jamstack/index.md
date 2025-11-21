@@ -18,6 +18,9 @@ abstract:
   Dive right in to the code and develop a simple, overrated and primitive todo app
   to cover the concepts of each tech in the chosen stack.
 cover: jamstack.png
+credit: Clarice Bouwer
+creditSource: Photopea
+creditLink: https://www.photopea.com/
 ---
 
 ## Objectives
