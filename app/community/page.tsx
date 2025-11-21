@@ -2,6 +2,14 @@ import { Container } from '@/components/container';
 import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { getMetadata } from '@/lib/utils';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `Community Guidelines | Curious Programmer`;
+  const description = 'Words can hurt, be nice but clear!';
+  return getMetadata(title, description, '/community-guidelines.webp');
+}
 
 export default function CommunityPage() {
   return (
