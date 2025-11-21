@@ -4,6 +4,7 @@ import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getByTag, getTags, prettifyTag } from '@/lib/tags';
 import { Preview } from '@/components/preview';
+import { getMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
@@ -17,16 +18,8 @@ export async function generateMetadata({
   const { tag } = await params;
 
   const title = `${prettifyTag(tag)} | Curious Programmer`;
-  return {
-    title,
-    openGraph: {
-      title,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-    },
-  };
+  const description = `Content tagged with ${prettifyTag(tag)}.`;
+  return getMetadata(title, description, `/tag.webp`);
 }
 
 export default async function TagPage({ params }: Props) {
