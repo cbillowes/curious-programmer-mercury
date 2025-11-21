@@ -9,6 +9,7 @@ import { TbSchool } from 'react-icons/tb';
 import { cn } from '@/lib/utils';
 import { Badge } from 'flowbite-react';
 import _ from 'lodash';
+import { Thumbnail } from './thumbnail';
 
 export function Preview({
   index,
@@ -133,7 +134,10 @@ export function Preview({
             Read more
           </Link>
           <div
-            className={cn('flex flex-wrap gap-2 w-full mt-3', isEven ? 'justify-start' : 'justify-end')}
+            className={cn(
+              'flex flex-wrap gap-2 w-full mt-3',
+              isEven ? 'justify-start' : 'justify-end',
+            )}
           >
             {tags?.map((tag) => (
               <Link key={tag} href={`/tag/${_.kebabCase(tag)}`}>
@@ -155,13 +159,18 @@ export function Preview({
         )}
       >
         <Ribbon>#{number}</Ribbon>
-        <Image
-          src={cover}
-          alt={title}
-          width={800}
-          height={600}
-          className={cn(isEven ? 'xl:justify-end' : 'xl:justify-start')}
-        />
+        <div className={cn(isEven ? 'xl:justify-end' : 'xl:justify-start')}>
+          <Thumbnail
+            src={cover}
+            alt={title}
+            width={800}
+            height={600}
+            className="h-80"
+            credit={data.credit}
+            creditLink={data.creditLink}
+            creditSource={data.creditSource}
+          />
+        </div>
       </div>
     </section>
   );

@@ -7,13 +7,15 @@ function ThumbnailImage({
   alt,
   width,
   height,
+  className,
 }: {
   src: string;
   alt: string;
   width: number;
   height: number;
+  className?: string;
 }) {
-  const classNames = cn(`w-full object-cover w-full h-50`);
+  const classNames = cn(`w-full object-cover w-full h-50`, className);
   if (src.startsWith('http')) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
@@ -42,6 +44,7 @@ export function Thumbnail({
   alt,
   width,
   height,
+  className,
   credit,
   creditSource,
   creditLink,
@@ -50,13 +53,20 @@ export function Thumbnail({
   alt: string;
   width: number;
   height: number;
+  className?: string;
   credit?: string;
   creditSource?: string;
   creditLink?: string;
 }) {
   return (
     <div className="relative">
-      <ThumbnailImage src={src} alt={alt} width={width} height={height} />
+      <ThumbnailImage
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+      />
       <Credit
         credit={credit}
         creditSource={creditSource}
