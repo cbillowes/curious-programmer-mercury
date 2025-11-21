@@ -5,6 +5,7 @@ import { CoursePageContent } from '@/components/content';
 import { getCoursePageBySlug } from '@/lib/courses';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
+import { getMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
@@ -25,18 +26,8 @@ export async function generateMetadata({
   const data = getCoursePageBySlug(getPageSlug(slug, number, pageSlug));
   if (data) {
     const title = `${data.title} | Curious Programmer`;
-    return {
-      title,
-      openGraph: {
-        title,
-        images: [data.cover!],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title,
-        images: [data.cover!],
-      },
-    };
+    const description = data.abstract ?? '';
+    return getMetadata(title, description, data.cover ?? '');
   }
 }
 
