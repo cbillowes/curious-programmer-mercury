@@ -3,21 +3,15 @@ import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getScribbles } from '@/lib/scribbles';
+import { getMetadata } from '@/lib/utils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Scribbles | Curious Programmer`;
-  return {
-    title,
-    openGraph: {
-      title,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-    },
-  };
+  const description =
+    'Short snippets of thoughts and musings on programming and technology.';
+  return getMetadata(title, description, '/scribbles.webp');
 }
 
 export default async function ScribblesPage() {
