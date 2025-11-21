@@ -50,3 +50,8 @@ export function slugify(str: string): string {
     .replace(/[',\.]+/gi, '')
     .replace(/[^a-z0-9]+/gi, '-');
 }
+
+export function slugifyTag(tag: string): string {
+  const slug = tag.replace(/\s+/g, '-').toLowerCase();
+  return `/tag/${slug}`;
+}

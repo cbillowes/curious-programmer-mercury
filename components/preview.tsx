@@ -1,27 +1,28 @@
 import Image from 'next/image';
-import { Article } from '@/lib/articles';
 import { Link } from '@/components/link';
 import { Metadata } from '@/components/metadata';
 import { Ribbon } from '@/components/ribbon';
 import { TbScribble } from 'react-icons/tb';
 import { TbBook } from 'react-icons/tb';
 import { TbSchool } from 'react-icons/tb';
-import { cn } from '@/lib/utils';
+import { cn, slugifyTag } from '@/lib/utils';
 import { Badge } from 'flowbite-react';
 import _ from 'lodash';
 import { Thumbnail } from './thumbnail';
+import { Article } from '@/lib/articles';
+import { Scribble } from '@/lib/scribbles';
+import { Course } from '@/lib/courses';
 
 export function Preview({
   index,
-  type,
   data,
 }: {
   index: number;
-  type: 'article' | 'scribble' | 'course';
-  data: Article;
+  data: Article | Scribble | Course;
 }) {
   const isEven = index % 2 === 0;
-  const { title, slug, date, abstract, tags, number, timeToRead, cover } = data;
+  const { title, slug, date, abstract, tags, number, timeToRead, cover, type } =
+    data;
   return (
     <section
       key={index}
@@ -140,7 +141,7 @@ export function Preview({
             )}
           >
             {tags?.map((tag) => (
-              <Link key={tag} href={`/tag/${_.kebabCase(tag)}`}>
+              <Link key={tag} href={slugifyTag(tag)}>
                 <Badge
                   key={tag}
                   className="px-2 py-1 text-sm font-medium rounded-sm"

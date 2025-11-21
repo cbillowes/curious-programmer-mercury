@@ -1,14 +1,22 @@
-import { Articles } from '@/components/articles';
+import { Metadata } from 'next';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { getByTag, getTags, prettifyTag } from '@/lib/tags';
 import { Preview } from '@/components/preview';
-import { getCourses } from '@/lib/courses';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const title = `Courses | Curious Programmer`;
+type Props = {
+  params: {
+    tag: string;
+  };
+};
+
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata | undefined> {
+  const { tag } = await params;
+
+  const title = `${prettifyTag(tag)} | Curious Programmer`;
   return {
     title,
     openGraph: {
@@ -21,14 +29,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function CoursesPage() {
-  const data = getCourses();
-  if (!data) notFound();
-
+export default async function TagPage({ params }: Props) {
+  const { tag } = await params;
+  const data = getByTag(tag);
   return (
     <Page>
       <Container>
-        <PageHeading>Courses</PageHeading>
+        <PageHeading>{prettifyTag(tag)}</PageHeading>
         <ul>
           {data.map((item, index) => (
             <Preview key={index} index={index} data={item} />

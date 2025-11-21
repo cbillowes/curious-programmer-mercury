@@ -84,7 +84,7 @@ export default async function ArticlePage({ params }: Props) {
         <PageHeading>{slug} Articles</PageHeading>
         <ul>
           {data.map((article, index) => (
-            <Preview key={index} index={index} type="article" data={article} />
+            <Preview key={index} index={index} data={article} />
           ))}
         </ul>
       </Container>
