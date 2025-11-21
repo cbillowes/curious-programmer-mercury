@@ -3,19 +3,12 @@ import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getTags } from '@/lib/tags';
+import { getMetadata } from '@/lib/utils';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Tags | Curious Programmer`;
-  return {
-    title,
-    openGraph: {
-      title,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-    },
-  };
+  const description = 'Browse content by tags.';
+  return getMetadata(title, description, `/tag.webp`);
 }
 
 export default async function TagsPage() {
