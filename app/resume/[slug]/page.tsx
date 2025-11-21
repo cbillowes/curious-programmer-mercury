@@ -4,6 +4,7 @@ import { Container } from '@/components/container';
 import { ResumeContent } from '@/components/content';
 import { getResumeBySlug } from '@/lib/resume';
 import { notFound } from 'next/navigation';
+import { getMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
@@ -11,36 +12,19 @@ type Props = {
   };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata | undefined> {
   const { slug } = await params;
 
   const data = getResumeBySlug(slug);
   const { resume } = data || {};
 
-  if (!data) {
-    return {
-      title: 'Resume Item Not Found | Curious Programmer',
-      description: 'The article you are looking for does not exist.',
-    };
+  if (data) {
+    const title = `${resume?.company ?? resume?.name} | Curious Programmer`;
+    const description = resume?.summary ?? '';
+    return getMetadata(title, description, data.share);
   }
-
-  const title = `${resume?.company ?? resume?.name} | Curious Programmer`;
-
-  return {
-    title,
-    description: resume?.summary,
-    openGraph: {
-      title,
-      description: resume?.summary,
-      images: [data.share],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description: resume?.summary,
-      images: [data.share],
-    },
-  };
 }
 
 export default async function ResumePage({ params }: Props) {
