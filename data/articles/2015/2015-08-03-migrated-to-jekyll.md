@@ -6,6 +6,8 @@ tags:
   - WordPress
   - Jekyll
   - Static Site Generator
+creditLink: https://picsum.photos
+credit: Picsum Photos
 ---
 
 > (Ported from my old blog called _Thinky_)

@@ -5,6 +5,8 @@ date:   2015-06-23
 tags:
   - Values
   - Continuous Improvement
+creditLink: https://picsum.photos
+credit: Picsum Photos
 ---
 
 > (Ported from my old blog called _Thinky_)

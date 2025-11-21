@@ -6,6 +6,8 @@ tags:
   - Values
   - Accountability
   - Culture
+creditLink: https://picsum.photos
+credit: Picsum Photos
 ---
 
 > (Ported from my old blog called _Thinky_)

@@ -5,6 +5,8 @@ date: 2015-06-14 00:00:00
 tags:
   - Systems Thinking
   - Collaboration
+creditLink: https://picsum.photos
+credit: Picsum Photos
 ---
 
 > (Ported from my old blog called _Thinky_)

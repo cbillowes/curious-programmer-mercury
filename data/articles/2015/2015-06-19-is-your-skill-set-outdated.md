@@ -5,6 +5,8 @@ date:   2015-06-19
 tags:
   - Skills
   - Continuous Improvement
+creditLink: https://picsum.photos
+credit: Picsum Photos
 ---
 
 > (Ported from my old blog called _Thinky_)

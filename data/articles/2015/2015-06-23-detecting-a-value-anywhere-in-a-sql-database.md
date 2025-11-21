@@ -4,6 +4,8 @@ cover: 'https://picsum.photos/1600/800/?image=532'
 date:   2015-06-23
 tags:
   - TSQL
+creditLink: https://picsum.photos
+credit: Picsum Photos
 ---
 
 > (Ported from my old blog called _Thinky_)
