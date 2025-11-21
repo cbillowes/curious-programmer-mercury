@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ThemeModeScript, ThemeProvider } from 'flowbite-react';
 import { Open_Sans, Fira_Code } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { flowbiteTheme } from '@/components/theme';
 import './globals.css';
 
@@ -17,7 +18,7 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   title: 'Curious Programmer',
   description:
-    'Explore a spectrum of skills at Curious Programmer—soft to technical. Articles, courses, and notes for continuous learning in software engineering.',
+    'Explore a spectrum of skills at Curious Programmer — soft to technical. Articles, courses, and notes for continuous learning in software engineering.',
 };
 
 export default function RootLayout({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className={`${openSans.variable} ${firaCode.variable} antialiased`}>
         <ThemeProvider theme={flowbiteTheme}>{children}</ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-475QC81Y7F" />
     </html>
   );
 }
