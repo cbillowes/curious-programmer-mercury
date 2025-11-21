@@ -3,21 +3,14 @@ import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getArticles } from '@/lib/articles';
+import { getMetadata } from '@/lib/utils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Blog | Curious Programmer`;
-  return {
-    title,
-    openGraph: {
-      title,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-    },
-  };
+  const description = `Read articles and musings on programming, technology, and software development by Curious Programmer.`;
+  return getMetadata(title, description, '/blog.webp');
 }
 
 export default async function BlogPage() {
