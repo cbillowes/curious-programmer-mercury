@@ -4,6 +4,7 @@ import { Container } from '@/components/container';
 import { getScribbleBySlug } from '@/lib/scribbles';
 import { ScribbleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
+import { Hero } from '@/components/hero';
 
 type Props = {
   params: {
@@ -42,6 +43,13 @@ export default async function ScribblePage({ params }: Props) {
 
   return (
     <Page>
+      <Hero
+        image={data.cover}
+        title={data.title}
+        credit={data.credit}
+        creditLink={data.creditLink}
+        creditSource={data.creditSource}
+      />
       <Container>
         <ScribbleContent {...data} />
       </Container>

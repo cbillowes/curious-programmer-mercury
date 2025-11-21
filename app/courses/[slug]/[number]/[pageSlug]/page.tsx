@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
 import { CoursePageContent } from '@/components/content';
-import { getCourseBySlug, getCoursePageBySlug } from '@/lib/courses';
+import { getCoursePageBySlug } from '@/lib/courses';
 import { notFound } from 'next/navigation';
+import { Hero } from '@/components/hero';
 
 type Props = {
   params: {
@@ -13,7 +14,7 @@ type Props = {
   };
 };
 
-function getPageSlug(slug: string, number :string, pageSlug: string) {
+function getPageSlug(slug: string, number: string, pageSlug: string) {
   return `/courses/${slug}/${number.padStart(2, '0')}/${pageSlug}`;
 }
 
@@ -28,12 +29,12 @@ export async function generateMetadata({
       title,
       openGraph: {
         title,
-        images: [data.cover],
+        images: [data.cover!],
       },
       twitter: {
         card: 'summary_large_image',
         title,
-        images: [data.cover],
+        images: [data.cover!],
       },
     };
   }
@@ -46,6 +47,15 @@ export default async function CoursePagePage({ params }: Props) {
 
   return (
     <Page>
+      {data.cover && (
+        <Hero
+          image={data.cover}
+          title={data.title}
+          credit={data.course?.credit}
+          creditLink={data.course?.creditLink}
+          creditSource={data.course?.creditSource}
+        />
+      )}
       <Container>
         <CoursePageContent {...data} />
       </Container>

@@ -11,11 +11,12 @@ export interface Article {
   title: string;
   cover: string;
   content: string;
-  creditSource?: string | undefined;
-  creditLink?: string | undefined;
-  abstract?: string | undefined;
-  tags?: string[] | undefined;
-  featured?: boolean | undefined;
+  credit?: string;
+  creditSource?: string;
+  creditLink?: string;
+  abstract?: string;
+  tags?: string[];
+  featured?: boolean;
   _meta: {
     filePath: string;
     fileName: string;

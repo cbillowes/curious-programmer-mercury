@@ -13,6 +13,7 @@ export interface Scribble {
   devTo?: string;
   credit?: string;
   creditLink?: string;
+  creditSource?: string;
   tags?: string[];
   abstract?: string;
   timeToRead: number;

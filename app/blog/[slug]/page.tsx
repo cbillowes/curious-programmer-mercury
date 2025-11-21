@@ -6,6 +6,7 @@ import { Preview } from '@/components/preview';
 import { PageHeading } from '@/components/page-heading';
 import { ArticleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
+import { Hero } from '@/components/hero';
 
 type Props = {
   params: {
@@ -56,6 +57,13 @@ export default async function ArticlePage({ params }: Props) {
     if (data) {
       return (
         <Page>
+          <Hero
+            image={data.cover}
+            title={data.title}
+            credit={data.credit}
+            creditLink={data.creditLink}
+            creditSource={data.creditSource}
+          />
           <Container>
             <ArticleContent {...data} />
           </Container>

@@ -9,6 +9,7 @@ const articles = defineCollection({
     slug: z.string().optional(),
     title: z.string(),
     cover: z.string().optional(),
+    credit: z.string().optional(),
     creditSource: z.string().optional(),
     creditLink: z.url().optional(),
     date: z.string(),
@@ -34,6 +35,9 @@ const courses = defineCollection({
     tags: z.array(z.string()).optional(),
     cover: z.string().optional(),
     content: z.string(),
+    credit: z.string().optional(),
+    creditSource: z.string().optional(),
+    creditLink: z.url().optional(),
   }),
 });
 
@@ -74,7 +78,8 @@ const scribbles = defineCollection({
     date: z.string(),
     cover: z.string(),
     credit: z.string().optional(),
-    creditLink: z.string().optional(),
+    creditLink: z.url().optional(),
+    creditSource: z.string().optional(),
     tags: z.array(z.string()).optional(),
     content: z.string(),
   }),

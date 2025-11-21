@@ -13,6 +13,9 @@ type CourseMeta = {
   abstract?: string;
   tags?: string[];
   cover?: string;
+  credit?: string;
+  creditSource?: string;
+  creditLink?: string;
   _meta: {
     filePath: string;
     fileName: string;
@@ -28,7 +31,7 @@ export type CoursePage = {
   title: string;
   date: Date;
   number: number;
-  cover: string;
+  cover?: string;
   modified?: Date;
   content: string;
   parent?: string;
@@ -56,6 +59,9 @@ export type Course = {
   abstract?: string;
   tags?: string[];
   timeToRead?: number;
+  credit?: string;
+  creditSource?: string;
+  creditLink?: string;
   next?: Course;
   previous?: Course;
 };
@@ -81,10 +87,7 @@ function toCourse(data: CourseMeta, i: number): Course {
   };
 }
 
-function toCoursePage(
-  page: CourseMeta,
-  index: number,
-): CoursePage {
+function toCoursePage(page: CourseMeta, index: number): CoursePage {
   const slug = getCoursePageSlug(page, index);
   return {
     ...page,
@@ -93,7 +96,6 @@ function toCoursePage(
     type: 'page' as const,
     date: new Date(page.date),
     modified: page.modified ? new Date(page.modified) : undefined,
-    cover: `/blog/${page.cover ?? 'default-06.jpg'}`,
     timeToRead: Math.ceil(readingTime(page.content).minutes),
   };
 }
@@ -165,11 +167,13 @@ export function getCoursePageBySlug(slug: string): CoursePage | undefined {
     .filter((page) => page.parent === courseSlug)
     .map((p, i) => {
       const page = toCoursePage(p, i);
+      const course = getCourseBySlug(courseSlug.split('/').pop() ?? '');
       return {
         ...page,
+        cover: course?.cover,
         next: getNextCoursePage(courseSlug, page.slug),
         previous: getPreviousCoursePage(courseSlug, page.slug),
-        course: getCourseBySlug(courseSlug.split('/').pop() ?? ''),
+        course,
       };
     });
   return pages.find((p) => p.slug === slug);
