@@ -55,3 +55,21 @@ export function slugifyTag(tag: string): string {
   const slug = tag.replace(/\s+/g, '-').toLowerCase();
   return `/tag/${slug}`;
 }
+
+export function getMetadata(title: string, description: string, image: string) {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [image],
+    },
+  };
+}
