@@ -161,8 +161,18 @@ body {
 }
 
 @media print {
+  page {
+    @apply m-0 p-4;
+  }
+
   * {
     @apply bg-white text-black;
+  }
+
+  body p,
+  body li,
+  body a {
+    @apply text-sm;
   }
 
   #article a::after {
@@ -187,7 +197,7 @@ body {
 
   #article pre div,
   #article code,
-  #article p code{
+  #article p code {
     @apply bg-white!;
   }
 

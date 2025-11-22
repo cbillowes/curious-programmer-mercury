@@ -90,7 +90,9 @@ export default function ResumePage() {
   return (
     <Page>
       <Container>
-        <PageHeading>Resume</PageHeading>
+        <div className="print:hidden">
+          <PageHeading>Resume</PageHeading>
+        </div>
         <section className="block md:hidden mt-4">
           <Image
             src="/headshot.webp"
@@ -107,7 +109,7 @@ export default function ResumePage() {
             <ContactNavItems />
           </nav>
         </section>
-        <section className="mt-8 flex flex-col md:flex-row md:space-x-8">
+        <section className="mt-8 flex flex-col md:flex-row md:space-x-8 print:hidden">
           <div>
             <Image
               src="/headshot.webp"
@@ -147,7 +149,7 @@ export default function ResumePage() {
             </div>
           </div>
         </section>
-        <aside className="mt-12 mb-2 grid md:grid-cols-3 gap-8">
+        <aside className="mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3">
           <Pillar
             title="Experience"
             icon={<SiLevelsdotfyi />}

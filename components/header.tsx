@@ -2,7 +2,7 @@
 
 import { getGroup, sidebarItems } from '@/data/sidebar';
 import { cn } from '@/lib/utils';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { Link } from '@/components/link';
 import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
 import { useThemeMode } from 'flowbite-react';
@@ -155,7 +155,7 @@ export function Header() {
 
   return (
     <>
-      <nav className="fixed z-50 w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl print:bg-white print:border-0">
+      <nav className="print:hidden fixed z-50 w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl">
         <div className="max-w-7xl mx-auto">
           <div className="px-3 py-3 lg:px-5 lg:pl-3">
             <div className="flex items-center justify-between">

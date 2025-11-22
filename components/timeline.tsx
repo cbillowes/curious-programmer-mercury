@@ -125,6 +125,7 @@ function DisplayDates({
   category: string;
 }) {
   if (!start) return null;
+  const classNames = cn(className, "print:text-xs print:text-left")
   const startTimestamp = getTimestamp(start);
   const endTimestamp = end
     ? getTimestamp(end)
@@ -134,13 +135,13 @@ function DisplayDates({
   }
   if (['Podcast', 'Talk', 'Publication', 'Testimonial'].includes(category)) {
     return (
-      <span className={className}>
+      <span className={classNames}>
         {format(start)} &middot; {timeSince(endTimestamp - startTimestamp)} ago
       </span>
     );
   }
   return (
-    <span className={className}>
+    <span className={classNames}>
       <span>
         {format(start)} to {format(end)}
       </span>
@@ -261,7 +262,7 @@ export function Timeline() {
         return (
           <section
             key={index}
-            className="relative w-full md:mt-3 md:mb-3 p-5 flex justify-center flex-col-reverse xl:flex-row print:px-0 print:py-2"
+            className="relative w-full md:mt-3 md:mb-3 p-5 flex justify-center flex-col-reverse xl:flex-row"
           >
             <div className="border-color-3 border-none xl:border-dashed xl:w-2/3 xl:mx-8 xl:text-right xl:border-r xl:pr-8">
               <div
@@ -273,7 +274,7 @@ export function Timeline() {
               </div>
               <div className="clear-right"></div>
               {company && (
-                <h2 className="text-xl mt-2 xl:mt-0 md:text-2xl font-semibold font-alt-sans print:mt-0 print:text-sm">
+                <h2 className="text-xl mt-2 xl:mt-0 md:text-2xl font-semibold font-alt-sans">
                   <ResumeIcon
                     category={category}
                     className={`text-4xl rounded-full p-2 mr-1 ${nodeColor.button} inline xl:hidden`}
@@ -292,7 +293,7 @@ export function Timeline() {
               {name && (
                 <>
                   <h2
-                    className={`text-xl mt-2 xl:mt-0 md:text-2xl font-bold font-alt-sans print:mt-0 print:text-sm ${nodeColor.heading}`}
+                    className={`text-xl mt-2 xl:mt-0 md:text-2xl font-bold font-alt-sans ${nodeColor.heading}`}
                   >
                     <ResumeIcon
                       category={category}
@@ -305,7 +306,7 @@ export function Timeline() {
                   <h3 className="font-black font-alt-sans">{jobTitle}</h3>
                 </>
               )}
-              <div className="leading-loose mb-4 print:text-sm print:mb-0">
+              <div className="leading-loose mb-4">
                 <div className="flex flex-col space-x-2 space-y-0 justify-end">
                   <>
                     <DisplayDates
@@ -315,7 +316,7 @@ export function Timeline() {
                       className="opacity-80 text-right"
                     />
                     {(location || type || arrangement) && (
-                      <div className="opacity-80 flex items-center justify-end">
+                      <div className="opacity-80 flex items-center justify-end print:text-xs print:justify-start">
                         {location} &middot; {type} &middot; {arrangement}{' '}
                         &middot;{' '}
                         <span className="pl-1 text-neutral">
@@ -341,7 +342,7 @@ export function Timeline() {
                       </span>
                     ))}
                 </div>
-                <p className="mt-2 xl:text-right print:text-sm print:text-left">
+                <p className="mt-2 xl:text-right">
                   {summary}
                 </p>
               </div>
