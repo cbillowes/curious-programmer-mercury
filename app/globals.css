@@ -95,7 +95,7 @@ body {
 }
 
 #article a {
-  @apply bg-clip-text text-transparent bg-linear-to-r from-blue-600 via-purple-600 to-indigo-600 font-bold hover:from-green-600 hover:via-yellow-600 hover:to-red-600;
+  @apply bg-clip-text text-transparent bg-linear-to-r from-pink-500 to-pink-600 dark:from-yellow-300 dark:to-yellow-400 font-bold hover:from-green-300 hover:to-green-400;
 }
 
 #article ul,
