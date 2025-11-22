@@ -42,6 +42,7 @@ export function getResume() {
       return {
         ...resume,
         slug: `/resume/${resume.slug}`,
+        share: resume.share && `/logos/${resume.share}`,
       };
     })
     .sort((a, b) => {
