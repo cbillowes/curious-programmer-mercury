@@ -11,6 +11,7 @@ import { Article } from '@/lib/articles';
 import { Scribble } from '@/lib/scribbles';
 import { Course, CoursePage } from '@/lib/courses';
 import { ShareWidget } from '@/components/share';
+import { Comments } from '@/components/comments';
 
 type IconProps = {
   icon: string;
@@ -71,7 +72,7 @@ function Navigation({
   next?: Article | Scribble | Course | CoursePage;
 }) {
   return (
-    <nav className="w-full">
+    <nav className="max-w-3xl mx-auto">
       {previous && (
         <div className="float-left">
           <Link
@@ -162,6 +163,7 @@ export function ArticleContent({
       </section>
       <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
+      <Comments />
     </article>
   );
 }
@@ -251,6 +253,7 @@ export function ScribbleContent({
       </section>
       <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
+      <Comments />
     </article>
   );
 }
@@ -309,6 +312,7 @@ export function CourseContent({
       </section>
       <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
+      <Comments />
     </article>
   );
 }
@@ -359,6 +363,7 @@ export function CoursePageContent({
       </section>
       <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
+      <Comments />
     </article>
   );
 }
