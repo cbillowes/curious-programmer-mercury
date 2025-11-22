@@ -83,6 +83,18 @@ function HeadingLink({
   );
 }
 
+function getLanguageFromClassName(className: string | undefined) {
+  if (!className) return '';
+  const match = /language-(\w+)/.exec(className);
+  return match ? match[1] : '';
+}
+
+function getTitleFromClassName(className: string | undefined) {
+  if (!className) return '';
+  const match = /:title=(\w+\.\w+)/.exec(className);
+  return match ? match[1] : '';
+}
+
 export function Markdown({ content }: { content: string }) {
   const processedContent = emoji.emojify(content);
 
@@ -157,12 +169,12 @@ export function Markdown({ content }: { content: string }) {
               );
             }
           }
-          const match = /language-(\w+)/.exec(className || '');
-          const language = match ? match[1] : '';
+          const language = getLanguageFromClassName(className);
+          const title = getTitleFromClassName(className);
 
           return !inline && language ? (
             <div className="mb-4">
-              <CodeBlock language={language}>
+              <CodeBlock language={language} title={title}>
                 {String(children).replace(/\n$/, '')}
               </CodeBlock>
             </div>
