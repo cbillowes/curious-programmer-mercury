@@ -14,18 +14,21 @@ function Socials() {
       <Link
         href="https://github.com/cbillowes"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
+        hideExternal={true}
       >
         <FaGithub className="text-black dark:text-white text-2xl" />
       </Link>
       <Link
         href="https://www.linkedin.com/in/cbouwer/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
+        hideExternal={true}
       >
         <FaLinkedin className="text-black dark:text-white text-2xl" />
       </Link>
       <Link
         href="https://stackoverflow.com/users/849986/clarice-bouwer"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
+        hideExternal={true}
       >
         <FaStackOverflow className="text-black dark:text-white text-2xl" />
       </Link>
@@ -33,24 +36,28 @@ function Socials() {
       <Link
         href="https://clojure.org/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
+        hideExternal={true}
       >
         <SiClojure className="text-black dark:text-white text-2xl" />
       </Link>
       <Link
         href="https://nodejs.org/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
+        hideExternal={true}
       >
         <FaNodeJs className="text-black dark:text-white text-2xl" />
       </Link>
       <Link
         href="https://nextjs.org/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
+        hideExternal={true}
       >
         <RiNextjsFill className="text-black dark:text-white text-2xl" />
       </Link>
       <Link
         href="https://cloud.google.com/"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
+        hideExternal={true}
       >
         <SiGooglecloud className="text-black dark:text-white text-2xl" />
       </Link>

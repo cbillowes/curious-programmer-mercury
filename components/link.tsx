@@ -1,11 +1,16 @@
 'use client';
 
+import { ComponentProps } from 'react';
 import { cn } from '@/lib/utils';
 import { ExternalLink } from 'lucide-react';
 import NextLink from 'next/link';
 
-export function Link(props: React.ComponentProps<'a'>) {
-  const { href, className, children, ...rest } = props;
+type Props = ComponentProps<'a'> & {
+  hideExternal?: boolean;
+};
+
+export function Link(props: Props) {
+  const { href, className, children, hideExternal, ...rest } = props;
   if (typeof href === 'string' && href.startsWith('http')) {
     return (
       <a
@@ -16,7 +21,7 @@ export function Link(props: React.ComponentProps<'a'>) {
         href={`${href}?utm_source=curious_programmer.dev&utm_medium=referral&utm_campaign=external_link`}
       >
         {children}
-        <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
+        {!hideExternal && <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />}
       </a>
     );
   }
