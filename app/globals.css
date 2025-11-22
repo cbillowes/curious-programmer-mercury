@@ -143,6 +143,18 @@ body {
   @apply bg-white! rounded-md! dark:bg-slate-900!;
 }
 
+#article pre code {
+  @apply border-0!;
+}
+
+#article code {
+  @apply border-2! border-gray-200 dark:border-gray-700;
+}
+
+#article code code {
+  @apply border-0!;
+}
+
 #article pre button {
   @apply bg-gray-200! border-gray-400! text-gray-800! dark:bg-gray-700! dark:border-gray-600! dark:text-gray-200! hover:border-pink-400! dark:hover:border-yellow-200!;
 }
