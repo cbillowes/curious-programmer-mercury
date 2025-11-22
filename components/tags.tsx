@@ -57,7 +57,7 @@ export function Tags({
           className={cn(
             'transition-colors',
             isButton &&
-              'py-1 bg-primary-600 text-primary-200 px-4 rounded mx-1 mt-4 inline-block hover:text-white hover:bg-pink-600',
+              'py-1 bg-yellow-300 text-yellow-900 px-4 rounded mx-1 mt-4 inline-block hover:text-white hover:bg-pink-600',
             !isButton &&
               'ml-2 text-black dark:text-white leading-loose hover:text-pink-600 hover:dark:text-pink-400',
             redirect && 'cursor-pointer',
