@@ -79,21 +79,22 @@ function Navigation({
             href={previous.slug}
             className="text-sm hover:underline flex items-center"
           >
-            <span className="w-96 overflow-hidden whitespace-nowrap text-ellipsis">
+            <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis">
               &larr; #{previous.number} - {previous.title}
             </span>
           </Link>
         </div>
       )}
       {next && (
-        <div className="float-right">
+        <div className="clear-both md:float-right md:clear-none">
           <Link
             href={next.slug}
             className="text-sm hover:underline flex items-center truncate overflow-hidden whitespace-nowrap text-ellipsis max-w-96"
           >
-            <span className="w-96 overflow-hidden whitespace-nowrap text-ellipsis text-right">
-              #{next.number} - {next.title} &rarr;
+            <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis text-right">
+              #{next.number} - {next.title}
             </span>
+            <span>&rarr;</span>
           </Link>
         </div>
       )}
