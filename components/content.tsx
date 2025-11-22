@@ -75,7 +75,7 @@ function StickyHeader({
   type: string;
 }) {
   return (
-    <header className="print:hidden max-w-3xl mx-auto sticky top-17 left-0 right-0 z-50 bg-white dark:bg-gray-900 outline-3 outline-white dark:outline-gray-900">
+    <header className="print:hidden max-w-3xl mx-auto sticky top-17 left-0 right-0 z-50 bg-gray-50 dark:bg-gray-900 outline-3 outline-gray-50 dark:outline-gray-900">
       <div className="flex items-center gap-2 py-2">
         <Type type={type} to="/blog" number={number} inline={true} />
         <h1 className="text-sm font-extrabold tracking-tighter dark:text-white">
