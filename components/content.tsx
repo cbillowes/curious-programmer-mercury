@@ -12,6 +12,7 @@ import { Scribble } from '@/lib/scribbles';
 import { Course, CoursePage } from '@/lib/courses';
 import { ShareWidget } from '@/components/share';
 import { Comments } from '@/components/comments';
+import { Tooltip } from 'flowbite-react';
 
 type IconProps = {
   icon: string;
@@ -75,27 +76,31 @@ function Navigation({
     <nav className="max-w-3xl mx-auto">
       {previous && (
         <div className="float-left">
-          <Link
-            href={previous.slug}
-            className="text-sm hover:underline flex items-center"
-          >
-            <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis">
-              &larr; #{previous.number} - {previous.title}
-            </span>
-          </Link>
+          <Tooltip content={previous.title} placement="bottom">
+            <Link
+              href={previous.slug}
+              className="text-sm hover:underline flex items-center"
+            >
+              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis">
+                &larr; #{previous.number} - {previous.title}
+              </span>
+            </Link>
+          </Tooltip>
         </div>
       )}
       {next && (
         <div className="clear-both md:float-right md:clear-none">
-          <Link
-            href={next.slug}
-            className="text-sm hover:underline flex items-center truncate overflow-hidden whitespace-nowrap text-ellipsis max-w-96"
-          >
-            <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis text-right">
-              #{next.number} - {next.title}
-            </span>
-            <span>&rarr;</span>
-          </Link>
+          <Tooltip content={next.title} placement="bottom">
+            <Link
+              href={next.slug}
+              className="text-sm hover:underline flex items-center truncate overflow-hidden whitespace-nowrap text-ellipsis max-w-96"
+            >
+              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis text-right">
+                #{next.number} - {next.title}
+              </span>
+              <span>&rarr;</span>
+            </Link>
+          </Tooltip>
         </div>
       )}
       <div className="clear-both"></div>
