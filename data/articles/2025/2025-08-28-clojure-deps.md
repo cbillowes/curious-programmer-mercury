@@ -29,7 +29,7 @@ When you run your application, the CLI or Leiningen, etc, will basically read th
 
 The dependencies are cached locally in your `~/.m2/repository` directory.
 
-:warn: If multiple versions of the same lib are pulled in:
+:warning: If multiple versions of the same lib are pulled in:
 
 - The last one on the classpath wins (Clojure CLI is deterministic).
 - This can cause version conflicts (a.k.a. dependency hell).
@@ -67,7 +67,7 @@ This is useful for you and other contributors to understand the nature of the de
 
 Example:
 
-```clojure
+```clojure:title=deps.edn
 {:deps
  {;; -------- Clojure --------
   ;; The Clojure programming language.
