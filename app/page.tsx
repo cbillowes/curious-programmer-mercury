@@ -67,7 +67,7 @@ export default function Home() {
             <div className="lg:hidden flex items-center justify-start">
               <Image
                 src="/headshot.webp"
-                className="w-32 h-32 object-cover border-4 border-white"
+                className="w-32 h-32 object-cover border-4 border-white rounded-full"
                 alt="Clarice Bouwer head shot"
                 width={128}
                 height={128}
@@ -130,7 +130,7 @@ export default function Home() {
             </Link>
             <Link
               href="/blog"
-              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-black dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
             >
               My blog
             </Link>
@@ -140,7 +140,7 @@ export default function Home() {
               <div className="flex justify-center items-center flex-col">
                 <Image
                   src="/headshot.webp"
-                  className="w-[300px] h-[300px] object-cover border-4 border-white"
+                  className="w-[300px] h-[300px] object-cover border-4 border-white rounded-full"
                   alt="Clarice Bouwer head shot"
                   width={910}
                   height={910}
