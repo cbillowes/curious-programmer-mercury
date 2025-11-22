@@ -19,9 +19,9 @@ export function Hero({
       <Image
         src={image}
         alt={title}
-        width={1600}
-        height={600}
-        className="w-full h-[800px] object-cover"
+        width={1920}
+        height={1280}
+        className="w-full h-[700px] object-cover"
       />
       <Credit
         credit={credit}
