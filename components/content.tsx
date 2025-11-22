@@ -65,6 +65,27 @@ const Type = ({ type, to, number, inline }: TypeProps) => {
   );
 };
 
+function StickyHeader({
+  number,
+  title,
+  type,
+}: {
+  number: number;
+  title: string;
+  type: string;
+}) {
+  return (
+    <header className="print:hidden sticky top-17 left-0 right-0 z-50 bg-white dark:bg-gray-900 outline-3 outline-white dark:outline-gray-900">
+      <div className="max-w-3xl mx-auto flex items-center gap-2 py-2">
+        <Type type={type} to="/blog" number={number} inline={true} />
+        <h1 className="text-sm font-extrabold tracking-tighter dark:text-white">
+          {title}
+        </h1>
+      </div>
+    </header>
+  );
+}
+
 function Navigation({
   previous,
   next,
@@ -164,6 +185,7 @@ export function ArticleContent({
         </div>
         <Author />
       </header>
+      <StickyHeader number={number} title={title} type={type} />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
@@ -254,6 +276,7 @@ export function ScribbleContent({
 
         <Author />
       </header>
+      <StickyHeader number={number} title={title} type={type} />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
@@ -300,6 +323,7 @@ export function CourseContent({
 
         <Author />
       </header>
+      <StickyHeader number={number} title={title} type={type} />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
         <nav>
@@ -364,6 +388,7 @@ export function CoursePageContent({
 
         <Author />
       </header>
+      <StickyHeader number={number} title={title} type={type} />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
