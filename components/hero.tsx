@@ -15,7 +15,7 @@ export function Hero({
   creditLink?: string;
 }) {
   return (
-    <div className="relative">
+    <div className="relative print:hidden">
       <Image
         src={image}
         alt={title}

@@ -70,14 +70,14 @@ function HeadingLink({
     <div className="flex items-center justify-start gap-4">
       <button
         onClick={handleCopy}
-        className="text-black! dark:text-white! cursor-pointer"
+        className="heading-anchor text-black! dark:text-white! cursor-pointer"
         aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
       >
         <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'}>
           <LinkIcon className="opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
         </Tooltip>
       </button>
-      <a id={id}></a>
+      <a id={id} className="heading"></a>
       {children}
     </div>
   );

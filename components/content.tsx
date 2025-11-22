@@ -75,8 +75,8 @@ function StickyHeader({
   type: string;
 }) {
   return (
-    <header className="print:hidden sticky top-17 left-0 right-0 z-50 bg-white dark:bg-gray-900 outline-3 outline-white dark:outline-gray-900">
-      <div className="max-w-3xl mx-auto flex items-center gap-2 py-2">
+    <header className="print:hidden max-w-3xl mx-auto sticky top-17 left-0 right-0 z-50 bg-white dark:bg-gray-900 outline-3 outline-white dark:outline-gray-900">
+      <div className="flex items-center gap-2 py-2">
         <Type type={type} to="/blog" number={number} inline={true} />
         <h1 className="text-sm font-extrabold tracking-tighter dark:text-white">
           {title}
@@ -94,7 +94,7 @@ function Navigation({
   next?: Article | Scribble | Course | CoursePage;
 }) {
   return (
-    <nav className="max-w-3xl mx-auto">
+    <nav className="max-w-3xl mx-auto print:hidden">
       {previous && (
         <div className="float-left">
           <Tooltip content={previous.title} placement="bottom">
@@ -174,7 +174,7 @@ export function ArticleContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
           {title}
         </h1>
         <div className="text-center">
@@ -230,7 +230,7 @@ export function ResumeContent({
             className="mx-auto mb-4 rounded-md"
           />
         )}
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
           {resume.company ?? resume.name}
         </h1>
       </header>
@@ -259,7 +259,7 @@ export function ScribbleContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
           {title}
         </h1>
         <div className="text-center">
@@ -306,7 +306,7 @@ export function CourseContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
           {title}
         </h1>
         <div className="text-center">
@@ -366,7 +366,7 @@ export function CoursePageContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl">
+        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
           {title}
         </h1>
         <div className="text-center">

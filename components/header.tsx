@@ -106,7 +106,7 @@ function ToggleSidebar({
     <button
       aria-expanded="true"
       aria-controls="sidebar"
-      className="p-2 text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+      className="print:hidden p-2 text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       onClick={toggle}
     >
       {!isOpen && (
@@ -155,7 +155,7 @@ export function Header() {
 
   return (
     <>
-      <nav className="fixed z-50 w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl">
+      <nav className="fixed z-50 w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl print:bg-white print:border-0">
         <div className="max-w-7xl mx-auto">
           <div className="px-3 py-3 lg:px-5 lg:pl-3">
             <div className="flex items-center justify-between">
@@ -165,13 +165,13 @@ export function Header() {
                   toggle={toggleSidebarState}
                 />
                 <Link href="/" className="flex ml-2 md:mr-4">
-                  <span className="self-center text-lg sm:text-xl whitespace-nowrap text-gray-900 dark:text-white font-light">
+                  <span className="self-center text-lg sm:text-xl whitespace-nowrap text-gray-900 dark:text-white font-light print:text-black">
                     {`{ `} curious{' '}
                     <strong className="font-bold">programmer</strong> {` }`}
                   </span>
                 </Link>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="print:hidden flex items-center gap-2">
                 <Search />
                 <button
                   className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-lg p-2.5"
@@ -188,7 +188,7 @@ export function Header() {
       </nav>
       {isSidebarOpen && (
         <div
-          className="h-screen w-72 pt-16 fixed top-0 left-0 bottom-0 z-20 font-normal duration-75 lg:flex transition-width"
+          className="print:hidden h-screen w-72 pt-16 fixed top-0 left-0 bottom-0 z-20 font-normal duration-75 lg:flex transition-width"
           aria-label="Sidebar"
         >
           <div className="relative flex flex-col flex-1 min-h-0 pt-10 bg-white/50 border-r border-gray-200 dark:bg-gray-800/50 dark:border-gray-700 h-screen backdrop-blur-2xl overflow-scroll">
