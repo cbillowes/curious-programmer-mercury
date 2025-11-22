@@ -6,6 +6,8 @@ date: 2016-11-13 11:23:10 +0200
 tags:
   - Mindset
   - Comfort Zone
+creditLink: https://picsum.photos/1600/800/?image=680
+creditSource: Lorem Picsum
 ---
 
 > “Did I do anything wrong today,” he said, “or has the world always been like
