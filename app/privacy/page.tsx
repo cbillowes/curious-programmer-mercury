@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function PrivacyPage() {
   return (
-    <Page>
+    <Page slug="/privacy">
       <Container>
         <PageHeading>Privacy Policy</PageHeading>
         <div id="article" className="max-w-3xl mx-auto px-4">

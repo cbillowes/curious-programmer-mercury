@@ -88,7 +88,7 @@ function ContactNavItems() {
 
 export default function ResumePage() {
   return (
-    <Page>
+    <Page slug="/resume">
       <Container>
         <div className="print:hidden">
           <PageHeading>Resume</PageHeading>

@@ -36,7 +36,7 @@ export default async function ResumePage({ params }: Props) {
   }
 
   return (
-    <Page>
+    <Page slug={data.slug}>
       <Container>
         <ResumeContent {...data} />
       </Container>

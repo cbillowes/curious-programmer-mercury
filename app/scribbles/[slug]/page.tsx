@@ -33,7 +33,7 @@ export default async function ScribblePage({ params }: Props) {
   if (!data) notFound();
 
   return (
-    <Page>
+    <Page slug={data.slug}>
       <Hero
         image={data.cover}
         title={data.title}

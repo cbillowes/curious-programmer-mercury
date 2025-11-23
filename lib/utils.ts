@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import removeMd from 'remove-markdown';
+import { WEBSITE_URL } from './config';
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
@@ -72,4 +73,9 @@ export function getMetadata(title: string, description: string, image: string) {
       images: [image],
     },
   };
+}
+
+export function getCanonicalUrl(slug: string): string {
+  const normalizedSlug = slug.startsWith('/') ? slug : `/${slug}`;
+  return `${WEBSITE_URL}${normalizedSlug}`;
 }

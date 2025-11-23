@@ -44,7 +44,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!Array.isArray(data)) {
     if (data) {
       return (
-        <Page>
+        <Page slug={data.slug}>
           <Hero
             image={data.cover}
             title={data.title}
@@ -67,7 +67,7 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   return (
-    <Page>
+    <Page slug={`/blog/${slug}`}>
       <Container>
         <PageHeading>{slug} Articles</PageHeading>
         <ul>

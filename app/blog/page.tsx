@@ -18,7 +18,7 @@ export default async function BlogPage() {
   if (!data) notFound();
 
   return (
-    <Page>
+    <Page slug="/blog">
       <Container>
         <PageHeading>Blog</PageHeading>
         <div className="max-w-3xl mx-auto">

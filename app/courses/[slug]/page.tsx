@@ -5,7 +5,8 @@ import { CourseContent } from '@/components/content';
 import { getCourseBySlug } from '@/lib/courses';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
-import { getMetadata } from '@/lib/utils';
+import { getCanonicalUrl, getMetadata } from '@/lib/utils';
+import Head from 'next/head';
 
 type Props = {
   params: {
@@ -33,7 +34,7 @@ export default async function CoursePage({ params }: Props) {
   if (!data) notFound();
 
   return (
-    <Page>
+    <Page slug={data.slug}>
       <Hero
         image={data.cover}
         title={data.title}

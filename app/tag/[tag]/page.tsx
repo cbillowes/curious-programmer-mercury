@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
-import { getByTag, getTags, prettifyTag } from '@/lib/tags';
+import { getByTag, prettifyTag } from '@/lib/tags';
 import { Preview } from '@/components/preview';
 import { getMetadata } from '@/lib/utils';
 
@@ -26,7 +26,7 @@ export default async function TagPage({ params }: Props) {
   const { tag } = await params;
   const data = getByTag(tag);
   return (
-    <Page>
+    <Page slug={tag}>
       <Container>
         <PageHeading>{prettifyTag(tag)}</PageHeading>
         <ul>

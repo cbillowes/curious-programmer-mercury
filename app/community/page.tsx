@@ -7,18 +7,22 @@ import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Community Guidelines | Curious Programmer`;
-  const description = 'Words can hurt, be nice but clear!';
+  const description =
+    'Essentially, words can hurt. Be nice but clear! That is the essence of the way you need to communicate.';
   return getMetadata(title, description, '/community-guidelines.webp');
 }
 
 export default function CommunityPage() {
   return (
-    <Page>
+    <Page slug="/community">
       <Container>
         <PageHeading>Community Guidelines</PageHeading>
         <div id="article" className="max-w-3xl mx-auto px-4">
           <p>Last updated: 21 November 2025</p>
-          <p>Essentially, words can hurt. Be nice but clear!</p>
+          <p>
+            Essentially, words can hurt. Be nice but clear! That is the essence
+            of the way you need to communicate.
+          </p>
           <h2>Things to know</h2>
           <ul>
             <li>

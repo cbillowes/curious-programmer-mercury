@@ -37,7 +37,7 @@ export default async function CoursePagePage({ params }: Props) {
   if (!data) notFound();
 
   return (
-    <Page>
+    <Page slug={data.slug}>
       {data.cover && (
         <Hero
           image={data.cover}

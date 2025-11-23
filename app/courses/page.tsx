@@ -18,7 +18,7 @@ export default async function CoursesPage() {
   if (!data) notFound();
 
   return (
-    <Page>
+    <Page slug="/courses">
       <Container>
         <PageHeading>Courses</PageHeading>
         <ul>

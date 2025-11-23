@@ -19,7 +19,7 @@ export default async function ScribblesPage() {
   if (!data) notFound();
 
   return (
-    <Page>
+    <Page slug="/scribbles">
       <Container>
         <PageHeading>Scribbles</PageHeading>
         <Articles data={data} />

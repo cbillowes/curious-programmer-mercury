@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function TagsPage() {
   const tags = getTags();
   return (
-    <Page>
+    <Page slug="/tags">
       <Container>
         <PageHeading>Tags</PageHeading>
         <div className="flex flex-wrap gap-4 justify-center mt-8">
