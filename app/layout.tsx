@@ -27,9 +27,10 @@ export default function RootLayout({
         <ThemeModeScript />
       </head>
       <body className={`${openSans.variable} ${firaCode.variable} antialiased`}>
-        <ThemeProvider theme={flowbiteTheme}>{children}</ThemeProvider>
         <Suspense fallback={null}>
-          <ProgressBar />
+          <ProgressBar>
+            <ThemeProvider theme={flowbiteTheme}>{children}</ThemeProvider>
+          </ProgressBar>
         </Suspense>
       </body>
       <GoogleAnalytics gaId="G-475QC81Y7F" />
