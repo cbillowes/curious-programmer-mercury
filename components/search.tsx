@@ -43,10 +43,10 @@ function Hit({
   return (
     <div>
       <Link href={slug}>
-        <div className="px-4 py-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg mb-2 flex items-center gap-4 cursor-pointer">
+        <div className="py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg mb-2 flex items-center gap-4 cursor-pointer">
           {imageUrl && (
             <Image
-              className="w-30 h-30 mb-1 object-cover rounded-md"
+              className="w-40 h-40 mb-1 object-cover rounded-md"
               src={imageUrl}
               alt={title}
               width={80}
@@ -83,8 +83,11 @@ function CustomSearchBox(props: UseSearchBoxProps) {
 
   return (
     <div className="w-full">
-      <div role="search" className="w-full flex items-center gap-2 mb-4">
-        <div className="flex items-center gap-2 relative w-full">
+      <div
+        role="search"
+        className="w-full flex items-center gap-2 mb-4 relative"
+      >
+        <div className="flex items-center gap-2 w-full">
           <TextInput
             ref={inputRef}
             autoComplete="off"
@@ -118,9 +121,11 @@ function CustomSearchBox(props: UseSearchBoxProps) {
       </div>
       {status === 'loading' && <Spinner aria-label="Loading..." />}
       {error && <Alert color="red">Error: {error.message}</Alert>}
-      {results.hits.map((hit) => (
-        <Hit key={hit.objectID} hit={hit} />
-      ))}
+      <div className="max-h-96 overflow-y-auto">
+        {results.hits.map((hit) => (
+          <Hit key={hit.objectID} hit={hit} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -156,10 +161,10 @@ export function Search() {
         onClose={() => setIsOpen(false)}
         className="text-black dark:text-white"
       >
-        <ModalHeader className="border-gray-200 dark:border-gray-800">
+        <ModalHeader className="border-gray-200 dark:border-gray-800 pb-0">
           Search for something
         </ModalHeader>
-        <ModalBody>
+        <ModalBody className="max-h-[400px] overflow-hidden">
           <CustomSearchBox />
         </ModalBody>
         <ModalFooter>
