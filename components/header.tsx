@@ -147,15 +147,17 @@ export function Header() {
   const sidebar = localStorage.getItem('sidebar');
   const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
   const { mode, toggleMode } = useThemeMode();
-  const sidebarRef = useClickOutside<HTMLDivElement>(() =>
-    setIsSidebarOpen(false),
-  );
 
   const toggleSidebarState = () => {
     const newState = !isSidebarOpen;
     setIsSidebarOpen(newState);
     localStorage.setItem('sidebar', newState ? 'open' : 'closed');
   };
+
+  const sidebarRef = useClickOutside<HTMLDivElement>(() => {
+    setIsSidebarOpen(false);
+    toggleSidebarState();
+  });
 
   return (
     <>
