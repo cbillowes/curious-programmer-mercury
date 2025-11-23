@@ -155,7 +155,7 @@ export function Header() {
 
   return (
     <>
-      <nav className="print:hidden fixed z-50 w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl">
+      <nav className="print:hidden fixed w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl z-100">
         <div className="max-w-7xl mx-auto">
           <div className="px-3 py-3 lg:px-5 lg:pl-3">
             <div className="flex items-center justify-between">
@@ -188,7 +188,7 @@ export function Header() {
       </nav>
       {isSidebarOpen && (
         <div
-          className="print:hidden h-screen w-72 pt-16 fixed top-0 left-0 bottom-0 z-20 font-normal duration-75 lg:flex transition-width"
+          className="print:hidden h-screen w-72 pt-16 fixed top-0 left-0 bottom-0 font-normal duration-75 lg:flex transition-width z-50"
           aria-label="Sidebar"
         >
           <div className="relative flex flex-col flex-1 min-h-0 pt-10 bg-white/50 border-r border-gray-200 dark:bg-gray-800/50 dark:border-gray-700 h-screen backdrop-blur-2xl overflow-scroll">
