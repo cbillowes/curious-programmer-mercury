@@ -121,7 +121,7 @@ function CustomSearchBox(props: UseSearchBoxProps) {
         </Button>
       </div>
       {['loading', 'stalled'].includes(status) ? (
-        <Spinner aria-label="Loading..." />
+        <Spinner aria-label="Loading..." className="w-full flex justify-center items-center" />
       ) : (
         <div>
           {error && <Alert color="red">Error: {error.message}</Alert>}
