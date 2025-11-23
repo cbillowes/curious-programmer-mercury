@@ -3,59 +3,6 @@ import { getArticles } from '@/lib/articles';
 import { getScribbles } from '@/lib/scribbles';
 import { getCourses } from '@/lib/courses';
 
-function extractKeywords(text: string) {
-  const stopWords = new Set([
-    'i',
-    'the',
-    'is',
-    'in',
-    'and',
-    'to',
-    'a',
-    'of',
-    'it',
-    'that',
-    'on',
-    'for',
-    'with',
-    'as',
-    'this',
-    'by',
-    'an',
-    'be',
-    'are',
-    'at',
-    'from',
-    'or',
-    'but',
-    'not',
-    'have',
-    'has',
-    'was',
-    'were',
-    'they',
-    'you',
-    'he',
-    'she',
-    'we',
-    'my',
-    'your',
-    'his',
-    'her',
-    'its',
-    'our',
-    'their',
-  ]);
-  return Array.from(
-    new Set(
-      text
-        .toLowerCase()
-        .split(/\W+/)
-        .filter((word) => word && !stopWords.has(word)),
-    ),
-  );
-}
-
 function getPathWithDomain(path: string) {
   return path.startsWith('http')
     ? path
@@ -70,9 +17,9 @@ export async function GET() {
       title,
       abstract,
       tags,
+      content,
       slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
-      keywords: extractKeywords(content),
       type: 'Article',
     }),
   );
@@ -83,9 +30,9 @@ export async function GET() {
       title,
       abstract,
       tags,
+      content,
       slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
-      keywords: extractKeywords(content),
       type: 'Scribble',
     }),
   );
@@ -96,9 +43,9 @@ export async function GET() {
       title,
       abstract,
       tags,
+      content,
       slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
-      keywords: extractKeywords(content),
       type: 'Course',
     }),
   );
@@ -111,9 +58,9 @@ export async function GET() {
           title,
           abstract,
           tags,
+          content,
           slug: getPathWithDomain(slug),
           imageUrl: getPathWithDomain(cover ?? '/blog/default-01.jpg'),
-          keywords: extractKeywords(content),
           type: 'Course Page',
         }),
       );
