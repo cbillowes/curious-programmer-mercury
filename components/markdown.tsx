@@ -148,13 +148,14 @@ export function Markdown({ content }: { content: string }) {
               );
             }
             if (children.startsWith('gif:')) {
-              const ast = parseAst(children);
-              if (!ast) return null;
+              const filename = `/articles/${children.split(':')[1]}`;
+              const caption = children.split(':caption=')[1] || 'GIF animation';
+              if (!filename) return null;
               return (
                 <GifPlayer
-                  src={ast.filename}
-                  still={ast.filename.replace('.gif', '-still.png')}
-                  alt={ast.caption}
+                  src={filename}
+                  still={filename.replace('.gif', '-still.png')}
+                  alt={caption}
                 />
               );
             }

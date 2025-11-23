@@ -34,18 +34,23 @@ export function GifPlayer({
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  useEffect(() => {
-    if (isPlaying) {
+  const handlePlayToggle = () => {
+    if (!isPlaying) {
       setIsLoading(true);
       const img = new Image();
       img.src = src;
-      img.onload = () => setIsLoading(false);
+      img.onload = () => {
+        setIsLoading(false);
+        setIsPlaying(true);
+      };
       img.onerror = () => {
         setIsLoading(false);
         setHasError(true);
       };
+    } else {
+      setIsPlaying(false);
     }
-  }, [isPlaying, src]);
+  };
 
   if (hasError) {
     return (
@@ -56,32 +61,33 @@ export function GifPlayer({
   }
 
   return (
-    <div className="relative inline-block group">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={isPlaying ? src : still}
-        alt={alt}
-        className="max-w-full h-auto rounded-lg"
-      />
-
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-          <Loader2 className="w-8 h-8 text-white animate-spin" />
-        </div>
-      )}
-
-      <button
-        onClick={() => setIsPlaying(!isPlaying)}
-        disabled={isLoading}
-        className="absolute bottom-4 right-4 p-2 bg-black/70 hover:bg-black/90 disabled:opacity-50 rounded-full transition-all opacity-0 group-hover:opacity-100"
-        aria-label={isPlaying ? 'Pause animation' : 'Play animation'}
-      >
-        {isPlaying ? (
-          <Pause className="w-5 h-5 text-white" />
-        ) : (
-          <Play className="w-5 h-5 text-white" />
+    <div className="text-center">
+      <div className="relative inline-block group">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={isPlaying ? src : still}
+          alt={alt}
+          className="max-w-full h-auto rounded-lg"
+        />
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+            <Loader2 className="w-8 h-8 text-white animate-spin" />
+          </div>
         )}
-      </button>
+        <button
+          onClick={handlePlayToggle}
+          disabled={isLoading}
+          className="absolute bottom-4 right-4 p-2 bg-black/70 hover:bg-black/90 disabled:opacity-50 rounded-full transition-all opacity-0 group-hover:opacity-100"
+          aria-label={isPlaying ? 'Pause animation' : 'Play animation'}
+        >
+          {isPlaying ? (
+            <Pause className="w-5 h-5 text-white" />
+          ) : (
+            <Play className="w-5 h-5 text-white" />
+          )}
+        </button>
+      </div>
+      <p className="text-sm! text-center">{alt}</p>
     </div>
   );
 }
