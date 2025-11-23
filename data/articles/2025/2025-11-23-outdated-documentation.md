@@ -35,7 +35,7 @@ It's searchable in your editor and when information is found, it is easy to upda
 
 Your repository can be hosted as a browseable content website that is editable on a version control system and online tool like GitHub that can be used by any stakeholder of the system. Frameworks like Docusaurus, MkDocs, or GitBook can help you set this up quickly.
 
-Whats more is that your diagrams can be created using something like mermaid that generates diagrams from text and is rendered by your hosting platform without the need of creating images from scratch that are hard to update later on.
+What's more is that your diagrams can be created using something like mermaid that generates diagrams from text and is rendered by your hosting platform without the need of creating images from scratch that are hard to update later on.
 
 ## Secure it
 
