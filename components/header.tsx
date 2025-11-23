@@ -7,6 +7,7 @@ import { Link } from '@/components/link';
 import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
 import { useThemeMode } from 'flowbite-react';
 import { Search } from './search';
+import { useClickOutside } from '@/hooks/use-click-outside';
 
 function MenuItemLink({
   active,
@@ -146,6 +147,9 @@ export function Header() {
   const sidebar = localStorage.getItem('sidebar');
   const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
   const { mode, toggleMode } = useThemeMode();
+  const sidebarRef = useClickOutside<HTMLDivElement>(() =>
+    setIsSidebarOpen(false),
+  );
 
   const toggleSidebarState = () => {
     const newState = !isSidebarOpen;
@@ -188,6 +192,7 @@ export function Header() {
       </nav>
       {isSidebarOpen && (
         <div
+          ref={sidebarRef}
           className="print:hidden h-screen w-72 pt-16 fixed top-0 left-0 bottom-0 font-normal duration-75 lg:flex transition-width z-50"
           aria-label="Sidebar"
         >

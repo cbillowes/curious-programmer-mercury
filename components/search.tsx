@@ -24,6 +24,7 @@ import { FiCommand } from 'react-icons/fi';
 import { FaAlgolia } from 'react-icons/fa6';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useClickOutside } from '@/hooks/use-click-outside';
 
 const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
 
@@ -142,6 +143,7 @@ function CustomSearchBox(props: UseSearchBoxProps) {
 
 export function Search() {
   const [isOpen, setIsOpen] = useState(false);
+  const modalRef = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -167,6 +169,7 @@ export function Search() {
         <FaSearch />
       </button>
       <Modal
+        ref={modalRef}
         show={isOpen}
         onClose={() => setIsOpen(false)}
         className="text-black dark:text-white"
