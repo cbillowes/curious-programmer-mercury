@@ -100,6 +100,7 @@ export function getPageMetadata({
       description.length > 140 ? '...' : ''
     }`,
     imageUrl,
+    url: canonicalUrl,
     type,
     openGraph: {
       siteName: 'Curious Programmer',
