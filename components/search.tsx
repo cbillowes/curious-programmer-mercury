@@ -47,7 +47,7 @@ function Hit({
         <div className="py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg mb-2 flex items-center gap-4 cursor-pointer">
           {imageUrl && (
             <Image
-              className="w-40 h-40 mb-1 object-cover rounded-md"
+              className="w-40 h-40 mb-1 object-cover rounded-md hidden md:block"
               src={imageUrl}
               alt={title}
               width={80}
