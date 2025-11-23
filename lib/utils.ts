@@ -83,6 +83,15 @@ export function getPageMetadata({
   const pageTitle = `${title} | Curious Programmer${
     title.length < 20 ? ' - A curious place for a curious mind' : ''
   }`;
+  const imageExtension = imageUrl.split('.').pop()?.toLowerCase();
+  const imageType =
+    imageExtension === 'png'
+      ? 'image/png'
+      : imageExtension === 'jpg' || imageExtension === 'jpeg'
+      ? 'image/jpeg'
+      : imageExtension === 'gif'
+      ? 'image/gif'
+      : 'image/webp';
 
   return {
     title: pageTitle,
@@ -103,6 +112,7 @@ export function getPageMetadata({
           width: 1200,
           height: 630,
           alt: title,
+          type: imageType,
         },
       ],
       type: type,
