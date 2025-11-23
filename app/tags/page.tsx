@@ -1,20 +1,18 @@
-import { Metadata } from 'next';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getTags } from '@/lib/tags';
-import { getMetadata } from '@/lib/utils';
-
-export async function generateMetadata(): Promise<Metadata> {
-  const title = `Tags | Curious Programmer`;
-  const description = 'Browse content by tags.';
-  return getMetadata(title, description, `/tag.webp`);
-}
 
 export default async function TagsPage() {
   const tags = getTags();
   return (
-    <Page slug="/tags">
+    <Page
+      title="Tags"
+      description="I write about technical and soft skills. Browse content using the tags associated to the content on my blog."
+      slug="/tags"
+      image="/tag.webp"
+      type="website"
+    >
       <Container>
         <PageHeading>Tags</PageHeading>
         <div className="flex flex-wrap gap-4 justify-center mt-8">

@@ -1,10 +1,8 @@
-import { Metadata } from 'next';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getByTag, prettifyTag } from '@/lib/tags';
 import { Preview } from '@/components/preview';
-import { getMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
@@ -12,21 +10,20 @@ type Props = {
   };
 };
 
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata | undefined> {
-  const { tag } = await params;
-
-  const title = `${prettifyTag(tag)} | Curious Programmer`;
-  const description = `Content tagged with ${prettifyTag(tag)}.`;
-  return getMetadata(title, description, `/tag.webp`);
-}
-
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
   const data = getByTag(tag);
+  const description = `Delve into the world of ${prettifyTag(
+    tag,
+  )} with curated articles and insights.`;
   return (
-    <Page slug={tag}>
+    <Page
+      title={prettifyTag(tag) ?? "Tag"}
+      description={description}
+      slug={tag}
+      image="/tag.webp"
+      type="website"
+    >
       <Container>
         <PageHeading>{prettifyTag(tag)}</PageHeading>
         <ul>

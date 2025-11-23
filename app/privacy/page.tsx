@@ -2,18 +2,16 @@ import { Container } from '@/components/container';
 import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
-import { getMetadata } from '@/lib/utils';
-import { Metadata } from 'next';
-
-export async function generateMetadata(): Promise<Metadata> {
-  const title = `Privacy Policy | Curious Programmer`;
-  const description = 'Your privacy is important.';
-  return getMetadata(title, description, '/privacy-policy.webp');
-}
 
 export default function PrivacyPage() {
   return (
-    <Page slug="/privacy">
+    <Page
+      title="Privacy Policy"
+      description="Your privacy is one of our main priorities and this document outlines the way your information is collected and recorded."
+      slug="/privacy"
+      image="/privacy-policy.webp"
+      type="website"
+    >
       <Container>
         <PageHeading>Privacy Policy</PageHeading>
         <div id="article" className="max-w-3xl mx-auto px-4">

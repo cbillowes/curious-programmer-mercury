@@ -57,24 +57,6 @@ export function slugifyTag(tag: string): string {
   return `/tag/${slug}`;
 }
 
-export function getMetadata(title: string, description: string, image: string) {
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images: [image],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [image],
-    },
-  };
-}
-
 export function getCanonicalUrl(slug: string): string {
   const normalizedSlug = slug.startsWith('/') ? slug : `/${slug}`;
   return `${WEBSITE_URL}${normalizedSlug}`;

@@ -67,7 +67,13 @@ function Socials() {
 
 export default function Home() {
   return (
-    <Page slug="/">
+    <Page
+      title="Home"
+      description="Explore a spectrum of skills at Curious Programmer—soft to technical. Articles, courses, and notes for continuous learning in software engineering."
+      slug="/"
+      image="/home.webp"
+      type="website"
+    >
       <section className="bg-gray-50 dark:bg-gray-900 py-5">
         <div className="px-4 sm:px-32 grid max-w-7xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">

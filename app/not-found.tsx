@@ -6,7 +6,13 @@ import { getArticles } from '@/lib/articles';
 
 export default async function NotFoundPage() {
   return (
-    <Page slug="/404">
+    <Page
+      title="Not Found"
+      description="The page you are looking for does not exist."
+      slug="/404"
+      image="/home.webp"
+      type="website"
+    >
       <Container>
         <PageHeading>Whoopsie!</PageHeading>
         <p className="text-center text-lg">

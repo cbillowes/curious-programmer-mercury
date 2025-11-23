@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
 import { getArticlesByYearOrSlug } from '@/lib/articles';
@@ -7,34 +6,12 @@ import { PageHeading } from '@/components/page-heading';
 import { ArticleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
-import { getMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
     slug: string;
   };
 };
-
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata | undefined> {
-  const { slug } = await params;
-
-  const data = getArticlesByYearOrSlug(slug);
-
-  if (data) {
-    if (Array.isArray(data)) {
-      return {
-        title: `Articles from ${slug} | Curious Programmer`,
-        description: `A list of articles from the year ${slug}.`,
-      };
-    }
-
-    const title = `${data.title} | Curious Programmer`;
-    const description = data.abstract ?? '';
-    return getMetadata(title, description, data.cover);
-  }
-}
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
@@ -44,7 +21,13 @@ export default async function ArticlePage({ params }: Props) {
   if (!Array.isArray(data)) {
     if (data) {
       return (
-        <Page slug={data.slug}>
+        <Page
+          title={data.title}
+          description={data.abstract ?? ''}
+          slug={data.slug}
+          image={data.cover}
+          type="article"
+        >
           <Hero
             image={data.cover}
             title={data.title}
@@ -67,7 +50,13 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   return (
-    <Page slug={`/blog/${slug}`}>
+    <Page
+      title={`Articles from ${slug}`}
+      description={`Scan through the list of articles written in ${slug}.`}
+      slug={`/blog/${slug}`}
+      image="/blog.webp"
+      type="website"
+    >
       <Container>
         <PageHeading>{slug} Articles</PageHeading>
         <ul>
