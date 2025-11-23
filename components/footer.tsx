@@ -52,7 +52,7 @@ export function Footer() {
             </li>
             <li>
               <a
-                href="https://github.com/cbillowes/curious-programmer-tungsten"
+                href="https://github.com/cbillowes/curious-programmer-mercury"
                 className="mr-4 hover:underline md:mr-6 "
               >
                 Source code

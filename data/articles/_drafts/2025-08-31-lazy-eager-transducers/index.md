@@ -18,7 +18,7 @@ In today's "I'm sorry, I have sinned" episode, I will focus on diving deep into 
 I've really seen some horrors affecting performance because of misunderstanding concepts or people preferring readability instead.
 Sure, readability is paramount but when a small Clojure app runs in the cloud clocking in at 4GB of memory, you may want to reconsider your stance on performance because the costs add up quickly. I've been looking at transducers and believe when that written expressively, they're just as readable as lazy chaining.
 
-> So, I've been doing some digging and I might get things wrong. If you spot anything, drop it in a comment below or create a pull request on the [GitHub repo](https://github.com/cbillowes/curious-programmer-tungsten), please.
+> So, I've been doing some digging and I might get things wrong. If you spot anything, drop it in a comment below or create a pull request on the [GitHub repo](https://github.com/cbillowes/curious-programmer-mercury), please.
 
 Moving along, here's what I've picked up so far:
 
