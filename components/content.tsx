@@ -116,7 +116,7 @@ function Navigation({
               href={next.slug}
               className="text-sm hover:underline flex items-center truncate overflow-hidden whitespace-nowrap text-ellipsis max-w-96"
             >
-              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis text-right">
+              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis pt-2 md:pt-0 md:text-right">
                 #{next.number} - {next.title}
               </span>
               <span>&rarr;</span>
