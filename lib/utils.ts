@@ -78,7 +78,8 @@ export function getPageMetadata({
   type: 'article' | 'website';
 }) {
   const canonicalUrl = getCanonicalUrl(slug);
-  const imageUrl = getCanonicalUrl(image);
+  // These images are converted automatically through the process-webp script
+  const imageUrl = getCanonicalUrl(`${image.replace('.webp', '.png')}`);
   const pageTitle = `${title} | Curious Programmer${
     title.length < 20 ? ' - A curious place for a curious mind' : ''
   }`;
