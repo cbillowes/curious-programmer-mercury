@@ -44,7 +44,7 @@ const Type = ({ type, to, number, inline }: TypeProps) => {
   return (
     <div
       className={cn(
-        'opacity-70',
+        'opacity-70 whitespace-nowrap',
         inline ? 'text-left capitalize' : 'text-center my-3 uppercase',
       )}
     >
