@@ -159,7 +159,7 @@ export default function Home() {
               <div className="flex justify-center items-center flex-col">
                 <Image
                   src="/headshot.webp"
-                  className="w-[300px] h-[300px] object-cover border-4 border-white rounded-full"
+                  className="w-[210px] h-[210px] object-cover border-8 border-white rounded-full"
                   alt="Clarice Bouwer head shot"
                   width={910}
                   height={910}
