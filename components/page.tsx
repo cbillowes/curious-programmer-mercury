@@ -35,6 +35,7 @@ export function Page({
   }
 
   const canonicalUrl = getCanonicalUrl(slug);
+  const imageUrl = getCanonicalUrl(image);
   const pageTitle = `${title} | Curious Programmer`;
   return (
     <div>
@@ -43,10 +44,10 @@ export function Page({
         <meta name="description" content={description} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content={imageUrl} />
         <meta property="og:type" content={type} />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:twitter:image" content={image} />
+        <meta property="og:twitter:image" content={imageUrl} />
         <meta property="og:twitter:title" content={pageTitle} />
         <meta property="og:twitter:description" content={description} />
         <meta property="og:twitter:card" content="summary_large_image" />
