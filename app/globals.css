@@ -26,6 +26,25 @@ body {
   @apply font-sans bg-background-light-mode text-foreground-light-mode dark:bg-background-dark-mode dark:text-foreground-dark-mode;
 }
 
+/* NProgress styles */
+#nprogress {
+  @apply pointer-events-none;
+}
+
+#nprogress .bar {
+  @apply bg-pink-500 dark:bg-yellow-300 fixed z-100 top-0 left-0 w-full h-1;
+}
+
+#nprogress .peg {
+  @apply block absolute right-0 w-[100px] h-full opacity-100 rotate-3 translate-x-0 -translate-y-1 shadow-[0_0_10px_#3b82f6,0_0_5px_#3b82f6];
+}
+
+#nprogress .spinner {
+  @apply hidden;
+}
+
+/* Article styles */
+
 #article {
   @apply leading-relaxed;
 }
