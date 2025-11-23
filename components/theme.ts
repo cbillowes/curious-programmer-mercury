@@ -38,14 +38,6 @@ export const flowbiteTheme = {
     },
     content: '',
   },
-  modal: {
-    content: {
-      inner: 'relative rounded-lg bg-white shadow dark:bg-gray-800',
-    },
-    header: {
-      base: 'flex items-start justify-between rounded-t px-5 pt-5',
-    },
-  },
   navbar: {
     root: {
       base: 'fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700',
