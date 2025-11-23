@@ -96,7 +96,7 @@ function Navigation({
   return (
     <nav className="max-w-3xl mx-auto print:hidden">
       {previous && (
-        <div className="md:float-left flex w-full md:w-1/2 justify-center md:justify-start">
+        <div className="md:float-left flex w-full md:w-1/2 justify-center md:justify-start text-center md:text-left">
           <Tooltip content={previous.title} placement="bottom">
             <Link
               href={previous.slug}
@@ -116,7 +116,7 @@ function Navigation({
               href={next.slug}
               className="text-sm hover:underline flex items-center truncate overflow-hidden whitespace-nowrap text-ellipsis max-w-96 pt-2 md:pt-0 gap-2"
             >
-              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis">
+              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis text-center md:text-right">
                 #{next.number} - {next.title}
               </span>{' '}
               <span>&rarr;</span>
