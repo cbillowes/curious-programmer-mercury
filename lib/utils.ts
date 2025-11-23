@@ -57,9 +57,27 @@ export function slugifyTag(tag: string): string {
   return `/tag/${slug}`;
 }
 
-export function getCanonicalUrl(slug: string): string {
+function getCanonicalUrl(slug: string): string {
+  if (slug.startsWith('http')) return slug;
   const normalizedSlug = slug.startsWith('/') ? slug : `/${slug}`;
   return `${WEBSITE_URL}${normalizedSlug}`;
+}
+
+function getImageType(url: string): string {
+  const extension = url.split('.').pop()?.toLowerCase() || '';
+  switch (extension) {
+    case 'png':
+      return 'image/png';
+    case 'jpg':
+    case 'jpeg':
+      return 'image/jpeg';
+    case 'gif':
+      return 'image/gif';
+    case 'webp':
+      return 'image/webp';
+    default:
+      return 'image/*';
+  }
 }
 
 export function getPageMetadata({
@@ -80,18 +98,10 @@ export function getPageMetadata({
   const canonicalUrl = getCanonicalUrl(slug);
   // These images are converted automatically through the process-webp script
   const imageUrl = getCanonicalUrl(`${image.replace('.webp', '.png')}`);
+  const imageType = getImageType(imageUrl);
   const pageTitle = `${title} | Curious Programmer${
     title.length < 20 ? ' - A curious place for a curious mind' : ''
   }`;
-  const imageExtension = imageUrl.split('.').pop()?.toLowerCase();
-  const imageType =
-    imageExtension === 'png'
-      ? 'image/png'
-      : imageExtension === 'jpg' || imageExtension === 'jpeg'
-      ? 'image/jpeg'
-      : imageExtension === 'gif'
-      ? 'image/gif'
-      : 'image/webp';
 
   return {
     title: pageTitle,
