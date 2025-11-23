@@ -3,10 +3,50 @@ import { getArticles } from '@/lib/articles';
 import { getScribbles } from '@/lib/scribbles';
 import { getCourses } from '@/lib/courses';
 
+const stopWords = new Set([
+  'the',
+  'and',
+  'that',
+  'have',
+  'for',
+  'not',
+  'with',
+  'you',
+  'this',
+  'but',
+  'from',
+  'they',
+  'his',
+  'she',
+  'which',
+  'will',
+  'there',
+  'their',
+  'what',
+  'about',
+  'when',
+  'your',
+  'it',
+  "it's",
+]);
+
 function getPathWithDomain(path: string) {
   return path.startsWith('http')
     ? path
     : `https://curiousprogrammer.dev${path}`;
+}
+
+function getKeywords(content: string) {
+  const normalized = content.toLowerCase().replace(/[^a-z0-9\']/g, ' ');
+  const words = normalized.split(/ /g).filter((word) => word.length > 3);
+  const wordCount: Record<string, number> = {};
+  words.forEach((word) => {
+    wordCount[word] = (wordCount[word] || 0) + 1;
+  });
+  const keywords = Object.entries(wordCount)
+    .sort((a, b) => b[1] - a[1])
+    .map(([word]) => word);
+  return keywords.filter((word) => !stopWords.has(word));
 }
 
 export async function GET() {
@@ -15,12 +55,11 @@ export async function GET() {
       objectID: slug,
       date,
       title,
-      abstract,
       tags,
-      content,
+      abstract,
+      keywords: getKeywords(content),
       slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
-      type: 'Article',
     }),
   );
   const scribbles = getScribbles().map(
@@ -28,12 +67,11 @@ export async function GET() {
       objectID: slug,
       date,
       title,
-      abstract,
       tags,
-      content,
+      abstract,
+      keywords: getKeywords(content),
       slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
-      type: 'Scribble',
     }),
   );
   const courses = getCourses().map(
@@ -41,12 +79,11 @@ export async function GET() {
       objectID: slug,
       date,
       title,
-      abstract,
       tags,
-      content,
+      abstract,
+      keywords: getKeywords(content),
       slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
-      type: 'Course',
     }),
   );
   const coursePages = getCourses()
@@ -56,12 +93,11 @@ export async function GET() {
           objectID: slug,
           date,
           title,
-          abstract,
           tags,
-          content,
+          abstract,
+          keywords: getKeywords(content),
           slug: getPathWithDomain(slug),
           imageUrl: getPathWithDomain(cover ?? '/blog/default-01.jpg'),
-          type: 'Course Page',
         }),
       );
     })
