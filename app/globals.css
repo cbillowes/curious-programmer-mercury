@@ -122,12 +122,9 @@ body {
   @apply list-disc ml-6 mb-6;
 }
 
-#article ol li {
-  @apply list-inside pl-2;
-}
-
-#article ol li p {
-  @apply mb-0;
+#article ol li,
+#article ul li {
+  @apply list-outside pl-2;
 }
 
 #article ol {
