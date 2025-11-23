@@ -3,16 +3,22 @@ import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getArticles } from '@/lib/articles';
+import { getPageMetadata } from '@/lib/utils';
+
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: 'Not Found',
+    description:
+      'The page you are looking for could not be found. Explore featured articles instead.',
+    slug: '/404',
+    image: '/home.webp',
+    type: 'website',
+  });
+}
 
 export default async function NotFoundPage() {
   return (
-    <Page
-      title="Not Found"
-      description="The page you are looking for does not exist."
-      slug="/404"
-      image="/home.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <PageHeading>Whoopsie!</PageHeading>
         <p className="text-center text-lg">

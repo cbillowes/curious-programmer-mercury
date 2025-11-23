@@ -2,16 +2,22 @@ import { Container } from '@/components/container';
 import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { getPageMetadata } from '@/lib/utils';
+
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: 'Privacy Policy',
+    description:
+      'Your privacy is one of our main priorities and this document outlines the way your information is collected and recorded.',
+    slug: '/privacy',
+    image: '/privacy-policy.webp',
+    type: 'website',
+  });
+}
 
 export default function PrivacyPage() {
   return (
-    <Page
-      title="Privacy Policy"
-      description="Your privacy is one of our main priorities and this document outlines the way your information is collected and recorded."
-      slug="/privacy"
-      image="/privacy-policy.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <PageHeading>Privacy Policy</PageHeading>
         <div id="article" className="max-w-3xl mx-auto px-4">
@@ -22,15 +28,12 @@ export default function PrivacyPage() {
             document contains types of information that is collected and
             recorded by Curious Programmer and how we use it.
           </p>
-
           <p>Last updated: 20 October 2024</p>
-
           <p>
             If you have additional questions or require more information about
             our Privacy Policy, do not hesitate to contact us on
             clarice@bouwer.dev.
           </p>
-
           <p>
             This Privacy Policy applies only to our online activities and is
             valid for visitors to our website with regards to the information
@@ -43,16 +46,12 @@ export default function PrivacyPage() {
             </Link>
             .
           </p>
-
           <h2>Consent</h2>
-
           <p>
             By using our website, you hereby consent to our Privacy Policy and
             agree to its terms.
           </p>
-
           <h2>Information we collect</h2>
-
           <h3>Information you offer</h3>
           <p>
             If you contact us directly, we may receive information you provide
@@ -91,19 +90,16 @@ export default function PrivacyPage() {
             dark or light more option are stored in your browser&apos;s local
             storage.
           </p>
-
           <h2>How we use your information</h2>
           <p>
             We use the information we collect in various ways, including to:
           </p>
-
           <ul>
             <li>Provide, operate, and maintain our website</li>
             <li>Understand and analyze how you use our website</li>
             <li>Develop new features, and functionality</li>
             <li>Read, moderate and reply to your comments</li>
           </ul>
-
           <h2>Commenting</h2>
           <p>
             When you provide a comment on the Website, your comment will be
@@ -124,9 +120,7 @@ export default function PrivacyPage() {
             </Link>
             .
           </p>
-
           <h2>Log Files</h2>
-
           <p>
             Curious Programmer follows a standard procedure of using log files.
             These files log visitors when they visit websites. All hosting
@@ -139,9 +133,7 @@ export default function PrivacyPage() {
             trends, administering the site, tracking users&apos; movement on the
             website, and gathering demographic information.
           </p>
-
           <h2>Cookies and Web Beacons</h2>
-
           <p>
             Like any other website, Curious Programmer uses &apos;cookies&apos;.
             These cookies are used to store information including visitors&apos;
@@ -150,7 +142,6 @@ export default function PrivacyPage() {
             experience by customizing our web page content based on
             visitors&apos; browser type and/or other information.
           </p>
-
           <p>
             For more general information on cookies, please read{' '}
             <a href="https://www.generateprivacypolicy.com/#cookies">
@@ -158,13 +149,9 @@ export default function PrivacyPage() {
             </a>
             .
           </p>
-
           <h2>Advertising Partners Privacy Policies</h2>
-
           <p>There are no adverts. Yay!</p>
-
           <h2>Third Party Privacy Policies</h2>
-
           <p>
             Curious Programmer&apos;s Privacy Policy does not apply to other
             websites. Thus, we are advising you to consult the respective
@@ -172,7 +159,6 @@ export default function PrivacyPage() {
             information. It may include their practices and instructions about
             how to opt-out of certain options.{' '}
           </p>
-
           <ul>
             <li>
               <Link href="https://support.google.com/youtube/answer/171780">
@@ -203,7 +189,6 @@ export default function PrivacyPage() {
               </Link>
             </li>
           </ul>
-
           <p>
             You can choose to disable cookies through your individual browser
             options. To know more detailed information about cookie management
@@ -221,9 +206,7 @@ export default function PrivacyPage() {
             the website so that I can produce better work and get an idea of how
             many people are accessing the site.
           </p>
-
           <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
-
           <p>
             Under the CCPA, among other rights, California consumers have the
             right to:
@@ -246,9 +229,7 @@ export default function PrivacyPage() {
             would like to exercise any of these rights, please contact us.
           </p>
           <p>We do none of the above so we&apos;ve got you covered.</p>
-
           <h2>GDPR Data Protection Rights</h2>
-
           <p>
             We would like to make sure you are fully aware of all of your data
             protection rights. Every user is entitled to the following:
@@ -286,15 +267,12 @@ export default function PrivacyPage() {
             would like to exercise any of these rights, please contact us.
           </p>
           <p>Again, none of this data is captured so you&apos;re all good.</p>
-
           <h2>Children&apos;s Information</h2>
-
           <p>
             Another part of our priority is adding protection for children while
             using the internet. We encourage parents and guardians to observe,
             participate in, and/or monitor and guide their online activity.
           </p>
-
           <p>
             Curious Programmer does not knowingly collect any Personal
             Identifiable Information from children under the age of 13. If you
@@ -303,7 +281,6 @@ export default function PrivacyPage() {
             will do our best efforts to promptly remove such information from
             our records.
           </p>
-
           <p>
             There may be swearing but we keep it to a minimum as we try remain
             as professional as possible. Parental guidance is still advised.

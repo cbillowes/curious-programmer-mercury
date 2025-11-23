@@ -3,20 +3,26 @@ import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getArticles } from '@/lib/articles';
+import { getPageMetadata } from '@/lib/utils';
 import { notFound } from 'next/navigation';
+
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: 'Blog',
+    description:
+      'Read articles and musings on programming, technology, and software development by Curious Programmer.',
+    slug: '/blog',
+    image: '/blog.webp',
+    type: 'website',
+  });
+}
 
 export default async function BlogPage() {
   const data = getArticles();
   if (!data) notFound();
 
   return (
-    <Page
-      title="Blog"
-      description="Read articles and musings on programming, technology, and software development by Curious Programmer."
-      slug="/blog"
-      image="/blog.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <PageHeading>Blog</PageHeading>
         <div className="max-w-3xl mx-auto">

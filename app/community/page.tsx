@@ -2,16 +2,22 @@ import { Container } from '@/components/container';
 import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { getPageMetadata } from '@/lib/utils';
+
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: 'Community Guidelines',
+    description:
+      'Essentially, words can hurt. Be nice but clear! That is the essence of the way you need to communicate.',
+    slug: '/community',
+    image: '/community-guidelines.webp',
+    type: 'website',
+  });
+}
 
 export default function CommunityPage() {
   return (
-    <Page
-      title="Community Guidelines"
-      description="Essentially, words can hurt. Be nice but clear! That is the essence of the way you need to communicate."
-      slug="/community"
-      image="/community-guidelines.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <PageHeading>Community Guidelines</PageHeading>
         <div id="article" className="max-w-3xl mx-auto px-4">
@@ -36,7 +42,6 @@ export default function CommunityPage() {
               comments that are not offensive.
             </li>
           </ul>
-
           <h2>Tone and Attitude</h2>
           <ul>
             <li>Be inviting, passionate and share your thoughts.</li>
@@ -50,7 +55,6 @@ export default function CommunityPage() {
               No racism, sexism, homophobia or other forms of hate-speech!
             </li>
           </ul>
-
           <h2>Clarity and Intent</h2>
           <ul>
             <li>

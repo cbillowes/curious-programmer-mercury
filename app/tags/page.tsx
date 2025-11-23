@@ -2,17 +2,23 @@ import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getTags } from '@/lib/tags';
+import { getPageMetadata } from '@/lib/utils';
+
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: 'Tags',
+    description:
+      'I write about technical and soft skills. Browse content using the tags associated to the content on my blog.',
+    slug: '/tags',
+    image: '/tag.webp',
+    type: 'website',
+  });
+}
 
 export default async function TagsPage() {
   const tags = getTags();
   return (
-    <Page
-      title="Tags"
-      description="I write about technical and soft skills. Browse content using the tags associated to the content on my blog."
-      slug="/tags"
-      image="/tag.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <PageHeading>Tags</PageHeading>
         <div className="flex flex-wrap gap-4 justify-center mt-8">

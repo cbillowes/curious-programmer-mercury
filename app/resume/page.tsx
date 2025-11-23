@@ -7,7 +7,7 @@ import { FaCheckCircle, FaSpider } from 'react-icons/fa';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import { SiLevelsdotfyi } from 'react-icons/si';
 import { GiDramaMasks } from 'react-icons/gi';
-import { cn } from '@/lib/utils';
+import { cn, getPageMetadata } from '@/lib/utils';
 import { Timeline } from '@/components/timeline';
 import Image from 'next/image';
 
@@ -79,15 +79,20 @@ function ContactNavItems() {
   );
 }
 
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: 'Resume',
+    description:
+      'A highly accomplished and passionate polyglot full-stack software engineer with 20 years of experience delivering impactful digital solutions.',
+    slug: '/resume',
+    image: '/headshot.webp',
+    type: 'website',
+  });
+}
+
 export default function ResumePage() {
   return (
-    <Page
-      title="Resume"
-      description="Clarice Bouwer - Senior Software Engineer"
-      slug="/resume"
-      image="/headshot.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <div className="print:hidden">
           <PageHeading>Resume</PageHeading>

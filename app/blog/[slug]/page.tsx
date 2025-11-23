@@ -6,12 +6,37 @@ import { PageHeading } from '@/components/page-heading';
 import { ArticleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
+import { getPageMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
     slug: string;
   };
 };
+
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const data = getArticlesByYearOrSlug(slug);
+  if (data) {
+    if (Array.isArray(data)) {
+      return getPageMetadata({
+        title: `Articles from ${slug}`,
+        description: `Scan through a mixture of technical and soft skill articles written in ${slug} for software engineering.`,
+        slug: `/blog/${slug}`,
+        image: '/blog.webp',
+        type: 'website',
+      });
+    }
+    return getPageMetadata({
+      title: data.title,
+      description: data.abstract ?? '',
+      slug: data.slug,
+      image: data.cover,
+      date: data.date,
+      type: 'article',
+    });
+  }
+}
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
@@ -21,13 +46,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!Array.isArray(data)) {
     if (data) {
       return (
-        <Page
-          title={data.title}
-          description={data.abstract ?? ''}
-          slug={data.slug}
-          image={data.cover}
-          type="article"
-        >
+        <Page>
           <Hero
             image={data.cover}
             title={data.title}
@@ -50,13 +69,7 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   return (
-    <Page
-      title={`Articles from ${slug}`}
-      description={`Scan through the list of articles written in ${slug}.`}
-      slug={`/blog/${slug}`}
-      image="/blog.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <PageHeading>{slug} Articles</PageHeading>
         <ul>

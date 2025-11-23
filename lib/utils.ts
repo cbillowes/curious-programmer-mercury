@@ -61,3 +61,60 @@ export function getCanonicalUrl(slug: string): string {
   const normalizedSlug = slug.startsWith('/') ? slug : `/${slug}`;
   return `${WEBSITE_URL}${normalizedSlug}`;
 }
+
+export function getPageMetadata({
+  title,
+  description,
+  slug,
+  image,
+  date,
+  type = 'website',
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  image: string;
+  date?: Date;
+  type: 'article' | 'website';
+}) {
+  const canonicalUrl = getCanonicalUrl(slug);
+  const imageUrl = getCanonicalUrl(image);
+  const pageTitle = `${title} | Curious Programmer${
+    title.length < 20 ? ' - A curious place for a curious mind' : ''
+  }`;
+
+  return {
+    title: pageTitle,
+    authors: [{ name: 'Clarice Bouwer' }],
+    description: `${description.substring(0, 140)}${
+      description.length > 140 ? '...' : ''
+    }`,
+    imageUrl,
+    type,
+    openGraph: {
+      siteName: 'Curious Programmer',
+      title: pageTitle,
+      description,
+      url: canonicalUrl,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      type: type,
+      publishedTime: date,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: pageTitle,
+      description,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  };
+}

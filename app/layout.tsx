@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { ThemeModeScript, ThemeProvider } from 'flowbite-react';
 import { Open_Sans, Fira_Code } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -14,12 +13,6 @@ const firaCode = Fira_Code({
   variable: '--font-fira-code',
   subsets: ['latin'],
 });
-
-export const metadata: Metadata = {
-  title: 'Curious Programmer',
-  description:
-    'Explore a spectrum of skills at Curious Programmer — soft to technical. Articles, courses, and notes for continuous learning in software engineering.',
-};
 
 export default function RootLayout({
   children,

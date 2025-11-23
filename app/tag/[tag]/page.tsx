@@ -3,6 +3,7 @@ import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getByTag, prettifyTag } from '@/lib/tags';
 import { Preview } from '@/components/preview';
+import { getPageMetadata } from '@/lib/utils';
 
 type Props = {
   params: {
@@ -10,20 +11,25 @@ type Props = {
   };
 };
 
-export default async function TagPage({ params }: Props) {
+export async function generateMetadata({ params }: Props) {
   const { tag } = await params;
-  const data = getByTag(tag);
   const description = `Delve into the world of ${prettifyTag(
     tag,
   )} with curated articles and insights.`;
+  return getPageMetadata({
+    title: prettifyTag(tag) ?? 'Tag',
+    description,
+    slug: `/tag/${tag}`,
+    image: '/tag.webp',
+    type: 'website',
+  });
+}
+
+export default async function TagPage({ params }: Props) {
+  const { tag } = await params;
+  const data = getByTag(tag);
   return (
-    <Page
-      title={prettifyTag(tag) ?? "Tag"}
-      description={description}
-      slug={tag}
-      image="/tag.webp"
-      type="website"
-    >
+    <Page>
       <Container>
         <PageHeading>{prettifyTag(tag)}</PageHeading>
         <ul>

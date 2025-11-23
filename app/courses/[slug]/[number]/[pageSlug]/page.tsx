@@ -4,6 +4,11 @@ import { CoursePageContent } from '@/components/content';
 import { getCoursePageBySlug } from '@/lib/courses';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
+import { getPageMetadata } from '@/lib/utils';
+
+function getPageSlug(slug: string, number: string, pageSlug: string) {
+  return `/courses/${slug}/${number.padStart(2, '0')}/${pageSlug}`;
+}
 
 type Props = {
   params: {
@@ -13,8 +18,19 @@ type Props = {
   };
 };
 
-function getPageSlug(slug: string, number: string, pageSlug: string) {
-  return `/courses/${slug}/${number.padStart(2, '0')}/${pageSlug}`;
+export async function generateMetadata({ params }: Props) {
+  const { slug, number, pageSlug } = await params;
+  const data = getCoursePageBySlug(getPageSlug(slug, number, pageSlug));
+  if (data) {
+    return getPageMetadata({
+      title: data.title,
+      description: data.abstract ?? '',
+      slug: data.slug,
+      image: data.cover ?? '',
+      date: data.date,
+      type: 'article',
+    });
+  }
 }
 
 export default async function CoursePagePage({ params }: Props) {
@@ -23,13 +39,7 @@ export default async function CoursePagePage({ params }: Props) {
   if (!data) notFound();
 
   return (
-    <Page
-      title={data.title}
-      description={data.abstract ?? ''}
-      slug={data.slug}
-      image={data.cover ?? ''}
-      type="article"
-    >
+    <Page>
       {data.cover && (
         <Hero
           image={data.cover}
