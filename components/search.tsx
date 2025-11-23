@@ -119,16 +119,21 @@ function CustomSearchBox(props: UseSearchBoxProps) {
           Search
         </Button>
       </div>
-      {status === 'loading' && <Spinner aria-label="Loading..." />}
-      {error && <Alert color="red">Error: {error.message}</Alert>}
-      {results && results.hits.length === 0 && (
-        <Alert color="yellow">No results found.</Alert>
-      )}
-      {results && results.hits.length > 0 && (
-        <div className="max-h-96 overflow-y-auto">
-          {results.hits.map((hit) => (
-            <Hit key={hit.objectID} hit={hit} />
-          ))}
+      {['loading', 'stalled'].includes(status) ? (
+        <Spinner aria-label="Loading..." />
+      ) : (
+        <div>
+          {error && <Alert color="red">Error: {error.message}</Alert>}
+          {results && results.hits.length === 0 && (
+            <Alert color="yellow">No results found.</Alert>
+          )}
+          {results && results.hits.length > 0 && (
+            <div className="max-h-96 overflow-y-auto">
+              {results.hits.map((hit) => (
+                <Hit key={hit.objectID} hit={hit} />
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
