@@ -21,7 +21,7 @@ export function Hero({
         alt={title}
         width={1920}
         height={1280}
-        className="w-full h-[700px] object-cover"
+        className="w-full h-[250px] md:h-[700px] object-cover"
       />
       <Credit
         credit={credit}
