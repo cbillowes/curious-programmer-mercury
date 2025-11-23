@@ -164,10 +164,10 @@ export function Search() {
         <ModalHeader className="border-gray-200 dark:border-gray-800 pb-0">
           Search for something
         </ModalHeader>
-        <ModalBody className="max-h-[400px] overflow-hidden">
+        <ModalBody className="max-h-[400px] overflow-hidden px-4 py-2">
           <CustomSearchBox />
         </ModalBody>
-        <ModalFooter>
+        <ModalFooter className="px-4 py-4">
           <p className="text-gray-500 dark:text-gray-400 flex items-center gap-1 justify-end w-full text-md">
             Powered by <FaAlgolia /> AlgoliaSearch
           </p>
