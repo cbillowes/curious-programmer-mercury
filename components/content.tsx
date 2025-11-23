@@ -96,7 +96,7 @@ function Navigation({
   return (
     <nav className="max-w-3xl mx-auto print:hidden">
       {previous && (
-        <div className="md:float-left flex w-full justify-center md:justify-start">
+        <div className="md:float-left flex w-full md:w-1/2 justify-center md:justify-start">
           <Tooltip content={previous.title} placement="bottom">
             <Link
               href={previous.slug}
@@ -110,7 +110,7 @@ function Navigation({
         </div>
       )}
       {next && (
-        <div className="md:float-right flex w-full justify-center md:justify-end">
+        <div className="md:float-right flex w-full md:w-1/2 justify-center md:justify-end">
           <Tooltip content={next.title} placement="bottom">
             <Link
               href={next.slug}
