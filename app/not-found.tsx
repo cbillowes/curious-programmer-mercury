@@ -6,7 +6,7 @@ import { getArticles } from '@/lib/articles';
 
 export default async function NotFoundPage() {
   return (
-    <Page>
+    <Page slug="/404">
       <Container>
         <PageHeading>Whoopsie!</PageHeading>
         <p className="text-center text-lg">
