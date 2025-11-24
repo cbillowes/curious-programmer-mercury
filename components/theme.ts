@@ -60,7 +60,7 @@ export const flowbiteTheme = {
       // ... other modal properties
     },
     content: {
-      inner: 'relative rounded-lg bg-white shadow dark:bg-gray-800 pb-8',
+      inner: 'relative rounded-lg bg-white shadow dark:bg-gray-800',
     },
     header: {
       base: 'flex items-start justify-between rounded-t px-5 pt-5',
