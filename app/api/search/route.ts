@@ -57,8 +57,8 @@ export async function GET() {
       title,
       tags,
       abstract,
+      slug,
       keywords: getKeywords(content),
-      slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
     }),
   );
@@ -69,8 +69,8 @@ export async function GET() {
       title,
       tags,
       abstract,
+      slug,
       keywords: getKeywords(content),
-      slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
     }),
   );
@@ -81,8 +81,8 @@ export async function GET() {
       title,
       tags,
       abstract,
+      slug,
       keywords: getKeywords(content),
-      slug: getPathWithDomain(slug),
       imageUrl: getPathWithDomain(cover),
     }),
   );
@@ -95,8 +95,8 @@ export async function GET() {
           title,
           tags,
           abstract,
+          slug,
           keywords: getKeywords(content),
-          slug: getPathWithDomain(slug),
           imageUrl: getPathWithDomain(cover ?? '/blog/default-01.jpg'),
         }),
       );
