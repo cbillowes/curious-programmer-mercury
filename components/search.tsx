@@ -30,6 +30,7 @@ const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
 
 function Hit({
   hit,
+  onNavigate,
 }: {
   hit: {
     slug: string;
@@ -39,11 +40,12 @@ function Hit({
     excerpt?: string;
     tags?: string[];
   };
+  onNavigate: () => void;
 }) {
   const { slug, imageUrl, title, abstract, excerpt, tags } = hit;
   return (
     <div>
-      <Link href={slug}>
+      <Link href={slug} onClick={onNavigate}>
         <div className="py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg mb-2 flex items-center gap-4 cursor-pointer">
           {imageUrl && (
             <Image
@@ -76,7 +78,10 @@ function Hit({
   );
 }
 
-function CustomSearchBox(props: UseSearchBoxProps) {
+function CustomSearchBox(
+  props: UseSearchBoxProps & { onNavigate: () => void },
+) {
+  const { onNavigate } = props;
   const { query, refine } = useSearchBox(props);
   const { status, error, results } = useInstantSearch();
   const [inputValue, setInputValue] = useState(query);
@@ -134,7 +139,7 @@ function CustomSearchBox(props: UseSearchBoxProps) {
           {results && results.hits.length > 0 && (
             <div className="max-h-96 overflow-y-auto">
               {results.hits.map((hit) => (
-                <Hit key={hit.objectID} hit={hit} />
+                <Hit key={hit.objectID} hit={hit} onNavigate={onNavigate} />
               ))}
             </div>
           )}
@@ -188,7 +193,7 @@ export function Search() {
             Search for something
           </ModalHeader>
           <ModalBody className="max-h-[400px] overflow-hidden px-4 py-2">
-            <CustomSearchBox />
+            <CustomSearchBox onNavigate={() => setIsOpen(false)} />
           </ModalBody>
           <ModalFooter className="px-4 py-4">
             <p className="text-gray-500 dark:text-gray-400 flex items-center gap-1 justify-end w-full text-md">
