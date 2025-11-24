@@ -53,6 +53,7 @@
     "@types/react-dom": "19.2.3",
     "@types/react-syntax-highlighter": "15.5.13",
     "concurrently": "9.2.1",
+    "dotenv": "^17.2.3",
     "eslint": "9",
     "eslint-config-next": "16.0.3",
     "nodemon": "3.1.11",
