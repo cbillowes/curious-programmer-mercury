@@ -24,6 +24,7 @@
     "lodash": "4.17.21",
     "lucide-react": "0.554.0",
     "next": "16.0.3",
+    "next-compose-plugins": "^2.2.1",
     "next-seo": "7.0.1",
     "next-sitemap": "4.2.3",
     "node-emoji": "2.2.0",
