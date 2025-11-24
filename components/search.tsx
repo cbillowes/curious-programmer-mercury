@@ -121,7 +121,10 @@ function CustomSearchBox(props: UseSearchBoxProps) {
         </Button>
       </div>
       {['loading', 'stalled'].includes(status) ? (
-        <Spinner aria-label="Loading..." className="w-full flex justify-center items-center" />
+        <Spinner
+          aria-label="Loading..."
+          className="w-full flex justify-center items-center"
+        />
       ) : (
         <div>
           {error && <Alert color="red">Error: {error.message}</Alert>}
@@ -143,7 +146,13 @@ function CustomSearchBox(props: UseSearchBoxProps) {
 
 export function Search() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const modalRef = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -168,24 +177,26 @@ export function Search() {
         </div>
         <FaSearch />
       </button>
-      <Modal
-        ref={modalRef}
-        show={isOpen}
-        onClose={() => setIsOpen(false)}
-        className="text-black dark:text-white"
-      >
-        <ModalHeader className="border-gray-200 dark:border-gray-800 pb-0">
-          Search for something
-        </ModalHeader>
-        <ModalBody className="max-h-[400px] overflow-hidden px-4 py-2">
-          <CustomSearchBox />
-        </ModalBody>
-        <ModalFooter className="px-4 py-4">
-          <p className="text-gray-500 dark:text-gray-400 flex items-center gap-1 justify-end w-full text-md">
-            Powered by <FaAlgolia /> AlgoliaSearch
-          </p>
-        </ModalFooter>
-      </Modal>
+      {isMounted && (
+        <Modal
+          ref={modalRef}
+          show={isOpen}
+          onClose={() => setIsOpen(false)}
+          className="text-black dark:text-white"
+        >
+          <ModalHeader className="border-gray-200 dark:border-gray-800 pb-0">
+            Search for something
+          </ModalHeader>
+          <ModalBody className="max-h-[400px] overflow-hidden px-4 py-2">
+            <CustomSearchBox />
+          </ModalBody>
+          <ModalFooter className="px-4 py-4">
+            <p className="text-gray-500 dark:text-gray-400 flex items-center gap-1 justify-end w-full text-md">
+              Powered by <FaAlgolia /> AlgoliaSearch
+            </p>
+          </ModalFooter>
+        </Modal>
+      )}
     </InstantSearch>
   );
 }
