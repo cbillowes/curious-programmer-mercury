@@ -107,6 +107,7 @@ function CustomSearchBox(
             value={inputValue}
             onChange={(event) => {
               setInputValue(event.currentTarget.value);
+              refine(event.currentTarget.value);
             }}
             autoFocus
             onKeyDown={(e) => {
@@ -116,14 +117,6 @@ function CustomSearchBox(
             }}
           />
         </div>
-        <Button
-          className="bg-pink-600 cursor-pointer"
-          onClick={() => {
-            refine(inputValue);
-          }}
-        >
-          Search
-        </Button>
       </div>
       {['loading', 'stalled'].includes(status) ? (
         <Spinner
@@ -137,7 +130,7 @@ function CustomSearchBox(
             <Alert color="yellow">No results found.</Alert>
           )}
           {results && results.hits.length > 0 && (
-            <div className="max-h-96 overflow-y-auto">
+            <div className="max-h-80 overflow-scroll mb-8">
               {results.hits.map((hit) => (
                 <Hit key={hit.objectID} hit={hit} onNavigate={onNavigate} />
               ))}
@@ -192,7 +185,7 @@ export function Search() {
           <ModalHeader className="border-gray-200 dark:border-gray-800 pb-0">
             Search for something
           </ModalHeader>
-          <ModalBody className="max-h-[400px] overflow-hidden px-4 py-2">
+          <ModalBody className="max-h-[400px] overflow-hidden px-4 py-2 pb-8">
             <CustomSearchBox onNavigate={() => setIsOpen(false)} />
           </ModalBody>
           <ModalFooter className="px-4 py-4">
