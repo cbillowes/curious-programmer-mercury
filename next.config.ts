@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
 import { withContentCollections } from '@content-collections/next';
-import flowbitePlugin from 'flowbite/plugin';
+import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 const nextConfig: NextConfig = {
   images: {
@@ -28,7 +28,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ['flowbite-react'],
   webpack: async (config, { isServer }) => {
     if (!isServer) {
-      config.plugins.push(flowbitePlugin);
+      config.plugins.push(withFlowbiteReact);
     }
     return config;
   },
