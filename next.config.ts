@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  transpilePackages: ['flowbite-react'],
 };
 
 // withContentCollections must be the outermost plugin
