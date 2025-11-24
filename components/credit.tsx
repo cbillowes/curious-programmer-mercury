@@ -1,3 +1,5 @@
+'use client';
+
 export function Credit({
   credit,
   creditSource,
@@ -10,9 +12,12 @@ export function Credit({
   return (
     creditLink && (
       <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
-        <a href={creditLink} target="_blank" rel="noopener noreferrer">
-          {credit} {credit && creditSource && " | "} {creditSource}
-        </a>
+        <button
+          onClick={() => window.open(creditLink, '_blank')}
+          className="cursor-pointer"
+        >
+          {credit} {credit && creditSource && ' | '} {creditSource}
+        </button>
       </div>
     )
   );
