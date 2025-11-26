@@ -6,10 +6,11 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
 import { Badge, Tooltip } from 'flowbite-react';
-import { GifPlayer, parseAst } from '@/components/gif-player';
+import { GifPlayer } from '@/components/gif-player';
 import { CodeBlock, CodeInline } from '@/components/code-block';
 import { Link } from '@/components/link';
-import { ExternalLink, Link as LinkIcon } from 'lucide-react';
+import { Link as LinkIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -168,6 +169,27 @@ export function Markdown({ content }: { content: string }) {
                   ))}
                 </div>
               );
+            }
+            if (children.startsWith('badge:')) {
+              const attributes = children.replace('badge:', '').trim();
+              const [className, text] = attributes
+                .split(',')
+                .map((s) => s.trim());
+              return (
+                <Badge
+                  color={className}
+                  className={cn(
+                    'inline rounded-md px-2',
+                    className.replace('className=', ''),
+                  )}
+                >
+                  {text.replace('text=', '')}
+                </Badge>
+              );
+            }
+            if (children.startsWith('pronounce:')) {
+              const word = children.replace('pronounce:', '').trim();
+              return <CodeInline language="">{word}</CodeInline>;
             }
           }
           const language = getLanguageFromClassName(className);
