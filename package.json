@@ -13,9 +13,11 @@
   "dependencies": {
     "@docsearch/css": "4.3.2",
     "@docsearch/react": "4.3.2",
+    "@netlify/neon": "^0.1.0",
     "@next/third-parties": "16.0.3",
     "algoliasearch": "5.44.0",
     "clsx": "2.1.1",
+    "drizzle-orm": "^0.44.7",
     "ffmpeg": "0.0.4",
     "flowbite": "4.0.1",
     "flowbite-react": "0.12.10",
