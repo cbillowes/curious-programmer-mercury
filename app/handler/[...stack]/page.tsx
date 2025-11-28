@@ -1,5 +1,10 @@
-import { StackHandler } from "@stackframe/stack";
+import { Page } from '@/components/page';
+import { StackHandler } from '@stackframe/stack';
 
 export default function Handler() {
-  return <StackHandler fullPage />;
+  return (
+    <Page>
+      <StackHandler fullPage />
+    </Page>
+  );
 }

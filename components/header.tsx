@@ -6,8 +6,11 @@ import { ReactNode, useState } from 'react';
 import { Link } from '@/components/link';
 import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
 import { useThemeMode } from 'flowbite-react';
-import { Search } from './search';
+import { Search } from '@/components/search';
 import { useClickOutside } from '@/hooks/use-click-outside';
+import { Avatar, AvatarDropdown } from '@/components/avatar';
+import { useAuth } from '@/hooks/use-auth';
+import { useStackApp } from '@stackframe/stack';
 
 function MenuItemLink({
   active,
@@ -147,6 +150,8 @@ export function Header() {
   const sidebar = localStorage.getItem('sidebar');
   const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
   const { mode, toggleMode } = useThemeMode();
+  const user = useAuth(false);
+  const app = useStackApp();
 
   const toggleSidebarState = () => {
     const newState = !isSidebarOpen;
@@ -187,6 +192,7 @@ export function Header() {
                   {mode === 'dark' && <FaSun />}
                   {mode === 'light' && <FaMoon />}
                 </button>
+                <AvatarDropdown />
               </div>
             </div>
           </div>
@@ -231,6 +237,7 @@ export function Header() {
                     icon={<FaCode />}
                   />
                 </div>
+                {user && <Avatar />}
               </div>
             </div>
           </div>
