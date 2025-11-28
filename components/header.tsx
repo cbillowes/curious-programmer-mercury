@@ -10,7 +10,6 @@ import { Search } from '@/components/search';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { Avatar, AvatarDropdown } from '@/components/avatar';
 import { useAuth } from '@/hooks/use-auth';
-import { useStackApp } from '@stackframe/stack';
 
 function MenuItemLink({
   active,
@@ -150,8 +149,7 @@ export function Header() {
   const sidebar = localStorage.getItem('sidebar');
   const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
   const { mode, toggleMode } = useThemeMode();
-  const user = useAuth(false);
-  const app = useStackApp();
+  const user = useAuth();
 
   const toggleSidebarState = () => {
     const newState = !isSidebarOpen;
