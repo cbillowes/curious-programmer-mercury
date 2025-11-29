@@ -8,7 +8,7 @@ import { MdBookmarkRemove } from 'react-icons/md';
 
 export function Bookmark({
   slug,
-  bookmarks,
+  bookmarks = [],
   onChange,
 }: {
   slug: string;
