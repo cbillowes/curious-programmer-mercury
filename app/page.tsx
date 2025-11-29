@@ -74,7 +74,7 @@ export async function generateMetadata() {
     description:
       'Explore a spectrum of skills at Curious Programmer—soft to technical. Articles, courses, and notes for continuous learning in software engineering.',
     slug: '/',
-    image: '/home.webp',
+    image: '/home.png',
     type: 'website',
   });
 }
