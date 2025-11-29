@@ -21,7 +21,6 @@ export function Tag({ tag, prefix, className, redirect }: TagProps) {
   return (
     <Link
       href={`/tag/${_.kebabCase(tag)}`}
-      title={tag.toLowerCase()}
       className={className}
     >
       {prefix}
@@ -48,25 +47,26 @@ export function Tags({
   const prefix = isButton ? '' : '#';
 
   return (
-    tags &&
-    tags.map((tag, index) => {
-      return (
-        <Tag
-          key={index}
-          tag={tag}
-          className={cn(
-            'transition-colors',
-            isButton &&
-              'py-1 bg-yellow-300 text-yellow-900 px-4 rounded mx-1 mt-4 inline-block hover:text-white hover:bg-pink-600',
-            !isButton &&
-              'ml-2 text-black dark:text-white leading-loose hover:text-pink-600 hover:dark:text-pink-400',
-            redirect && 'cursor-pointer',
-            additionalClasses,
-          )}
-          prefix={prefix}
-          redirect={redirect}
-        />
-      );
-    })
+    tags && (
+      <div className="flex justify-center flex-wrap">
+        {tags.map((tag, index) => (
+          <Tag
+            key={index}
+            tag={tag}
+            className={cn(
+              'transition-colors',
+              isButton &&
+                'py-1 bg-yellow-300 text-yellow-900 px-4 rounded mx-1 mt-4 inline-block hover:text-white hover:bg-pink-600',
+              !isButton &&
+                'ml-2 text-black dark:text-white leading-loose hover:text-pink-600 hover:dark:text-pink-400',
+              redirect && 'cursor-pointer',
+              additionalClasses,
+            )}
+            prefix={prefix}
+            redirect={redirect}
+          />
+        ))}
+      </div>
+    )
   );
 }
