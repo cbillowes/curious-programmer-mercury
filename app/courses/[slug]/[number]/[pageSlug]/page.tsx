@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
 import { getBookmarks } from '@/db/bookmark';
+import { getLikes } from '@/db/likes';
 
 function getPageSlug(slug: string, number: string, pageSlug: string) {
   return `/courses/${slug}/${number.padStart(2, '0')}/${pageSlug}`;
@@ -39,6 +40,7 @@ export default async function CoursePagePage({ params }: Props) {
   const data = getCoursePageBySlug(getPageSlug(slug, number, pageSlug));
   if (!data) notFound();
   const bookmarks = await getBookmarks();
+  const likes = await getLikes();
 
   return (
     <Page>
@@ -55,6 +57,7 @@ export default async function CoursePagePage({ params }: Props) {
         <CoursePageContent
           coursePages={data}
           bookmarks={bookmarks.map((b) => b.slug)}
+          likes={likes.map((l) => l.slug)}
         />
       </Container>
     </Page>
