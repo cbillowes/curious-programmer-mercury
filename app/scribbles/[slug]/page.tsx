@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
       title: data.title,
       description: data.abstract ?? '',
       slug: data.slug,
-      image: data.cover,
+      image: data.cover!,
       date: data.date,
       type: 'article',
     });
@@ -40,7 +40,7 @@ export default async function ScribblePage({ params }: Props) {
   return (
     <Page>
       <Hero
-        image={data.cover}
+        image={data.cover!}
         title={data.title}
         credit={data.credit}
         creditLink={data.creditLink}
