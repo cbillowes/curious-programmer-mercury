@@ -8,19 +8,22 @@ import { Thumbnail } from '@/components/thumbnail';
 import { Metadata } from '@/components/metadata';
 import { FaArrowRight } from 'react-icons/fa6';
 import { Scribble } from '@/lib/scribbles';
-import { Course } from '@/lib/courses';
+import { Course, CoursePage } from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
 import { useState } from 'react';
+import { Type } from './type';
 
 export function Articles({
   data,
   bookmarks,
   filterOnChange,
+  showType,
   empty,
 }: {
-  data: Article[] | Scribble[] | Course[];
+  data: Article[] | Scribble[] | Course[] | CoursePage[];
   bookmarks: { slug: string }[];
   filterOnChange?: boolean;
+  showType?: boolean;
   empty?: React.ReactNode;
 }) {
   const [articles, setArticles] = useState(data);
@@ -40,6 +43,7 @@ export function Articles({
           timeToRead,
           cover,
           abstract,
+          type,
           credit,
           creditLink,
           creditSource,
@@ -50,6 +54,11 @@ export function Articles({
           >
             <Ribbon>#{number}</Ribbon>
             <Link href={slug}>
+              {showType && (
+                <div className="absolute top-3 left-3 z-50">
+                  <Type type={type} showType={false} className="scale-75" />
+                </div>
+              )}
               {cover && (
                 <Thumbnail
                   src={cover}
@@ -67,7 +76,7 @@ export function Articles({
             </h3>
             <div className="flex items-center mb-3 space-x-3">
               <Image
-                className="w-8 h-8 rounded-full border-4 border-white"
+                className="w-8 h-8 rounded-full border-2 border-white"
                 src="/headshot.webp"
                 alt="Clarice Bouwer"
                 width={32}

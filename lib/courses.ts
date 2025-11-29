@@ -39,6 +39,9 @@ export type CoursePage = {
   abstract?: string;
   tags?: string[];
   timeToRead?: number;
+  credit?: string;
+  creditSource?: string;
+  creditLink?: string;
   next?: CoursePage;
   previous?: CoursePage;
   course?: Course;

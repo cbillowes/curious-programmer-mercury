@@ -3,8 +3,12 @@ import { Container } from '@/components/container';
 import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { Type } from '@/components/type';
 import { getBookmarks } from '@/db/bookmark';
-import { getArticles } from '@/lib/articles';
+import { Article, getArticles } from '@/lib/articles';
+import { getContent } from '@/lib/content';
+import { Course, CoursePage } from '@/lib/courses';
+import { Scribble } from '@/lib/scribbles';
 import { getPageMetadata } from '@/lib/utils';
 
 export async function generateMetadata() {
@@ -20,19 +24,19 @@ export async function generateMetadata() {
 
 const sections = [
   {
-    type: 'article',
+    type: 'article' as const,
     href: '/blog',
     title: 'Blog',
     description: 'Read articles on programming, technology, and more.',
   },
   {
-    type: 'scribbles',
+    type: 'scribble' as const,
     href: '/scribbles',
     title: 'Scribbles',
     description: 'Short thoughts and musings on various topics.',
   },
   {
-    type: 'course',
+    type: 'course' as const,
     href: '/courses',
     title: 'Courses',
     description: 'Learn new skills with our curated courses.',
@@ -45,42 +49,46 @@ function EmptyContents() {
       <p className="text-center mb-4">
         Your bookmarks are empty. Would you like to explore some content?
       </p>
-      <div className="flex gap-4">
-        {sections.map((section) => (
-          <Link
-            key={section.href}
-            href={section.href}
-            className="p-6 border border-gray-200 rounded-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
-          >
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {section.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {section.description}
-            </p>
-          </Link>
-        ))}
-      </div>
     </div>
   );
 }
 
 export default async function MyBookmarksPage() {
-  const allArticles = getArticles();
+  const allContent = getContent();
   const bookmarks = await getBookmarks();
-  const articles = allArticles.filter((article) =>
-    bookmarks.some((bookmark) => bookmark.slug === article.slug),
-  );
+  const content = allContent.filter((content) =>
+    bookmarks.some((bookmark) => bookmark.slug === content.slug),
+  ) as Article[] | Scribble[] | Course[] | CoursePage[];
   return (
     <Page>
       <Container>
         <PageHeading>Bookmarks</PageHeading>
         <Articles
-          data={articles}
+          data={content}
           bookmarks={bookmarks}
           filterOnChange={true}
+          showType={true}
           empty={<EmptyContents />}
         />
+        <div className="flex gap-4 my-4">
+          {sections.map((section) => (
+            <Link
+              key={section.href}
+              href={section.href}
+              className="p-6 border border-gray-200 rounded-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800 flex gap-4"
+            >
+              <Type type={section.type} showType={false} />
+              <div>
+                <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {section.title}
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {section.description}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </Container>
     </Page>
   );

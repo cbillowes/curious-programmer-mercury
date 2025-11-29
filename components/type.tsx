@@ -5,9 +5,11 @@ import { TbBook, TbSchool, TbScribble } from 'react-icons/tb';
 export function Type({
   type,
   className,
+  showType = true,
 }: {
-  type: 'scribble' | 'article' | 'course';
+  type: 'scribble' | 'article' | 'course' | 'page';
   className?: string;
+  showType?: boolean;
 }) {
   return (
     <div
@@ -34,13 +36,13 @@ export function Type({
             <TbBook />
           </Link>
         )}
-        {type === 'course' && (
+        {['course', 'page'].includes(type) && (
           <Link href="/courses">
             <TbSchool />
           </Link>
         )}
       </span>
-      {type}
+      {showType && type}
     </div>
   );
 }
