@@ -3,7 +3,7 @@
 import { db } from '@/db';
 import { favorites } from '@/db/schema';
 import { stackServerApp } from '@/stack/server';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, desc } from 'drizzle-orm';
 
 export async function addToLikes(slug: string) {
   const user = await stackServerApp.getUser();
@@ -21,7 +21,7 @@ export async function getLikes() {
     .select()
     .from(favorites)
     .where(eq(favorites.userId, user.id))
-    .orderBy(favorites.order);
+    .orderBy(desc(favorites.dateAdded));
 }
 
 export async function deleteLike(slug: string) {
