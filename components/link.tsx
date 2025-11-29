@@ -34,34 +34,38 @@ export function Link(props: Props) {
 
   if (typeof href === 'string' && href.startsWith('http')) {
     return (
-      <Tooltip content={title ?? children}>
-        <a
-          {...rest}
-          aria-label={title}
-          className={cn('inline-flex items-center gap-1', className)}
-          target="_blank"
-          rel="noreferrer nofollow"
-          href={`${href}?utm_source=curious_programmer.dev&utm_medium=referral&utm_campaign=external_link`}
-        >
-          {children}
-          {!hideExternal && (
-            <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
-          )}
-        </a>
-      </Tooltip>
+      <div className="inline-flex">
+        <Tooltip content={title ?? children}>
+          <a
+            {...rest}
+            aria-label={title}
+            className={cn('inline-flex items-center gap-1', className)}
+            target="_blank"
+            rel="noreferrer nofollow"
+            href={`${href}?utm_source=curious_programmer.dev&utm_medium=referral&utm_campaign=external_link`}
+          >
+            {children}
+            {!hideExternal && (
+              <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
+            )}
+          </a>
+        </Tooltip>
+      </div>
     );
   }
 
   return (
-    <Tooltip content={title}>
-      <NextLink
-        {...rest}
-        href={href ?? '#'}
-        className={className}
-        onClick={handleClick}
-      >
-        {children}
-      </NextLink>
-    </Tooltip>
+    <div className="inline-flex">
+      <Tooltip content={title}>
+        <NextLink
+          {...rest}
+          href={href ?? '#'}
+          className={className}
+          onClick={handleClick}
+        >
+          {children}
+        </NextLink>
+      </Tooltip>
+    </div>
   );
 }
