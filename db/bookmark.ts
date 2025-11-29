@@ -3,7 +3,7 @@
 import { db } from '@/db';
 import { bookmarks } from '@/db/schema';
 import { stackServerApp } from '@/stack/server';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, desc } from 'drizzle-orm';
 
 export async function addToBookmarks(slug: string) {
   const user = await stackServerApp.getUser();
@@ -21,7 +21,7 @@ export async function getBookmarks() {
     .select()
     .from(bookmarks)
     .where(eq(bookmarks.userId, user.id))
-    .orderBy(bookmarks.dateAdded);
+    .orderBy(desc(bookmarks.dateAdded));
 }
 
 export async function deleteBookmark(slug: string) {
