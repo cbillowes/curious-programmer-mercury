@@ -137,7 +137,7 @@ export function Preview({
         <Ribbon>#{number}</Ribbon>
         <div className={cn(isEven ? 'xl:justify-end' : 'xl:justify-start')}>
           <Thumbnail
-            src={cover}
+            src={cover ?? '/blog/default-01.png'}
             alt={title}
             width={800}
             height={600}
