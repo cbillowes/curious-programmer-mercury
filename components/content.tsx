@@ -294,7 +294,7 @@ export function ScribbleContent({
             link={devTo}
           />
         </div>
-        <div className="text-center">
+        <div className="flex justify-center items-center gap-2 mt-2">
           <Bookmark bookmarks={bookmarks} slug={slug} />
           <Like likes={likes} slug={slug} />
         </div>
@@ -353,7 +353,7 @@ export function CourseContent({
             modified={modified}
           />
         </div>
-        <div className="text-center">
+        <div className="flex justify-center items-center gap-2 mt-2">
           <Bookmark bookmarks={bookmarks} slug={slug} />
           <Like likes={likes} slug={slug} />
         </div>
@@ -434,7 +434,7 @@ export function CoursePageContent({
             modified={modified}
           />
         </div>
-        <div className="text-center">
+        <div className="flex justify-center items-center gap-2 mt-2">
           <Bookmark bookmarks={bookmarks} slug={slug} />
           <Like likes={likes} slug={slug} />
         </div>
