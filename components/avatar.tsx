@@ -44,7 +44,7 @@ export function AvatarDropdown() {
         <span className="block text-sm">{user.displayName}</span>
         <span className="block truncate text-xs font-medium">{user.email}</span>
       </DropdownHeader>
-      <DropdownItem href="/my">Dashboard</DropdownItem>
+      <DropdownItem href={app.urls.accountSettings}>Profile</DropdownItem>
       <DropdownItem href="/my/bookmarks">Bookmarks</DropdownItem>
       <DropdownItem href="/my/likes">Likes</DropdownItem>
       <DropdownDivider />

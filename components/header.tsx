@@ -10,6 +10,7 @@ import { Search } from '@/components/search';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { Avatar, AvatarDropdown } from '@/components/avatar';
 import { useAuth } from '@/hooks/use-auth';
+import { useStackApp } from '@stackframe/stack';
 
 function MenuItemLink({
   active,
@@ -145,6 +146,7 @@ function ToggleSidebar({
 }
 
 export function Header() {
+  const app = useStackApp();
   const active = typeof window !== 'undefined' ? window.location.pathname : '';
   const sidebar = localStorage.getItem('sidebar');
   const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
@@ -236,7 +238,10 @@ export function Header() {
                   />
                 </div>
                 {user && (
-                  <Link className="py-4 px-4 flex justify-start" href="/my">
+                  <Link
+                    className="py-4 px-4 flex justify-start"
+                    href={app.urls.accountSettings}
+                  >
                     <Avatar />
                   </Link>
                 )}
