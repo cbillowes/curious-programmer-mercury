@@ -100,6 +100,7 @@ function toCoursePage(page: CourseMeta, index: number): CoursePage {
     date: new Date(page.date),
     modified: page.modified ? new Date(page.modified) : undefined,
     timeToRead: Math.ceil(readingTime(page.content).minutes),
+    cover: `/blog/${page.cover ?? 'default-06.jpg'}`,
   };
 }
 

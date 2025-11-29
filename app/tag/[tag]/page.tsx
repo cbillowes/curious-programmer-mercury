@@ -34,7 +34,7 @@ export default async function TagPage({ params }: Props) {
         <PageHeading>{prettifyTag(tag)}</PageHeading>
         <ul>
           {data.map((item, index) => (
-            <Preview key={index} index={index} data={item} />
+            <Preview key={index} index={index} data={item} bookmarks={[]} />
           ))}
         </ul>
       </Container>

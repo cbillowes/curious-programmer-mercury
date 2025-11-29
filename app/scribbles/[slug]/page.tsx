@@ -5,6 +5,7 @@ import { ScribbleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
+import { getBookmarks } from '@/db/bookmark';
 
 type Props = {
   params: {
@@ -32,6 +33,7 @@ export default async function ScribblePage({ params }: Props) {
 
   const data = getScribbleBySlug(slug);
   if (!data) notFound();
+  const bookmarks = await getBookmarks();
 
   return (
     <Page>
@@ -43,7 +45,10 @@ export default async function ScribblePage({ params }: Props) {
         creditSource={data.creditSource}
       />
       <Container>
-        <ScribbleContent {...data} />
+        <ScribbleContent
+          scribble={data}
+          bookmarks={bookmarks.map((b) => b.slug)}
+        />
       </Container>
     </Page>
   );

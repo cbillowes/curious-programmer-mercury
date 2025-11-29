@@ -7,7 +7,7 @@ import { Type } from '@/components/type';
 import { getBookmarks } from '@/db/bookmark';
 import { Article, getArticles } from '@/lib/articles';
 import { getContent } from '@/lib/content';
-import { Course, CoursePage } from '@/lib/courses';
+import { Course, CoursePage, getCourseBySlug } from '@/lib/courses';
 import { Scribble } from '@/lib/scribbles';
 import { getPageMetadata } from '@/lib/utils';
 
@@ -59,13 +59,14 @@ export default async function MyBookmarksPage() {
   const content = allContent.filter((content) =>
     bookmarks.some((bookmark) => bookmark.slug === content.slug),
   ) as Article[] | Scribble[] | Course[] | CoursePage[];
+
   return (
     <Page>
       <Container>
         <PageHeading>Bookmarks</PageHeading>
         <Articles
           data={content}
-          bookmarks={bookmarks}
+          bookmarks={bookmarks.map((b) => b.slug)}
           filterOnChange={true}
           showType={true}
           empty={<EmptyContents />}

@@ -13,6 +13,7 @@ import { Course, CoursePage } from '@/lib/courses';
 import { ShareWidget } from '@/components/share';
 import { Comments } from '@/components/comments';
 import { Tooltip } from 'flowbite-react';
+import { Bookmark } from '@/components/bookmark';
 
 type IconProps = {
   icon: string;
@@ -131,7 +132,7 @@ function Navigation({
 
 function Author() {
   return (
-    <aside className="flex items-center mt-8 mb-6 not-italic max-w-2xl mx-auto">
+    <aside className="max-w-3xl mx-auto flex items-center mt-8 mb-6 not-italic">
       <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
         <Image
           className="mr-4 w-16 h-16 rounded-full border-4 border-white"
@@ -158,17 +159,24 @@ function Author() {
 }
 
 export function ArticleContent({
-  type,
-  slug,
-  number,
-  title,
-  tags,
-  timeToRead,
-  date,
-  content,
-  next,
-  previous,
-}: Article) {
+  article,
+  bookmarks,
+}: {
+  article: Article;
+  bookmarks: string[];
+}) {
+  const {
+    type,
+    slug,
+    number,
+    title,
+    tags,
+    timeToRead,
+    date,
+    content,
+    next,
+    previous,
+  } = article;
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
@@ -179,6 +187,9 @@ export function ArticleContent({
         </h1>
         <div className="text-center">
           <Metadata timeToRead={timeToRead} date={date} type={type} />
+        </div>
+        <div className="text-center">
+          <Bookmark bookmarks={bookmarks} slug={slug} />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
@@ -242,18 +253,25 @@ export function ResumeContent({
 }
 
 export function ScribbleContent({
-  type,
-  slug,
-  number,
-  title,
-  tags,
-  timeToRead,
-  date,
-  content,
-  devTo,
-  next,
-  previous,
-}: Scribble) {
+  scribble,
+  bookmarks,
+}: {
+  scribble: Scribble;
+  bookmarks: string[];
+}) {
+  const {
+    type,
+    slug,
+    number,
+    title,
+    tags,
+    timeToRead,
+    date,
+    content,
+    devTo,
+    next,
+    previous,
+  } = scribble;
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
@@ -271,9 +289,11 @@ export function ScribbleContent({
           />
         </div>
         <div className="text-center">
+          <Bookmark bookmarks={bookmarks} slug={slug} />
+        </div>
+        <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
         </div>
-
         <Author />
       </header>
       <StickyHeader number={number} title={title} type={type} />
@@ -288,19 +308,26 @@ export function ScribbleContent({
 }
 
 export function CourseContent({
-  type,
-  slug,
-  number,
-  title,
-  tags,
-  timeToRead,
-  date,
-  modified,
-  content,
-  pages,
-  next,
-  previous,
-}: Course) {
+  course,
+  bookmarks,
+}: {
+  course: Course;
+  bookmarks: string[];
+}) {
+  const {
+    type,
+    slug,
+    number,
+    title,
+    tags,
+    timeToRead,
+    date,
+    modified,
+    content,
+    pages,
+    next,
+    previous,
+  } = course;
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
@@ -318,9 +345,11 @@ export function CourseContent({
           />
         </div>
         <div className="text-center">
+          <Bookmark bookmarks={bookmarks} slug={slug} />
+        </div>
+        <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
         </div>
-
         <Author />
       </header>
       <StickyHeader number={number} title={title} type={type} />
@@ -329,13 +358,17 @@ export function CourseContent({
         <nav>
           <h2>Pages</h2>
           {pages.map((page, index) => (
-            <div key={index} className="hover:bg-pink-600">
+            <div
+              key={index}
+              className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4"
+            >
               <Link
                 href={page.slug}
-                className="border-b border-dashed py-4 block text-black! dark:text-white! hover:text-white! font-normal! px-4"
+                className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
               >
                 {page.number}. {page.title}
               </Link>
+              <Bookmark bookmarks={bookmarks} slug={slug} />
             </div>
           ))}
         </nav>
@@ -348,19 +381,26 @@ export function CourseContent({
 }
 
 export function CoursePageContent({
-  type,
-  slug,
-  number,
-  title,
-  tags,
-  timeToRead,
-  date,
-  modified,
-  content,
-  next,
-  previous,
-  course,
-}: CoursePage) {
+  coursePages: coursePage,
+  bookmarks,
+}: {
+  coursePages: CoursePage;
+  bookmarks: string[];
+}) {
+  const {
+    type,
+    slug,
+    number,
+    title,
+    tags,
+    timeToRead,
+    date,
+    modified,
+    content,
+    next,
+    previous,
+    course,
+  } = coursePage;
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
@@ -381,6 +421,9 @@ export function CoursePageContent({
             type={type}
             modified={modified}
           />
+        </div>
+        <div className="text-center">
+          <Bookmark bookmarks={bookmarks} slug={slug} />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}

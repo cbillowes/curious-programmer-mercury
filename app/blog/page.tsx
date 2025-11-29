@@ -43,10 +43,8 @@ export default async function BlogPage() {
                   #{number}. {title}
                 </Link>
                 <Bookmark
+                  bookmarks={bookmarks.map((b) => b.slug)}
                   slug={slug}
-                  bookmarked={
-                    !!bookmarks.find((bookmark) => bookmark.slug === slug)
-                  }
                 />
               </div>
             ))}

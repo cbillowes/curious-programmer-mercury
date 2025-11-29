@@ -8,7 +8,12 @@ import { Thumbnail } from '@/components/thumbnail';
 import { Metadata } from '@/components/metadata';
 import { FaArrowRight } from 'react-icons/fa6';
 import { Scribble } from '@/lib/scribbles';
-import { Course, CoursePage } from '@/lib/courses';
+import {
+  Course,
+  CoursePage,
+  getCourseBySlug,
+  getCoursePageBySlug,
+} from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
 import { useState } from 'react';
 import { Type } from './type';
@@ -21,21 +26,21 @@ export function Articles({
   empty,
 }: {
   data: Article[] | Scribble[] | Course[] | CoursePage[];
-  bookmarks: { slug: string }[];
+  bookmarks: string[];
   filterOnChange?: boolean;
   showType?: boolean;
   empty?: React.ReactNode;
 }) {
-  const [articles, setArticles] = useState(data);
+  const [content, setContent] = useState(data);
 
-  if (articles.length === 0) {
+  if (content.length === 0) {
     return empty ?? <p>No content was found.</p>;
   }
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
-      {articles.map(
-        ({
+      {content.map((c) => {
+        const {
           slug,
           title,
           date,
@@ -47,7 +52,12 @@ export function Articles({
           credit,
           creditLink,
           creditSource,
-        }) => (
+        } = c;
+        let courseTitle = '';
+        if (type === 'page' && c.parent) {
+          courseTitle = getCoursePageBySlug(slug)?.course?.title ?? '';
+        }
+        return (
           <article
             key={slug}
             className="relative p-4 mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
@@ -55,7 +65,7 @@ export function Articles({
             <Ribbon>#{number}</Ribbon>
             <Link href={slug}>
               {showType && (
-                <div className="absolute top-3 left-3 z-50">
+                <div className="absolute top-3 left-3 z-10">
                   <Type type={type} showType={false} className="scale-75" />
                 </div>
               )}
@@ -74,6 +84,7 @@ export function Articles({
             <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
               <Link href={slug}>{title}</Link>
             </h3>
+            {courseTitle && <h4 className="my-2 font-bold">{courseTitle}</h4>}
             <div className="flex items-center mb-3 space-x-3">
               <Image
                 className="w-8 h-8 rounded-full border-2 border-white"
@@ -96,14 +107,12 @@ export function Articles({
             <p className="mb-3 text-gray-500 dark:text-gray-400">{abstract}</p>
             <div className="flex gap-2 items-center justify-start">
               <Bookmark
-                bookmarked={
-                  !!bookmarks.find((bookmark) => bookmark.slug === slug)
-                }
+                bookmarks={bookmarks}
                 slug={slug}
                 onChange={(added) => {
                   if (!filterOnChange) return;
                   if (!added) {
-                    setArticles(
+                    setContent(
                       (prev) =>
                         prev.filter(
                           (content) => content.slug !== slug,
@@ -122,8 +131,8 @@ export function Articles({
               </Link>
             </div>
           </article>
-        ),
-      )}
+        );
+      })}
     </div>
   );
 }

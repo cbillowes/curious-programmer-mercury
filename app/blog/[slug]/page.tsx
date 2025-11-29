@@ -7,6 +7,7 @@ import { ArticleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
+import { getBookmarks } from '@/db/bookmark';
 
 type Props = {
   params: {
@@ -42,6 +43,7 @@ export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
 
   const data = getArticlesByYearOrSlug(slug);
+  const bookmarks = await getBookmarks();
 
   if (!Array.isArray(data)) {
     if (data) {
@@ -55,7 +57,10 @@ export default async function ArticlePage({ params }: Props) {
             creditSource={data.creditSource}
           />
           <Container>
-            <ArticleContent {...data} />
+            <ArticleContent
+              article={data}
+              bookmarks={bookmarks.map((b) => b.slug)}
+            />
           </Container>
         </Page>
       );
@@ -74,7 +79,12 @@ export default async function ArticlePage({ params }: Props) {
         <PageHeading>{slug} Articles</PageHeading>
         <ul>
           {data.map((article, index) => (
-            <Preview key={index} index={index} data={article} />
+            <Preview
+              key={index}
+              index={index}
+              data={article}
+              bookmarks={bookmarks.map((b) => b.slug)}
+            />
           ))}
         </ul>
       </Container>

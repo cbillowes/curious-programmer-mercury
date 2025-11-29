@@ -1,20 +1,21 @@
 'use client';
 
-import { Article } from '@/lib/articles';
 import { cn } from '@/lib/utils';
 import { Button, Spinner, Tooltip } from 'flowbite-react';
 import { useState } from 'react';
 import { FaBookmark } from 'react-icons/fa6';
+import { MdBookmarkRemove } from 'react-icons/md';
 
 export function Bookmark({
   slug,
-  bookmarked,
+  bookmarks,
   onChange,
 }: {
   slug: string;
-  bookmarked: boolean;
+  bookmarks: string[];
   onChange?: (bookmarked: boolean) => void;
 }) {
+  const bookmarked = bookmarks.includes(slug);
   const [content, setContent] = useState(
     bookmarked ? 'Bookmarked' : 'Add to your bookmarks',
   );
@@ -53,7 +54,13 @@ export function Bookmark({
           isBookmarked && 'text-pink-600 dark:text-pink-500',
         )}
       >
-        {isBusy ? <Spinner size="sm" /> : <FaBookmark />}
+        {isBusy ? (
+          <Spinner size="sm" />
+        ) : isBookmarked ? (
+          <MdBookmarkRemove size={20} />
+        ) : (
+          <FaBookmark size={14} />
+        )}
       </Button>
     </Tooltip>
   );

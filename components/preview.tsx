@@ -14,9 +14,11 @@ import { Type } from '@/components/type';
 export function Preview({
   index,
   data,
+  bookmarks,
 }: {
   index: number;
   data: Article | Scribble | Course;
+  bookmarks: string[];
 }) {
   const isEven = index % 2 === 0;
   const { title, slug, date, abstract, tags, number, timeToRead, cover, type } =
@@ -96,7 +98,7 @@ export function Preview({
             isEven ? 'xl:flex-row' : 'xl:flex-row-reverse'
           }`}
         >
-          <Bookmark bookmarked={false} slug={slug} />
+          <Bookmark bookmarks={bookmarks} slug={slug} />
           <Link
             className={cn(
               'bg-pink-600 text-white rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:scale-105 transition-all duration-300',

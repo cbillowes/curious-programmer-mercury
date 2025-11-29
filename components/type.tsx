@@ -24,6 +24,7 @@ export function Type({
           type === 'scribble' && 'bg-blue-500 ring-blue-300',
           type === 'article' && 'bg-pink-500 ring-pink-300',
           type === 'course' && 'bg-violet-500 ring-violet-300',
+          type === 'page' && 'bg-red-500 ring-red-300',
         )}
       >
         {type === 'scribble' && (

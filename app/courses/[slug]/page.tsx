@@ -5,6 +5,7 @@ import { getCourseBySlug } from '@/lib/courses';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
+import { getBookmarks } from '@/db/bookmark';
 
 type Props = {
   params: {
@@ -31,6 +32,7 @@ export default async function CoursePage({ params }: Props) {
 
   const data = getCourseBySlug(slug);
   if (!data) notFound();
+  const bookmarks = await getBookmarks();
 
   return (
     <Page>
@@ -42,7 +44,10 @@ export default async function CoursePage({ params }: Props) {
         creditSource={data.creditSource}
       />
       <Container>
-        <CourseContent {...data} />
+        <CourseContent
+          course={data}
+          bookmarks={bookmarks.map((b) => b.slug)}
+        />
       </Container>
     </Page>
   );
