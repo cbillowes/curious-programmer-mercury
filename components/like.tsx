@@ -8,7 +8,7 @@ import { RiHeartFill } from 'react-icons/ri';
 
 export function Like({
   slug,
-  likes,
+  likes = [],
   onChange,
 }: {
   slug: string;
