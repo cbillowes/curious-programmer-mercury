@@ -191,7 +191,7 @@ export function ArticleContent({
         <div className="text-center">
           <Metadata timeToRead={timeToRead} date={date} type={type} />
         </div>
-        <div className="text-center">
+        <div className="flex justify-center items-center gap-2 mt-2">
           <Bookmark bookmarks={bookmarks} slug={slug} />
           <Like likes={likes} slug={slug} />
         </div>
