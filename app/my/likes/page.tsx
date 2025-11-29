@@ -58,9 +58,9 @@ export default async function MyBookmarksPage() {
   const allContent = getContent();
   const bookmarks = await getBookmarks();
   const likes = await getLikes();
-  const content = allContent.filter((content) =>
-    likes.some((like) => like.slug === content.slug),
-  ) as Article[] | Scribble[] | Course[] | CoursePage[];
+  const content = likes.map((like) => {
+    return allContent.find((content) => content.slug === like.slug);
+  }) as Article[] | Scribble[] | Course[] | CoursePage[];
 
   return (
     <Page>
