@@ -12,3 +12,14 @@ export const favorites = pgTable('favorites', {
     .defaultNow()
     .notNull(),
 });
+
+export const bookmarks = pgTable('bookmarks', {
+  id: serial('id').primaryKey().notNull(),
+  userId: text('user_id')
+    .notNull()
+    .references(() => usersSync.id),
+  slug: text('slug').notNull(),
+  dateAdded: timestamp('date_added', { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+});

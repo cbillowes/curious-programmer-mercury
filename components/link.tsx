@@ -6,11 +6,20 @@ import { cn } from '@/lib/utils';
 import { ExternalLink } from 'lucide-react';
 import NextLink from 'next/link';
 import NProgress from 'nprogress';
-import { Tooltip } from 'flowbite-react';
+import { Tooltip as FlowbiteTooltip } from 'flowbite-react';
 
 type Props = ComponentProps<'a'> & {
   hideExternal?: boolean;
 };
+
+function Tooltip(props: {
+  content?: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  const { content, children } = props;
+  if (!content) return <>{children}</>;
+  return <FlowbiteTooltip content={content}>{children}</FlowbiteTooltip>;
+}
 
 export function Link(props: Props) {
   const router = useRouter();
@@ -25,7 +34,7 @@ export function Link(props: Props) {
 
   if (typeof href === 'string' && href.startsWith('http')) {
     return (
-      <Tooltip content={title}>
+      <Tooltip content={title ?? children}>
         <a
           {...rest}
           aria-label={title}

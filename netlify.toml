@@ -1,0 +1,5 @@
+[dev]
+command = "npm run dev" # or your specific dev command
+targetPort = 3000       # the port your dev server runs on
+port = 8888             # the port Netlify Dev will proxy to
+publish = "dist"        # or your build output directory

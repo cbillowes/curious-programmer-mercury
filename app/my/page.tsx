@@ -1,7 +1,9 @@
+import { Articles } from '@/components/articles';
 import { Container } from '@/components/container';
-import { MyDashboard } from '@/components/my/dashboard';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { getBookmarks } from '@/db/bookmark';
+import { getArticles } from '@/lib/articles';
 import { getPageMetadata } from '@/lib/utils';
 
 export async function generateMetadata() {
@@ -16,11 +18,21 @@ export async function generateMetadata() {
 }
 
 export default async function MyPage() {
+  const allArticles = getArticles();
+  const bookmarks = await getBookmarks();
+  const articles = allArticles.filter((article) =>
+    bookmarks.some((bookmark) => bookmark.slug === article.slug),
+  );
   return (
     <Page>
       <Container>
         <PageHeading>Dashboard</PageHeading>
-        <MyDashboard />
+        <Articles
+          data={articles}
+          bookmarks={bookmarks}
+          filterOnChange={true}
+          empty={<div>You have no bookmarks yet.</div>}
+        />
       </Container>
     </Page>
   );

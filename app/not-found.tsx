@@ -2,6 +2,7 @@ import { Articles } from '@/components/articles';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { getBookmarks } from '@/db/bookmark';
 import { getArticles } from '@/lib/articles';
 import { getPageMetadata } from '@/lib/utils';
 
@@ -17,6 +18,7 @@ export async function generateMetadata() {
 }
 
 export default async function NotFoundPage() {
+  const bookmarks = await getBookmarks();
   return (
     <Page>
       <Container>
@@ -26,6 +28,7 @@ export default async function NotFoundPage() {
         </p>
         {
           <Articles
+            bookmarks={bookmarks}
             data={getArticles()
               .filter((a) => a.featured)
               .sort((a, b) => b.number - a.number)

@@ -7,11 +7,11 @@ import { TbBook } from 'react-icons/tb';
 import { TbSchool } from 'react-icons/tb';
 import { cn, slugifyTag } from '@/lib/utils';
 import { Badge } from 'flowbite-react';
-import _ from 'lodash';
 import { Thumbnail } from './thumbnail';
 import { Article } from '@/lib/articles';
 import { Scribble } from '@/lib/scribbles';
 import { Course } from '@/lib/courses';
+import { Bookmark } from '@/components/bookmark';
 
 export function Preview({
   index,
@@ -124,13 +124,14 @@ export function Preview({
             isEven ? 'xl:flex-row' : 'xl:flex-row-reverse'
           }`}
         >
+          <Bookmark bookmarked={false} slug={slug} />
           <Link
             className={cn(
               'bg-pink-600 text-white rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:scale-105 transition-all duration-300',
               isEven ? 'xl:mr-2' : 'xl:ml-4',
             )}
             href={slug}
-            title={slug}
+            title="Read more"
           >
             Read more
           </Link>

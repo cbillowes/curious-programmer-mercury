@@ -8,6 +8,7 @@ import { SiClojure, SiGooglecloud } from 'react-icons/si';
 import { Page } from '@/components/page';
 import { Articles } from '@/components/articles';
 import { getPageMetadata } from '@/lib/utils';
+import { getBookmarks } from '@/db/bookmark';
 
 function Socials() {
   return (
@@ -77,7 +78,8 @@ export async function generateMetadata() {
   });
 }
 
-export default function Home() {
+export default async function Home() {
+  const bookmarks = await getBookmarks();
   return (
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900 py-5">
@@ -577,6 +579,7 @@ export default function Home() {
             <div className="relative">
               <div className="bg-white duration-700 ease-in-out dark:bg-gray-900 mb-4">
                 <Articles
+                  bookmarks={bookmarks}
                   data={getArticles()
                     .filter((a) => a.featured)
                     .sort((a, b) => b.number - a.number)

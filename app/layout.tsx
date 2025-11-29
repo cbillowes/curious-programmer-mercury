@@ -1,11 +1,11 @@
+import { Suspense } from 'react';
 import { ThemeModeScript, ThemeProvider } from 'flowbite-react';
 import { StackProvider, StackTheme } from '@stackframe/stack';
-import { stackClientApp } from '@/stack/client';
 import { Open_Sans, Fira_Code } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { flowbiteTheme } from '@/components/theme';
-import { Suspense } from 'react';
 import { ProgressBar } from '@/components/progress-bar';
+import { stackServerApp } from '@/stack/server';
 import './globals.css';
 
 const openSans = Open_Sans({
@@ -29,7 +29,7 @@ export default function RootLayout({
         <ThemeModeScript />
       </head>
       <body className={`${openSans.variable} ${firaCode.variable} antialiased`}>
-        <StackProvider app={stackClientApp}>
+        <StackProvider app={stackServerApp}>
           <StackTheme>
             <Suspense fallback={null}>
               <ProgressBar>
