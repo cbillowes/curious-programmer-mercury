@@ -9,7 +9,6 @@ tags:
   - Continuous Learning
 creditSource: GPT-4o
 creditLink: https://chatgpt.com/
-abstract:
 ---
 
 Unhealthy life choices aside, let's imagine that you're a small kid standing in a candy store 🍬 and the candy is stacked wall to wall 🤤 ranging from different types of chocolates, hard candies, soft candies, marshmallows, licorice, and a whole lot more. You're with your best friends and you only have a bit of time before your parents drag you back home, potentially empty handed.

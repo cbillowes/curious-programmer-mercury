@@ -8,7 +8,7 @@ export interface Scribble {
   number: number;
   title: string;
   date: Date;
-  cover: string;
+  cover?: string;
   content: string;
   devTo?: string;
   credit?: string;

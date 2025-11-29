@@ -5,7 +5,7 @@ import readingTime from 'reading-time';
 type CourseMeta = {
   title: string;
   date: string;
-  modified: string;
+  modified?: string;
   content: string;
   slug?: string;
   parent?: string;
@@ -54,7 +54,7 @@ export type Course = {
   pages: CoursePage[];
   title: string;
   date: Date;
-  modified: Date;
+  modified?: Date;
   cover: string;
   content: string;
   parent?: string;
@@ -84,7 +84,10 @@ function toCourse(data: CourseMeta, i: number): Course {
     type: 'course' as const,
     pages,
     date: new Date(data.date),
-    modified: new Date(data.modified),
+    modified:
+      data.modified && data.modified.trim() !== ''
+        ? new Date(data.modified)
+        : undefined,
     timeToRead: Math.ceil(readingTime(timeToRead).minutes),
     cover: `/blog/${data.cover ?? 'default-06.jpg'}`,
   };

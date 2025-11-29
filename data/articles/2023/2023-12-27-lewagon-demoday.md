@@ -8,7 +8,6 @@ tags:
   - Le Wagon
   - Continuous Learning
   - Data Science
-abstract:
 ---
 
 Presenting the Smart Compliance initiative—a strategic approach to combat fraud.
