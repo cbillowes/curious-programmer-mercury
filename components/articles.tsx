@@ -8,26 +8,26 @@ import { Thumbnail } from '@/components/thumbnail';
 import { Metadata } from '@/components/metadata';
 import { FaArrowRight } from 'react-icons/fa6';
 import { Scribble } from '@/lib/scribbles';
-import {
-  Course,
-  CoursePage,
-  getCourseBySlug,
-  getCoursePageBySlug,
-} from '@/lib/courses';
+import { Course, CoursePage, getCoursePageBySlug } from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
 import { useState } from 'react';
-import { Type } from './type';
+import { Type } from '@/components/type';
+import { Like } from '@/components/like';
 
 export function Articles({
   data,
   bookmarks,
-  filterOnChange,
+  likes,
+  filterOnBookmarkChange,
+  filterOnLikeChange,
   showType,
   empty,
 }: {
   data: Article[] | Scribble[] | Course[] | CoursePage[];
   bookmarks: string[];
-  filterOnChange?: boolean;
+  likes: string[];
+  filterOnBookmarkChange?: boolean;
+  filterOnLikeChange?: boolean;
   showType?: boolean;
   empty?: React.ReactNode;
 }) {
@@ -36,6 +36,15 @@ export function Articles({
   if (content.length === 0) {
     return empty ?? <p>No content was found.</p>;
   }
+
+  const handleContentChange = (added: boolean, slug: string) => {
+    if (!added) {
+      setContent(
+        (prev) =>
+          prev.filter((content) => content.slug !== slug) as typeof prev,
+      );
+    }
+  };
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
@@ -109,17 +118,16 @@ export function Articles({
               <Bookmark
                 bookmarks={bookmarks}
                 slug={slug}
-                onChange={(added) => {
-                  if (!filterOnChange) return;
-                  if (!added) {
-                    setContent(
-                      (prev) =>
-                        prev.filter(
-                          (content) => content.slug !== slug,
-                        ) as typeof prev,
-                    );
-                  }
-                }}
+                onChange={(added) =>
+                  filterOnBookmarkChange && handleContentChange(added, slug)
+                }
+              />
+              <Like
+                likes={likes}
+                slug={slug}
+                onChange={(added) =>
+                  filterOnLikeChange && handleContentChange(added, slug)
+                }
               />
               <Link
                 title="Read more"

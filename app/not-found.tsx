@@ -3,6 +3,7 @@ import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getBookmarks } from '@/db/bookmark';
+import { getLikes } from '@/db/likes';
 import { getArticles } from '@/lib/articles';
 import { getPageMetadata } from '@/lib/utils';
 
@@ -19,6 +20,7 @@ export async function generateMetadata() {
 
 export default async function NotFoundPage() {
   const bookmarks = await getBookmarks();
+  const likes = await getLikes();
   return (
     <Page>
       <Container>
@@ -28,7 +30,8 @@ export default async function NotFoundPage() {
         </p>
         {
           <Articles
-            bookmarks={bookmarks}
+            bookmarks={bookmarks.map((b) => b.slug)}
+            likes={likes.map((l) => l.slug)}
             data={getArticles()
               .filter((a) => a.featured)
               .sort((a, b) => b.number - a.number)

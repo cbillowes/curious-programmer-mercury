@@ -2,38 +2,36 @@
 
 import { cn } from '@/lib/utils';
 import { Button, Spinner, Tooltip } from 'flowbite-react';
+import { Heart } from 'lucide-react';
 import { useState } from 'react';
-import { FaBookmark } from 'react-icons/fa6';
-import { MdBookmarkRemove } from 'react-icons/md';
+import { RiHeartFill } from 'react-icons/ri';
 
-export function Bookmark({
+export function Like({
   slug,
-  bookmarks,
+  likes,
   onChange,
 }: {
   slug: string;
-  bookmarks: string[];
-  onChange?: (bookmarked: boolean) => void;
+  likes: string[];
+  onChange?: (liked: boolean) => void;
 }) {
-  const bookmarked = bookmarks.includes(slug);
-  const [content, setContent] = useState(
-    bookmarked ? 'Bookmarked' : 'Add to your bookmarks',
-  );
-  const [isBookmarked, setIsBookmarked] = useState(bookmarked);
+  const liked = likes.includes(slug);
+  const [content, setContent] = useState(liked ? 'Liked' : 'Add to your likes');
+  const [isLiked, setIsLiked] = useState(liked);
   const [isBusy, setIsBusy] = useState(false);
 
-  const handleBookmark = async () => {
+  const handleLike = async () => {
     setIsBusy(true);
-    const result = await fetch('/api/bookmark/', {
+    const result = await fetch('/api/like/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ slug, bookmark: !isBookmarked }),
+      body: JSON.stringify({ slug, like: !isLiked }),
     });
     const { message, added } = await result.json();
     setContent(message);
-    setIsBookmarked(added);
+    setIsLiked(added);
     setIsBusy(false);
     if (onChange) {
       onChange(added);
@@ -43,20 +41,20 @@ export function Bookmark({
   return (
     <Tooltip content={content} placement="top">
       <Button
-        onClick={handleBookmark}
+        onClick={handleLike}
         color="alternative"
         size="xs"
         className={cn(
           'cursor-pointer inline-flex gap-2 items-center font-medium text-gray-900 dark:text-white',
-          isBookmarked && 'text-pink-600 dark:text-pink-500',
+          isLiked && 'text-pink-600 dark:text-pink-500',
         )}
       >
         {isBusy ? (
           <Spinner size="sm" />
-        ) : isBookmarked ? (
-          <MdBookmarkRemove size={20} />
+        ) : isLiked ? (
+          <RiHeartFill size={20} />
         ) : (
-          <FaBookmark size={14} />
+          <Heart size={14} />
         )}
       </Button>
     </Tooltip>

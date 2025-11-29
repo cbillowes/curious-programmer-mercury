@@ -3,9 +3,9 @@
 import { db } from '@/db';
 import { favorites } from '@/db/schema';
 import { stackServerApp } from '@/stack/server';
-import { eq, desc, and } from 'drizzle-orm';
+import { eq, and } from 'drizzle-orm';
 
-export async function addToFavorites(slug: string) {
+export async function addToLikes(slug: string) {
   const user = await stackServerApp.getUser();
   if (!user) throw new Error('Not authenticated');
   await db.insert(favorites).values({
@@ -14,7 +14,7 @@ export async function addToFavorites(slug: string) {
   });
 }
 
-export async function getFavorites() {
+export async function getLikes() {
   const user = await stackServerApp.getUser();
   if (!user) return [];
   return db
@@ -24,7 +24,7 @@ export async function getFavorites() {
     .orderBy(favorites.order);
 }
 
-export async function deleteFavorite(slug: string) {
+export async function deleteLike(slug: string) {
   const user = await stackServerApp.getUser();
   if (!user) throw new Error('Not authenticated');
   await db

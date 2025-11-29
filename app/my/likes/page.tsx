@@ -59,18 +59,18 @@ export default async function MyBookmarksPage() {
   const bookmarks = await getBookmarks();
   const likes = await getLikes();
   const content = allContent.filter((content) =>
-    bookmarks.some((bookmark) => bookmark.slug === content.slug),
+    likes.some((like) => like.slug === content.slug),
   ) as Article[] | Scribble[] | Course[] | CoursePage[];
 
   return (
     <Page>
       <Container>
-        <PageHeading>My Bookmarks</PageHeading>
+        <PageHeading>My Likes</PageHeading>
         <Articles
           data={content}
           bookmarks={bookmarks.map((b) => b.slug)}
           likes={likes.map((b) => b.slug)}
-          filterOnBookmarkChange={true}
+          filterOnLikeChange={true}
           showType={true}
           empty={<EmptyContents />}
         />

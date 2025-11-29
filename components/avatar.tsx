@@ -46,6 +46,7 @@ export function AvatarDropdown() {
       </DropdownHeader>
       <DropdownItem href="/my">Dashboard</DropdownItem>
       <DropdownItem href="/my/bookmarks">Bookmarks</DropdownItem>
+      <DropdownItem href="/my/likes">Likes</DropdownItem>
       <DropdownDivider />
       <DropdownItem href={app.urls.signOut}>Sign out</DropdownItem>
     </Dropdown>

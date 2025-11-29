@@ -14,6 +14,7 @@ import { ShareWidget } from '@/components/share';
 import { Comments } from '@/components/comments';
 import { Tooltip } from 'flowbite-react';
 import { Bookmark } from '@/components/bookmark';
+import { Like } from '@/components/like';
 
 type IconProps = {
   icon: string;
@@ -161,9 +162,11 @@ function Author() {
 export function ArticleContent({
   article,
   bookmarks,
+  likes,
 }: {
   article: Article;
   bookmarks: string[];
+  likes: string[];
 }) {
   const {
     type,
@@ -190,6 +193,7 @@ export function ArticleContent({
         </div>
         <div className="text-center">
           <Bookmark bookmarks={bookmarks} slug={slug} />
+          <Like likes={likes} slug={slug} />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
@@ -255,9 +259,11 @@ export function ResumeContent({
 export function ScribbleContent({
   scribble,
   bookmarks,
+  likes,
 }: {
   scribble: Scribble;
   bookmarks: string[];
+  likes: string[];
 }) {
   const {
     type,
@@ -290,6 +296,7 @@ export function ScribbleContent({
         </div>
         <div className="text-center">
           <Bookmark bookmarks={bookmarks} slug={slug} />
+          <Like likes={likes} slug={slug} />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
@@ -310,9 +317,11 @@ export function ScribbleContent({
 export function CourseContent({
   course,
   bookmarks,
+  likes,
 }: {
   course: Course;
   bookmarks: string[];
+  likes: string[];
 }) {
   const {
     type,
@@ -346,6 +355,7 @@ export function CourseContent({
         </div>
         <div className="text-center">
           <Bookmark bookmarks={bookmarks} slug={slug} />
+          <Like likes={likes} slug={slug} />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
@@ -383,9 +393,11 @@ export function CourseContent({
 export function CoursePageContent({
   coursePages: coursePage,
   bookmarks,
+  likes,
 }: {
   coursePages: CoursePage;
   bookmarks: string[];
+  likes: string[];
 }) {
   const {
     type,
@@ -424,6 +436,7 @@ export function CoursePageContent({
         </div>
         <div className="text-center">
           <Bookmark bookmarks={bookmarks} slug={slug} />
+          <Like likes={likes} slug={slug} />
         </div>
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
