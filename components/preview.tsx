@@ -2,9 +2,6 @@ import Image from 'next/image';
 import { Link } from '@/components/link';
 import { Metadata } from '@/components/metadata';
 import { Ribbon } from '@/components/ribbon';
-import { TbScribble } from 'react-icons/tb';
-import { TbBook } from 'react-icons/tb';
-import { TbSchool } from 'react-icons/tb';
 import { cn, slugifyTag } from '@/lib/utils';
 import { Badge } from 'flowbite-react';
 import { Thumbnail } from './thumbnail';
@@ -12,6 +9,7 @@ import { Article } from '@/lib/articles';
 import { Scribble } from '@/lib/scribbles';
 import { Course } from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
+import { Type } from '@/components/type';
 
 export function Preview({
   index,
@@ -39,40 +37,14 @@ export function Preview({
             : 'xl:text-right xl:border-r xl:pr-8',
         )}
       >
-        <div
-          className={cn(
-            `uppercase mb-6 text-center mt-5 xl:mt-0 flex flex-col items-center`,
+        <Type
+          type={type}
+          className={
             isEven
               ? 'xl:text-left xl:items-start'
-              : 'xl:text-right xl:items-end',
-          )}
-        >
-          <span
-            className={cn(
-              'flex items-center justify-center w-12 h-12 rounded-full text-4xl -start-3 ring-8 mb-4 text-white',
-              type === 'scribble' && 'bg-blue-500 ring-blue-300',
-              type === 'article' && 'bg-pink-500 ring-pink-300',
-              type === 'course' && 'bg-violet-500 ring-violet-300',
-            )}
-          >
-            {type === 'scribble' && (
-              <Link href="/scribbles">
-                <TbScribble />
-              </Link>
-            )}
-            {type === 'article' && (
-              <Link href="/blog">
-                <TbBook />
-              </Link>
-            )}
-            {type === 'course' && (
-              <Link href="/courses">
-                <TbSchool />
-              </Link>
-            )}
-          </span>
-          {type}
-        </div>
+              : 'xl:text-right xl:items-end'
+          }
+        />
         <h2
           className={cn(
             'text-2xl mt-8 xl:mt-0 md:text-4xl font-bold tracking-tighter',
@@ -120,7 +92,7 @@ export function Preview({
           </p>
         </div>
         <div
-          className={`flex items-center flex-wrap ${
+          className={`flex items-center flex-wrap gap-2 ${
             isEven ? 'xl:flex-row' : 'xl:flex-row-reverse'
           }`}
         >
