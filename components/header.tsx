@@ -235,7 +235,11 @@ export function Header() {
                     icon={<FaCode />}
                   />
                 </div>
-                {user && <Avatar />}
+                {user && (
+                  <Link className="py-4 px-4 flex justify-start" href="/my">
+                    <Avatar />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
