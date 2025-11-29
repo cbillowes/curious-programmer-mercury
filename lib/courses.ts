@@ -142,10 +142,10 @@ function getNextCoursePage(
   courseSlug: string,
   pageSlug: string,
 ): CoursePage | undefined {
-  const course = allCourses
+  const pages = allCourses
     .filter((c) => c.parent === courseSlug)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-  const pages = course.map((p, i) => toCoursePage(p, i));
+    .map((p, i) => toCoursePage(p, i))
+    .sort((a, b) => a.number - b.number);
   const index = pages.findIndex((p) => p.slug === pageSlug);
   if (index >= 0 && index < pages?.length - 1) {
     return pages[index + 1];
@@ -157,10 +157,10 @@ function getPreviousCoursePage(
   courseSlug: string,
   pageSlug: string,
 ): CoursePage | undefined {
-  const course = allCourses
+  const pages = allCourses
     .filter((c) => c.parent === courseSlug)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-  const pages = course.map((p, i) => toCoursePage(p, i));
+    .map((p, i) => toCoursePage(p, i))
+    .sort((a, b) => a.number - b.number);
   const index = pages.findIndex((p) => p.slug === pageSlug);
   if (index > 0) {
     return pages[index - 1];
@@ -205,8 +205,8 @@ export function getCourses(): Course[] {
 export function getCoursePages(slug: string): CoursePage[] {
   return allCourses
     .filter((c) => c.parent === slug)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    .map((p, i) => toCoursePage(p, i));
+    .map((p, i) => toCoursePage(p, i))
+    .sort((a, b) => a.number - b.number);
 }
 
 export function getCourseBySlug(slug: string): Course | undefined {
