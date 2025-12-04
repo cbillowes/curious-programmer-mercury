@@ -11,6 +11,7 @@ import { CodeBlock, CodeInline } from '@/components/code-block';
 import { Link } from '@/components/link';
 import { Link as LinkIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Alert } from '@/components/alert';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -159,6 +160,12 @@ export function Markdown({ content }: { content: string }) {
                   alt={caption}
                 />
               );
+            }
+            if (children.startsWith('alert:')) {
+              const alert = children.replace('alert:', '').trim();
+              const type = alert.split(':')[0].split('=')[1];
+              const message = alert.split(':').slice(1).join(':').trim();
+              return <Alert type={type} message={message} />;
             }
             if (children.startsWith('tags:')) {
               const tags = children.replace('tags:', '').trim().split(',');
