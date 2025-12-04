@@ -35,7 +35,7 @@ export function Link(props: Props) {
   if (typeof href === 'string' && href.startsWith('http')) {
     return (
       <div className="inline-flex">
-        <Tooltip content={title ?? children}>
+        <Tooltip content={title}>
           <a
             {...rest}
             aria-label={title}
