@@ -151,10 +151,6 @@ body {
   @apply border-4 border-gray-200! dark:bg-gray-800! dark:border-gray-700!;
 }
 
-#article .title {
-  @apply bg-gray-200! dark:bg-gray-800! rounded-none! px-4 py-2 text-black/40 dark:text-white/40;
-}
-
 #article pre div,
 #article code {
   @apply bg-white! rounded-md! dark:bg-slate-900!;
@@ -231,9 +227,5 @@ body {
   #article code,
   #article p code {
     @apply bg-white!;
-  }
-
-  #article .title {
-    @apply hidden;
   }
 }
