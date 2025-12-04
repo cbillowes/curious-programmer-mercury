@@ -190,4 +190,4 @@ export default function RootLayout({
 
 :sun_with_face: :crescent_moon: You have successfully implemented theme toggling in your Next.js blog.
 
-The next chapter concludes the course.
+In the next chapter, you'll learn how to keep your project dependencies up to date by automating the upgrade process!
