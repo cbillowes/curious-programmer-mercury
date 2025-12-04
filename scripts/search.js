@@ -2,12 +2,12 @@ const search = require('algoliasearch');
 
 require('dotenv').config();
 
-const client = search.algoliasearch('V33FO4456K', process.env.ALGOLIA_API_KEY);
+const client = search.algoliasearch(process.env.NEXT_PUBLIC_ALGOLIA_APP_ID, process.env.ALGOLIA_API_KEY);
 
-fetch('https://curiousprogrammer.dev/api/search')
+fetch(`${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/search`)
   .then((res) => res.json())
   .then((content) => {
-    return client.saveObjects({ indexName: 'Pages', objects: content });
+    return client.saveObjects({ indexName: process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME, objects: content });
   })
   .then(() => {
     console.log('Successfully indexed objects!');
