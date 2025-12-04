@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "search-index": "node ./scripts/search.js"
+    "search:index": "node ./scripts/search.js"
   },
   "dependencies": {
     "@docsearch/css": "4.3.2",
