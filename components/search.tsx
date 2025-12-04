@@ -11,7 +11,6 @@ import {
 } from 'react-instantsearch';
 import {
   Alert,
-  Button,
   Modal,
   ModalBody,
   ModalFooter,
