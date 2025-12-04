@@ -68,7 +68,7 @@ function HeadingLink({
   };
 
   return (
-    <div className="flex items-center justify-start gap-4">
+    <div className="flex items-center justify-start gap-2">
       <button
         onClick={handleCopy}
         className="heading-anchor text-black! dark:text-white! cursor-pointer"
@@ -92,7 +92,7 @@ function getLanguageFromClassName(className: string | undefined) {
 
 function getTitleFromClassName(className: string | undefined) {
   if (!className) return '';
-  const match = /:title=(\w+\.\w+)/.exec(className);
+  const match = /:title=([\w\/\.\-\[\]]+)/.exec(className);
   return match ? match[1] : '';
 }
 
