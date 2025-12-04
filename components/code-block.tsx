@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { useThemeMode } from 'flowbite-react';
+import { Badge, useThemeMode } from 'flowbite-react';
 import {
   materialLight,
   materialDark,
@@ -29,7 +29,17 @@ export function CodeBlock({
 
   return (
     <div>
-      <div className="title">{title}</div>
+      <div className="w-full flex items-center justify-between space-x-2 bg-gray-200! dark:bg-gray-800! rounded-none! px-4 py-2 text-black/40 dark:text-white/40">
+        <div className="bg-transparent!">
+          {title && (
+            <div className="bg-transparent!">
+              <span className="text-black/30 dark:text-white/30">File: </span>
+              {title}
+            </div>
+          )}
+        </div>
+        {language && <Badge>{language}</Badge>}
+      </div>
       <div className="relative group my-4">
         {/* Floating copy button - only visible on hover */}
         <button
