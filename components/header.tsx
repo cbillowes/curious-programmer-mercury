@@ -176,10 +176,11 @@ export function Header() {
                   toggle={toggleSidebarState}
                 />
                 <Link href="/" className="flex ml-2 md:mr-4">
-                  <span className="self-center text-lg sm:text-xl whitespace-nowrap text-gray-900 dark:text-white font-light print:text-black">
+                  <span className="self-center text-lg sm:text-xl whitespace-nowrap text-gray-900 dark:text-white font-light print:text-black hidden sm:block">
                     {`{ `} curious{' '}
                     <strong className="font-bold">programmer</strong> {` }`}
                   </span>
+                  <span className="block sm:hidden font-black text-3xl">{'{ }'}</span>
                 </Link>
               </div>
               <div className="print:hidden flex items-center gap-2">
