@@ -436,7 +436,7 @@ export function CoursePageContent({
         </h1>
         <div className="text-center">
           {course && (
-            <Link href={course.slug} className="mb-2 block">
+            <Link href={`/courses/${course.slug}`} className="mb-2 block">
               {course.title}
             </Link>
           )}
