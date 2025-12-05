@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "watch": "nodemon",
-    "dev": "concurrently \"npm run watch\" \"next dev\" \"netlify dev\"",
+    "dev": "concurrently \"npm run watch\" \"next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
