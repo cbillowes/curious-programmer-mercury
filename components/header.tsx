@@ -167,7 +167,7 @@ export function Header() {
   return (
     <>
       <nav className="print:hidden fixed w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl z-100">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="px-3 py-3 lg:px-5 lg:pl-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center justify-start">
