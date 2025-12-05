@@ -5,11 +5,9 @@ import { Ribbon } from '@/components/ribbon';
 import { cn, slugifyTag } from '@/lib/utils';
 import { Badge } from 'flowbite-react';
 import { Thumbnail } from './thumbnail';
-import { Article } from '@/lib/articles';
-import { Scribble } from '@/lib/scribbles';
-import { Course } from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
 import { Type } from '@/components/type';
+import { Article, Scribble, Course } from '@/.content-collections/generated';
 
 export function Preview({
   index,

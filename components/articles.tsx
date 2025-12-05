@@ -1,18 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import { Article } from '@/lib/articles';
 import { Ribbon } from '@/components/ribbon';
 import { Link } from '@/components/link';
 import { Thumbnail } from '@/components/thumbnail';
 import { Metadata } from '@/components/metadata';
 import { FaArrowRight } from 'react-icons/fa6';
-import { Scribble } from '@/lib/scribbles';
-import { Course, CoursePage, getCoursePageBySlug } from '@/lib/courses';
+import { getCoursePageBySlug } from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
 import { useState } from 'react';
 import { Type } from '@/components/type';
 import { Like } from '@/components/like';
+import { Article, Course, Scribble } from '@/.content-collections/generated';
 
 export function Articles({
   data,
@@ -23,7 +22,7 @@ export function Articles({
   showType,
   empty,
 }: {
-  data: Article[] | Scribble[] | Course[] | CoursePage[];
+  data: Article[] | Scribble[] | Course[];
   bookmarks: string[];
   likes: string[];
   filterOnBookmarkChange?: boolean;

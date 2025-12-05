@@ -1,3 +1,4 @@
+import { Article, Course, Scribble } from '@/.content-collections/generated';
 import { Articles } from '@/components/articles';
 import { Container } from '@/components/container';
 import { Link } from '@/components/link';
@@ -6,10 +7,7 @@ import { PageHeading } from '@/components/page-heading';
 import { Type } from '@/components/type';
 import { getBookmarks } from '@/db/bookmark';
 import { getLikes } from '@/db/likes';
-import { Article } from '@/lib/articles';
 import { getContent } from '@/lib/content';
-import { Course, CoursePage } from '@/lib/courses';
-import { Scribble } from '@/lib/scribbles';
 import { getPageMetadata } from '@/lib/utils';
 
 export async function generateMetadata() {
@@ -60,7 +58,7 @@ export default async function MyBookmarksPage() {
   const likes = await getLikes();
   const content = likes.map((like) => {
     return allContent.find((content) => content.slug === like.slug);
-  }) as Article[] | Scribble[] | Course[] | CoursePage[];
+  }) as Article[] | Scribble[] | Course[];
 
   return (
     <Page>

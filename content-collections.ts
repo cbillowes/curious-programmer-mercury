@@ -1,5 +1,7 @@
 import { defineCollection, defineConfig } from '@content-collections/core';
 import { z } from 'zod';
+import { extractExcerpt, slugify, toHeroImageUrl } from '@/lib/utils';
+import readingTime from 'reading-time';
 
 const articles = defineCollection({
   name: 'articles',
@@ -18,6 +20,25 @@ const articles = defineCollection({
     featured: z.boolean().optional(),
     content: z.string(),
   }),
+  transform: async (doc, meta) => {
+    const docs = await meta.collection.documents();
+    const idx = docs.findIndex((d) => doc._meta.filePath === d._meta.filePath);
+    const previous = idx > 0 ? docs[idx - 1] : null;
+    const next = idx < docs.length - 1 ? docs[idx + 1] : null;
+    const slug = slugify(doc.slug ?? doc.title);
+    return {
+      ...doc,
+      slug: `/blog/${slug}`,
+      date: new Date(doc.date),
+      timeToRead: Math.ceil(readingTime(doc.content).minutes),
+      abstract: doc.abstract ?? extractExcerpt(doc.content),
+      cover: toHeroImageUrl('blog', 'default-05.jpg', doc.cover),
+      type: 'article' as const,
+      number: idx + 1,
+      previous,
+      next,
+    };
+  },
 });
 
 const courses = defineCollection({
@@ -39,6 +60,73 @@ const courses = defineCollection({
     creditSource: z.string().optional(),
     creditLink: z.url().optional(),
   }),
+  transform: async (doc, meta) => {
+    const docs = await meta.collection.documents();
+    const course = doc.index
+      ? doc
+      : docs.find(
+          (d) => d.index === true && `/courses/${d.slug}` === doc.parent,
+        );
+    const courses = docs.filter((d) => d.index === true);
+    const pages = docs.filter((d) => d.parent === `/courses/${course?.slug}`);
+    const slug = slugify(doc.slug ?? doc.title);
+    const modified = doc.modified && new Date(doc.modified);
+    const abstract = doc.abstract ?? extractExcerpt(doc.content);
+    const cover = toHeroImageUrl('blog', 'default-06.jpg', course?.cover);
+
+    const toPage = (idx: number, d: typeof doc | null | undefined) => {
+      if (!d) return null;
+      const number = (idx + 1).toString().padStart(2, '0');
+      const slug = `/courses/${course?.slug}/${number}/${slugify(
+        d.slug ?? d.title,
+      )}`;
+      return {
+        ...d,
+        slug,
+        date: new Date(d.date),
+        timeToRead: Math.ceil(readingTime(d.content).minutes),
+        abstract: extractExcerpt(d.content, 160),
+        cover,
+        type: 'page' as const,
+        course,
+        number: idx + 1,
+      };
+    };
+
+    if (doc.index) {
+      const idx = courses.findIndex(
+        (d) => doc._meta.filePath === d._meta.filePath,
+      );
+      const previous = idx > 0 ? courses[idx - 1] : null;
+      const next = idx < courses.length - 1 ? courses[idx + 1] : null;
+      const timeToRead = pages
+        .map((p) => Math.ceil(readingTime(p.content).minutes))
+        .reduce((a, b) => a + b, 0);
+      return {
+        ...doc,
+        slug: `/courses/${slug}`,
+        date: new Date(doc.date),
+        modified,
+        // pages: pages.map((p, i) => toPage(i, p)),
+        number: idx + 1,
+        timeToRead,
+        abstract,
+        cover,
+        type: 'course' as const,
+        course: null,
+        previous,
+        next,
+      };
+    }
+    const idx = pages.findIndex((d) => doc._meta.filePath === d._meta.filePath);
+    const previous = idx > 0 ? pages[idx - 1] : null;
+    const next = idx < pages.length - 1 ? pages[idx + 1] : null;
+    return {
+      ...toPage(idx, doc),
+      previous: toPage(idx - 1, previous) || null,
+      next: toPage(idx + 1, next) || null,
+    };
+  },
 });
 
 const resume = defineCollection({
@@ -66,6 +154,14 @@ const resume = defineCollection({
     }),
     content: z.string(),
   }),
+  transform: async (doc, meta) => {
+    return {
+      ...doc,
+      slug: `/resume/${doc.slug}`,
+      share: doc.share && `/logos/${doc.share}`,
+      date: doc.resume.start ? new Date(doc.resume.start) : null,
+    };
+  },
 });
 
 const scribbles = defineCollection({
@@ -83,6 +179,25 @@ const scribbles = defineCollection({
     tags: z.array(z.string()).optional(),
     content: z.string(),
   }),
+  transform: async (doc, meta) => {
+    const docs = await meta.collection.documents();
+    const idx = docs.findIndex((d) => doc._meta.filePath === d._meta.filePath);
+    const previous = idx > 0 ? docs[idx - 1] : null;
+    const next = idx < docs.length - 1 ? docs[idx + 1] : null;
+    const slug = slugify(doc.title);
+    return {
+      ...doc,
+      slug: `/scribbles/${slug}`,
+      date: new Date(doc.date),
+      timeToRead: Math.ceil(readingTime(doc.content).minutes),
+      abstract: extractExcerpt(doc.content, 160),
+      cover: toHeroImageUrl('blog', 'default-05.jpg', doc.cover),
+      type: 'scribble' as const,
+      number: idx + 1,
+      previous,
+      next,
+    };
+  },
 });
 
 export default defineConfig({

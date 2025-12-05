@@ -39,6 +39,17 @@ export function extractExcerpt(
   return excerpt + '...';
 }
 
+export function toHeroImageUrl(
+  path: string,
+  defaultValue: string,
+  value?: string,
+) {
+  if (value?.startsWith('http')) {
+    return value;
+  }
+  return `/${path}/${value ?? defaultValue}`;
+}
+
 export function toProperCase(value: string) {
   return value.replace(/\w\S*/g, function (txt) {
     return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();

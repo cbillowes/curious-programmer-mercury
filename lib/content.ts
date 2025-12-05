@@ -1,11 +1,11 @@
-import { getArticles } from './articles';
-import { getCourses } from './courses';
-import { getScribbles } from './scribbles';
+import { getArticles } from '@/lib/articles';
+import { getCoursePages, getCourses } from '@/lib/courses';
+import { getScribbles } from '@/lib/scribbles';
 
 export function getContent() {
   const articles = getArticles();
   const scribbles = getScribbles();
   const courses = getCourses();
-  const coursePages = courses.flatMap((course) => course.pages);
+  const coursePages = getCoursePages();
   return [...articles, ...scribbles, ...courses, ...coursePages];
 }

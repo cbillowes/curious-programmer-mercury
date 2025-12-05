@@ -1,3 +1,4 @@
+import { Article, Scribble, Course } from '@/.content-collections/generated';
 import Image from 'next/image';
 import { Markdown } from '@/components/markdown';
 import { Metadata } from '@/components/metadata';
@@ -7,9 +8,6 @@ import { RiArticleLine } from 'react-icons/ri';
 import { MdOutlineSchool } from 'react-icons/md';
 import { TbScribble } from 'react-icons/tb';
 import { cn, toProperCase } from '@/lib/utils';
-import { Article } from '@/lib/articles';
-import { Scribble } from '@/lib/scribbles';
-import { Course, CoursePage } from '@/lib/courses';
 import { ShareWidget } from '@/components/share';
 import { Comments } from '@/components/comments';
 import { Tooltip } from 'flowbite-react';
@@ -88,16 +86,23 @@ function StickyHeader({
   );
 }
 
+type NavigationItemProps = {
+  title: string;
+  slug?: string;
+  number?: number;
+};
+
 function Navigation({
   previous,
   next,
 }: {
-  previous?: Article | Scribble | Course | CoursePage;
-  next?: Article | Scribble | Course | CoursePage;
+  previous?: NavigationItemProps | null;
+  next?: NavigationItemProps | null;
 }) {
+  if (!previous && !next) return;
   return (
     <nav className="max-w-3xl mx-auto print:hidden">
-      {previous && (
+      {previous && previous.slug && (
         <div className="md:float-left flex w-full md:w-1/2 justify-center md:justify-start text-center md:text-left">
           <Tooltip content={previous.title} placement="bottom">
             <Link
@@ -111,7 +116,7 @@ function Navigation({
           </Tooltip>
         </div>
       )}
-      {next && (
+      {next && next.slug && (
         <div className="md:float-right flex w-full md:w-1/2 justify-center md:justify-end">
           <Tooltip content={next.title} placement="bottom">
             <Link
@@ -350,7 +355,7 @@ export function CourseContent({
             timeToRead={timeToRead}
             date={date}
             type={type}
-            modified={modified}
+            modified={modified ? new Date(modified) : undefined}
           />
         </div>
         <div className="flex justify-center items-center gap-2 mt-2">
@@ -376,7 +381,7 @@ export function CourseContent({
                 href={page.slug}
                 className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
               >
-                {page.number}. {page.title}
+                {'number' in page && page.number}. {page.title}
               </Link>
               <Bookmark bookmarks={bookmarks} slug={slug} />
             </div>
@@ -395,7 +400,7 @@ export function CoursePageContent({
   bookmarks,
   likes,
 }: {
-  coursePages: CoursePage;
+  coursePages: Course;
   bookmarks: string[];
   likes: string[];
 }) {
@@ -431,7 +436,7 @@ export function CoursePageContent({
             timeToRead={timeToRead}
             date={date}
             type={type}
-            modified={modified}
+            modified={modified ? new Date(modified) : undefined}
           />
         </div>
         <div className="flex justify-center items-center gap-2 mt-2">

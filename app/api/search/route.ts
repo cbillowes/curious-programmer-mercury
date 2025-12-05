@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getArticles } from '@/lib/articles';
 import { getScribbles } from '@/lib/scribbles';
-import { getCourses } from '@/lib/courses';
+import { getCoursePages, getCourses } from '@/lib/courses';
 
 const stopWords = new Set([
   'the',
@@ -86,7 +86,7 @@ export async function GET() {
       imageUrl: getPathWithDomain(cover),
     }),
   );
-  const coursePages = getCourses()
+  const coursePages = getCoursePages()
     .map((course) => {
       return course.pages.map(
         ({ slug, title, abstract, cover, tags, date, content }) => ({
@@ -103,7 +103,11 @@ export async function GET() {
     })
     .flat();
   const data = [...articles, ...scribbles, ...courses, ...coursePages].sort(
-    (a, b) => b.date.getTime() - a.date.getTime(),
+    (a, b) => {
+      if (a.date > b.date) return -1;
+      if (a.date < b.date) return 1;
+      return 0;
+    },
   );
   return NextResponse.json(data);
 }

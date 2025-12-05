@@ -10,7 +10,7 @@ export function Metadata({
 }: {
   type: string;
   date?: Date;
-  modified?: Date;
+  modified?: Date | null;
   timeToRead?: number;
   link?: string;
 }) {
