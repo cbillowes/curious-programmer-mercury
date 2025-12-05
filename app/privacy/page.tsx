@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             document contains types of information that is collected and
             recorded by Curious Programmer and how we use it.
           </p>
-          <p>Last updated: 20 October 2024</p>
+          <p>Last updated: 5 December 2025</p>
           <p>
             If you have additional questions or require more information about
             our Privacy Policy, do not hesitate to contact us on
@@ -46,6 +46,33 @@ export default function PrivacyPage() {
             </Link>
             .
           </p>
+          <h2>Services</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Neon</td>
+                <td>Database hosting</td>
+              </tr>
+              <tr>
+                <td>Stack Auth</td>
+                <td>Authentication provider</td>
+              </tr>
+              <tr>
+                <td>Utterances</td>
+                <td>Commenting platform</td>
+              </tr>
+              <tr>
+                <td>Google Analytics</td>
+                <td>Website analytics</td>
+              </tr>
+            </tbody>
+          </table>
           <h2>Consent</h2>
           <p>
             By using our website, you hereby consent to our Privacy Policy and
@@ -90,6 +117,61 @@ export default function PrivacyPage() {
             dark or light more option are stored in your browser&apos;s local
             storage.
           </p>
+          <h3>Information we collect when you create an account or log in</h3>
+          <ul>
+            <li>
+              When you sign up or log in using Stack Auth, we store a unique
+              user identifier (user ID), and any profile information you grant
+              permission for (e.g. email, display name, profile picture).
+            </li>
+            <li>
+              When you bookmark or “like” content, we store that action
+              associated with your user ID, including timestamps.
+            </li>
+          </ul>
+          <h2>Purpose of this data</h2>
+          <p>We use this data to: </p>
+          <ul>
+            <li>Provide account-based preference functionality; </li>
+            <li>
+              Allow you to access your personal preferences across devices;
+            </li>
+            <li>Support website features tied to your account; </li>
+            <li>
+              Maintain and improve user experience (e.g. to show which posts you
+              liked, etc.).
+            </li>
+          </ul>
+          <h2>Data storage and third-party services</h2>
+          <ul>
+            <li>
+              Your data is stored securely in our Neon PostgreSQL database.
+            </li>
+            <li>
+              We use Stack Auth as authentication provider and Neon for database
+              — these third-party services host and process your data.
+            </li>
+            <li>
+              We do not share your personal data with advertisers or third-party
+              marketing services.
+            </li>
+          </ul>
+          <h2>Data retention & deletion</h2>
+          <ul>
+            <li>
+              We retain your account data for as long as your account exists.
+            </li>
+            <li>
+              If you request deletion of your account or data, we will remove
+              your personal data.
+            </li>
+          </ul>
+          <h2>Your rights</h2>
+          <ul>
+            <li>You can request the export of your stored data at any time.</li>
+            <li>You can ask us to delete your personal data.</li>
+            <li>You can update your profile information.</li>
+          </ul>
           <h2>How we use your information</h2>
           <p>
             We use the information we collect in various ways, including to:
@@ -99,6 +181,7 @@ export default function PrivacyPage() {
             <li>Understand and analyze how you use our website</li>
             <li>Develop new features, and functionality</li>
             <li>Read, moderate and reply to your comments</li>
+            <li>Provide a preference-based user experience</li>
           </ul>
           <h2>Commenting</h2>
           <p>
@@ -119,6 +202,12 @@ export default function PrivacyPage() {
               GitHub repository
             </Link>
             .
+          </p>
+          <h2>Security</h2>
+          <p>
+            We store data on secure servers, restrict access to authorized
+            personnel only, and use appropriate safeguards to protect against
+            unauthorized access, disclosure or loss.
           </p>
           <h2>Log Files</h2>
           <p>
