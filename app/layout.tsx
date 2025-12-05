@@ -7,6 +7,7 @@ import { flowbiteTheme } from '@/components/theme';
 import { ProgressBar } from '@/components/progress-bar';
 import { stackServerApp } from '@/stack/server';
 import './globals.css';
+import CookieBanner from '@/components/cookie-banner';
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
@@ -33,7 +34,10 @@ export default function RootLayout({
           <StackTheme>
             <Suspense fallback={null}>
               <ProgressBar>
-                <ThemeProvider theme={flowbiteTheme}>{children}</ThemeProvider>
+                <ThemeProvider theme={flowbiteTheme}>
+                  {children}
+                  <CookieBanner />
+                </ThemeProvider>
               </ProgressBar>
             </Suspense>
           </StackTheme>
