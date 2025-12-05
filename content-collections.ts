@@ -32,7 +32,7 @@ const articles = defineCollection({
       date: new Date(doc.date),
       timeToRead: Math.ceil(readingTime(doc.content).minutes),
       abstract: doc.abstract ?? extractExcerpt(doc.content),
-      cover: toHeroImageUrl('blog', 'default-05.jpg', doc.cover),
+      cover: toHeroImageUrl('blog', doc.cover),
       type: 'article' as const,
       number: idx + 1,
       previous,
@@ -72,7 +72,7 @@ const courses = defineCollection({
     const slug = slugify(doc.slug ?? doc.title);
     const modified = doc.modified && new Date(doc.modified);
     const abstract = doc.abstract ?? extractExcerpt(doc.content);
-    const cover = toHeroImageUrl('blog', 'default-06.jpg', course?.cover);
+    const cover = toHeroImageUrl('blog', course?.cover);
 
     const toPage = (idx: number, d: typeof doc | null | undefined) => {
       if (!d) return null;
@@ -89,6 +89,7 @@ const courses = defineCollection({
         cover,
         type: 'page' as const,
         course,
+        pages: null,
         number: idx + 1,
       };
     };
@@ -107,7 +108,7 @@ const courses = defineCollection({
         slug: `/courses/${slug}`,
         date: new Date(doc.date),
         modified,
-        // pages: pages.map((p, i) => toPage(i, p)),
+        pages: pages.map((p, i) => toPage(i, p)),
         number: idx + 1,
         timeToRead,
         abstract,
@@ -191,7 +192,7 @@ const scribbles = defineCollection({
       date: new Date(doc.date),
       timeToRead: Math.ceil(readingTime(doc.content).minutes),
       abstract: extractExcerpt(doc.content, 160),
-      cover: toHeroImageUrl('blog', 'default-05.jpg', doc.cover),
+      cover: toHeroImageUrl('blog', doc.cover),
       type: 'scribble' as const,
       number: idx + 1,
       previous,

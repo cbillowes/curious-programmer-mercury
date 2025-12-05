@@ -8,7 +8,7 @@ export function Metadata({
   modified,
   link,
 }: {
-  type: string;
+  type?: string;
   date?: Date;
   modified?: Date | null;
   timeToRead?: number;
@@ -23,6 +23,7 @@ export function Metadata({
         {date && <span>{toDateString(date)}</span>}
         &nbsp;&middot;&nbsp;
         {timeToRead &&
+          type &&
           ['article', 'scribble', 'chapter', 'resume'].indexOf(type) > -1 && (
             <span>Estimated {timeToRead} minute read</span>
           )}

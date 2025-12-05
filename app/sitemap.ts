@@ -11,10 +11,15 @@ function getImageUrl(image: string | undefined) {
   return url.replace(/&/g, '&amp;');
 }
 
-function getSitemapEntry(slug: string, date: Date, image: string | undefined) {
+function getSitemapEntry(
+  slug: string | null | undefined,
+  date: Date | null | undefined,
+  image: string | undefined,
+) {
+  if (!slug) return;
   return {
     url: `${WEBSITE_URL}${slug}`,
-    lastModified: new Date(date),
+    lastModified: date ? new Date(date) : new Date(),
     changeFrequency: 'yearly' as const,
     priority: 0.7,
     images: [getImageUrl(image)].filter(Boolean) as string[],
@@ -22,23 +27,18 @@ function getSitemapEntry(slug: string, date: Date, image: string | undefined) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const articles = getArticles();
-  const scribbles = getScribbles();
-  const courses = getCourses();
-  const resume = getResume();
-
-  const articleEntries: MetadataRoute.Sitemap = articles.map((a) =>
-    getSitemapEntry(a.slug, a.date, a.cover),
-  );
-  const scribbleEntries: MetadataRoute.Sitemap = scribbles.map((s) =>
-    getSitemapEntry(s.slug, s.date, s.cover),
-  );
-  const courseEntries: MetadataRoute.Sitemap = courses.map((c) =>
-    getSitemapEntry(c.slug, c.date, c.cover),
-  );
-  const resumeEntries: MetadataRoute.Sitemap = resume.map((r) =>
-    getSitemapEntry(r.slug, new Date(), r.share),
-  );
+  const articles: MetadataRoute.Sitemap = getArticles()
+    .map((a) => getSitemapEntry(a.slug, a.date, a.cover))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+  const scribbles: MetadataRoute.Sitemap = getScribbles()
+    .map((s) => getSitemapEntry(s.slug, s.date, s.cover))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+  const courses: MetadataRoute.Sitemap = getCourses()
+    .map((c) => getSitemapEntry(c.slug, c.date, c.cover))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+  const resume: MetadataRoute.Sitemap = getResume()
+    .map((r) => getSitemapEntry(r.slug, new Date(), r.share))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
   return [
     {
@@ -47,9 +47,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly',
       priority: 1,
     },
-    ...articleEntries,
-    ...scribbleEntries,
-    ...courseEntries,
-    ...resumeEntries,
+    ...articles,
+    ...scribbles,
+    ...courses,
+    ...resume,
   ];
 }

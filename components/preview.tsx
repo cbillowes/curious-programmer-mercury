@@ -96,7 +96,7 @@ export function Preview({
             isEven ? 'xl:flex-row' : 'xl:flex-row-reverse'
           }`}
         >
-          <Bookmark bookmarks={bookmarks} slug={slug} />
+          {slug && <Bookmark bookmarks={bookmarks} slug={slug} />}
           <Link
             className={cn(
               'bg-pink-600 text-white rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:scale-105 transition-all duration-300',
@@ -136,7 +136,7 @@ export function Preview({
         <div className={cn(isEven ? 'xl:justify-end' : 'xl:justify-start')}>
           <Thumbnail
             src={cover ?? '/blog/default-01.png'}
-            alt={title}
+            alt={title ?? "Hero image"}
             width={800}
             height={600}
             className="h-80"

@@ -41,13 +41,12 @@ export function extractExcerpt(
 
 export function toHeroImageUrl(
   path: string,
-  defaultValue: string,
-  value?: string,
+  value: string = '/blog/default-01.jpg',
 ) {
   if (value?.startsWith('http')) {
     return value;
   }
-  return `/${path}/${value ?? defaultValue}`;
+  return `/${path}/${value}`;
 }
 
 export function toProperCase(value: string) {
@@ -92,17 +91,17 @@ function getImageType(url: string): string {
 }
 
 export function getPageMetadata({
-  title,
-  description,
-  slug,
-  image,
+  title = '',
+  description = '',
+  slug = '/',
+  image = '/blog/default-01.jpg',
   date,
   type = 'website',
 }: {
-  title: string;
-  description: string;
-  slug: string;
-  image: string;
+  title?: string;
+  description?: string;
+  slug?: string;
+  image?: string;
   date?: Date;
   type: 'article' | 'website';
 }) {

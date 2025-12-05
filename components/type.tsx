@@ -7,10 +7,12 @@ export function Type({
   className,
   showType = true,
 }: {
-  type: 'scribble' | 'article' | 'course' | 'page';
+  type?: 'scribble' | 'article' | 'course' | 'page';
   className?: string;
   showType?: boolean;
 }) {
+  if (!type) return;
+
   return (
     <div
       className={cn(

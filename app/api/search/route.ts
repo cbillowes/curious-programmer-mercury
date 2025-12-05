@@ -30,13 +30,13 @@ const stopWords = new Set([
   "it's",
 ]);
 
-function getPathWithDomain(path: string) {
+function getPathWithDomain(path: string = '/blog/default-01.jpg') {
   return path.startsWith('http')
     ? path
     : `https://curiousprogrammer.dev${path}`;
 }
 
-function getKeywords(content: string) {
+function getKeywords(content: string = '') {
   const normalized = content.toLowerCase().replace(/[^a-z0-9\']/g, ' ');
   const words = normalized.split(/ /g).filter((word) => word.length > 3);
   const wordCount: Record<string, number> = {};
@@ -86,27 +86,26 @@ export async function GET() {
       imageUrl: getPathWithDomain(cover),
     }),
   );
-  const coursePages = getCoursePages()
-    .map((course) => {
-      return course.pages.map(
-        ({ slug, title, abstract, cover, tags, date, content }) => ({
-          objectID: slug,
-          date,
-          title,
-          tags,
-          abstract,
-          slug,
-          keywords: getKeywords(content),
-          imageUrl: getPathWithDomain(cover ?? '/blog/default-01.jpg'),
-        }),
-      );
-    })
-    .flat();
+  const coursePages = getCoursePages().map(
+    ({ slug, title, abstract, cover, tags, date, content }) => ({
+      objectID: slug,
+      date,
+      title,
+      tags,
+      abstract,
+      slug,
+      keywords: getKeywords(content),
+      imageUrl: getPathWithDomain(cover),
+    }),
+  );
   const data = [...articles, ...scribbles, ...courses, ...coursePages].sort(
     (a, b) => {
-      if (a.date > b.date) return -1;
-      if (a.date < b.date) return 1;
-      return 0;
+      if (a.date && b.date) {
+        if (a.date > b.date) return -1;
+        if (a.date < b.date) return 1;
+        return 0;
+      }
+      return -1;
     },
   );
   return NextResponse.json(data);

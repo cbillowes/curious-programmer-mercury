@@ -3,7 +3,14 @@ import { allCourses } from 'content-collections';
 export function getCourses() {
   return allCourses
     .filter((course) => course.index)
-    .sort((a, b) => b.date.getTime() - a.date.getTime());
+    .sort((a, b) => {
+      if (a.date && b.date) {
+        if (a?.date > b?.date) return -1;
+        if (a?.date < b?.date) return 1;
+        return 0;
+      }
+      return -1;
+    });
 }
 
 export function getCoursePageBySlug(slug: string) {

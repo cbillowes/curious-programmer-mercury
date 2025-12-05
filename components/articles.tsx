@@ -1,5 +1,6 @@
 'use client';
 
+import NextLink from 'next/link';
 import Image from 'next/image';
 import { Ribbon } from '@/components/ribbon';
 import { Link } from '@/components/link';
@@ -61,6 +62,8 @@ export function Articles({
           creditLink,
           creditSource,
         } = c;
+        if (!slug) return null;
+
         let courseTitle = '';
         if (type === 'page' && c.parent) {
           courseTitle = getCoursePageBySlug(slug)?.course?.title ?? '';
@@ -71,7 +74,7 @@ export function Articles({
             className="relative p-4 mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
           >
             <Ribbon>#{number}</Ribbon>
-            <Link href={slug}>
+            <NextLink href={slug ?? '#'}>
               {showType && (
                 <div className="absolute top-3 left-3 z-10">
                   <Type type={type} showType={false} className="scale-75" />
@@ -80,7 +83,7 @@ export function Articles({
               {cover && (
                 <Thumbnail
                   src={cover}
-                  alt={title}
+                  alt={title ?? 'Hero image'}
                   width={600}
                   height={150}
                   credit={credit}
@@ -88,7 +91,7 @@ export function Articles({
                   creditSource={creditSource}
                 />
               )}
-            </Link>
+            </NextLink>
             <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
               <Link href={slug}>{title}</Link>
             </h3>

@@ -33,13 +33,14 @@ const Icon = ({ icon, ...rest }: IconProps) => {
 };
 
 type TypeProps = {
-  type: string;
+  type?: string;
   to: string;
   number?: number;
   inline?: boolean;
 };
 
 const Type = ({ type, to, number, inline }: TypeProps) => {
+  if (!type) return null;
   const title = toProperCase(type);
   return (
     <div
@@ -358,37 +359,44 @@ export function CourseContent({
             modified={modified ? new Date(modified) : undefined}
           />
         </div>
-        <div className="flex justify-center items-center gap-2 mt-2">
-          <Bookmark bookmarks={bookmarks} slug={slug} />
-          <Like likes={likes} slug={slug} />
-        </div>
+        {slug && (
+          <div className="flex justify-center items-center gap-2 mt-2">
+            <Bookmark bookmarks={bookmarks} slug={slug} />
+            <Like likes={likes} slug={slug} />
+          </div>
+        )}
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
         </div>
         <Author />
       </header>
-      <StickyHeader number={number} title={title} type={type} />
+      {number && title && type && (
+        <StickyHeader number={number} title={title} type={type} />
+      )}
       <section id="article" className="max-w-3xl mx-auto mb-8">
-        <Markdown content={content} />
+        {content && <Markdown content={content} />}
         <nav>
           <h2>Pages</h2>
-          {pages.map((page, index) => (
-            <div
-              key={index}
-              className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4"
-            >
-              <Link
-                href={page.slug}
-                className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
-              >
-                {'number' in page && page.number}. {page.title}
-              </Link>
-              <Bookmark bookmarks={bookmarks} slug={slug} />
-            </div>
-          ))}
+          {pages?.map(
+            (page, index) =>
+              page && (
+                <div
+                  key={index}
+                  className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4"
+                >
+                  <Link
+                    href={page.slug}
+                    className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
+                  >
+                    {'number' in page && page.number}. {page.title}
+                  </Link>
+                  <Bookmark bookmarks={bookmarks} slug={slug} />
+                </div>
+              ),
+          )}
         </nav>
       </section>
-      <ShareWidget title={title} url={slug} />
+      {title && slug && <ShareWidget title={title} url={slug} />}
       <Navigation previous={previous} next={next} />
       <Comments />
     </article>
@@ -439,21 +447,25 @@ export function CoursePageContent({
             modified={modified ? new Date(modified) : undefined}
           />
         </div>
-        <div className="flex justify-center items-center gap-2 mt-2">
-          <Bookmark bookmarks={bookmarks} slug={slug} />
-          <Like likes={likes} slug={slug} />
-        </div>
+        {slug && (
+          <div className="flex justify-center items-center gap-2 mt-2">
+            <Bookmark bookmarks={bookmarks} slug={slug} />
+            <Like likes={likes} slug={slug} />
+          </div>
+        )}
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
         </div>
 
         <Author />
       </header>
-      <StickyHeader number={number} title={title} type={type} />
+      {number && title && type && (
+        <StickyHeader number={number} title={title} type={type} />
+      )}
       <section id="article" className="max-w-3xl mx-auto mb-8">
-        <Markdown content={content} />
+        {content && <Markdown content={content} />}
       </section>
-      <ShareWidget title={title} url={slug} />
+      {title && slug && <ShareWidget title={title} url={slug} />}
       <Navigation previous={previous} next={next} />
       <Comments />
     </article>
