@@ -190,7 +190,7 @@ export function Header() {
                 >
                   <span className="sr-only">Toggle theme</span>
                   {mode === 'dark' && <FaSun />}
-                  {mode === 'light' && <FaMoon />}
+                  {mode !== 'dark' && <FaMoon />}
                 </button>
                 <AvatarDropdown />
               </div>
