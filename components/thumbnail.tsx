@@ -63,9 +63,11 @@ export function Thumbnail({
 }) {
   return (
     <div className="relative">
-      <div className="absolute top-2 left-2 bg-white rounded-md px-2 py-1 shadow-md z-10">
-        <FeaturedBadge featured={featured} />
-      </div>
+      {featured && (
+        <div className="absolute top-2 left-2 bg-white rounded-md px-2 py-1 shadow-md z-10">
+          <FeaturedBadge featured={featured} />
+        </div>
+      )}
       <ThumbnailImage
         src={src}
         alt={alt}
