@@ -2,14 +2,22 @@ import Image from 'next/image';
 import { getArticles } from '@/lib/articles';
 import { Link } from '@/components/link';
 import { FaNodeJs } from 'react-icons/fa';
-import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa6';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaPeopleGroup,
+  FaStackOverflow,
+} from 'react-icons/fa6';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiClojure, SiGooglecloud } from 'react-icons/si';
 import { Page } from '@/components/page';
 import { Articles } from '@/components/articles';
-import { getPageMetadata } from '@/lib/utils';
+import { cn, getPageMetadata, slugify } from '@/lib/utils';
 import { getBookmarks } from '@/db/bookmark';
 import { getLikes } from '@/db/likes';
+import { ReactNode } from 'react';
+import { TbTools } from 'react-icons/tb';
+import { BiCode, BiCodeCurly } from 'react-icons/bi';
 
 function Socials() {
   return (
@@ -65,6 +73,70 @@ function Socials() {
         <SiGooglecloud className="text-black dark:text-white text-2xl" />
       </Link>
     </>
+  );
+}
+
+function Tags({
+  heading,
+  tags,
+  className,
+  icon,
+}: {
+  heading: string;
+  tags: string[];
+  className: string;
+  icon: ReactNode;
+}) {
+  return (
+    <div>
+      <div
+        className={cn(
+          'flex justify-center items-center mb-4 w-10 h-10 rounded-md lg:h-16 lg:w-16',
+          className,
+        )}
+      >
+        {icon}
+      </div>
+      <h3 className="mb-2 text-xl font-bold text-white">{heading}</h3>
+      <ul className="my-6 lg:mb-0 space-y-4">
+        {tags.map((tag) => (
+          <li key={tag} className="flex space-x-2.5">
+            <svg
+              className="shrink-0 w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+            <span className="leading-tight text-white">
+              <Link href={`/tag/${slugify(tag)}`}>{tag}</Link>
+            </span>
+          </li>
+        ))}
+        <li className="flex space-x-2.5">
+          <svg
+            className="shrink-0 w-5 h-5 text-white"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+          <span className="leading-tight text-white">
+            <Link href="/tags">... and more</Link>
+          </span>
+        </li>
+      </ul>
+    </div>
   );
 }
 
@@ -202,369 +274,48 @@ export default async function Home() {
         </div>
       </section>
       <hr className="dark:border-t-blue-900 border-t-blue-400" />
-      <section className="bg-blue-300 dark:bg-blue-950">
+      <section className="bg-blue-600 dark:bg-blue-950">
         <div className="py-8 px-4 mx-auto max-w-7xl sm:py-16 lg:px-6">
           <div className="max-w-5xl mx-auto mb-8 lg:mb-16">
-            <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 dark:text-white md:text-4xl">
+            <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
-            <p className="font-light sm:text-xl">
+            <p className="font-light sm:text-xl text-white">
               I love learning new things and how to improve on existing things,
               so I share the gems I uncover along the way. ✨
             </p>
           </div>
           <div className="max-w-5xl mx-auto space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
-            <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 bg-primary-100 rounded dark:bg-primary-900 lg:h-16 lg:w-16">
-                <svg
-                  className="w-5 h-5 text-primary-600 dark:text-primary-300 lg:w-8 lg:h-8"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
-                Soft Skills
-              </h3>
-              <ul className="my-6 lg:mb-0 space-y-4">
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-primary-600 dark:text-primary-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/mindset">Mindset</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-primary-600 dark:text-primary-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/relationships">Relationships</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-primary-600 dark:text-primary-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/communication">Communication</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-primary-600 dark:text-primary-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/productivity">Productivity</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-primary-600 dark:text-primary-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/personal-brand">Personal brand</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-primary-600 dark:text-primary-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tags">...and more</Link>
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 bg-purple-100 rounded dark:bg-purple-900 lg:h-16 lg:w-16">
-                <svg
-                  className="w-5 h-5 text-purple-600 dark:text-purple-300 lg:w-8 lg:h-8"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
-                </svg>
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
-                Software Engineering
-              </h3>
-              <ul className="my-6 lg:mb-0 space-y-4">
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-purple-600 dark:text-purple-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/java-script">JavaScript</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-purple-600 dark:text-purple-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/clojure">Clojure</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-purple-600 dark:text-purple-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/clojure-script">ClojureScript</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-purple-600 dark:text-purple-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/react">React</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-purple-600 dark:text-purple-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tags">...and more</Link>
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div className="flex justify-center items-center mb-4 w-10 h-10 bg-teal-100 rounded dark:bg-teal-900 lg:h-16 lg:w-16">
-                <svg
-                  className="w-5 h-5 text-teal-600 dark:text-teal-300 lg:w-8 lg:h-8"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  ></path>
-                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
-                </svg>
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
-                Engineering Toolkit
-              </h3>
-              <ul className="my-6 lg:mb-0 space-y-4">
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-teal-500 dark:text-teal-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/visual-studio-code">
-                      Visual Studio Code
-                    </Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-teal-500 dark:text-teal-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/mac-os">MacOS</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-teal-500 dark:text-teal-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/dev-tools">DevTools</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-teal-500 dark:text-teal-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/storybook">Storybook</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-teal-500 dark:text-teal-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tag/git">Git</Link>
-                  </span>
-                </li>
-                <li className="flex space-x-2.5">
-                  <svg
-                    className="shrink-0 w-5 h-5 text-teal-500 dark:text-teal-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="leading-tight text-gray-500 dark:text-gray-400">
-                    <Link href="/tags">...and more</Link>
-                  </span>
-                </li>
-              </ul>
-            </div>
+            <Tags
+              heading="Soft Skills"
+              tags={[
+                'Mindset',
+                'Relationships',
+                'Communication',
+                'Productivity',
+                'Personal brand',
+              ]}
+              className="bg-yellow-900"
+              icon={<FaPeopleGroup className="size-8 text-yellow-300" />}
+            />
+            <Tags
+              heading="Software Engineering"
+              tags={['JavaScript', 'Clojure', 'ClojureScript', 'React']}
+              className="bg-green-900"
+              icon={<BiCodeCurly className="size-8 text-green-300" />}
+            />
+            <Tags
+              heading="Engineering Toolkit"
+              tags={[
+                'Visual Studio Code',
+                'MacOS',
+                'DevTools',
+                'Storybook',
+                'Git',
+              ]}
+              className="bg-purple-900"
+              icon={<TbTools className="size-8 text-purple-300" />}
+            />
           </div>
         </div>
       </section>
