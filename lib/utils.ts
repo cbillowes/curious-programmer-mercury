@@ -2,6 +2,7 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import removeMd from 'remove-markdown';
 import { WEBSITE_URL } from './config';
+import path from 'path';
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
@@ -90,6 +91,14 @@ function getImageType(url: string): string {
   }
 }
 
+function getShareImageUrl(imagePath: string) {
+  const ext = path.extname(imagePath);
+  const newBaseName = imagePath
+    .replace(ext, '.jpg')
+    .replace('/blog/', '/share/');
+  return getCanonicalUrl(newBaseName);
+}
+
 export function getPageMetadata({
   title = '',
   description = '',
@@ -106,8 +115,8 @@ export function getPageMetadata({
   type: 'article' | 'website';
 }) {
   const canonicalUrl = getCanonicalUrl(slug);
-  // These images are converted automatically through the process-webp script
-  const imageUrl = getCanonicalUrl(`${image.replace('.webp', '.png')}`);
+  // These images are converted automatically through the optimize-images.js script registered in nodemon
+  const imageUrl = getShareImageUrl(image);
   const imageType = getImageType(imageUrl);
   const pageTitle = `${title} | Curious Programmer${
     title.length < 20 ? ' - A curious place for a curious mind' : ''
