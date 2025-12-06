@@ -72,7 +72,7 @@ const courses = defineCollection({
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     const pages = docs
       .filter((d) => d.parent === `/courses/${course?.slug}`)
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      .sort((a, b) => a._meta.filePath.localeCompare(b._meta.filePath));
     const slug = slugify(doc.slug ?? doc.title);
     const modified = doc.modified && new Date(doc.modified);
     const abstract = doc.abstract ?? extractExcerpt(doc.content);
