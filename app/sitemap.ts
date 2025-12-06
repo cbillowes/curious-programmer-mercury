@@ -8,7 +8,7 @@ import { WEBSITE_URL } from '@/lib/config';
 function getImageUrl(image: string | undefined) {
   if (!image) return undefined;
   const url = image.startsWith('http') ? image : `${WEBSITE_URL}${image}`;
-  return url.replace(/&/g, '&amp;');
+  return url.replace(/&/g, '&amp;').replace(/\/hero\//, '/share/');
 }
 
 function getSitemapEntry(
