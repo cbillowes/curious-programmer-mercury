@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, ReactNode } from 'react';
 
 export function ScrollProgress({ children }: { children: ReactNode }) {

@@ -9,6 +9,7 @@ import { stackServerApp } from '@/stack/server';
 import './globals.css';
 import CookieBanner from '@/components/cookie-banner';
 import { cookies } from 'next/headers';
+import { ScrollProgress } from '@/components/scroll-progress';
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
@@ -39,7 +40,7 @@ export default async function RootLayout({
             <Suspense fallback={null}>
               <ProgressBar>
                 <ThemeProvider theme={flowbiteTheme}>
-                  {children}
+                  <ScrollProgress>{children}</ScrollProgress>
                   <CookieBanner value={cookieConsent?.value} />
                 </ThemeProvider>
               </ProgressBar>

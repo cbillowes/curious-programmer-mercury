@@ -202,7 +202,7 @@ export function Header() {
       {isSidebarOpen && (
         <div
           ref={sidebarRef}
-          className="print:hidden h-screen w-72 pt-16 fixed top-0 left-0 bottom-0 font-normal duration-75 lg:flex transition-width z-50"
+          className="print:hidden h-screen w-72 pt-16 fixed top-1 left-0 bottom-0 font-normal duration-75 lg:flex transition-width z-50"
           aria-label="Sidebar"
         >
           <div className="relative flex flex-col flex-1 min-h-0 pt-10 bg-white/50 border-r border-gray-200 dark:bg-gray-800/50 dark:border-gray-700 h-screen backdrop-blur-2xl overflow-scroll">
