@@ -6,13 +6,14 @@ import { Ribbon } from '@/components/ribbon';
 import { Link } from '@/components/link';
 import { Thumbnail } from '@/components/thumbnail';
 import { Metadata } from '@/components/metadata';
-import { FaArrowRight } from 'react-icons/fa6';
+import { FaArrowRight, FaStar } from 'react-icons/fa6';
 import { getCoursePageBySlug } from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
 import { useState } from 'react';
 import { Type } from '@/components/type';
 import { Like } from '@/components/like';
 import { Article, Course, Scribble } from '@/.content-collections/generated';
+import { Tooltip } from 'flowbite-react';
 
 export function Articles({
   data,
@@ -144,5 +145,14 @@ export function Articles({
         );
       })}
     </div>
+  );
+}
+
+export function FeaturedBadge({ featured }: { featured?: boolean | null }) {
+  if (!featured) return null;
+  return (
+    <Tooltip content="Featured Article">
+      <FaStar className="text-yellow-400" />
+    </Tooltip>
   );
 }

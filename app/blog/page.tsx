@@ -1,14 +1,15 @@
+import { notFound } from 'next/navigation';
+import { FeaturedBadge } from '@/components/articles';
 import { Bookmark } from '@/components/bookmark';
 import { Container } from '@/components/container';
 import { Like } from '@/components/like';
 import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
-import { getBookmarks } from '@/db/bookmark';
-import { getLikes } from '@/db/likes';
 import { getArticles } from '@/lib/articles';
 import { getPageMetadata } from '@/lib/utils';
-import { notFound } from 'next/navigation';
+import { getBookmarks } from '@/db/bookmark';
+import { getLikes } from '@/db/likes';
 
 export async function generateMetadata() {
   return getPageMetadata({
@@ -34,7 +35,7 @@ export default async function BlogPage() {
         <div className="max-w-5xl mx-auto px-5">
           {data
             .sort((a, b) => b.date.getTime() - a.date.getTime())
-            .map(({ slug, title, number }) => (
+            .map(({ slug, title, number, featured }) => (
               <div
                 key={slug}
                 className="border-b border-dashed flex justify-between items-center hover:bg-pink-600 hover:text-white"
@@ -42,7 +43,8 @@ export default async function BlogPage() {
                 <Link href={slug} className="py-4 block w-full">
                   #{number}. {title}
                 </Link>
-                <div className="flex gap-2">
+                <div className="flex items-center gap-2">
+                  <FeaturedBadge featured={featured} />
                   <Bookmark
                     bookmarks={bookmarks.map((b) => b.slug)}
                     slug={slug}
