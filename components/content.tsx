@@ -191,6 +191,42 @@ function PageTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
+function TableOfContents({ course }: { course: Course }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <div
+        role="button"
+        className="flex items-center gap-1 text-sm opacity-70 cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
+        <FaBook />
+        Table of Contents
+      </div>
+      <Modal show={isOpen} size="lg" onClose={() => setIsOpen(false)}>
+        <ModalHeader>Table of Contents</ModalHeader>
+        <ModalBody className="max-h-96">
+          {course.pages?.map((page, index) => (
+            <div
+              key={index}
+              className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-2"
+            >
+              <Link
+                href={page?.slug}
+                className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
+                onClick={() => setIsOpen(false)}
+              >
+                {page && 'number' in page && page.number}. {page?.title}
+              </Link>
+            </div>
+          ))}
+        </ModalBody>
+      </Modal>
+    </div>
+  );
+}
+
 export function ArticleContent({
   article,
   bookmarks,
@@ -464,42 +500,6 @@ export function CourseContent({
       <Navigation previous={previous} next={next} />
       <Comments />
     </article>
-  );
-}
-
-function TableOfContents({ course }: { course: Course }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div>
-      <div
-        role="button"
-        className="flex items-center gap-1 text-sm opacity-70 cursor-pointer"
-        onClick={() => setIsOpen(true)}
-      >
-        <FaBook />
-        Table of Contents
-      </div>
-      <Modal show={isOpen} size="lg" onClose={() => setIsOpen(false)}>
-        <ModalHeader>Table of Contents</ModalHeader>
-        <ModalBody className="max-h-96">
-          {course.pages?.map((page, index) => (
-            <div
-              key={index}
-              className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-2"
-            >
-              <Link
-                href={page?.slug}
-                className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
-                onClick={() => setIsOpen(false)}
-              >
-                {page && 'number' in page && page.number}. {page?.title}
-              </Link>
-            </div>
-          ))}
-        </ModalBody>
-      </Modal>
-    </div>
   );
 }
 
