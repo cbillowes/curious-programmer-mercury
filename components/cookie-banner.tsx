@@ -3,15 +3,8 @@
 import { Button } from 'flowbite-react';
 import { useState } from 'react';
 
-export default function CookieBanner() {
-  const [show, setShow] = useState(() => {
-    // Check localStorage (client side)
-    if (typeof window !== 'undefined') {
-      const consent = localStorage.getItem('cookie-consent');
-      return !consent;
-    }
-    return false;
-  });
+export default function CookieBanner({ value }: { value?: string }) {
+  const [show, setShow] = useState(value !== 'true');
 
   function acceptCookies() {
     // Save in localStorage

@@ -8,6 +8,7 @@ import { ProgressBar } from '@/components/progress-bar';
 import { stackServerApp } from '@/stack/server';
 import './globals.css';
 import CookieBanner from '@/components/cookie-banner';
+import { cookies } from 'next/headers';
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
@@ -19,11 +20,14 @@ const firaCode = Fira_Code({
   subsets: ['latin'],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const cookieConsent = cookieStore.get('cookie-consent');
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -36,7 +40,7 @@ export default function RootLayout({
               <ProgressBar>
                 <ThemeProvider theme={flowbiteTheme}>
                   {children}
-                  <CookieBanner />
+                  <CookieBanner value={cookieConsent?.value} />
                 </ThemeProvider>
               </ProgressBar>
             </Suspense>
