@@ -464,11 +464,11 @@ export function CourseContent({
 }
 
 export function CoursePageContent({
-  coursePages: coursePage,
+  coursePage,
   bookmarks,
   likes,
 }: {
-  coursePages: Course;
+  coursePage: Course;
   bookmarks: string[];
   likes: string[];
 }) {

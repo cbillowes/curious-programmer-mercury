@@ -68,7 +68,7 @@ export default async function CoursePagePage({ params }: Props) {
       )}
       <Container>
         <CoursePageContent
-          coursePages={data}
+          coursePage={data}
           bookmarks={bookmarks.map((b) => b.slug)}
           likes={likes.map((l) => l.slug)}
         />
