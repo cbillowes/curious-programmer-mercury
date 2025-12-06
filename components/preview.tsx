@@ -143,6 +143,7 @@ export function Preview({
             credit={data.credit}
             creditLink={data.creditLink}
             creditSource={data.creditSource}
+            featured={data.featured}
           />
         </div>
       </div>

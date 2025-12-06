@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Credit } from '@/components/credit';
+import { FeaturedBadge } from '@/components/articles';
 
 function ThumbnailImage({
   src,
@@ -48,6 +49,7 @@ export function Thumbnail({
   credit,
   creditSource,
   creditLink,
+  featured,
 }: {
   src: string;
   alt: string;
@@ -57,9 +59,13 @@ export function Thumbnail({
   credit?: string;
   creditSource?: string;
   creditLink?: string;
+  featured?: boolean;
 }) {
   return (
     <div className="relative">
+      <div className="absolute top-2 left-2 bg-white rounded-md px-2 py-1 shadow-md z-10">
+        <FeaturedBadge featured={featured} />
+      </div>
       <ThumbnailImage
         src={src}
         alt={alt}

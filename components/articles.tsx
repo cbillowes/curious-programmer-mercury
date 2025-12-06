@@ -62,6 +62,7 @@ export function Articles({
           credit,
           creditLink,
           creditSource,
+          featured,
         } = c;
         if (!slug) return null;
 
@@ -90,6 +91,7 @@ export function Articles({
                   credit={credit}
                   creditLink={creditLink}
                   creditSource={creditSource}
+                  featured={featured}
                 />
               )}
             </NextLink>

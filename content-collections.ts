@@ -59,6 +59,7 @@ const courses = defineCollection({
     credit: z.string().optional(),
     creditSource: z.string().optional(),
     creditLink: z.url().optional(),
+    featured: z.boolean().optional(),
   }),
   transform: async (doc, meta) => {
     const docs = await meta.collection.documents();
@@ -141,6 +142,7 @@ const resume = defineCollection({
   schema: z.object({
     slug: z.string(),
     share: z.string(),
+    featured: z.boolean().optional(),
     resume: z.object({
       name: z.string().optional(),
       description: z.string().optional(),
@@ -182,6 +184,7 @@ const scribbles = defineCollection({
     creditLink: z.url().optional(),
     creditSource: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    featured: z.boolean().optional(),
     content: z.string(),
   }),
   transform: async (doc, meta) => {
