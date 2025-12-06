@@ -16,7 +16,7 @@ export async function generateMetadata() {
     description:
       'Read articles and musings on programming, technology, and software development by Curious Programmer.',
     slug: '/blog',
-    image: '/blog.webp',
+    image: '/blog/blog.webp',
     type: 'website',
   });
 }

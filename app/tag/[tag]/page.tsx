@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
     title: prettifyTag(tag) ?? 'Tag',
     description,
     slug: `/tag/${tag}`,
-    image: '/tag.webp',
+    image: '/blog/tag.webp',
     type: 'website',
   });
 }

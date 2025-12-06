@@ -14,7 +14,7 @@ export async function generateMetadata() {
     description:
       'Short snippets of thoughts and musings on programming and technology for software engineering.',
     slug: '/scribbles',
-    image: '/scribbles.webp',
+    image: '/blog/scribbles.webp',
     type: 'website',
   });
 }

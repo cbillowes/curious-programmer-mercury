@@ -10,7 +10,7 @@ export async function generateMetadata() {
     description:
       'I write about technical and soft skills. Browse content using the tags associated to the content on my blog.',
     slug: '/tags',
-    image: '/tag.webp',
+    image: '/blog/tag.webp',
     type: 'website',
   });
 }

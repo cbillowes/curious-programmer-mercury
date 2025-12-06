@@ -10,7 +10,7 @@ export async function generateMetadata() {
     description:
       'Essentially, words can hurt. Be nice but clear! That is the essence of the way you need to communicate.',
     slug: '/community',
-    image: '/community-guidelines.webp',
+    image: '/blog/community-guidelines.webp',
     type: 'website',
   });
 }

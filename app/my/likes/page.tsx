@@ -16,7 +16,7 @@ export async function generateMetadata() {
     description:
       'The home to all your preferences and settings on Curious Programmer.',
     slug: '/my/bookmarks',
-    image: '/blog.webp',
+    image: '/blog/blog.webp',
     type: 'website',
   });
 }

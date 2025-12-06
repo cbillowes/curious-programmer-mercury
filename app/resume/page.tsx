@@ -85,7 +85,7 @@ export async function generateMetadata() {
     description:
       'A highly accomplished and passionate polyglot full-stack software engineer with 20 years of experience delivering impactful digital solutions.',
     slug: '/resume',
-    image: '/headshot.webp',
+    image: '/blog/headshot.webp',
     type: 'website',
   });
 }
