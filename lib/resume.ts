@@ -10,5 +10,5 @@ export function getResume() {
 }
 
 export function getResumeBySlug(slug: string) {
-  return allResumes.find((resume) => resume.slug === slug);
+  return allResumes.find((resume) => `/resume/${slug}` === resume.slug);
 }
