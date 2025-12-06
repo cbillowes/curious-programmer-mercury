@@ -170,6 +170,14 @@ function Author() {
   );
 }
 
+function PageTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h1 className="text-5xl font-extrabold tracking-tighter mb-3 lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
+      {children}
+    </h1>
+  );
+}
+
 export function ArticleContent({
   article,
   bookmarks,
@@ -196,9 +204,9 @@ export function ArticleContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
+        <PageTitle>
           {title}
-        </h1>
+        </PageTitle>
         <div className="text-center">
           <Metadata timeToRead={timeToRead} date={date} type={type} />
         </div>
@@ -256,9 +264,9 @@ export function ResumeContent({
             className="mx-auto mb-4 rounded-md"
           />
         )}
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
+        <PageTitle>
           {resume.company ?? resume.name}
-        </h1>
+        </PageTitle>
       </header>
       <section id="resume" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
@@ -294,9 +302,9 @@ export function ScribbleContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/scribbles" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
+        <PageTitle>
           {title}
-        </h1>
+        </PageTitle>
         <div className="text-center">
           <Metadata
             timeToRead={timeToRead}
@@ -356,9 +364,9 @@ export function CourseContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/courses" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
+        <PageTitle>
           {title}
-        </h1>
+        </PageTitle>
         <div className="text-center">
           <Metadata
             timeToRead={timeToRead}
@@ -482,9 +490,9 @@ export function CoursePageContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
-        <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
+        <PageTitle>
           {title}
-        </h1>
+        </PageTitle>
         <div className="text-center">
           {course && (
             <Link href={`/courses/${course.slug}`} className="mb-2 block">
