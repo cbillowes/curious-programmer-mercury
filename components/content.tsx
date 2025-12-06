@@ -355,7 +355,7 @@ export function CourseContent({
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
-        <Type type={type} to="/blog" number={number} />
+        <Type type={type} to="/courses" number={number} />
         <h1 className="text-5xl font-extrabold tracking-tighter lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
           {title}
         </h1>
