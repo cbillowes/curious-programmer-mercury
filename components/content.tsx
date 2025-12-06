@@ -13,6 +13,7 @@ import { ShareWidget } from '@/components/share';
 import { Comments } from '@/components/comments';
 import { Bookmark } from '@/components/bookmark';
 import { Like } from '@/components/like';
+import { ScrollProgress } from '@/components/page-progress';
 import { cn, toProperCase } from '@/lib/utils';
 import { LucideNotepadText } from 'lucide-react';
 import { RiArticleLine } from 'react-icons/ri';
@@ -93,7 +94,7 @@ function StickyHeader({
   extra?: ReactNode;
 }) {
   return (
-    <header className="print:hidden max-w-3xl mx-auto sticky top-17 left-0 right-0 z-50 bg-gray-50 dark:bg-gray-900 outline-3 outline-gray-50 dark:outline-gray-900">
+    <header className="print:hidden max-w-3xl mx-auto sticky top-18 left-0 right-0 z-40 bg-gray-50 dark:bg-gray-900 outline-3 outline-gray-50 dark:outline-gray-900">
       <div className="flex items-center gap-2 py-2">
         <Type type={type} to={to} number={number} inline={true} />
         <h1 className="text-sm font-extrabold tracking-tighter dark:text-white">
@@ -367,103 +368,110 @@ export function CourseContent({
   } = course;
   const router = useRouter();
   return (
-    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-      <Navigation previous={previous} next={next} />
-      <header className="mb-2 lg:mb-4 not-format">
-        <Type type={type} to="/courses" number={number} />
-        <PageTitle>{title}</PageTitle>
-        <div className="text-center">
-          <Metadata
-            timeToRead={timeToRead}
-            date={date}
-            type={type}
-            modified={modified ? new Date(modified) : undefined}
-          />
-        </div>
-        {slug && (
-          <div className="flex justify-center items-center gap-2 mt-2">
-            <Bookmark bookmarks={bookmarks} slug={slug} />
-            <Like likes={likes} slug={slug} />
+    <ScrollProgress>
+      <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+        <Navigation previous={previous} next={next} />
+        <header className="mb-2 lg:mb-4 not-format">
+          <Type type={type} to="/courses" number={number} />
+          <PageTitle>{title}</PageTitle>
+          <div className="text-center">
+            <Metadata
+              timeToRead={timeToRead}
+              date={date}
+              type={type}
+              modified={modified ? new Date(modified) : undefined}
+            />
           </div>
+          {slug && (
+            <div className="flex justify-center items-center gap-2 mt-2">
+              <Bookmark bookmarks={bookmarks} slug={slug} />
+              <Like likes={likes} slug={slug} />
+            </div>
+          )}
+          <div className="text-center">
+            {tags && <Tags tags={tags} redirect={true} isButton={true} />}
+          </div>
+          <Author />
+        </header>
+        {number && title && type && (
+          <StickyHeader
+            number={number}
+            title={title}
+            type={type}
+            to="/courses"
+          />
         )}
-        <div className="text-center">
-          {tags && <Tags tags={tags} redirect={true} isButton={true} />}
-        </div>
-        <Author />
-      </header>
-      {number && title && type && (
-        <StickyHeader number={number} title={title} type={type} to="/courses" />
-      )}
-      <section id="article" className="max-w-3xl mx-auto mb-8">
-        {content && <Markdown content={content} />}
-        <nav>
-          <h2>Pages</h2>
-          {!isAuthenticated && (
-            <Alert
-              color="red"
-              className="w-full border"
-              additionalContent={
-                <div className="flex items-center gap-2">
-                  <button
-                    className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
-                    onClick={() => {
-                      const returnTo = encodeURIComponent(
-                        `/courses/${course.slug}`,
-                      );
-                      router.push(
-                        `/handler/sign-in?after_auth_return_to=${returnTo}`,
-                      );
-                    }}
-                  >
-                    Sign in
-                  </button>
-                  or
-                  <button
-                    className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
-                    onClick={() => {
-                      const returnTo = encodeURIComponent(
-                        `/courses/${course.slug}`,
-                      );
-                      router.push(
-                        `/handler/sign-up?after_auth_return_to=${returnTo}`,
-                      );
-                    }}
-                  >
-                    Sign up
-                  </button>
-                  for free access.
+        <section id="article" className="max-w-3xl mx-auto mb-8">
+          {content && <Markdown content={content} />}
+          <nav>
+            <h2>Pages</h2>
+            {!isAuthenticated && (
+              <Alert
+                color="red"
+                className="w-full border"
+                additionalContent={
+                  <div className="flex items-center gap-2">
+                    <button
+                      className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
+                      onClick={() => {
+                        const returnTo = encodeURIComponent(
+                          `/courses/${course.slug}`,
+                        );
+                        router.push(
+                          `/handler/sign-in?after_auth_return_to=${returnTo}`,
+                        );
+                      }}
+                    >
+                      Sign in
+                    </button>
+                    or
+                    <button
+                      className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
+                      onClick={() => {
+                        const returnTo = encodeURIComponent(
+                          `/courses/${course.slug}`,
+                        );
+                        router.push(
+                          `/handler/sign-up?after_auth_return_to=${returnTo}`,
+                        );
+                      }}
+                    >
+                      Sign up
+                    </button>
+                    for free access.
+                  </div>
+                }
+              >
+                <div className="flex items-center justify-start gap-2">
+                  <FaUser className="size-4" />
+                  You need to be signed in to view the course material.
                 </div>
-              }
-            >
-              <div className="flex items-center justify-start gap-2">
-                <FaUser className="size-4" />
-                You need to be signed in to view the course material.
-              </div>
-            </Alert>
-          )}
-          {pages?.map(
-            (page, index) =>
-              page && (
-                <div
-                  key={index}
-                  className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4"
-                >
-                  <Link
-                    href={page.slug}
-                    className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
+              </Alert>
+            )}
+            {pages?.map(
+              (page, index) =>
+                page && (
+                  <div
+                    key={index}
+                    className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4"
                   >
-                    {'number' in page && page.number}. {page.title}
-                  </Link>
-                  <Bookmark bookmarks={bookmarks} slug={slug} />
-                </div>
-              ),
-          )}
-        </nav>
-      </section>
-      {title && slug && <ShareWidget title={title} url={slug} />}
-      <Navigation previous={previous} next={next} />
-      <Comments />
-    </article>
+                    <Link
+                      href={page.slug}
+                      className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
+                    >
+                      {'number' in page && page.number}. {page.title}
+                    </Link>
+                    <Bookmark bookmarks={bookmarks} slug={slug} />
+                  </div>
+                ),
+            )}
+          </nav>
+        </section>
+        {title && slug && <ShareWidget title={title} url={slug} />}
+        <Navigation previous={previous} next={next} />
+        <Comments />
+      </article>
+    </ScrollProgress>
   );
 }
 
@@ -528,51 +536,53 @@ export function CoursePageContent({
     previous,
   } = coursePage;
   return (
-    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-      <Navigation previous={previous} next={next} />
-      <header className="mb-2 lg:mb-4 not-format">
-        <Type type={type} to={`/courses/${course?.slug}`} number={number} />
-        <PageTitle>{title}</PageTitle>
-        <div className="text-center">
-          {course && (
-            <Link href={`/courses/${course.slug}`} className="mb-2 block">
-              {course.title}
-            </Link>
-          )}
-          <Metadata
-            timeToRead={timeToRead}
-            date={date}
-            type={type}
-            modified={modified ? new Date(modified) : undefined}
-          />
-        </div>
-        {slug && (
-          <div className="flex justify-center items-center gap-2 mt-2">
-            <Bookmark bookmarks={bookmarks} slug={slug} />
-            <Like likes={likes} slug={slug} />
+    <ScrollProgress>
+      <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+        <Navigation previous={previous} next={next} />
+        <header className="mb-2 lg:mb-4 not-format">
+          <Type type={type} to={`/courses/${course?.slug}`} number={number} />
+          <PageTitle>{title}</PageTitle>
+          <div className="text-center">
+            {course && (
+              <Link href={`/courses/${course.slug}`} className="mb-2 block">
+                {course.title}
+              </Link>
+            )}
+            <Metadata
+              timeToRead={timeToRead}
+              date={date}
+              type={type}
+              modified={modified ? new Date(modified) : undefined}
+            />
           </div>
-        )}
-        <div className="text-center">
-          {tags && <Tags tags={tags} redirect={true} isButton={true} />}
-        </div>
+          {slug && (
+            <div className="flex justify-center items-center gap-2 mt-2">
+              <Bookmark bookmarks={bookmarks} slug={slug} />
+              <Like likes={likes} slug={slug} />
+            </div>
+          )}
+          <div className="text-center">
+            {tags && <Tags tags={tags} redirect={true} isButton={true} />}
+          </div>
 
-        <Author />
-      </header>
-      {number && title && type && (
-        <StickyHeader
-          number={number}
-          title={title}
-          type={type}
-          to={`/courses/${course?.slug}`}
-          extra={<TableOfContents course={course} />}
-        />
-      )}
-      <section id="article" className="max-w-3xl mx-auto mb-8">
-        {content && <Markdown content={content} />}
-      </section>
-      {title && slug && <ShareWidget title={title} url={slug} />}
-      <Navigation previous={previous} next={next} />
-      <Comments />
-    </article>
+          <Author />
+        </header>
+        {number && title && type && (
+          <StickyHeader
+            number={number}
+            title={title}
+            type={type}
+            to={`/courses/${course?.slug}`}
+            extra={<TableOfContents course={course} />}
+          />
+        )}
+        <section id="article" className="max-w-3xl mx-auto mb-8">
+          {content && <Markdown content={content} />}
+        </section>
+        {title && slug && <ShareWidget title={title} url={slug} />}
+        <Navigation previous={previous} next={next} />
+        <Comments />
+      </article>
+    </ScrollProgress>
   );
 }
