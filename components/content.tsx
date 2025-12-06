@@ -56,9 +56,10 @@ type TypeProps = {
   to: string;
   number?: number;
   inline?: boolean;
+  featured?: boolean | null;
 };
 
-const Type = ({ type, to, number, inline }: TypeProps) => {
+const Type = ({ type, to, number, inline, featured }: TypeProps) => {
   if (!type) return null;
   const title = toProperCase(type);
   return (
@@ -78,6 +79,7 @@ const Type = ({ type, to, number, inline }: TypeProps) => {
           alt={title}
           title={title}
         />
+        {featured && 'Featured '}
         {type}
       </Link>
       {number ? <>&nbsp;&middot; #{number}</> : <> &middot;</>}
@@ -248,6 +250,7 @@ export function ArticleContent({
     number,
     title,
     tags,
+    featured,
     timeToRead,
     date,
     content,
@@ -258,7 +261,7 @@ export function ArticleContent({
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4">
-        <Type type={type} to="/blog" number={number} />
+        <Type type={type} to="/blog" number={number} featured={featured} />
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
           <Metadata timeToRead={timeToRead} date={date} type={type} />
