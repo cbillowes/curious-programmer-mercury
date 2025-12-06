@@ -30,10 +30,13 @@ const stopWords = new Set([
   "it's",
 ]);
 
-function getPathWithDomain(path: string = '/blog/default-01.jpg') {
+function getPathWithDomain(path: string = '/hero/default-01.jpg') {
+  const shareImage = path
+    .replace('/hero/', '/share/')
+    .replace(/\.[^/.]+$/, '.jpg');
   return path.startsWith('http')
-    ? path
-    : `https://curiousprogrammer.dev${path}`;
+    ? shareImage
+    : `https://curiousprogrammer.dev${shareImage}`;
 }
 
 function getKeywords(content: string = '') {

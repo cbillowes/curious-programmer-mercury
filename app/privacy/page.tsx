@@ -10,7 +10,7 @@ export async function generateMetadata() {
     description:
       'Your privacy is one of our main priorities and this document outlines the way your information is collected and recorded.',
     slug: '/privacy',
-    image: '/blog/privacy-policy.webp',
+    image: '/hero/privacy-policy.webp',
     type: 'website',
   });
 }

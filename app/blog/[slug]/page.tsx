@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
       return getPageMetadata({
         title: `Articles from ${slug}`,
         description: `Scan through a mixture of technical and soft skill articles written in ${slug} for software engineering.`,
-        slug: `/blog/${slug}`,
+        slug: `/hero/${slug}`,
         image: '/blog.webp',
         type: 'website',
       });

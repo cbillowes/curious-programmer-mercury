@@ -13,7 +13,7 @@ export async function generateMetadata() {
     description:
       'Explore a range of courses from Git to GCP to up your game in software engineering.',
     slug: '/courses',
-    image: '/blog/courses.webp',
+    image: '/hero/courses.webp',
     type: 'website',
   });
 }

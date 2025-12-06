@@ -42,7 +42,7 @@ export function extractExcerpt(
 
 export function toHeroImageUrl(
   path: string,
-  value: string = '/blog/default-01.jpg',
+  value: string = '/hero/default-01.jpg',
 ) {
   if (value?.startsWith('http')) {
     return value;
@@ -95,7 +95,7 @@ function getShareImageUrl(imagePath: string) {
   const ext = path.extname(imagePath);
   const newBaseName = imagePath
     .replace(ext, '.jpg')
-    .replace('/blog/', '/share/');
+    .replace('/hero/', '/share/');
   return getCanonicalUrl(newBaseName);
 }
 
@@ -103,7 +103,7 @@ export function getPageMetadata({
   title = '',
   description = '',
   slug = '/',
-  image = '/blog/default-01.jpg',
+  image = '/hero/default-01.jpg',
   date,
   type = 'website',
 }: {

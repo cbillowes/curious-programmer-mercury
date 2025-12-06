@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Credit } from '@/components/credit';
 
 export function Hero({
-  image = "/blog/default-01.jpg",
+  image = "/hero/default-01.jpg",
   title,
   credit,
   creditSource,

@@ -3,5 +3,5 @@
     "public"
   ],
   "ext": "gif",
-  "exec": "node scripts/process-gifs.js public/ && node scripts/optimize-images.js public/blog public/share"
+  "exec": "node scripts/process-gifs.js public/ && node scripts/optimize-images.js public/hero public/share"
 }

@@ -13,7 +13,7 @@ export async function generateMetadata() {
     description:
       'The page you are looking for could not be found. Explore featured articles instead.',
     slug: '/404',
-    image: '/blog/home.png',
+    image: '/hero/home.png',
     type: 'website',
   });
 }
