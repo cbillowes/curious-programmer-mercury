@@ -204,7 +204,7 @@ export default async function Home() {
       <hr className="dark:border-t-blue-900 border-t-blue-400" />
       <section className="bg-blue-300 dark:bg-blue-950">
         <div className="py-8 px-4 mx-auto max-w-7xl sm:py-16 lg:px-6">
-          <div className="max-w-3xl mb-8 lg:mb-16">
+          <div className="max-w-5xl mx-auto mb-8 lg:mb-16">
             <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 dark:text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
@@ -213,7 +213,7 @@ export default async function Home() {
               so I share the gems I uncover along the way. ✨
             </p>
           </div>
-          <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
+          <div className="max-w-5xl mx-auto space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
             <div>
               <div className="flex justify-center items-center mb-4 w-10 h-10 bg-primary-100 rounded dark:bg-primary-900 lg:h-16 lg:w-16">
                 <svg
@@ -573,7 +573,7 @@ export default async function Home() {
         aria-label="Related articles"
         className="py-8 bg-white dark:bg-gray-900 lg:py-16 antialiased"
       >
-        <div className="px-4 mx-auto w-full max-w-7xl">
+        <div className="px-4 mx-auto w-full max-w-5xl">
           <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 dark:text-white md:text-4xl">
             Featured articles
           </h2>
