@@ -32,7 +32,7 @@ const articles = defineCollection({
       date: new Date(doc.date),
       timeToRead: Math.ceil(readingTime(doc.content).minutes),
       abstract: doc.abstract ?? extractExcerpt(doc.content),
-      cover: toHeroImageUrl('blog', doc.cover),
+      cover: toHeroImageUrl('hero', doc.cover),
       type: 'article' as const,
       number: idx + 1,
       previous,
@@ -76,7 +76,7 @@ const courses = defineCollection({
     const slug = slugify(doc.slug ?? doc.title);
     const modified = doc.modified && new Date(doc.modified);
     const abstract = doc.abstract ?? extractExcerpt(doc.content);
-    const cover = toHeroImageUrl('blog', course?.cover);
+    const cover = toHeroImageUrl('hero', course?.cover);
 
     const toPage = (idx: number, d: typeof doc | null | undefined) => {
       if (!d) return null;
@@ -196,7 +196,7 @@ const scribbles = defineCollection({
       date: new Date(doc.date),
       timeToRead: Math.ceil(readingTime(doc.content).minutes),
       abstract: extractExcerpt(doc.content, 160),
-      cover: toHeroImageUrl('blog', doc.cover),
+      cover: toHeroImageUrl('hero', doc.cover),
       type: 'scribble' as const,
       number: idx + 1,
       previous,
