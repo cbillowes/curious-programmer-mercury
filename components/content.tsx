@@ -72,7 +72,7 @@ const Type = ({ type, to, number, inline }: TypeProps) => {
         <Icon
           icon={type}
           className={cn(
-            'inline-block mr-2 text-4xl rounded',
+            'inline-block text-4xl rounded',
             inline ? 'text-sm' : 'p-2',
           )}
           alt={title}
