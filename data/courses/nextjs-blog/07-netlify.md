@@ -1,5 +1,5 @@
 ---
-title: Getting started with Netlify
+title: Get started with Netlify
 parent: /courses/nextjs-blog
 date: 2025-12-01
 abstract:
