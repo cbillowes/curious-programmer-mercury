@@ -1,6 +1,8 @@
 const search = require('algoliasearch');
 
-require('dotenv').config();
+require('dotenv').config({
+  path: '.env.local',
+})
 
 const client = search.algoliasearch(process.env.NEXT_PUBLIC_ALGOLIA_APP_ID, process.env.ALGOLIA_API_KEY);
 
