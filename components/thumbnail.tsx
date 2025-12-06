@@ -17,18 +17,6 @@ function ThumbnailImage({
   className?: string;
 }) {
   const classNames = cn(`w-full object-cover w-full h-50`, className);
-  if (src.startsWith('http')) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        className={classNames}
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-      />
-    );
-  }
   return (
     <Image
       className={classNames}
