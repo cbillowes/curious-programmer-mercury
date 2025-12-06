@@ -42,7 +42,7 @@ export function extractExcerpt(
 
 export function toHeroImageUrl(
   path: string,
-  value: string = '/hero/default-01.jpg',
+  value: string = 'default-01.jpg',
 ) {
   if (value?.startsWith('http')) {
     return value;
@@ -103,7 +103,7 @@ export function getPageMetadata({
   title = '',
   description = '',
   slug = '/',
-  image = '/hero/default-01.jpg',
+  image = 'default-01.jpg',
   date,
   type = 'website',
 }: {
