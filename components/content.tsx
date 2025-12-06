@@ -329,12 +329,12 @@ export function CourseContent({
   course,
   bookmarks,
   likes,
-  user,
+  isAuthenticated,
 }: {
   course: Course;
   bookmarks: string[];
   likes: string[];
-  user: CurrentServerUser | null;
+  isAuthenticated: boolean;
 }) {
   const {
     type,
@@ -385,7 +385,7 @@ export function CourseContent({
         {content && <Markdown content={content} />}
         <nav>
           <h2>Pages</h2>
-          {!user && (
+          {!isAuthenticated && (
             <Alert
               color="red"
               className="w-full border"

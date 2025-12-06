@@ -52,7 +52,7 @@ export default async function CoursePage({ params }: Props) {
           course={data}
           bookmarks={bookmarks.map((b) => b.slug)}
           likes={likes.map((l) => l.slug)}
-          user={user}
+          isAuthenticated={user !== null}
         />
       </Container>
     </Page>
