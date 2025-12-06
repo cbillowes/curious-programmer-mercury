@@ -17,7 +17,7 @@ import { Bookmark } from '@/components/bookmark';
 import { Like } from '@/components/like';
 import { FaUser } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
-import { CurrentServerUser } from '@stackframe/stack';
+import { LucideNotepadText } from 'lucide-react';
 
 type IconProps = {
   icon: string;
@@ -32,6 +32,13 @@ const Icon = ({ icon, ...rest }: IconProps) => {
       return <MdOutlineSchool {...rest} />;
     case 'scribble':
       return <TbScribble {...rest} />;
+    case 'page':
+      return (
+        <LucideNotepadText
+          {...rest}
+          className={cn(rest.className, 'p-0 size-5')}
+        />
+      );
     default:
       return <></>;
   }
@@ -75,15 +82,17 @@ function StickyHeader({
   number,
   title,
   type,
+  to,
 }: {
   number: number;
   title: string;
   type: string;
+  to: string;
 }) {
   return (
     <header className="print:hidden max-w-3xl mx-auto sticky top-17 left-0 right-0 z-50 bg-gray-50 dark:bg-gray-900 outline-3 outline-gray-50 dark:outline-gray-900">
       <div className="flex items-center gap-2 py-2">
-        <Type type={type} to="/blog" number={number} inline={true} />
+        <Type type={type} to={to} number={number} inline={true} />
         <h1 className="text-sm font-extrabold tracking-tighter dark:text-white">
           {title}
         </h1>
@@ -204,9 +213,7 @@ export function ArticleContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/blog" number={number} />
-        <PageTitle>
-          {title}
-        </PageTitle>
+        <PageTitle>{title}</PageTitle>
         <div className="text-center">
           <Metadata timeToRead={timeToRead} date={date} type={type} />
         </div>
@@ -219,7 +226,7 @@ export function ArticleContent({
         </div>
         <Author />
       </header>
-      <StickyHeader number={number} title={title} type={type} />
+      <StickyHeader number={number} title={title} type={type} to="/blog" />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
@@ -264,9 +271,7 @@ export function ResumeContent({
             className="mx-auto mb-4 rounded-md"
           />
         )}
-        <PageTitle>
-          {resume.company ?? resume.name}
-        </PageTitle>
+        <PageTitle>{resume.company ?? resume.name}</PageTitle>
       </header>
       <section id="resume" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
@@ -302,9 +307,7 @@ export function ScribbleContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/scribbles" number={number} />
-        <PageTitle>
-          {title}
-        </PageTitle>
+        <PageTitle>{title}</PageTitle>
         <div className="text-center">
           <Metadata
             timeToRead={timeToRead}
@@ -322,7 +325,7 @@ export function ScribbleContent({
         </div>
         <Author />
       </header>
-      <StickyHeader number={number} title={title} type={type} />
+      <StickyHeader number={number} title={title} type={type} to="/scribbles" />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
@@ -364,9 +367,7 @@ export function CourseContent({
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
         <Type type={type} to="/courses" number={number} />
-        <PageTitle>
-          {title}
-        </PageTitle>
+        <PageTitle>{title}</PageTitle>
         <div className="text-center">
           <Metadata
             timeToRead={timeToRead}
@@ -387,7 +388,7 @@ export function CourseContent({
         <Author />
       </header>
       {number && title && type && (
-        <StickyHeader number={number} title={title} type={type} />
+        <StickyHeader number={number} title={title} type={type} to="/courses" />
       )}
       <section id="article" className="max-w-3xl mx-auto mb-8">
         {content && <Markdown content={content} />}
@@ -489,10 +490,8 @@ export function CoursePageContent({
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4 not-format">
-        <Type type={type} to="/blog" number={number} />
-        <PageTitle>
-          {title}
-        </PageTitle>
+        <Type type={type} to={`/courses/${course?.slug}`} number={number} />
+        <PageTitle>{title}</PageTitle>
         <div className="text-center">
           {course && (
             <Link href={`/courses/${course.slug}`} className="mb-2 block">
@@ -519,7 +518,12 @@ export function CoursePageContent({
         <Author />
       </header>
       {number && title && type && (
-        <StickyHeader number={number} title={title} type={type} />
+        <StickyHeader
+          number={number}
+          title={title}
+          type={type}
+          to={`/courses/${course?.slug}`}
+        />
       )}
       <section id="article" className="max-w-3xl mx-auto mb-8">
         {content && <Markdown content={content} />}
