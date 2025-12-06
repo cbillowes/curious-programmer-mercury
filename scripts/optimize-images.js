@@ -11,12 +11,17 @@ function processImage(image) {
   const toExt = '.jpg';
   // Get extension from image path
   const ext = path.extname(image).toLowerCase();
-  const baseName = path.basename(image);
-  const newBaseName = baseName.replace(ext, toExt);
-  const outputJpg = path.join(toPath, newBaseName);
+  const basename = path.basename(image);
+  const newBasename = basename.replace(ext, toExt);
+  const outputJpg = path.join(toPath, newBasename);
 
   if (fs.existsSync(outputJpg)) {
     console.log(`✅ Image already exists: ${outputJpg}`);
+    return;
+  }
+
+  if (['.DS_Store'].includes(basename)) {
+    console.log(`⏭️ Skipping file: ${image}`);
     return;
   }
 
@@ -29,7 +34,7 @@ function processImage(image) {
     })
     .toFile(outputJpg, (err) => {
       if (err) {
-        console.error('❌ Conversion failed:', err);
+        console.error('❌ Conversion failed for ', outputJpg, err);
       } else {
         console.log(`✅ Jpg generated from webp: ${outputJpg}`);
       }
