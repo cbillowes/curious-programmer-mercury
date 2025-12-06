@@ -44,7 +44,7 @@ function traverseDirectory(dir) {
     const stats = fs.statSync(fullPath);
     if (stats.isDirectory()) {
       traverseDirectory(fullPath);
-    } else if (fullPath.endsWith('.webp')) {
+    } else {
       processImage(fullPath);
     }
   });
