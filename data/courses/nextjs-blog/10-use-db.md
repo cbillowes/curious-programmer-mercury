@@ -1,5 +1,5 @@
 ---
-title: Using your Neon database
+title: Use your Neon database
 parent: /courses/nextjs-blog
 date: 2025-12-01
 abstract:
