@@ -4,7 +4,12 @@ import { ReactNode, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from 'flowbite-react';
-import { Article, Scribble, Course } from '@/.content-collections/generated';
+import {
+  Article,
+  Scribble,
+  Course,
+  Resume,
+} from '@/.content-collections/generated';
 import { Markdown } from '@/components/markdown';
 import { Metadata } from '@/components/metadata';
 import { Link } from '@/components/link';
@@ -13,6 +18,7 @@ import { ShareWidget } from '@/components/share';
 import { Comments } from '@/components/comments';
 import { Bookmark } from '@/components/bookmark';
 import { Like } from '@/components/like';
+import { StickyHeader } from '@/components/sticky-header';
 import { cn, toProperCase } from '@/lib/utils';
 import { LucideNotepadText } from 'lucide-react';
 import { RiArticleLine } from 'react-icons/ri';
@@ -74,34 +80,34 @@ const Type = ({ type, to, number, inline }: TypeProps) => {
         />
         {type}
       </Link>
-      {number && <>&nbsp;&middot; #{number}</>}
+      {number ? <>&nbsp;&middot; #{number}</> : <> &middot;</>}
     </div>
   );
 };
 
-function StickyHeader({
+function PageStickyHeader({
   number,
   title,
   type,
   to,
   extra,
 }: {
-  number: number;
+  number?: number;
   title: string;
   type: string;
   to: string;
   extra?: ReactNode;
 }) {
   return (
-    <header className="print:hidden max-w-3xl mx-auto sticky top-18 left-0 right-0 z-40 bg-gray-50 dark:bg-gray-900 outline-3 outline-gray-50 dark:outline-gray-900">
+    <StickyHeader>
       <div className="flex items-center gap-2 py-2">
         <Type type={type} to={to} number={number} inline={true} />
-        <h1 className="text-sm font-extrabold tracking-tighter dark:text-white">
+        <h1 className="text-sm! font-extrabold tracking-tighter dark:text-white">
           {title}
         </h1>
         {extra}
       </div>
-    </header>
+    </StickyHeader>
   );
 }
 
@@ -251,7 +257,7 @@ export function ArticleContent({
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
-      <header className="mb-2 lg:mb-4 not-format">
+      <header className="mb-2 lg:mb-4">
         <Type type={type} to="/blog" number={number} />
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
@@ -266,7 +272,7 @@ export function ArticleContent({
         </div>
         <Author />
       </header>
-      <StickyHeader number={number} title={title} type={type} to="/blog" />
+      <PageStickyHeader number={number} title={title} type={type} to="/blog" />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
@@ -277,31 +283,12 @@ export function ArticleContent({
   );
 }
 
-export function ResumeContent({
-  resume,
-  content,
-}: {
-  resume: {
-    name?: string;
-    description?: string;
-    start?: string;
-    logo?: string;
-    category?: string;
-    company?: string;
-    jobTitle?: string;
-    type?: string;
-    arrangement?: string;
-    location?: string;
-    end?: string;
-    os?: string;
-    tech?: string[];
-    summary?: string;
-  };
-  content: string;
-}) {
+export function ResumeContent({ resumePage }: { resumePage: Resume }) {
+  if (!resumePage) return null;
+  const { resume } = resumePage;
   return (
-    <article id="article">
-      <header className="mb-2 lg:mb-4 not-format">
+    <article>
+      <header className="mb-2 lg:mb-4">
         {resume.logo && (
           <Image
             src={`/logos/${resume.logo}`}
@@ -313,8 +300,13 @@ export function ResumeContent({
         )}
         <PageTitle>{resume.company ?? resume.name}</PageTitle>
       </header>
-      <section id="resume" className="max-w-3xl mx-auto mb-8">
-        <Markdown content={content} />
+      <PageStickyHeader
+        title={resume.company ?? ''}
+        type="resume"
+        to="/resume"
+      />
+      <section id="article" className="max-w-3xl mx-auto mb-8">
+        <Markdown content={resumePage.content} />
       </section>
     </article>
   );
@@ -345,7 +337,7 @@ export function ScribbleContent({
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
-      <header className="mb-2 lg:mb-4 not-format">
+      <header className="mb-2 lg:mb-4">
         <Type type={type} to="/scribbles" number={number} />
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
@@ -365,7 +357,12 @@ export function ScribbleContent({
         </div>
         <Author />
       </header>
-      <StickyHeader number={number} title={title} type={type} to="/scribbles" />
+      <PageStickyHeader
+        number={number}
+        title={title}
+        type={type}
+        to="/scribbles"
+      />
       <section id="article" className="max-w-3xl mx-auto mb-8">
         <Markdown content={content} />
       </section>
@@ -405,7 +402,7 @@ export function CourseContent({
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
-      <header className="mb-2 lg:mb-4 not-format">
+      <header className="mb-2 lg:mb-4">
         <Type type={type} to="/courses" number={number} />
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
@@ -428,7 +425,12 @@ export function CourseContent({
         <Author />
       </header>
       {number && title && type && (
-        <StickyHeader number={number} title={title} type={type} to="/courses" />
+        <PageStickyHeader
+          number={number}
+          title={title}
+          type={type}
+          to="/courses"
+        />
       )}
       <section id="article" className="max-w-3xl mx-auto mb-8">
         {content && <Markdown content={content} />}
@@ -530,7 +532,7 @@ export function CoursePageContent({
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
-      <header className="mb-2 lg:mb-4 not-format">
+      <header className="mb-2 lg:mb-4">
         <Type type={type} to={`/courses/${course?.slug}`} number={number} />
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
@@ -559,7 +561,7 @@ export function CoursePageContent({
         <Author />
       </header>
       {number && title && type && (
-        <StickyHeader
+        <PageStickyHeader
           number={number}
           title={title}
           type={type}
