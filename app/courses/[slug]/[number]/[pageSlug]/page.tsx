@@ -1,7 +1,7 @@
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
 import { CoursePageContent } from '@/components/content';
-import { getCoursePageBySlug } from '@/lib/courses';
+import { getCourseBySlug, getCoursePageBySlug } from '@/lib/courses';
 import { notFound, redirect } from 'next/navigation';
 import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
@@ -52,6 +52,7 @@ export default async function CoursePagePage({ params }: Props) {
   const { slug, number, pageSlug } = await params;
   const data = getCoursePageBySlug(getPageSlug(slug, number, pageSlug));
   if (!data) notFound();
+  const course = getCourseBySlug(slug);
   const bookmarks = await getBookmarks();
   const likes = await getLikes();
 
@@ -69,6 +70,7 @@ export default async function CoursePagePage({ params }: Props) {
       <Container>
         <CoursePageContent
           coursePage={data}
+          course={course!}
           bookmarks={bookmarks.map((b) => b.slug)}
           likes={likes.map((l) => l.slug)}
         />

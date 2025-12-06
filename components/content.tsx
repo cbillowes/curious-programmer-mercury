@@ -1,23 +1,24 @@
 'use client';
 
-import { Article, Scribble, Course } from '@/.content-collections/generated';
+import { ReactNode, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from 'flowbite-react';
+import { Article, Scribble, Course } from '@/.content-collections/generated';
 import { Markdown } from '@/components/markdown';
 import { Metadata } from '@/components/metadata';
 import { Link } from '@/components/link';
 import { Tags } from '@/components/tags';
+import { ShareWidget } from '@/components/share';
+import { Comments } from '@/components/comments';
+import { Bookmark } from '@/components/bookmark';
+import { Like } from '@/components/like';
+import { cn, toProperCase } from '@/lib/utils';
+import { LucideNotepadText } from 'lucide-react';
 import { RiArticleLine } from 'react-icons/ri';
 import { MdOutlineSchool } from 'react-icons/md';
 import { TbScribble } from 'react-icons/tb';
-import { cn, toProperCase } from '@/lib/utils';
-import { ShareWidget } from '@/components/share';
-import { Comments } from '@/components/comments';
-import { Alert, Tooltip } from 'flowbite-react';
-import { Bookmark } from '@/components/bookmark';
-import { Like } from '@/components/like';
-import { FaUser } from 'react-icons/fa6';
-import { useRouter } from 'next/navigation';
-import { LucideNotepadText } from 'lucide-react';
+import { FaBook, FaUser } from 'react-icons/fa6';
 
 type IconProps = {
   icon: string;
@@ -83,11 +84,13 @@ function StickyHeader({
   title,
   type,
   to,
+  extra,
 }: {
   number: number;
   title: string;
   type: string;
   to: string;
+  extra?: ReactNode;
 }) {
   return (
     <header className="print:hidden max-w-3xl mx-auto sticky top-17 left-0 right-0 z-50 bg-gray-50 dark:bg-gray-900 outline-3 outline-gray-50 dark:outline-gray-900">
@@ -96,6 +99,7 @@ function StickyHeader({
         <h1 className="text-sm font-extrabold tracking-tighter dark:text-white">
           {title}
         </h1>
+        {extra}
       </div>
     </header>
   );
@@ -463,12 +467,50 @@ export function CourseContent({
   );
 }
 
+function TableOfContents({ course }: { course: Course }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <div
+        role="button"
+        className="flex items-center gap-1 text-sm opacity-70 cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
+        <FaBook />
+        Table of Contents
+      </div>
+      <Modal show={isOpen} size="lg" onClose={() => setIsOpen(false)}>
+        <ModalHeader>Table of Contents</ModalHeader>
+        <ModalBody className="max-h-96">
+          {course.pages?.map((page, index) => (
+            <div
+              key={index}
+              className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-2"
+            >
+              <Link
+                href={page?.slug}
+                className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
+                onClick={() => setIsOpen(false)}
+              >
+                {page && 'number' in page && page.number}. {page?.title}
+              </Link>
+            </div>
+          ))}
+        </ModalBody>
+      </Modal>
+    </div>
+  );
+}
+
 export function CoursePageContent({
   coursePage,
+  course,
   bookmarks,
   likes,
 }: {
   coursePage: Course;
+  course: Course;
   bookmarks: string[];
   likes: string[];
 }) {
@@ -484,7 +526,6 @@ export function CoursePageContent({
     content,
     next,
     previous,
-    course,
   } = coursePage;
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
@@ -523,6 +564,7 @@ export function CoursePageContent({
           title={title}
           type={type}
           to={`/courses/${course?.slug}`}
+          extra={<TableOfContents course={course} />}
         />
       )}
       <section id="article" className="max-w-3xl mx-auto mb-8">
