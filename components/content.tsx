@@ -1,3 +1,5 @@
+'use client';
+
 import { Article, Scribble, Course } from '@/.content-collections/generated';
 import Image from 'next/image';
 import { Markdown } from '@/components/markdown';
@@ -10,9 +12,12 @@ import { TbScribble } from 'react-icons/tb';
 import { cn, toProperCase } from '@/lib/utils';
 import { ShareWidget } from '@/components/share';
 import { Comments } from '@/components/comments';
-import { Tooltip } from 'flowbite-react';
+import { Alert, Tooltip } from 'flowbite-react';
 import { Bookmark } from '@/components/bookmark';
 import { Like } from '@/components/like';
+import { FaUser } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
+import { CurrentServerUser } from '@stackframe/stack';
 
 type IconProps = {
   icon: string;
@@ -324,10 +329,12 @@ export function CourseContent({
   course,
   bookmarks,
   likes,
+  user,
 }: {
   course: Course;
   bookmarks: string[];
   likes: string[];
+  user: CurrentServerUser | null;
 }) {
   const {
     type,
@@ -343,6 +350,7 @@ export function CourseContent({
     next,
     previous,
   } = course;
+  const router = useRouter();
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
@@ -377,6 +385,49 @@ export function CourseContent({
         {content && <Markdown content={content} />}
         <nav>
           <h2>Pages</h2>
+          {!user && (
+            <Alert
+              color="red"
+              className="w-full border"
+              additionalContent={
+                <div className="flex items-center gap-2">
+                  <button
+                    className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
+                    onClick={() => {
+                      const returnTo = encodeURIComponent(
+                        `/courses/${course.slug}`,
+                      );
+                      router.push(
+                        `/handler/sign-in?after_auth_return_to=${returnTo}`,
+                      );
+                    }}
+                  >
+                    Sign in
+                  </button>
+                  or
+                  <button
+                    className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
+                    onClick={() => {
+                      const returnTo = encodeURIComponent(
+                        `/courses/${course.slug}`,
+                      );
+                      router.push(
+                        `/handler/sign-up?after_auth_return_to=${returnTo}`,
+                      );
+                    }}
+                  >
+                    Sign up
+                  </button>
+                  for free access.
+                </div>
+              }
+            >
+              <div className="flex items-center justify-start gap-2">
+                <FaUser className="size-4" />
+                You need to be signed in to view the course material.
+              </div>
+            </Alert>
+          )}
           {pages?.map(
             (page, index) =>
               page && (

@@ -7,6 +7,7 @@ import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
 import { getBookmarks } from '@/db/bookmark';
 import { getLikes } from '@/db/likes';
+import { stackServerApp } from '@/stack/server';
 
 type Props = {
   params: {
@@ -35,6 +36,7 @@ export default async function CoursePage({ params }: Props) {
   if (!data) notFound();
   const bookmarks = await getBookmarks();
   const likes = await getLikes();
+  const user = await stackServerApp.getUser();
 
   return (
     <Page>
@@ -50,6 +52,7 @@ export default async function CoursePage({ params }: Props) {
           course={data}
           bookmarks={bookmarks.map((b) => b.slug)}
           likes={likes.map((l) => l.slug)}
+          user={user}
         />
       </Container>
     </Page>
