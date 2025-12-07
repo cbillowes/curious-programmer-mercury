@@ -9,6 +9,7 @@ import { ProgressBar } from '@/components/progress-bar';
 import { stackServerApp } from '@/stack/server';
 import { CookieBanner } from '@/components/cookie-banner';
 import { ScrollProgress } from '@/components/scroll-progress';
+import { WebVitals } from '@/app/web-vitals';
 import './globals.css';
 
 const openSans = Open_Sans({
@@ -49,6 +50,7 @@ export default async function RootLayout({
         </StackProvider>
       </body>
       <GoogleAnalytics gaId="G-475QC81Y7F" />
+      <WebVitals />
     </html>
   );
 }
