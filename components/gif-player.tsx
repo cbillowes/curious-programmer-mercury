@@ -1,7 +1,8 @@
 'use client';
 
+import { Spinner } from 'flowbite-react';
 import { useState } from 'react';
-import { Play, Pause, Loader2 } from 'lucide-react';
+import { FaPause, FaPlay } from 'react-icons/fa6';
 
 export function parseAst(text: string): {
   filename: string;
@@ -71,7 +72,7 @@ export function GifPlayer({
         />
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-            <Loader2 className="w-8 h-8 text-white animate-spin" />
+            <Spinner size="lg" />
           </div>
         )}
         <button
@@ -81,9 +82,9 @@ export function GifPlayer({
           aria-label={isPlaying ? 'Pause animation' : 'Play animation'}
         >
           {isPlaying ? (
-            <Pause className="w-5 h-5 text-white" />
+            <FaPause className="w-5 h-5 text-white" />
           ) : (
-            <Play className="w-5 h-5 text-white" />
+            <FaPlay className="w-5 h-5 text-white" />
           )}
         </button>
       </div>
