@@ -21,8 +21,7 @@ import { StickyHeader } from '@/components/sticky-header';
 import { ImageContainer } from '@/components/image-container';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { cn, toProperCase } from '@/lib/utils';
-import { LucideNotepadText } from 'lucide-react';
-import { RiArticleLine } from 'react-icons/ri';
+import { RiArticleLine, RiPagesLine } from 'react-icons/ri';
 import { MdOutlineSchool } from 'react-icons/md';
 import { TbScribble } from 'react-icons/tb';
 import { FaBook, FaUser } from 'react-icons/fa6';
@@ -41,12 +40,7 @@ const Icon = ({ icon, ...rest }: IconProps) => {
     case 'scribble':
       return <TbScribble {...rest} />;
     case 'page':
-      return (
-        <LucideNotepadText
-          {...rest}
-          className={cn(rest.className, 'p-0 size-5')}
-        />
-      );
+      return <RiPagesLine {...rest} />;
     default:
       return <></>;
   }
