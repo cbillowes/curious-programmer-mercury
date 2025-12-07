@@ -9,9 +9,9 @@ import { Badge, Tooltip } from 'flowbite-react';
 import { GifPlayer } from '@/components/gif-player';
 import { CodeBlock, CodeInline } from '@/components/code-block';
 import { Link } from '@/components/link';
-import { Link as LinkIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { Alert } from '@/components/alert';
+import { cn } from '@/lib/utils';
+import { Link as LinkIcon } from 'lucide-react';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
