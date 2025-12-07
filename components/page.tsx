@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { ReactNode } from 'react';
+import { useEffect, useState, ReactNode } from 'react';
 import { Backdrop } from '@/components/backdrop';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
