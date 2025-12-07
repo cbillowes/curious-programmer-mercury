@@ -548,6 +548,15 @@ export function CoursePageContent({
   return (
     <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
       <Navigation previous={previous} next={next} />
+      {number && title && type && (
+        <PageStickyHeader
+          number={number}
+          title={title}
+          type={type}
+          to={`/courses/${course?.slug}`}
+          extra={<TableOfContents course={course} />}
+        />
+      )}
       <header className="mb-2 lg:mb-4">
         <Type type={type} to={`/courses/${course?.slug}`} number={number} />
         <PageTitle>{title}</PageTitle>
@@ -576,18 +585,8 @@ export function CoursePageContent({
         <div className="text-center">
           {tags && <Tags tags={tags} redirect={true} isButton={true} />}
         </div>
-
         <Author />
       </header>
-      {number && title && type && (
-        <PageStickyHeader
-          number={number}
-          title={title}
-          type={type}
-          to={`/courses/${course?.slug}`}
-          extra={<TableOfContents course={course} />}
-        />
-      )}
       <section id="article" className="max-w-3xl mx-auto mb-8">
         {content && <Markdown content={content} />}
       </section>
