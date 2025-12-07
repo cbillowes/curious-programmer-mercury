@@ -1,9 +1,9 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { Button, Spinner, Tooltip } from 'flowbite-react';
-import { Heart } from 'lucide-react';
 import { useState } from 'react';
+import { Button, Spinner, Tooltip } from 'flowbite-react';
+import { cn } from '@/lib/utils';
+import { Heart } from 'lucide-react';
 import { RiHeartFill } from 'react-icons/ri';
 
 export function Like({
