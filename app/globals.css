@@ -36,7 +36,7 @@ body {
 }
 
 #nprogress .peg {
-  @apply block absolute right-0 w-[100px] h-full opacity-100 rotate-3 translate-x-0 -translate-y-1 shadow-[0_0_10px_#3b82f6,0_0_5px_#3b82f6];
+  @apply block absolute right-0 w-[100px] h-full opacity-100 rotate-3 translate-x-0 -translate-y-1;
 }
 
 #nprogress .spinner {
