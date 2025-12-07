@@ -11,7 +11,7 @@ import { CodeBlock, CodeInline } from '@/components/code-block';
 import { Link } from '@/components/link';
 import { Alert } from '@/components/alert';
 import { cn } from '@/lib/utils';
-import { Link as LinkIcon } from 'lucide-react';
+import { FaLink } from 'react-icons/fa6';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -76,7 +76,7 @@ function HeadingLink({
         aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
       >
         <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'}>
-          <LinkIcon className="opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
+          <FaLink className="opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
         </Tooltip>
       </button>
       <a id={id} className="heading"></a>
