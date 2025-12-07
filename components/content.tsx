@@ -173,6 +173,7 @@ function Author() {
           alt="Clarice Bouwer"
           width={80}
           height={80}
+          priority={true}
         />
         <div>
           <a
@@ -299,6 +300,7 @@ export function ResumeContent({ resumePage }: { resumePage: Resume }) {
             width={100}
             height={100}
             className="mx-auto mb-4 rounded-md"
+            priority={true}
           />
         )}
         <PageTitle>{resume.company ?? resume.name}</PageTitle>

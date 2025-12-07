@@ -125,7 +125,7 @@ function DisplayDates({
   category: string;
 }) {
   if (!start) return null;
-  const classNames = cn(className, "print:text-xs print:text-left")
+  const classNames = cn(className, 'print:text-xs print:text-left');
   const startTimestamp = getTimestamp(start);
   const endTimestamp = end
     ? getTimestamp(end)
@@ -342,9 +342,7 @@ export function Timeline() {
                       </span>
                     ))}
                 </div>
-                <p className="mt-2 xl:text-right">
-                  {summary}
-                </p>
+                <p className="mt-2 xl:text-right">{summary}</p>
               </div>
               <div className="flex items-center flex-wrap xl:flex-row-reverse print:hidden">
                 <Link
@@ -371,6 +369,7 @@ export function Timeline() {
                       }`}
                       width={300}
                       height={300}
+                      priority={true}
                     />
                   )}
                 </div>

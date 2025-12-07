@@ -17,6 +17,7 @@ export function Footer() {
                 className="h-11 w-11"
                 width={44}
                 height={44}
+                priority={true}
               />
             </div>
             <div className="hidden dark:block">
@@ -26,12 +27,14 @@ export function Footer() {
                 className="h-11 w-11"
                 width={44}
                 height={44}
+                priority={true}
               />
             </div>
           </Link>
           <p className="my-6 text-gray-500 dark:text-gray-400">
             Curious Programmer
-            <br /> A curious place for a curious mind. Made with ❤️ with Next.js.
+            <br /> A curious place for a curious mind. Made with ❤️ with
+            Next.js.
           </p>
           <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
             <li>

@@ -106,6 +106,7 @@ export function Articles({
                 alt="Clarice Bouwer"
                 width={32}
                 height={32}
+                priority={true}
               />
               <div className="font-medium text-black dark:text-white">
                 <div>Clarice Bouwer</div>

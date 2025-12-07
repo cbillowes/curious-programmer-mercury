@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Credit } from '@/components/credit';
 
 export function Hero({
-  image = "default-01.jpg",
+  image = 'default-01.jpg',
   title,
   credit,
   creditSource,
@@ -18,10 +18,11 @@ export function Hero({
     <div className="relative print:hidden">
       <Image
         src={image}
-        alt={title ?? "Hero image"}
+        alt={title ?? 'Hero image'}
         width={1920}
         height={1280}
         className="w-full h-[250px] md:h-[700px] object-cover"
+        priority={true}
       />
       <Credit
         credit={credit}

@@ -74,6 +74,7 @@ export function Preview({
               alt="Clarice Bouwer"
               width={60}
               height={60}
+              priority={true}
             />
             <div className="font-medium dark:text-white">
               <div>Clarice Bouwer</div>
@@ -136,7 +137,7 @@ export function Preview({
         <div className={cn(isEven ? 'xl:justify-end' : 'xl:justify-start')}>
           <Thumbnail
             src={cover ?? 'default-01.png'}
-            alt={title ?? "Hero image"}
+            alt={title ?? 'Hero image'}
             width={800}
             height={600}
             className="h-80"

@@ -53,6 +53,7 @@ function Hit({
               alt={title}
               width={80}
               height={80}
+              priority={true}
             />
           )}
           <div>

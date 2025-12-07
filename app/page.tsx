@@ -166,6 +166,7 @@ export default async function Home() {
                 alt="Clarice Bouwer head shot"
                 width={128}
                 height={128}
+                priority={true}
               />
               <div className="flex gap-4 ml-4 flex-wrap">
                 <Socials />
@@ -239,6 +240,7 @@ export default async function Home() {
                   alt="Clarice Bouwer head shot"
                   width={910}
                   height={910}
+                  priority={true}
                 />
                 <div className="mt-2 text-center font-bold">Clarice Bouwer</div>
                 <div className="mb-4 text-center">Senior Software Engineer</div>
@@ -253,6 +255,7 @@ export default async function Home() {
                   className="inline-block w-16 h-16 ml-4"
                   width={64}
                   height={64}
+                  priority={true}
                 />
                 <Image
                   src="/mac.png"
@@ -260,6 +263,7 @@ export default async function Home() {
                   className="inline-block w-16 h-16 ml-4"
                   width={64}
                   height={64}
+                  priority={true}
                 />
                 <Image
                   src="/rocket.png"
@@ -267,6 +271,7 @@ export default async function Home() {
                   className="inline-block w-16 h-16 ml-4"
                   width={64}
                   height={64}
+                  priority={true}
                 />
               </div>
             </div>
