@@ -121,7 +121,7 @@ export function Markdown({ content }: { content: string }) {
             </HeadingLink>
           );
         },
-        p: ({ ...props }) => <p className="mb-4 leading-7" {...props} />,
+        p: ({ ...props }) => <div className="mb-4 leading-7" {...props} />,
         a: ({ href, children, ...props }) => (
           <Link href={href ?? ''} {...props}>
             {children}
