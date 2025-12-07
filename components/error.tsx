@@ -1,9 +1,10 @@
 'use client';
 
+import { useEffect } from 'react';
+import { Button } from 'flowbite-react';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { Container } from '@/components/container';
-import { Button } from 'flowbite-react';
 
 export function Error({
   error,
@@ -12,12 +13,18 @@ export function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
   return (
     <Page>
-      <PageHeading>Something went wrong</PageHeading>
       <Container>
-        <p>{error.message}</p>
-        <Button onClick={reset}>Try Again</Button>
+        <PageHeading>Something went wrong</PageHeading>
+        <div className="flex items-center justify-center gap-4">
+          <p>An unexpected error has occurred. Please try again later.</p>
+          <Button onClick={reset}>Try Again</Button>
+        </div>
       </Container>
     </Page>
   );
