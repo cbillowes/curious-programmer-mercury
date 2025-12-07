@@ -85,6 +85,9 @@ const courses = defineCollection({
       const slug = `/courses/${course?.slug}/${number}/${slugify(
         d.slug ?? d.title,
       )}`;
+      const previous = idx > 0 ? pages[idx - 1] : pages[0];
+      const next =
+        idx < pages.length - 1 ? pages[idx + 1] : pages[pages.length - 1];
       return {
         ...d,
         slug,
@@ -96,6 +99,8 @@ const courses = defineCollection({
         course,
         pages: null,
         number: idx + 1,
+        next,
+        previous,
       };
     };
 
