@@ -1,5 +1,5 @@
-import { toDateString } from '@/lib/utils';
 import { Link } from '@/components/link';
+import { toDateString } from '@/lib/utils';
 
 export function Metadata({
   type,
