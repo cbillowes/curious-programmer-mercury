@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from 'flowbite-react';
 import { useState } from 'react';
+import { Button } from 'flowbite-react';
 
 export function CookieBanner({ value }: { value?: string }) {
   const [show, setShow] = useState(value !== 'true');
