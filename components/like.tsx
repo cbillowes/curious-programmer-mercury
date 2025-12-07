@@ -45,7 +45,7 @@ export function Like({
         size="xs"
         className={cn(
           'cursor-pointer inline-flex gap-2 items-center font-medium text-gray-900 dark:text-white',
-          isLiked && 'text-pink-600 dark:text-pink-500',
+          isLiked && 'text-gray-900 dark:text-white',
         )}
       >
         {isBusy ? (
