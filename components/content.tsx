@@ -171,7 +171,8 @@ function Author() {
         <ImageContainer
           width={64}
           height={64}
-          className="mr-4 rounded-full border-4 border-white"
+          className="rounded-full border-4 border-white"
+          containerClassName="mr-4"
           src="/headshot.webp"
           alt="Clarice Bouwer"
           priority={true}
