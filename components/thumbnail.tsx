@@ -1,32 +1,6 @@
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
 import { Credit } from '@/components/credit';
 import { FeaturedBadge } from '@/components/articles';
-
-function ThumbnailImage({
-  src,
-  alt,
-  width,
-  height,
-  className,
-}: {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  className?: string;
-}) {
-  const classNames = cn(`w-full object-cover w-full h-50`, className);
-  return (
-    <Image
-      className={classNames}
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-    />
-  );
-}
+import { ImageContainer } from '@/components/image-container';
 
 export function Thumbnail({
   src,
@@ -56,12 +30,12 @@ export function Thumbnail({
           <FeaturedBadge featured={featured} />
         </div>
       )}
-      <ThumbnailImage
+      <ImageContainer
+        width={width ?? 200}
+        height={height ?? 150}
+        className={className}
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        className={className}
       />
       <Credit
         credit={credit}

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY } from '@/lib/config';
+import Link from 'next/link';
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
 import {
   InstantSearch,
@@ -18,12 +18,12 @@ import {
   Spinner,
   TextInput,
 } from 'flowbite-react';
+import { ImageContainer } from '@/components/image-container';
+import { ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY } from '@/lib/config';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { FaSearch } from 'react-icons/fa';
 import { FiCommand } from 'react-icons/fi';
 import { FaAlgolia } from 'react-icons/fa6';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useClickOutside } from '@/hooks/use-click-outside';
 
 const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
 
@@ -47,13 +47,14 @@ function Hit({
       <Link href={slug} onClick={onNavigate}>
         <div className="py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg mb-2 flex items-center gap-4 cursor-pointer">
           {imageUrl && (
-            <Image
-              className="w-40 h-40 mb-1 object-cover rounded-md hidden md:block"
-              src={imageUrl}
-              alt={title}
+            <ImageContainer
               width={80}
               height={80}
+              className="rounded-md hidden md:block"
+              src={imageUrl}
+              alt={title}
               priority={true}
+              fill={true}
             />
           )}
           <div>

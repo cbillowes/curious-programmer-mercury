@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { Credit } from '@/components/credit';
+import { ImageContainer } from '@/components/image-container';
 
 export function Hero({
   image = 'default-01.jpg',
@@ -16,13 +16,14 @@ export function Hero({
 }) {
   return (
     <div className="relative print:hidden">
-      <Image
-        src={image}
-        alt={title ?? 'Hero image'}
+      <ImageContainer
         width={1920}
         height={700}
-        className="w-full h-[250px] md:h-[700px] object-cover"
+        src={image}
+        alt={title ?? 'Hero image'}
+        className="w-full h-[250px] md:h-[700px]"
         priority={true}
+        fill={true}
       />
       <Credit
         credit={credit}

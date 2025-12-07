@@ -1,7 +1,9 @@
 'use client';
 
 import { ReactNode, useState } from 'react';
-import Image from 'next/image';
+import { Button } from 'flowbite-react';
+import { ImageContainer } from '@/components/image-container';
+import { Link } from '@/components/link';
 import { getResume } from '@/lib/resume';
 import { cn } from '@/lib/utils';
 import {
@@ -11,9 +13,7 @@ import {
   FaPaperclip,
   FaRegComment,
 } from 'react-icons/fa';
-import { Link } from './link';
 import { FaApple, FaLinux, FaPrint, FaWindows } from 'react-icons/fa6';
-import { Button } from 'flowbite-react';
 
 const color = {
   education: {
@@ -359,17 +359,18 @@ export function Timeline() {
             </div>
             <div className="hidden xl:flex xl:w-1/3 relative items-start justify-center xl:justify-start xl:text-right print:hidden">
               <div className="text-center">
-                <div className="w-20 xl:w-48 pr-3 pt-3">
+                <div className="pr-3 pt-3">
                   {logo && (
-                    <Image
+                    <ImageContainer
+                      width={128}
+                      height={128}
                       src={`/logos/${logo}`}
                       alt={company ?? name ?? 'Logo'}
-                      className={`mx-auto bg-white rounded-lg px-6 py-4 ${
+                      className={`mx-auto bg-white rounded-lg px-3 py-2 object-contain ${
                         category === 'Testimonial' ? 'rounded-full' : ''
                       }`}
-                      width={300}
-                      height={300}
                       priority={true}
+                      fill={false}
                     />
                   )}
                 </div>

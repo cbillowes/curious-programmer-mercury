@@ -1,15 +1,16 @@
+import Image from 'next/image';
 import { ReactNode } from 'react';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
 import { PageHeading } from '@/components/page-heading';
 import { Link } from '@/components/link';
+import { ImageContainer } from '@/components/image-container';
+import { Timeline } from '@/components/timeline';
+import { cn, getPageMetadata } from '@/lib/utils';
 import { FaCheckCircle, FaSpider } from 'react-icons/fa';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import { SiLevelsdotfyi } from 'react-icons/si';
 import { GiDramaMasks } from 'react-icons/gi';
-import { cn, getPageMetadata } from '@/lib/utils';
-import { Timeline } from '@/components/timeline';
-import Image from 'next/image';
 
 const Pillar = ({
   icon,
@@ -94,68 +95,47 @@ export default function ResumePage() {
   return (
     <Page>
       <Container>
-        <div className="print:hidden">
-          <PageHeading>Resume</PageHeading>
-        </div>
-        <section className="block md:hidden mt-4">
-          <Image
+        <section className="text-center">
+          <ImageContainer
+            width={96}
+            height={96}
             src="/headshot.webp"
             alt="Head shot of Clarice Bouwer"
-            width={80}
-            height={80}
-            className="rounded-full mb-4 mx-auto border-4 border-white"
+            className="rounded-full mb-4 border-4 border-white"
+            containerClassName="mx-auto"
             priority={true}
           />
-          <h2 className="text-2xl font-bold text-center">Clarice Bouwer</h2>
-          <h3 className="text-lg font-semibold text-center">
+          <PageHeading>Clarice Bouwer</PageHeading>
+          <h3 className="text-lg font-semibold">
             Senior Software Engineer at Arity Craft Limited
           </h3>
           <nav className="flex md:hidden mb-2 flex-col justify-center items-start space-x-4 space-y-4">
             <ContactNavItems />
           </nav>
         </section>
-        <section className="mt-8 flex flex-col md:flex-row md:space-x-8 print:hidden">
+        <section className="max-w-4xl mx-auto mt-4">
           <div>
-            <Image
-              src="/headshot.webp"
-              alt="Head shot of Clarice Bouwer"
-              width={80}
-              height={80}
-              className="rounded-full mb-4 border-4 border-white"
-              priority={true}
-            />
-            <h2 className="text-lg font-bold">Clarice Bouwer</h2>
-            <h3 className="text-lg">
-              Senior Software Engineer at Arity Craft Limited
-            </h3>
-            <nav className="hidden md:flex mb-2 mt-2 flex-col justify-center items-start space-x-4 space-y-4">
-              <ContactNavItems />
-            </nav>
-          </div>
-          <div className="max-w-3xl">
-            <div>
-              <p className="mb-4 leading-relaxed text-lg">
-                A seasoned polyglot full-stack software engineer specializing in
-                web development with 20 years of experience delivering digital
-                solutions across industries such as media, event registration,
-                cloud, virtualization, and InsureTech.
-              </p>
-              <p className="mb-4 leading-relaxed text-lg">
-                Recently co-led a remote team of 15 at Cloudsure Limited and
-                Simply Financial Services, building a next-generation digital
-                life insurance platform on a Clojure-based Polylith architecture
-                spanning more than 15 repositories.
-              </p>
-              <p className="mb-4 leading-relaxed text-lg">
-                Proven track record highlights innovation, systems thinking, and
-                empathetic leadership in guiding high-performing teams.
-                Dedicated to writing elegant code, fostering strong development
-                practices, and creating exceptional user experiences.
-              </p>
-            </div>
+            <p className="mb-4 leading-relaxed text-lg">
+              A seasoned polyglot full-stack software engineer specializing in
+              web development with 20 years of experience delivering digital
+              solutions across industries such as media, event registration,
+              cloud, virtualization, and InsureTech.
+            </p>
+            <p className="mb-4 leading-relaxed text-lg">
+              Recently co-led a remote team of 15 at Cloudsure Limited and
+              Simply Financial Services, building a next-generation digital life
+              insurance platform on a Clojure-based Polylith architecture
+              spanning more than 15 repositories.
+            </p>
+            <p className="mb-4 leading-relaxed text-lg">
+              Proven track record highlights innovation, systems thinking, and
+              empathetic leadership in guiding high-performing teams. Dedicated
+              to writing elegant code, fostering strong development practices,
+              and creating exceptional user experiences.
+            </p>
           </div>
         </section>
-        <aside className="mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3">
+        <aside className="max-w-4xl mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3">
           <Pillar
             title="Experience"
             icon={<SiLevelsdotfyi />}

@@ -19,6 +19,7 @@ import { Comments } from '@/components/comments';
 import { Bookmark } from '@/components/bookmark';
 import { Like } from '@/components/like';
 import { StickyHeader } from '@/components/sticky-header';
+import { ImageContainer } from '@/components/image-container';
 import { cn, toProperCase } from '@/lib/utils';
 import { LucideNotepadText } from 'lucide-react';
 import { RiArticleLine } from 'react-icons/ri';
@@ -167,13 +168,14 @@ function Author() {
   return (
     <aside className="max-w-3xl mx-auto flex items-center mt-8 mb-6 not-italic">
       <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-        <Image
-          className="mr-4 w-16 h-16 rounded-full border-4 border-white"
+        <ImageContainer
+          width={64}
+          height={64}
+          className="mr-4 rounded-full border-4 border-white"
           src="/headshot.webp"
           alt="Clarice Bouwer"
-          width={80}
-          height={80}
           priority={true}
+          fill={false}
         />
         <div>
           <a
@@ -294,13 +296,15 @@ export function ResumeContent({ resumePage }: { resumePage: Resume }) {
     <article>
       <header className="mb-2 lg:mb-4">
         {resume.logo && (
-          <Image
+          <ImageContainer
+            width={112}
+            height={112}
             src={`/logos/${resume.logo}`}
             alt={resume.company ?? (resume.name || 'Logo')}
-            width={100}
-            height={100}
-            className="mx-auto mb-4 rounded-md"
+            className="rounded-md bg-white p-2"
+            containerClassName="mx-auto"
             priority={true}
+            fill={false}
           />
         )}
         <PageTitle>{resume.company ?? resume.name}</PageTitle>

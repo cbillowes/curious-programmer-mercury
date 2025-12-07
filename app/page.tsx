@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { getArticles } from '@/lib/articles';
 import { Link } from '@/components/link';
 import { FaNodeJs } from 'react-icons/fa';
@@ -17,7 +16,8 @@ import { getBookmarks } from '@/db/bookmark';
 import { getLikes } from '@/db/likes';
 import { ReactNode } from 'react';
 import { TbTools } from 'react-icons/tb';
-import { BiCode, BiCodeCurly } from 'react-icons/bi';
+import { BiCodeCurly } from 'react-icons/bi';
+import { ImageContainer } from '@/components/image-container';
 
 function Socials() {
   return (
@@ -160,12 +160,12 @@ export default async function Home() {
         <div className="px-4 sm:px-32 grid max-w-5xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <div className="lg:hidden flex items-center justify-start">
-              <Image
+              <ImageContainer
+                width={32}
+                height={32}
                 src="/headshot.webp"
-                className="w-32 h-32 object-cover border-4 border-white rounded-full"
+                className="w-32 h-32 border-4 border-white rounded-full"
                 alt="Clarice Bouwer head shot"
-                width={128}
-                height={128}
                 priority={true}
               />
               <div className="flex gap-4 ml-4 flex-wrap">
@@ -234,12 +234,12 @@ export default async function Home() {
           <div className="hidden lg:mt-0 lg:col-span-4 lg:flex justify-end">
             <div>
               <div className="flex justify-center items-center flex-col">
-                <Image
+                <ImageContainer
+                  width={210}
+                  height={210}
                   src="/headshot.webp"
                   className="w-[210px] h-[210px] object-cover border-8 border-white rounded-full"
                   alt="Clarice Bouwer head shot"
-                  width={910}
-                  height={910}
                   priority={true}
                 />
                 <div className="mt-2 text-center font-bold">Clarice Bouwer</div>
@@ -248,29 +248,26 @@ export default async function Home() {
               <div className="flex gap-4 justify-around mt-4">
                 <Socials />
               </div>
-              <div className="mt-8 flex justify-center items-center">
-                <Image
+              <div className="mt-8 flex justify-center items-center gap-4">
+                <ImageContainer
+                  width={48}
+                  height={48}
                   src="/unicorn.png"
                   alt="Unicorn emoji"
-                  className="inline-block w-16 h-16 ml-4"
-                  width={64}
-                  height={64}
                   priority={true}
                 />
-                <Image
+                <ImageContainer
+                  width={48}
+                  height={48}
                   src="/mac.png"
                   alt="Woman technologist emoji"
-                  className="inline-block w-16 h-16 ml-4"
-                  width={64}
-                  height={64}
                   priority={true}
                 />
-                <Image
+                <ImageContainer
+                  width={48}
+                  height={48}
                   src="/rocket.png"
                   alt="Rocket emoji"
-                  className="inline-block w-16 h-16 ml-4"
-                  width={64}
-                  height={64}
                   priority={true}
                 />
               </div>

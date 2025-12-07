@@ -1,13 +1,13 @@
-import Image from 'next/image';
+import { Badge } from 'flowbite-react';
+import { Article, Scribble, Course } from '@/.content-collections/generated';
 import { Link } from '@/components/link';
 import { Metadata } from '@/components/metadata';
 import { Ribbon } from '@/components/ribbon';
-import { cn, slugifyTag } from '@/lib/utils';
-import { Badge } from 'flowbite-react';
-import { Thumbnail } from './thumbnail';
+import { Thumbnail } from '@/components/thumbnail';
 import { Bookmark } from '@/components/bookmark';
 import { Type } from '@/components/type';
-import { Article, Scribble, Course } from '@/.content-collections/generated';
+import { ImageContainer } from '@/components/image-container';
+import { cn, slugifyTag } from '@/lib/utils';
 
 export function Preview({
   index,
@@ -25,7 +25,7 @@ export function Preview({
     <section
       key={index}
       className={cn(
-        'relative mx-auto max-w-full md:w-6/12 xl:w-screen md:mt-12 md:mb-16 p-5 flex justify-center flex-col-reverse',
+        'relative mx-auto max-w-full md:w-6/12 xl:w-screen md:mt-12 xl:mb-16 p-5 flex justify-center flex-col-reverse',
         isEven ? 'xl:flex-row-reverse' : 'xl:flex-row',
       )}
     >
@@ -39,11 +39,12 @@ export function Preview({
       >
         <Type
           type={type}
-          className={
+          className={cn(
+            'hidden xl:inline-block',
             isEven
               ? 'xl:text-left xl:items-start'
-              : 'xl:text-right xl:items-end'
-          }
+              : 'xl:text-right xl:items-end',
+          )}
         />
         <h2
           className={cn(
@@ -65,16 +66,17 @@ export function Preview({
               isEven ? 'xl:justify-start' : 'xl:flex-row-reverse',
             )}
           >
-            <Image
+            <ImageContainer
+              width={32}
+              height={32}
               className={cn(
-                'w-8 h-8 rounded-full border-2 border-white',
+                'rounded-full border-2 border-white',
                 isEven ? 'xl:mr-2' : 'xl:ml-4',
               )}
               src="/headshot.webp"
               alt="Clarice Bouwer"
-              width={60}
-              height={60}
               priority={true}
+              fill={true}
             />
             <div className="font-medium dark:text-white">
               <div>Clarice Bouwer</div>
@@ -111,7 +113,7 @@ export function Preview({
           <div
             className={cn(
               'flex flex-wrap gap-2 w-full mt-3',
-              isEven ? 'justify-start' : 'justify-end',
+              isEven ? 'xl:justify-start' : 'xl:justify-end',
             )}
           >
             {tags?.map((tag) => (
@@ -129,18 +131,18 @@ export function Preview({
       </div>
       <div
         className={cn(
-          'xl:w-1/2 relative',
+          'w-full text-left xl:w-1/2 relative',
           isEven ? 'xl:text-right' : 'xl:text-left',
         )}
       >
         <Ribbon>#{number}</Ribbon>
         <div className={cn(isEven ? 'xl:justify-end' : 'xl:justify-start')}>
           <Thumbnail
+            width={575}
+            height={350}
             src={cover ?? 'default-01.png'}
             alt={title ?? 'Hero image'}
-            width={800}
-            height={600}
-            className="h-80"
+            className="w-full rounded-lg"
             credit={data.credit}
             creditLink={data.creditLink}
             creditSource={data.creditSource}

@@ -1,19 +1,19 @@
 'use client';
 
+import { useState } from 'react';
 import NextLink from 'next/link';
-import Image from 'next/image';
+import { Tooltip } from 'flowbite-react';
+import { Article, Course, Scribble } from '@/.content-collections/generated';
 import { Ribbon } from '@/components/ribbon';
 import { Link } from '@/components/link';
 import { Thumbnail } from '@/components/thumbnail';
 import { Metadata } from '@/components/metadata';
-import { FaArrowRight, FaStar } from 'react-icons/fa6';
-import { getCoursePageBySlug } from '@/lib/courses';
 import { Bookmark } from '@/components/bookmark';
-import { useState } from 'react';
 import { Type } from '@/components/type';
 import { Like } from '@/components/like';
-import { Article, Course, Scribble } from '@/.content-collections/generated';
-import { Tooltip } from 'flowbite-react';
+import { ImageContainer } from '@/components/image-container';
+import { getCoursePageBySlug } from '@/lib/courses';
+import { FaArrowRight, FaStar } from 'react-icons/fa6';
 
 export function Articles({
   data,
@@ -73,7 +73,7 @@ export function Articles({
         return (
           <article
             key={slug}
-            className="relative p-4 mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
+            className="relative mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
           >
             <Ribbon>#{number}</Ribbon>
             <NextLink href={slug ?? '#'}>
@@ -84,65 +84,71 @@ export function Articles({
               )}
               {cover && (
                 <Thumbnail
+                  width={320}
+                  height={200}
                   src={cover}
                   alt={title ?? 'Hero image'}
-                  width={600}
-                  height={150}
                   credit={credit}
                   creditLink={creditLink}
                   creditSource={creditSource}
                   featured={featured}
+                  className="rounded-t-lg"
                 />
               )}
             </NextLink>
-            <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
-              <Link href={slug}>{title}</Link>
-            </h3>
-            {courseTitle && <h4 className="my-2 font-bold">{courseTitle}</h4>}
-            <div className="flex items-center mb-3 space-x-3">
-              <Image
-                className="w-8 h-8 rounded-full border-2 border-white"
-                src="/headshot.webp"
-                alt="Clarice Bouwer"
-                width={32}
-                height={32}
-                priority={true}
-              />
-              <div className="font-medium text-black dark:text-white">
-                <div>Clarice Bouwer</div>
-                <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                  <Metadata
-                    date={date}
-                    timeToRead={timeToRead}
-                    type="article"
-                  />
+            <div className="p-4">
+              <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
+                <Link href={slug}>{title}</Link>
+              </h3>
+              {courseTitle && <h4 className="my-2 font-bold">{courseTitle}</h4>}
+              <div className="flex items-center mb-3 space-x-3">
+                <ImageContainer
+                  width={48}
+                  height={48}
+                  className="rounded-full border-2 border-white"
+                  src="/headshot.webp"
+                  alt="Clarice Bouwer"
+                  priority={true}
+                  fill={false}
+                />
+                <div className="font-medium text-black dark:text-white">
+                  <div>Clarice Bouwer</div>
+                  <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                    <Metadata
+                      date={date}
+                      timeToRead={timeToRead}
+                      type="article"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <p className="mb-3 text-gray-500 dark:text-gray-400">{abstract}</p>
-            <div className="flex gap-2 items-center justify-start">
-              <Bookmark
-                bookmarks={bookmarks}
-                slug={slug}
-                onChange={(added) =>
-                  filterOnBookmarkChange && handleContentChange(added, slug)
-                }
-              />
-              <Like
-                likes={likes}
-                slug={slug}
-                onChange={(added) =>
-                  filterOnLikeChange && handleContentChange(added, slug)
-                }
-              />
-              <Link
-                title={title}
-                href={slug}
-                className="inline-flex gap-2 items-center font-medium text-pink-600 hover:text-pink-800 dark:text-pink-500 hover:dark:text-pink-600 hover:no-underline"
-              >
-                Read more
-                <FaArrowRight />
-              </Link>
+              <p className="mb-3 text-gray-500 dark:text-gray-400">
+                {abstract}
+              </p>
+              <div className="flex gap-2 items-center justify-start">
+                <Bookmark
+                  bookmarks={bookmarks}
+                  slug={slug}
+                  onChange={(added) =>
+                    filterOnBookmarkChange && handleContentChange(added, slug)
+                  }
+                />
+                <Like
+                  likes={likes}
+                  slug={slug}
+                  onChange={(added) =>
+                    filterOnLikeChange && handleContentChange(added, slug)
+                  }
+                />
+                <Link
+                  title={title}
+                  href={slug}
+                  className="inline-flex gap-2 items-center font-medium text-pink-600 hover:text-pink-800 dark:text-pink-500 hover:dark:text-pink-600 hover:no-underline"
+                >
+                  Read more
+                  <FaArrowRight />
+                </Link>
+              </div>
             </div>
           </article>
         );
