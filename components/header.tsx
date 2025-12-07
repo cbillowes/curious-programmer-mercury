@@ -1,16 +1,16 @@
 'use client';
 
-import { getGroup, sidebarItems } from '@/data/sidebar';
-import { cn } from '@/lib/utils';
 import { ReactNode, useState } from 'react';
-import { Link } from '@/components/link';
-import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
 import { useThemeMode } from 'flowbite-react';
+import { useStackApp } from '@stackframe/stack';
+import { Link } from '@/components/link';
 import { Search } from '@/components/search';
-import { useClickOutside } from '@/hooks/use-click-outside';
 import { Avatar, AvatarDropdown } from '@/components/avatar';
 import { useAuth } from '@/hooks/use-auth';
-import { useStackApp } from '@stackframe/stack';
+import { useClickOutside } from '@/hooks/use-click-outside';
+import { getGroup, sidebarItems } from '@/data/sidebar';
+import { cn } from '@/lib/utils';
+import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
 
 function MenuItemLink({
   active,
@@ -180,7 +180,9 @@ export function Header() {
                     {`{ `} curious{' '}
                     <strong className="font-bold">programmer</strong> {` }`}
                   </span>
-                  <span className="block sm:hidden font-black text-3xl">{'{ }'}</span>
+                  <span className="block sm:hidden font-black text-3xl">
+                    {'{ }'}
+                  </span>
                 </Link>
               </div>
               <div className="print:hidden flex items-center gap-2">
