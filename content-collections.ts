@@ -103,8 +103,11 @@ const courses = defineCollection({
       const idx = courses.findIndex(
         (d) => doc._meta.filePath === d._meta.filePath,
       );
-      const previous = idx > 0 ? courses[idx - 1] : null;
-      const next = idx < courses.length - 1 ? courses[idx + 1] : null;
+      const previous = idx > 0 ? courses[idx - 1] : courses[0];
+      const next =
+        idx < courses.length - 1
+          ? courses[idx + 1]
+          : courses[courses.length - 1];
       const timeToRead = pages
         .map((p) => Math.ceil(readingTime(p.content).minutes))
         .reduce((a, b) => a + b, 0);
