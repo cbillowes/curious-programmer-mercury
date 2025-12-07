@@ -2,7 +2,7 @@ import { Articles } from '@/components/articles';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
-import { getBookmarks } from '@/db/bookmark';
+import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
 import { getScribbles } from '@/lib/scribbles';
 import { getPageMetadata } from '@/lib/utils';

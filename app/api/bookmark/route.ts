@@ -1,4 +1,4 @@
-import { addToBookmarks, deleteBookmark } from '@/db/bookmark';
+import { addToBookmarks, deleteBookmark } from '@/db/bookmarks';
 import { stackServerApp } from '@/stack/server';
 import { NextResponse } from 'next/server';
 

@@ -5,7 +5,7 @@ import { ScribbleContent } from '@/components/content';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
-import { getBookmarks } from '@/db/bookmark';
+import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
 
 type Props = {

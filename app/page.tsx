@@ -12,7 +12,7 @@ import { SiClojure, SiGooglecloud } from 'react-icons/si';
 import { Page } from '@/components/page';
 import { Articles } from '@/components/articles';
 import { cn, getPageMetadata, slugify } from '@/lib/utils';
-import { getBookmarks } from '@/db/bookmark';
+import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
 import { ReactNode } from 'react';
 import { TbTools } from 'react-icons/tb';

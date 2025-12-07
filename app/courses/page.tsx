@@ -2,7 +2,7 @@ import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { Preview } from '@/components/preview';
-import { getBookmarks } from '@/db/bookmark';
+import { getBookmarks } from '@/db/bookmarks';
 import { getCourses } from '@/lib/courses';
 import { getPageMetadata } from '@/lib/utils';
 import { notFound } from 'next/navigation';

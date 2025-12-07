@@ -8,7 +8,7 @@ import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { getArticles } from '@/lib/articles';
 import { getPageMetadata } from '@/lib/utils';
-import { getBookmarks } from '@/db/bookmark';
+import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
 
 export async function generateMetadata() {

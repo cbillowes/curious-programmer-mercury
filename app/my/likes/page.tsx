@@ -5,7 +5,7 @@ import { Link } from '@/components/link';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { Type } from '@/components/type';
-import { getBookmarks } from '@/db/bookmark';
+import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
 import { getContent } from '@/lib/content';
 import { getPageMetadata } from '@/lib/utils';

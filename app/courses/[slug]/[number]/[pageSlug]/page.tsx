@@ -5,7 +5,7 @@ import { getCourseBySlug, getCoursePageBySlug } from '@/lib/courses';
 import { notFound, redirect } from 'next/navigation';
 import { Hero } from '@/components/hero';
 import { getPageMetadata } from '@/lib/utils';
-import { getBookmarks } from '@/db/bookmark';
+import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
 import { headers } from 'next/headers';
 import { stackServerApp } from '@/stack/server';
