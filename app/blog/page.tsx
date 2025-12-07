@@ -38,7 +38,7 @@ export default async function BlogPage() {
             .map(({ slug, title, number, featured }) => (
               <div
                 key={slug}
-                className="border-b border-dashed flex justify-between items-center hover:bg-pink-600 hover:text-white"
+                className="px-4 border-b border-dashed flex justify-between items-center hover:bg-pink-600 hover:text-white"
               >
                 <Link href={slug} className="py-4 block w-full">
                   #{number}. {title}
