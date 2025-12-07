@@ -104,7 +104,7 @@ export function Preview({
               isEven ? 'xl:mr-2' : 'xl:ml-4',
             )}
             href={slug}
-            title="Read more"
+            title={title}
           >
             Read more
           </Link>
