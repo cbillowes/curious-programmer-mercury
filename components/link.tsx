@@ -2,11 +2,11 @@
 
 import { ComponentProps } from 'react';
 import { useRouter } from 'next/navigation';
-import { cn } from '@/lib/utils';
-import { ExternalLink } from 'lucide-react';
 import NextLink from 'next/link';
 import NProgress from 'nprogress';
 import { Tooltip as FlowbiteTooltip } from 'flowbite-react';
+import { cn } from '@/lib/utils';
+import { RiExternalLinkLine } from 'react-icons/ri';
 
 type Props = ComponentProps<'a'> & {
   hideExternal?: boolean;
@@ -46,7 +46,7 @@ export function Link(props: Props) {
           >
             {children}
             {!hideExternal && (
-              <ExternalLink className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
+              <RiExternalLinkLine className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
             )}
           </a>
         </Tooltip>
