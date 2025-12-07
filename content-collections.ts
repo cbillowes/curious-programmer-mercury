@@ -23,8 +23,8 @@ const articles = defineCollection({
   transform: async (doc, meta) => {
     const docs = await meta.collection.documents();
     const idx = docs.findIndex((d) => doc._meta.filePath === d._meta.filePath);
-    const previous = idx > 0 ? docs[idx - 1] : null;
-    const next = idx < docs.length - 1 ? docs[idx + 1] : null;
+    const previous = idx > 0 ? docs[idx - 1] : docs[0];
+    const next = idx < docs.length - 1 ? docs[idx + 1] : docs[docs.length - 1];
     const slug = slugify(doc.slug ?? doc.title);
     return {
       ...doc,
