@@ -553,9 +553,12 @@ export function CoursePageContent({
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
           {course && (
-            <Link href={`/courses/${course.slug}`} className="mb-2 block">
-              {course.title}
-            </Link>
+            <div className="flex items-center gap-2 justify-center mb-2">
+              <Link href={`/courses/${course.slug}`} className="block">
+                {course.title}
+              </Link>
+              <TableOfContents course={course} />
+            </div>
           )}
           <Metadata
             timeToRead={timeToRead}
