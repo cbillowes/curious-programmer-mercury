@@ -1,6 +1,5 @@
-import { cn } from '@/lib/utils';
-import { Link } from './link';
-import _ from 'lodash';
+import { Link } from '@/components/link';
+import { cn, slugify } from '@/lib/utils';
 
 type TagProps = {
   tag: string;
@@ -20,7 +19,7 @@ export function Tag({ tag, prefix, className, redirect }: TagProps) {
     );
   return (
     <Link
-      href={`/tag/${_.kebabCase(tag)}`}
+      href={`/tag/${slugify(tag)}`}
       className={className}
     >
       {prefix}
