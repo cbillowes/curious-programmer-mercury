@@ -46,7 +46,7 @@ function EmptyContents() {
   return (
     <div>
       <p className="text-center mb-4">
-        Your bookmarks are empty. Would you like to explore some content?
+        Your likes are empty. Would you like to explore some content?
       </p>
     </div>
   );
