@@ -37,16 +37,16 @@ export default async function RootLayout({
       </head>
       <body className={`${openSans.variable} ${firaCode.variable} antialiased`}>
         <StackProvider app={stackServerApp}>
-          <StackTheme>
-            <Suspense fallback={null}>
-              <ProgressBar>
-                <ThemeProvider theme={flowbiteTheme}>
+          <Suspense fallback={null}>
+            <ProgressBar>
+              <ThemeProvider theme={flowbiteTheme}>
+                <StackTheme>
                   <ScrollProgress>{children}</ScrollProgress>
                   <CookieBanner value={cookieConsent?.value} />
-                </ThemeProvider>
-              </ProgressBar>
-            </Suspense>
-          </StackTheme>
+                </StackTheme>
+              </ThemeProvider>
+            </ProgressBar>
+          </Suspense>
         </StackProvider>
       </body>
       <GoogleAnalytics gaId="G-475QC81Y7F" />
