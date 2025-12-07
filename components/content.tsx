@@ -1,7 +1,6 @@
 'use client';
 
 import { ReactNode, useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from 'flowbite-react';
 import {
