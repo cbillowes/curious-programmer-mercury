@@ -3,7 +3,7 @@
 import { Button } from 'flowbite-react';
 import { useState } from 'react';
 
-export default function CookieBanner({ value }: { value?: string }) {
+export function CookieBanner({ value }: { value?: string }) {
   const [show, setShow] = useState(value !== 'true');
 
   function acceptCookies() {

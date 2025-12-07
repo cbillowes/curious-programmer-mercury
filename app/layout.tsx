@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { cookies } from 'next/headers';
 import { ThemeModeScript, ThemeProvider } from 'flowbite-react';
 import { StackProvider, StackTheme } from '@stackframe/stack';
 import { Open_Sans, Fira_Code } from 'next/font/google';
@@ -6,10 +7,9 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { flowbiteTheme } from '@/components/theme';
 import { ProgressBar } from '@/components/progress-bar';
 import { stackServerApp } from '@/stack/server';
-import './globals.css';
-import CookieBanner from '@/components/cookie-banner';
-import { cookies } from 'next/headers';
+import { CookieBanner } from '@/components/cookie-banner';
 import { ScrollProgress } from '@/components/scroll-progress';
+import './globals.css';
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
