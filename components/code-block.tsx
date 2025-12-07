@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Copy, Check } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { Badge, useThemeMode } from 'flowbite-react';
+import { BiCheck, BiCopy } from 'react-icons/bi';
 import {
   materialLight,
   materialDark,
@@ -48,9 +48,9 @@ export function CodeBlock({
           aria-label={copied ? 'Copied!' : 'Copy code'}
         >
           {copied ? (
-            <Check className="w-4 h-4 text-green-500" />
+            <BiCheck className="w-4 h-4 text-green-500" />
           ) : (
-            <Copy className="w-4 h-4" />
+            <BiCopy className="w-4 h-4" />
           )}
         </button>
 
