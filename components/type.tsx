@@ -1,5 +1,5 @@
+import { Link } from '@/components/link';
 import { cn } from '@/lib/utils';
-import { Link } from './link';
 import { TbBook, TbSchool, TbScribble } from 'react-icons/tb';
 
 export function Type({
