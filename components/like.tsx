@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import { Button, Spinner, Tooltip } from 'flowbite-react';
 import { cn } from '@/lib/utils';
-import { Heart } from 'lucide-react';
-import { RiHeartFill } from 'react-icons/ri';
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 export function Like({
   slug,
@@ -52,9 +51,9 @@ export function Like({
         {isBusy ? (
           <Spinner size="sm" />
         ) : isLiked ? (
-          <RiHeartFill size={20} />
+          <FaHeart size={16} />
         ) : (
-          <Heart size={14} />
+          <FaRegHeart size={16} />
         )}
       </Button>
     </Tooltip>
