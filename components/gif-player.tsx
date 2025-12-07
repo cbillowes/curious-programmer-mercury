@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Play, Pause, Loader2 } from 'lucide-react';
 
 export function parseAst(text: string): {
