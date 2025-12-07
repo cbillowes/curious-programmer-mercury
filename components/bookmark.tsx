@@ -48,7 +48,7 @@ export function Bookmark({
         size="xs"
         className={cn(
           'cursor-pointer inline-flex gap-2 items-center font-medium text-gray-900 dark:text-white',
-          isBookmarked && 'text-pink-600 dark:text-pink-500',
+          isBookmarked && 'text-gray-900 dark:text-white',
         )}
       >
         {isBusy ? (
