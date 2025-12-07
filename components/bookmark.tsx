@@ -3,8 +3,8 @@
 import { cn } from '@/lib/utils';
 import { Button, Spinner, Tooltip } from 'flowbite-react';
 import { useState } from 'react';
-import { FaBookmark } from 'react-icons/fa6';
-import { MdBookmarkRemove } from 'react-icons/md';
+import { FaBookmark } from "react-icons/fa6";
+import { FiBookmark } from "react-icons/fi";
 
 export function Bookmark({
   slug,
@@ -54,9 +54,9 @@ export function Bookmark({
         {isBusy ? (
           <Spinner size="sm" />
         ) : isBookmarked ? (
-          <MdBookmarkRemove size={20} />
+          <FaBookmark size={16} />
         ) : (
-          <FaBookmark size={14} />
+          <FiBookmark size={16} />
         )}
       </Button>
     </Tooltip>
