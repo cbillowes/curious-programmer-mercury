@@ -20,7 +20,7 @@ export function Hero({
         src={image}
         alt={title ?? 'Hero image'}
         width={1920}
-        height={1280}
+        height={700}
         className="w-full h-[250px] md:h-[700px] object-cover"
         priority={true}
       />
