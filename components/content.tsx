@@ -19,6 +19,7 @@ import { Bookmark } from '@/components/bookmark';
 import { Like } from '@/components/like';
 import { StickyHeader } from '@/components/sticky-header';
 import { ImageContainer } from '@/components/image-container';
+import { useClickOutside } from '@/hooks/use-click-outside';
 import { cn, toProperCase } from '@/lib/utils';
 import { LucideNotepadText } from 'lucide-react';
 import { RiArticleLine } from 'react-icons/ri';
@@ -204,6 +205,7 @@ function PageTitle({ children }: { children: React.ReactNode }) {
 
 function TableOfContents({ course }: { course: Course }) {
   const [isOpen, setIsOpen] = useState(false);
+  const modalRef = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
 
   return (
     <div>
@@ -215,7 +217,12 @@ function TableOfContents({ course }: { course: Course }) {
         <FaBook />
         Table of Contents
       </div>
-      <Modal show={isOpen} size="lg" onClose={() => setIsOpen(false)}>
+      <Modal
+        ref={modalRef}
+        show={isOpen}
+        size="lg"
+        onClose={() => setIsOpen(false)}
+      >
         <ModalHeader>Table of Contents</ModalHeader>
         <ModalBody className="max-h-96">
           {course.pages?.map((page, index) => (
