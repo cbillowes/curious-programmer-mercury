@@ -115,7 +115,7 @@ export function getPageMetadata({
   type: 'article' | 'website';
 }) {
   const canonicalUrl = getCanonicalUrl(slug);
-  // These images are converted automatically through the optimize-images.js script registered in nodemon
+  // These images are converted automatically through the share-images.js script registered in nodemon
   const imageUrl = getShareImageUrl(image);
   const imageType = getImageType(imageUrl);
   const pageTitle = `${title} | Curious Programmer${

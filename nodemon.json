@@ -3,5 +3,5 @@
   "watch": [
     "public/**/*"
   ],
-  "exec": "node scripts/process-gifs.js public/articles/ && node scripts/optimize-images.js public/hero public/share"
+  "exec": "node scripts/process-gifs.js public/articles/ && node scripts/share-images.js public/hero public/share"
 }
