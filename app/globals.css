@@ -85,7 +85,7 @@ body {
   @apply text-base;
 }
 
-#article div,
+#article .paragraph,
 #article p,
 #article td,
 #article th {

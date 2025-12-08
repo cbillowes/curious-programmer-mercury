@@ -121,12 +121,10 @@ export function Markdown({ content }: { content: string }) {
             </HeadingLink>
           );
         },
-        p: ({ ...props }) => <div className="mb-4 leading-7" {...props} />,
-        a: ({ href, children, ...props }) => (
-          <Link href={href ?? ''} {...props}>
-            {children}
-          </Link>
+        p: ({ children }) => (
+          <div className="paragraph mb-4 leading-7">{children}</div>
         ),
+        a: ({ href, children }) => <Link href={href ?? ''}>{children}</Link>,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         img: ({ src, alt }: any) => {
           const imageUrl = src.startsWith('http')
