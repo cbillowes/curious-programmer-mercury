@@ -51,9 +51,9 @@ export function Like({
         {isBusy ? (
           <Spinner size="sm" />
         ) : isLiked ? (
-          <FaHeart size={16} />
+          <FaHeart aria-label="Remove your like" size={16} />
         ) : (
-          <FaRegHeart size={16} />
+          <FaRegHeart aria-label="Like this" size={16} />
         )}
       </Button>
     </Tooltip>
