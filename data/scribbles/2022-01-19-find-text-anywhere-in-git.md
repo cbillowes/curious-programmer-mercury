@@ -10,6 +10,9 @@ tags:
   - Git
   - Tip
   - Terminal
+abstract: >
+  Need to find some text in your Git repository, even if it was deleted a long time ago?
+  Here's a simple command to help you do just that.
 ---
 
 ```bash

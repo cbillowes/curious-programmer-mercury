@@ -10,6 +10,10 @@ tags:
   - Tip
   - JavaScript
   - Webpack
+abstract: >
+  When using Webpack with Split Chunks and MiniCssExtractPlugin,
+  you may want to name the emitted CSS files with a content hash to bust the cache.
+  Here's a quick snippet on how to do just that.
 ---
 
 > React: 17.0.2

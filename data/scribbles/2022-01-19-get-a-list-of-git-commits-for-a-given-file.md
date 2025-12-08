@@ -10,6 +10,9 @@ tags:
   - Git
   - Terminal
   - Tip
+abstract: >
+  Need to get a list of all Git commits for a specific file?
+  Here's a simple command to help you do just that.
 ---
 
 > This includes cases where the file has been renamed.

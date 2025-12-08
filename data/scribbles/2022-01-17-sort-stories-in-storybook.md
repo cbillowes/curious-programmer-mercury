@@ -10,6 +10,9 @@ tags:
   - Tip
   - Storybook
   - JavaScript
+abstract: >
+  You could have a lot of stories in Storybook.
+  Here's a quick snippet on how to sort them alphabetically.
 ---
 
 ```javascript:title=.storybook/preview.js

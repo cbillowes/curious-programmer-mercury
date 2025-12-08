@@ -10,6 +10,9 @@ tags:
   - Tip
   - npm
   - JavaScript
+abstract: >
+  Want to keep your package.json dependencies sorted alphabetically without installing an extra package?
+  Here's a quick npm command to help you do just that.
 ---
 
 ```bash

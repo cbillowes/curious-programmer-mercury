@@ -11,6 +11,9 @@ tags:
   - Node
   - Webpack
   - JavaScript
+abstract: >
+  When using Webpack, you may want to minify CSS files that are simply copied to an output directory.
+  Here's a quick snippet on how to do just that using CopyWebpackPlugin and cssnano.
 ---
 
 ## Goal

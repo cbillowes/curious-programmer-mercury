@@ -7,6 +7,9 @@ tags:
   - Tip
   - Chrome
   - DevTools
+abstract: >
+  Need to find some text in your web application in your browser?
+  Here's a simple guide for Google Chrome using the powerful search in DevTools.
 ---
 
 > I am running Version 97.0.4692.71 (Official Build) (arm64) to date.

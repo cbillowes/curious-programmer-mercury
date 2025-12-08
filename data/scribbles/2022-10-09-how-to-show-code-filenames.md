@@ -9,6 +9,9 @@ tags:
   - Tip
   - JavaScript
   - Gatsby
+abstract: >
+  Want to show filenames above code snippets in your Gatsby Markdown files?
+  Here's a quick guide on how to do just that.
 ---
 
 With the [gatsby-remark-code-titles](https://www.gatsbyjs.com/plugins/gatsby-remark-code-titles/) plugin.

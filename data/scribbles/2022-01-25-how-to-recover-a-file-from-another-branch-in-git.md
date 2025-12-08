@@ -10,6 +10,9 @@ tags:
   - Tip
   - Git
   - Terminal
+abstract: >
+  Need to recover a file from another branch in Git without switching branches?
+  Here's a simple command to help you do just that.
 ---
 
 ```bash

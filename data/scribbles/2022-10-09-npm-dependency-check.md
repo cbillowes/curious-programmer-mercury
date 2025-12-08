@@ -10,6 +10,9 @@ tags:
   - Node
   - JavaScript
   - Terminal
+abstract: >
+  If you have outdated, incorrect or unused dependencies in your Node project,
+  here's a quick utility to help you fix them.
 ---
 
 There is a utility called **npm-check** that offers the ability to interactively update outdated, incorrect or unused dependencies:

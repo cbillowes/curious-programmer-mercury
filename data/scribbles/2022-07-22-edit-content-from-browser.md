@@ -6,6 +6,9 @@ tags:
   - Technical
   - Chrome
   - Tip
+abstract: >
+  Need to quickly edit the content of a web page for prototyping or testing?
+  Here's a quick tip on how to do just that directly from your browser.
 ---
 
 Executing `document.designMode = "on"` in the browser console will let you click and type

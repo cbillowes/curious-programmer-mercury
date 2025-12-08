@@ -10,6 +10,9 @@ tags:
   - Tip
   - Terminal
   - Gatsby
+abstract: >
+  Need to get verbose logs for a specific Gatsby package during a build?
+  Here's a quick snippet on how to do just that.
 ---
 
 I got an error and needed to get verbose logs for a particular package during a Gatsby build.

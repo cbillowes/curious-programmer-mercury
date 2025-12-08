@@ -8,6 +8,9 @@ tags:
   - Technical
   - Productivity
   - Visual Studio Code
+abstract: >
+  A list of Visual Studio Code extensions that I use on a daily basis to improve productivity and
+  make life easier as a developer and blogger.
 ---
 
 I use numerous VS Code extensions to increase productivity

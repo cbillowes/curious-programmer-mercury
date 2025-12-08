@@ -7,6 +7,9 @@ tags:
   - Tip
   - Terminal
   - macOS
+abstract: >
+  Sometimes processes running on localhost can hang onto ports even after the process has ended.
+  Here's a quick guide on how to find and kill those processes on macOS.
 ---
 
 ## Motivation

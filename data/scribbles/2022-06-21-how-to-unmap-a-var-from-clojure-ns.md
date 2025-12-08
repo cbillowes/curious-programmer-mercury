@@ -9,6 +9,9 @@ tags:
   - Technical
   - Tip
   - Clojure
+abstract: >
+  When working in a Clojure REPL, you may need to unmap a var from a namespace.
+  This can be useful when redefining multimethods.
 ---
 
 I was working with a multimethod that I needed to redefine in my REPL and came across [this](https://clojuredocs.org/clojure.core/defmulti) doc.

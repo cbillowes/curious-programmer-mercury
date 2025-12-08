@@ -9,6 +9,11 @@ tags:
   - Technical
   - Clojure
   - Terminal
+abstract: >
+  You may want to target and run a specific test or set of tests when testing
+  your code so that you don't keep executing the entire suite each time you
+  make changes to specific tests. This creates a faster feedback loop for you
+  to build and fix code. Here's a quick guide on how to do just that using Leiningen.
 ---
 
 You may want to target and run a specific test or set of tests when testing

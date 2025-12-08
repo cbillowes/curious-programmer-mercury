@@ -10,6 +10,9 @@ tags:
   - Node
   - JavaScript
   - Webpack
+abstract: >
+  When using Webpack with code splitting, you may see the error 'Loading chunk \d+ failed' in the browser console.
+  Here's a quick explanation of why this can happen.
 ---
 
 I know of the following reasons why chunks cannot be downloaded:

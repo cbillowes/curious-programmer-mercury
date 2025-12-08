@@ -10,6 +10,9 @@ tags:
   - Tip
   - Git
   - Terminal
+abstract: >
+  Need to see what changes you have stashed in Git without applying them?
+  Here's a simple command to help you do just that.
 ---
 
 ```

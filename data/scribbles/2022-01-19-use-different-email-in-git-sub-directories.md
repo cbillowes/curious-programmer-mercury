@@ -10,6 +10,9 @@ tags:
   - Git
   - Terminal
   - Tip
+abstract: >
+  I want to override my personal email address I use for Git with my work
+  email address in my work directory without manually changing it each time.
 ---
 
 I want to override my personal email address I use for Git with my work

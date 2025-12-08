@@ -11,6 +11,9 @@ tags:
   - Webpack
   - JavaScript
   - npm
+abstract: >
+  Not all npm packages have to come from a remote npm registry.
+  Here's a quick snippet on how to reference one locally.
 ---
 
 With the help of this question and answer from [Stack Overflow](https://stackoverflow.com/questions/15806241/how-to-specify-local-modules-as-npm-package-dependencies):

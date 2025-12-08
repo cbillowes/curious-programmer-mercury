@@ -11,6 +11,9 @@ tags:
   - Storybook
   - React
   - JavaScript
+abstract: >
+  Do you need to use a React hook inside Storybook?
+  Here's a quick snippet to show you how to do so.
 ---
 
 ```javascript

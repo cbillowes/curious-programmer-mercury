@@ -9,6 +9,9 @@ tags:
   - Hack
   - Terminal
   - Gatsby
+abstract: >
+  If your Gatsby image processing is stalling during development,
+  here's a quick hack to help fix it by setting the CPU count.
 ---
 
 Build stuck at running jobs (image transformation)
