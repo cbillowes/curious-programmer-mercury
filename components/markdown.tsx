@@ -76,7 +76,9 @@ function HeadingLink({
         aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
       >
         <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'}>
-          <FaLink className="opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
+          <a href={`#${id}`}>
+            <FaLink className="text-gray-800 dark:text-gray-100 opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
+          </a>
         </Tooltip>
       </button>
       <a id={id} className="heading"></a>
