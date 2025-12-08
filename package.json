@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "search:index": "node ./scripts/search.js",
-    "images:optimize": "node ./scripts/optimize-images.js public/ public/ 80"
+    "images:optimize": "node ./scripts/optimize-images.js public/ public/ 80 && node ./scripts/rename-temp-images.js public/"
   },
   "dependencies": {
     "@docsearch/css": "^4.3.2",

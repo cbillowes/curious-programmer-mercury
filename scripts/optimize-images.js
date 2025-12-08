@@ -6,13 +6,13 @@ const fromPath = process.argv[2];
 const toPath = process.argv[3];
 const quality = parseInt(process.argv[4]) || 80;
 
-console.log(`🧪 Processing images for optimization from: ${fromPath} to ${toPath}...`);
+console.log(`🧪 Optimizing images from ${fromPath} to ${toPath}...`);
 
-function optimizeWebp(filename, image) {
-  sharp(image)
+function optimizeWebp(filename, newFilename) {
+  sharp(filename)
     .toFormat('webp')
     .webp({ quality })
-    .toFile(filename, (err) => {
+    .toFile(newFilename, (err) => {
       if (err) {
         console.error('❌ Conversion failed for ', filename, err);
       } else {
@@ -21,11 +21,11 @@ function optimizeWebp(filename, image) {
     });
 }
 
-function optimizeGif(filename, image) {
-  sharp(image)
+function optimizeGif(filename, newFilename) {
+  sharp(filename)
     .toFormat('gif')
     .gif({ quality })
-    .toFile(filename, (err) => {
+    .toFile(newFilename, (err) => {
       if (err) {
         console.error('❌ Conversion failed for ', filename, err);
       } else {
@@ -34,11 +34,11 @@ function optimizeGif(filename, image) {
     });
 }
 
-function optimizePng(filename, image) {
-  sharp(image)
+function optimizePng(filename, newFilename) {
+  sharp(filename)
     .toFormat('png')
     .png({ quality })
-    .toFile(filename, (err) => {
+    .toFile(newFilename, (err) => {
       if (err) {
         console.error('❌ Conversion failed for ', filename, err);
       } else {
@@ -47,11 +47,11 @@ function optimizePng(filename, image) {
     });
 }
 
-function optimizeJpg(filename, image) {
-  sharp(image)
+function optimizeJpg(filename, newFilename) {
+  sharp(filename)
     .toFormat('jpeg')
     .jpeg({ quality })
-    .toFile(filename, (err) => {
+    .toFile(newFilename, (err) => {
       if (err) {
         console.error('❌ Conversion failed for ', filename, err);
       } else {
@@ -60,32 +60,37 @@ function optimizeJpg(filename, image) {
     });
 }
 
-function optimizeImage(image) {
-  const ext = path.extname(image).toLowerCase();
-  const basename = path.basename(image);
-  const outputJpg = path.join(toPath, basename);
+function optimizeImage(filename) {
+  const ext = path.extname(filename).toLowerCase();
+  const basename = path.basename(filename);
+  const tempFilename = filename.replace(basename, `temp_${basename}`);
+
+  if (basename.startsWith('temp_')) {
+    console.log(`⏭️ Skipping temp file: ${filename}`);
+    return;
+  }
 
   if (['.DS_Store'].includes(basename)) {
-    console.log(`⏭️ Skipping file: ${image}`);
+    console.log(`⏭️ Skipping file: ${filename}`);
     return;
   }
 
   switch (ext) {
     case '.webp':
-      optimizeWebp(outputJpg, image);
+      optimizeWebp(filename, tempFilename);
       break;
     case '.gif':
-      optimizeGif(outputJpg, image);
+      optimizeGif(filename, tempFilename);
       break;
     case '.png':
-      optimizePng(outputJpg, image);
+      optimizePng(filename, tempFilename);
       break;
     case '.jpg':
     case '.jpeg':
-      optimizeJpg(outputJpg, image);
+      optimizeJpg(filename, tempFilename);
       break;
     default:
-      console.log(`⚠️ Unsupported file type: ${image}`);
+      console.log(`⚠️ Unsupported file type: ${filename}`);
   }
 }
 
