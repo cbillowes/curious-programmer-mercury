@@ -41,7 +41,6 @@ function processImage(image) {
     });
 }
 
-
 function traverseDirectory(dir) {
   const files = fs.readdirSync(dir);
   files.forEach(file => {
