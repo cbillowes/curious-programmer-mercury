@@ -8,7 +8,6 @@ export function Backdrop() {
           src="/backdrop_1.png"
           alt="Gradient background"
           className="w-287 flex-none max-w-none dark:hidden"
-          decoding="async"
           priority={true}
           height={287}
           width={432}
@@ -17,7 +16,6 @@ export function Backdrop() {
           src="/backdrop_2.png"
           alt="Gradient background"
           className="w-360 flex-none max-w-none hidden dark:block"
-          decoding="async"
           priority={true}
           height={287}
           width={432}
