@@ -23,7 +23,7 @@ export function ProgressBar({ children }: { children: React.ReactNode }) {
       const href = target.href;
       const currentUrl = window.location.href;
 
-      if (href !== currentUrl) {
+      if (href !== currentUrl && target.href.indexOf('#') === -1) {
         NProgress.start();
       }
     };
