@@ -1,7 +1,7 @@
 {
+  "ext": "gif,jpg,jpeg,png,webp",
   "watch": [
-    "public"
+    "public/**/*"
   ],
-  "ext": "gif",
-  "exec": "node scripts/process-gifs.js public/ && node scripts/optimize-images.js public/hero public/share"
+  "exec": "node scripts/process-gifs.js public/articles/ && node scripts/optimize-images.js public/hero public/share"
 }
