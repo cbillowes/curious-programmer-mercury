@@ -205,7 +205,7 @@ export function Markdown({ content }: { content: string }) {
           return !inline && language ? (
             <div className="mb-4">
               <CodeBlock language={language} title={title}>
-                {String(children).replace(/\n$/, '')}
+                {String(children).replace(/\n$/, '').replace(/```.\s*$/, '```')}
               </CodeBlock>
             </div>
           ) : (
