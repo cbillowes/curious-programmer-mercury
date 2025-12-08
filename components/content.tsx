@@ -455,9 +455,7 @@ export function CourseContent({
                   <button
                     className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
                     onClick={() => {
-                      const returnTo = encodeURIComponent(
-                        `/courses/${course.slug}`,
-                      );
+                      const returnTo = encodeURIComponent(course.slug);
                       router.push(
                         `/handler/sign-in?after_auth_return_to=${returnTo}`,
                       );
@@ -469,9 +467,7 @@ export function CourseContent({
                   <button
                     className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
                     onClick={() => {
-                      const returnTo = encodeURIComponent(
-                        `/courses/${course.slug}`,
-                      );
+                      const returnTo = encodeURIComponent(course.slug);
                       router.push(
                         `/handler/sign-up?after_auth_return_to=${returnTo}`,
                       );
@@ -494,11 +490,11 @@ export function CourseContent({
               page && (
                 <div
                   key={index}
-                  className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4"
+                  className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4 px-4"
                 >
                   <Link
                     href={page.slug}
-                    className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
+                    className="block w-full text-black! dark:text-white! hover:text-white! font-normal!"
                   >
                     {'number' in page && page.number}. {page.title}
                   </Link>
@@ -547,17 +543,17 @@ export function CoursePageContent({
           number={number}
           title={title}
           type={type}
-          to={`/courses/${course?.slug}`}
+          to={course?.slug}
           extra={<TableOfContents course={course} />}
         />
       )}
       <header className="mb-2 lg:mb-4">
-        <Type type={type} to={`/courses/${course?.slug}`} number={number} />
+        <Type type={type} to={course?.slug} number={number} />
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
           {course && (
             <div className="flex items-center gap-2 justify-center mb-2">
-              <Link href={`/courses/${course.slug}`} className="block">
+              <Link href={course.slug} className="block">
                 {course.title}
               </Link>
               <TableOfContents course={course} />
