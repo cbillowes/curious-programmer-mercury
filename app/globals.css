@@ -89,11 +89,11 @@ body {
 #article p,
 #article td,
 #article th {
-  @apply mb-8 leading-9 text-xl font-light;
+  @apply mb-8 leading-9 text-lg font-light;
 }
 
 #article li {
-  @apply mb-0.5 leading-9 text-xl font-light;
+  @apply mb-0.5 leading-9 text-lg font-light;
 }
 
 #article table {

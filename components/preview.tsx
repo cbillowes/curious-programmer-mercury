@@ -87,7 +87,7 @@ export function Preview({
           </div>
           <p
             className={cn(
-              'mt-2 text-xl font-light',
+              'mt-2 text-lg font-light',
               isEven ? 'xl:text-left' : 'xl:text-right',
             )}
           >

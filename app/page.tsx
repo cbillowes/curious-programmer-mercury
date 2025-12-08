@@ -183,7 +183,7 @@ export default async function Home() {
               </span>
               .
             </h1>
-            <p className="max-w-5xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300">
+            <p className="max-w-5xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg dark:text-gray-300">
               A highly accomplished and passionate polyglot full-stack software
               engineer with {new Date().getFullYear() - 2005} years of
               experience delivering impactful digital solutions across diverse
@@ -192,7 +192,7 @@ export default async function Home() {
               and a diverse technical skill set including DevOps and Artificial
               Intelligence.
             </p>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300">
+            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg dark:text-gray-300">
               Currently co-leading a remote team of 15 across Cloudsure Limited
               and Simply Financial Services, where I spearhead the development
               of a cutting-edge digital life insurance platform using
@@ -201,7 +201,7 @@ export default async function Home() {
               innovation and leading high-performing teams through systems
               thinking and empathy.
             </p>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300">
+            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg dark:text-gray-300">
               Dedicated to crafting elegant, high-quality code, fostering strong
               development practices, and delivering exceptional user
               experiences.
@@ -282,7 +282,7 @@ export default async function Home() {
             <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
-            <p className="font-light sm:text-xl text-white">
+            <p className="font-light sm:text-lg text-white">
               I love learning new things and how to improve on existing things,
               so I share the gems I uncover along the way. ✨
             </p>

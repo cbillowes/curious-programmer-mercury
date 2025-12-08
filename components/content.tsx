@@ -176,7 +176,7 @@ function Author() {
           <a
             href="/about"
             rel="author"
-            className="text-xl font-bold text-gray-900 dark:text-white"
+            className="text-lg font-bold text-gray-900 dark:text-white"
           >
             Clarice Bouwer
           </a>

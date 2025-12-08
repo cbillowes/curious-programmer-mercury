@@ -293,7 +293,7 @@ export function Timeline() {
               {name && (
                 <>
                   <h2
-                    className={`text-xl mt-2 xl:mt-0 md:text-2xl font-bold font-alt-sans ${nodeColor.heading}`}
+                    className={`text-lg mt-2 xl:mt-0 md:text-2xl font-bold font-alt-sans ${nodeColor.heading}`}
                   >
                     <ResumeIcon
                       category={category}
