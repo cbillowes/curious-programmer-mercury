@@ -43,9 +43,6 @@ export function getByTag(tag: string) {
   );
   const combined = [...articles, ...scribbles, ...courses];
   return combined.sort((a, b) => {
-    if (a.date && b.date) {
-      return b.date.getTime() - a.date.getTime();
-    }
-    return -1;
+    return b.number - a.number;
   });
 }
