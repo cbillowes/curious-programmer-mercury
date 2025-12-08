@@ -1,5 +1,7 @@
 'use client';
 
+import { Link } from '@/components/link';
+
 export function Credit({
   credit,
   creditSource,
@@ -11,13 +13,16 @@ export function Credit({
 }) {
   return (
     creditLink && (
-      <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
-        <button
-          onClick={() => window.open(creditLink, '_blank')}
+      <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white text-sm px-4 py-2 rounded z-50">
+        <Link
+          href={creditLink}
           className="cursor-pointer"
+          title="Open credit source"
+          hideExternal={true}
+          showTooltip={false}
         >
           {credit} {credit && creditSource && ' | '} {creditSource}
-        </button>
+        </Link>
       </div>
     )
   );
