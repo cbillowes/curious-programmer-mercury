@@ -13,10 +13,10 @@ export function Credit({
 }) {
   return (
     creditLink && (
-      <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white text-sm px-4 py-2 rounded z-50">
+      <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white text-sm rounded z-50">
         <Link
           href={creditLink}
-          className="cursor-pointer"
+          className="cursor-pointer px-4 py-2"
           title="Open credit source"
           hideExternal={true}
           showTooltip={false}
