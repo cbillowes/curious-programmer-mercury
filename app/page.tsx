@@ -24,6 +24,7 @@ function Socials() {
     <>
       <Link
         href="https://github.com/cbillowes"
+        title="GitHub Profile"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
         hideExternal={true}
       >
@@ -31,6 +32,7 @@ function Socials() {
       </Link>
       <Link
         href="https://www.linkedin.com/in/cbouwer/"
+        title="LinkedIn Profile"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
         hideExternal={true}
       >
@@ -38,6 +40,7 @@ function Socials() {
       </Link>
       <Link
         href="https://stackoverflow.com/users/849986/clarice-bouwer"
+        title="Stack Overflow Profile"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
         hideExternal={true}
       >
@@ -46,6 +49,7 @@ function Socials() {
       <div>|</div>
       <Link
         href="https://clojure.org/"
+        title="Clojure"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
         hideExternal={true}
       >
@@ -53,6 +57,7 @@ function Socials() {
       </Link>
       <Link
         href="https://nodejs.org/"
+        title="Node.js"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
         hideExternal={true}
       >
@@ -60,6 +65,7 @@ function Socials() {
       </Link>
       <Link
         href="https://nextjs.org/"
+        title="Next.js"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
         hideExternal={true}
       >
@@ -67,6 +73,7 @@ function Socials() {
       </Link>
       <Link
         href="https://cloud.google.com/"
+        title="Google Cloud"
         className="flex justify-center items-center hover:scale-125 transition-all duration-300"
         hideExternal={true}
       >
