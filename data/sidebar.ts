@@ -1,8 +1,9 @@
+import { getScribbleYears } from '@/lib/scribbles';
+
 export const sidebarItems = [
   { to: '/', name: 'Home' },
   { to: '/resume', name: 'Resume' },
   {
-    to: '/blog',
     name: 'Blog',
     items: [
       { to: '/blog', name: 'All' },
@@ -13,7 +14,16 @@ export const sidebarItems = [
         .map((item) => ({ ...item, name: item.name.toString() })),
     ],
   },
-  { to: '/scribbles', name: 'Scribbles' },
+  {
+    name: 'Scribbles',
+    items: [
+      { to: '/scribbles', name: 'All' },
+      ...getScribbleYears().map((year) => ({
+        to: `/scribbles/${year}`,
+        name: year.toString(),
+      })),
+    ],
+  },
   { to: '/courses', name: 'Courses' },
   { to: '/tags', name: 'Tags' },
   {

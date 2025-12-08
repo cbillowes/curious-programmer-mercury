@@ -9,3 +9,24 @@ export function getScribbles() {
 export function getScribbleBySlug(slug: string) {
   return allScribbles.find((scribble) => scribble.slug.endsWith(slug));
 }
+
+export function getScribbleYears() {
+  const years = allScribbles.map((scribble) => {
+    return new Date(scribble.date).getFullYear();
+  });
+  return Array.from(new Set(years)).sort((a, b) => b - a);
+}
+
+export function getScribblesByYear(year: number) {
+  return allScribbles
+    .filter((scribble) => scribble.date.getFullYear() === year)
+    .sort((a, b) => b.date.getTime() - a.date.getTime());
+}
+
+export function getScribblesByYearOrSlug(param: string) {
+  const article = getScribbleBySlug(param);
+  if (article) {
+    return article;
+  }
+  return getScribblesByYear(parseInt(param, 10));
+}
