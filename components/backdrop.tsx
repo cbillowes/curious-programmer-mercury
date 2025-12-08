@@ -9,16 +9,16 @@ export function Backdrop() {
           alt="Gradient background"
           className="w-full flex-none max-w-none dark:hidden"
           priority={true}
-          height={668}
-          width={2296}
+          height={1232}
+          width={2880}
         />
         <Image
           src="/backdrop_2.png"
           alt="Gradient background"
           className="w-full flex-none max-w-none hidden dark:block"
           priority={true}
-          height={668}
-          width={2296}
+          height={1232}
+          width={2880}
         />
       </div>
     </div>
