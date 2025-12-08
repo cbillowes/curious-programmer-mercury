@@ -21,9 +21,10 @@ npm r -S example; npm r -D example
 
 is short hand for `npm remove --save anything` and `npm remove --save-dev whatever`.
 
-"example" is just the name of a package. You can use it verbatim because it will most likely not be in your package.json. Your packages are sorted by running npm remove even if the package "example" doesn't exist.
+"example" is just the name of a package.
+You can use it verbatim because it will most likely not be in your package.json.
+Your packages are sorted by running npm remove even if the package "example" doesn't exist.
 
 ---
 
 Thanks to this [question](https://stackoverflow.com/questions/34438465/is-there-a-way-to-alphabetize-package-json-without-installing-a-package) on Stack Overflow.
-
