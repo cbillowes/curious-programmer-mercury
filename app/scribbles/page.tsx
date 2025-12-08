@@ -1,12 +1,12 @@
-import { Articles } from '@/components/articles';
+import { notFound } from 'next/navigation';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
+import { Preview } from '@/components/preview';
 import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
 import { getScribbles } from '@/lib/scribbles';
 import { getPageMetadata } from '@/lib/utils';
-import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
   return getPageMetadata({
@@ -30,11 +30,17 @@ export default async function ScribblesPage() {
       <Page>
         <Container>
           <PageHeading>Scribbles</PageHeading>
-          <Articles
-            data={data}
-            bookmarks={bookmarks.map((b) => b.slug)}
-            likes={likes.map((l) => l.slug)}
-          />
+          <ul>
+            {data.map((article, index) => (
+              <Preview
+                key={index}
+                index={index}
+                data={article}
+                bookmarks={bookmarks.map((b) => b.slug)}
+                likes={likes.map((l) => l.slug)}
+              />
+            ))}
+          </ul>
         </Container>
       </Page>
     </div>
