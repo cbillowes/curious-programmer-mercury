@@ -10,6 +10,7 @@ import { RiExternalLinkLine } from 'react-icons/ri';
 
 type Props = ComponentProps<'a'> & {
   hideExternal?: boolean;
+  showTooltip?: boolean;
 };
 
 function Tooltip(props: {
@@ -23,7 +24,15 @@ function Tooltip(props: {
 
 export function Link(props: Props) {
   const router = useRouter();
-  const { href, className, children, hideExternal, title, ...rest } = props;
+  const {
+    href,
+    className,
+    children,
+    hideExternal = false,
+    showTooltip = true,
+    title,
+    ...rest
+  } = props;
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -35,7 +44,7 @@ export function Link(props: Props) {
   if (typeof href === 'string' && href.startsWith('http')) {
     return (
       <div className="inline-flex">
-        <Tooltip content={title}>
+        <Tooltip content={showTooltip && title}>
           <a
             {...rest}
             aria-label={title}
