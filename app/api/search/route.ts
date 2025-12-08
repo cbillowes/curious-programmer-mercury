@@ -54,7 +54,7 @@ function getKeywords(content: string = '') {
 
 export async function GET() {
   const articles = getArticles().map(
-    ({ slug, title, abstract, cover, tags, date, content }) => ({
+    ({ slug, title, abstract, cover, tags, date, content, number }) => ({
       objectID: slug,
       date,
       title,
@@ -63,10 +63,11 @@ export async function GET() {
       slug,
       keywords: getKeywords(content),
       imageUrl: getPathWithDomain(cover),
+      number,
     }),
   );
   const scribbles = getScribbles().map(
-    ({ slug, title, abstract, cover, tags, date, content }) => ({
+    ({ slug, title, abstract, cover, tags, date, content, number }) => ({
       objectID: slug,
       date,
       title,
@@ -75,10 +76,11 @@ export async function GET() {
       slug,
       keywords: getKeywords(content),
       imageUrl: getPathWithDomain(cover),
+      number,
     }),
   );
   const courses = getCourses().map(
-    ({ slug, title, abstract, cover, tags, date, content }) => ({
+    ({ slug, title, abstract, cover, tags, date, content, number }) => ({
       objectID: slug,
       date,
       title,
@@ -87,10 +89,11 @@ export async function GET() {
       slug,
       keywords: getKeywords(content),
       imageUrl: getPathWithDomain(cover),
+      number,
     }),
   );
   const coursePages = getCoursePages().map(
-    ({ slug, title, abstract, cover, tags, date, content }) => ({
+    ({ slug, title, abstract, cover, tags, date, content, number }) => ({
       objectID: slug,
       date,
       title,
@@ -99,16 +102,12 @@ export async function GET() {
       slug,
       keywords: getKeywords(content),
       imageUrl: getPathWithDomain(cover),
+      number,
     }),
   );
   const data = [...articles, ...scribbles, ...courses, ...coursePages].sort(
     (a, b) => {
-      if (a.date && b.date) {
-        if (a.date > b.date) return -1;
-        if (a.date < b.date) return 1;
-        return 0;
-      }
-      return -1;
+      return a.number - b.number;
     },
   );
   return NextResponse.json(data);

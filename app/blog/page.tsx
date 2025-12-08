@@ -34,7 +34,7 @@ export default async function BlogPage() {
         <PageHeading>Blog</PageHeading>
         <div className="max-w-5xl mx-auto px-5">
           {data
-            .sort((a, b) => b.date.getTime() - a.date.getTime())
+            .sort((a, b) => b.number - a.number)
             .map(({ slug, title, number, featured }) => (
               <div
                 key={slug}
