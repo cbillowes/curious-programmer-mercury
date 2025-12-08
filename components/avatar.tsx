@@ -10,9 +10,16 @@ import {
 
 export function Avatar() {
   const user = useAuth();
-  if (!user) return <FlowbiteAvatar rounded bordered size="sm" />;
+  if (!user)
+    return <FlowbiteAvatar title="Sign in" rounded bordered size="sm" />;
   return (
-    <FlowbiteAvatar img={user.avatar} rounded bordered size="sm">
+    <FlowbiteAvatar
+      title="Your user account"
+      img={user.avatar}
+      rounded
+      bordered
+      size="sm"
+    >
       <div className="space-y-0 font-medium dark:text-white text-xs">
         <div>{user.displayName}</div>
         <div className="text-xs text-gray-500 dark:text-gray-400 truncate w-28">
@@ -48,7 +55,9 @@ export function AvatarDropdown() {
       <DropdownItem href="/my/bookmarks">Bookmarks</DropdownItem>
       <DropdownItem href="/my/likes">Likes</DropdownItem>
       <DropdownDivider />
-      <DropdownItem href={app.urls.signOut} className="rounded-lg">Sign out</DropdownItem>
+      <DropdownItem href={app.urls.signOut} className="rounded-lg">
+        Sign out
+      </DropdownItem>
     </Dropdown>
   );
 }
