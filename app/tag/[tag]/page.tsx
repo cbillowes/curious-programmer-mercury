@@ -1,9 +1,11 @@
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
-import { getByTag, prettifyTag } from '@/lib/tags';
 import { Preview } from '@/components/preview';
+import { getByTag, prettifyTag } from '@/lib/tags';
 import { getPageMetadata } from '@/lib/utils';
+import { getBookmarks } from '@/db/bookmarks';
+import { getLikes } from '@/db/likes';
 
 type Props = {
   params: {
@@ -28,13 +30,22 @@ export async function generateMetadata({ params }: Props) {
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
   const data = getByTag(tag);
+  const bookmarks = await getBookmarks();
+  const likes = await getLikes();
+
   return (
     <Page>
       <Container>
         <PageHeading>{prettifyTag(tag)}</PageHeading>
         <ul>
           {data.map((item, index) => (
-            <Preview key={index} index={index} data={item} bookmarks={[]} />
+            <Preview
+              key={index}
+              index={index}
+              data={item}
+              bookmarks={bookmarks.map((b) => b.slug)}
+              likes={likes.map((l) => l.slug)}
+            />
           ))}
         </ul>
       </Container>

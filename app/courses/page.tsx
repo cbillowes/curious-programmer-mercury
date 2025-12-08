@@ -1,11 +1,12 @@
+import { notFound } from 'next/navigation';
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { Preview } from '@/components/preview';
 import { getBookmarks } from '@/db/bookmarks';
+import { getLikes } from '@/db/likes';
 import { getCourses } from '@/lib/courses';
 import { getPageMetadata } from '@/lib/utils';
-import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
   return getPageMetadata({
@@ -22,6 +23,7 @@ export default async function CoursesPage() {
   const data = getCourses();
   if (!data) notFound();
   const bookmarks = await getBookmarks();
+  const likes = await getLikes();
 
   return (
     <Page>
@@ -34,6 +36,7 @@ export default async function CoursesPage() {
               index={index}
               data={item}
               bookmarks={bookmarks.map((b) => b.slug)}
+              likes={likes.map((l) => l.slug)}
             />
           ))}
         </ul>

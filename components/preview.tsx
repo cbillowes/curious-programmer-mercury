@@ -7,16 +7,19 @@ import { Thumbnail } from '@/components/thumbnail';
 import { Bookmark } from '@/components/bookmark';
 import { Type } from '@/components/type';
 import { ImageContainer } from '@/components/image-container';
+import { Like } from '@/components/like';
 import { cn, slugifyTag } from '@/lib/utils';
 
 export function Preview({
   index,
   data,
   bookmarks,
+  likes,
 }: {
   index: number;
   data: Article | Scribble | Course;
   bookmarks: string[];
+  likes: string[];
 }) {
   const isEven = index % 2 === 0;
   const { title, slug, date, abstract, tags, number, timeToRead, cover, type } =
@@ -100,6 +103,7 @@ export function Preview({
           }`}
         >
           {slug && <Bookmark bookmarks={bookmarks} slug={slug} />}
+          {slug && <Like likes={likes} slug={slug} />}
           <Link
             className={cn(
               'bg-pink-600 text-white rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:scale-105 transition-all duration-300',

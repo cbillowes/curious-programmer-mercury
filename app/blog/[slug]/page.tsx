@@ -1,11 +1,11 @@
+import { notFound } from 'next/navigation';
 import { Page } from '@/components/page';
 import { Container } from '@/components/container';
-import { getArticlesByYearOrSlug } from '@/lib/articles';
 import { Preview } from '@/components/preview';
 import { PageHeading } from '@/components/page-heading';
 import { ArticleContent } from '@/components/content';
-import { notFound } from 'next/navigation';
 import { Hero } from '@/components/hero';
+import { getArticlesByYearOrSlug } from '@/lib/articles';
 import { getPageMetadata } from '@/lib/utils';
 import { getBookmarks } from '@/db/bookmarks';
 import { getLikes } from '@/db/likes';
@@ -87,6 +87,7 @@ export default async function ArticlePage({ params }: Props) {
               index={index}
               data={article}
               bookmarks={bookmarks.map((b) => b.slug)}
+              likes={likes.map((l) => l.slug)}
             />
           ))}
         </ul>
