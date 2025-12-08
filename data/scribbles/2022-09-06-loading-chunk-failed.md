@@ -40,5 +40,4 @@ npm install # or `npm i` for short
 
 ## Duplicate styled-components
 
-https://styled-components.com/docs/faqs#why-am-i-getting-a-warning-about-several-instances-of-module-on-the-page
-
+[Warning](https://styled-components.com/docs/faqs#why-am-i-getting-a-warning-about-several-instances-of-module-on-the-page) explanation on styled-components site.
