@@ -48,6 +48,7 @@ export function Link(props: Props) {
           <a
             {...rest}
             aria-label={title}
+            title={title}
             className={cn('inline-flex items-center gap-1', className)}
             target="_blank"
             rel="noreferrer nofollow"
@@ -68,6 +69,8 @@ export function Link(props: Props) {
       <Tooltip content={title}>
         <NextLink
           {...rest}
+          aria-label={title}
+          title={title}
           href={href ?? '#'}
           className={className}
           onClick={handleClick}
