@@ -279,7 +279,7 @@ export default async function Home() {
       <section className="bg-blue-600 dark:bg-blue-950">
         <div className="py-8 px-4 mx-auto max-w-7xl sm:py-16 lg:px-6">
           <div className="max-w-5xl mx-auto mb-8 lg:mb-16">
-            <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-white md:text-4xl">
+            <h2 className="mt-8 mb-4 lg:mb-6 text-3xl font-extrabold tracking-tighter leading-tight text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
             <p className="font-light sm:text-lg text-white">
