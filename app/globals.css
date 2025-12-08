@@ -92,6 +92,10 @@ body {
   @apply mb-8 leading-9 text-lg font-light;
 }
 
+#article .heading {
+  @apply scroll-mt-36 mb-2;
+}
+
 #article li {
   @apply mb-0.5 leading-9 text-lg font-light;
 }

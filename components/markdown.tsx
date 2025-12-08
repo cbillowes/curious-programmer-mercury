@@ -69,7 +69,7 @@ function HeadingLink({
   };
 
   return (
-    <div className="flex items-center justify-start gap-2">
+    <div className="heading flex items-center justify-start gap-2">
       <button
         onClick={handleCopy}
         className="heading-anchor text-black! dark:text-white! cursor-pointer"
