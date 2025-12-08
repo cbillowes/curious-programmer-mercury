@@ -7,7 +7,7 @@ export function getArticles() {
 export function getArticlesByYear(year: number) {
   return allArticles
     .filter((article) => article.date.getFullYear() === year)
-    .sort((a, b) => b.date.getTime() - a.date.getTime());
+    .sort((a, b) => b.number - a.number);
 }
 
 export function getArticleSlug(slug: string) {
