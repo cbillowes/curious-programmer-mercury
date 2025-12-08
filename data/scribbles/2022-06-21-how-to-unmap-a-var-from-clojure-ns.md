@@ -20,6 +20,6 @@ There is an entry that states if you are in the REPL and need to redefine then y
 
 This is how:
 
-```
+```clojure
 (ns-unmap *ns* 'something)
 ```

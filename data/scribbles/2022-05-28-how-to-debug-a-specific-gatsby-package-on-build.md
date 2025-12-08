@@ -19,6 +19,6 @@ I got an error and needed to get verbose logs for a particular package during a 
 
 I came across this issue on GitHub with reference to a [DEBUG env var](https://github.com/gatsbyjs/gatsby/issues/34051#issuecomment-1077425897) that can be set to get better logs.
 
-```
+```bash
 DEBUG=gatsby:gatsby-plugin-sharp npm run build
 ```

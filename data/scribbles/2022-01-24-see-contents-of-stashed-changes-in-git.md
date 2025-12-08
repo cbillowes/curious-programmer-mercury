@@ -15,13 +15,13 @@ abstract: >
   Here's a simple command to help you do just that.
 ---
 
-```
+```bash
 git stash show -p stash@{0}
 ```
 
 Where `0` is the indexed location of the item in the stash. Find all items in the stash using:
 
-```
+```bash
 git stash list
 ```
 
