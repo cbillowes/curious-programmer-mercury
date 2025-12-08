@@ -75,7 +75,7 @@ function HeadingLink({
         className="heading-anchor text-black! dark:text-white! cursor-pointer"
         aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
       >
-        <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'}>
+        <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'} className="z-50">
           <a href={`#${id}`}>
             <FaLink className="text-gray-800 dark:text-gray-100 opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
           </a>
