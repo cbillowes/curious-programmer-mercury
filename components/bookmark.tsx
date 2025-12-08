@@ -54,9 +54,9 @@ export function Bookmark({
         {isBusy ? (
           <Spinner size="sm" />
         ) : isBookmarked ? (
-          <FaBookmark size={16} />
+          <FaBookmark aria-label="Remove your bookmark" size={16} />
         ) : (
-          <FiBookmark size={16} />
+          <FiBookmark aria-label="Bookmark this" size={16} />
         )}
       </Button>
     </Tooltip>
