@@ -20,7 +20,7 @@ export function getScribbleYears() {
 export function getScribblesByYear(year: number) {
   return allScribbles
     .filter((scribble) => scribble.date.getFullYear() === year)
-    .sort((a, b) => b.date.getTime() - a.date.getTime());
+    .sort((a, b) => b.number - a.number);
 }
 
 export function getScribblesByYearOrSlug(param: string) {
