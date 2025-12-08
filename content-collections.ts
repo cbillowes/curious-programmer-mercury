@@ -74,6 +74,10 @@ const courses = defineCollection({
     featured: z.boolean().optional(),
   }),
   transform: async (doc, meta) => {
+    const toSlug = (slug: string) => {
+      return `/courses/${slugify(slug)}`;
+    };
+
     const docs = await meta.collection.documents();
     const course = doc.index
       ? doc
@@ -82,53 +86,45 @@ const courses = defineCollection({
         );
     const courses = docs
       .filter((d) => d.index === true)
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      .sort((a, b) => a._meta.filePath.localeCompare(b._meta.filePath));
     const pages = docs
-      .filter((d) => d.parent === `/courses/${course?.slug}`)
+      .filter((d) => d.parent === toSlug(course?.slug ?? course?.title ?? ''))
       .sort((a, b) => a._meta.filePath.localeCompare(b._meta.filePath));
     const modified = doc.modified && new Date(doc.modified);
     const abstract = doc.abstract ?? extractExcerpt(doc.content);
     const cover = toHeroImageUrl('hero', course?.cover);
-
-    const toSlug = (slug: string) => {
-      return `/courses/${slugify(slug)}`;
-    };
 
     const toPageSlug = (idx: number, slug: string) => {
       const number = (idx + 1).toString().padStart(2, '0');
       return `/courses/${course?.slug}/${number}/${slugify(slug)}`;
     };
 
-    const toPage = (idx: number, d: typeof doc | null | undefined) => {
-      if (!d) return null;
-      const slug = toPageSlug(idx, d.slug ?? d.title);
-      const previous = idx > 0 ? pages[idx - 1] : pages[0];
-      const next =
-        idx < pages.length - 1 ? pages[idx + 1] : pages[pages.length - 1];
+    const toPage = (idx: number, page: typeof doc) => {
+      const slug = toPageSlug(idx, page.slug ?? page.title);
+      const previous = idx > 0 ? pages[idx - 1] : pages[pages.length - 1];
+      const next = idx < pages.length - 1 ? pages[idx + 1] : pages[0];
+      const previousIdx = idx > 0 ? idx - 1 : pages.length - 1;
+      const nextIdx = idx < pages.length - 1 ? idx + 1 : 0;
       return {
-        ...d,
+        ...page,
         slug,
-        date: new Date(d.date),
-        timeToRead: Math.ceil(readingTime(d.content).minutes),
-        abstract: extractExcerpt(d.content, 160),
+        date: new Date(page.date),
+        timeToRead: Math.ceil(readingTime(page.content).minutes),
+        abstract: extractExcerpt(page.content, 160),
         cover,
         type: 'page' as const,
-        course,
-        pages: null,
+        course: course ?? undefined,
+        pages: undefined,
         number: idx + 1,
-        next: {
-          slug: toPageSlug(
-            idx < pages.length ? idx + 1 : pages.length - 1,
-            next.slug ?? next.title,
-          ),
-          title: next.title,
-        },
         previous: {
-          slug: toPageSlug(
-            idx > 0 ? idx - 1 : 0,
-            previous.slug ?? previous.title,
-          ),
+          slug: toPageSlug(previousIdx, previous.slug ?? previous.title),
           title: previous.title,
+          number: previousIdx - 1,
+        },
+        next: {
+          slug: toPageSlug(nextIdx, next.slug ?? next.title),
+          title: next.title,
+          number: nextIdx + 1,
         },
       };
     };
@@ -137,11 +133,8 @@ const courses = defineCollection({
       const idx = courses.findIndex(
         (d) => doc._meta.filePath === d._meta.filePath,
       );
-      const previous = idx > 0 ? courses[idx - 1] : courses[0];
-      const next =
-        idx < courses.length - 1
-          ? courses[idx + 1]
-          : courses[courses.length - 1];
+      const previous = idx > 0 ? courses[idx - 1] : courses[courses.length - 1];
+      const next = idx < courses.length - 1 ? courses[idx + 1] : courses[0];
       const timeToRead = pages
         .map((p) => Math.ceil(readingTime(p.content).minutes))
         .reduce((a, b) => a + b, 0);
@@ -156,27 +149,21 @@ const courses = defineCollection({
         abstract,
         cover,
         type: 'course' as const,
-        course: null,
+        course: undefined,
         previous: {
           slug: toSlug(previous.slug ?? previous.title),
           title: previous.title,
-          number: idx > 0 ? idx : docs.length,
+          number: idx > 0 ? idx : courses.length,
         },
         next: {
           slug: toSlug(next.slug ?? next.title),
           title: next.title,
-          number: idx < docs.length - 1 ? idx + 2 : 1,
+          number: idx < courses.length - 1 ? idx + 2 : 1,
         },
       };
     }
     const idx = pages.findIndex((d) => doc._meta.filePath === d._meta.filePath);
-    const previous = idx > 0 ? pages[idx - 1] : null;
-    const next = idx < pages.length - 1 ? pages[idx + 1] : null;
-    return {
-      ...toPage(idx, doc),
-      previous: toPage(idx - 1, previous) || null,
-      next: toPage(idx + 1, next) || null,
-    };
+    return toPage(idx, doc);
   },
 });
 
@@ -211,7 +198,7 @@ const resume = defineCollection({
       ...doc,
       slug: `/resume/${doc.slug}`,
       share: doc.share && `/logos/${doc.share}`,
-      date: doc.resume.start ? new Date(doc.resume.start) : null,
+      date: doc.resume.start ? new Date(doc.resume.start) : undefined,
     };
   },
 });
@@ -237,8 +224,8 @@ const scribbles = defineCollection({
   transform: async (doc, meta) => {
     const docs = await meta.collection.documents();
     const idx = docs.findIndex((d) => doc._meta.filePath === d._meta.filePath);
-    const previous = idx > 0 ? docs[idx - 1] : docs[0];
-    const next = idx < docs.length - 1 ? docs[idx + 1] : docs[docs.length - 1];
+    const previous = idx > 0 ? docs[idx - 1] : docs[docs.length - 1];
+    const next = idx < docs.length - 1 ? docs[idx + 1] : docs[0];
     const toSlug = (slug: string) => {
       return `/scribbles/${slugify(slug)}`;
     };
