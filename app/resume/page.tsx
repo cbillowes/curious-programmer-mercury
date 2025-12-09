@@ -135,7 +135,7 @@ export default function ResumePage() {
             </p>
           </div>
         </section>
-        <aside className="max-w-4xl mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3">
+        <aside className="max-w-5xl px-5 mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3">
           <Pillar
             title="Experience"
             icon={<SiLevelsdotfyi />}
@@ -176,7 +176,7 @@ export default function ResumePage() {
             ]}
           />
         </aside>
-        <main>
+        <main className="max-w-5xl px-5 mx-auto">
           <Timeline />
         </main>
       </Container>
