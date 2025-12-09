@@ -113,7 +113,7 @@ export default function ResumePage() {
             <ContactNavItems />
           </nav>
         </section>
-        <section className="max-w-4xl mx-auto mt-4">
+        <section className="max-w-3xl mx-auto mt-4">
           <div>
             <p className="mb-4 leading-relaxed text-lg">
               A seasoned polyglot full-stack software engineer specializing in
