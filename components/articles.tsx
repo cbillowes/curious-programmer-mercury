@@ -97,7 +97,7 @@ export function Articles({
               )}
             </NextLink>
             <div className="p-4">
-              <h3 className="mt-2 mb-2 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
+              <h3 className="mt-2 mb-4 text-xl font-bold tracking-tighter text-gray-900 lg:text-2xl dark:text-white">
                 <Link href={slug}>{title}</Link>
               </h3>
               {courseTitle && <h4 className="my-2 font-bold">{courseTitle}</h4>}
