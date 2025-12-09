@@ -181,7 +181,7 @@ export function Timeline() {
   );
   return (
     <div>
-      <div className="pt-8 text-center mx-auto m-4 leading-loose print:hidden flex justify-center items-center gap-2 flex-wrap">
+      <div className="pt-8 text-center mx-auto leading-loose print:hidden flex justify-center items-center gap-2 flex-wrap">
         <PillarButton
           className={category === 'Career' ? color.career.button : ''}
           onClick={() => setCategory('Career')}
