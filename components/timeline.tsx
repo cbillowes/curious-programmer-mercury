@@ -162,6 +162,7 @@ function PillarButton({
 }) {
   return (
     <Button
+      title={`Filter by ${children}`}
       className={cn(
         'hover:ring-5 hover:ring-black/20 dark:hover:ring-white/10 focus:ring-black/20 focus:dark:ring-white/10 bg-black text-white dark:bg-white dark:text-black cursor-pointer hover:text-white',
         className,
