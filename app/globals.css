@@ -234,3 +234,15 @@ body {
     @apply bg-white!;
   }
 }
+
+@media print {
+  p,
+  ul,
+  ol,
+  li,
+  a,
+  div,
+  section {
+    @apply leading-tight! text-xs! mb-1;
+  }
+}
