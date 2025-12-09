@@ -353,7 +353,7 @@ export function Timeline() {
                     nodeColor.button,
                   )}
                   href={slug}
-                  title={company}
+                  title={`Read more about my time at ${company}`}
                 >
                   Read more
                 </Link>
