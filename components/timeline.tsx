@@ -23,7 +23,7 @@ const categoryConfig = [
     title: 'Qualifications',
     button: cn(
       'text-pink-100 dark:text-pink-100',
-      'bg-pink-500  dark:bg-pink-600',
+      'bg-pink-500 dark:bg-pink-600',
       'ring-pink-200/50 dark:ring-pink-800/50',
       'focus:ring-pink-200/50 focus:dark:ring-pink-900/50',
     ),
@@ -40,7 +40,7 @@ const categoryConfig = [
     title: 'Career',
     button: cn(
       'text-orange-100 dark:text-orange-100',
-      'bg-orange-500  dark:bg-orange-600',
+      'bg-orange-500 dark:bg-orange-600',
       'ring-orange-200/50 dark:ring-orange-800/50',
       'focus:ring-orange-200/50 focus:dark:ring-orange-900/50',
     ),
@@ -57,7 +57,7 @@ const categoryConfig = [
     title: 'Testimonials',
     button: cn(
       'text-green-100 dark:text-green-100',
-      'bg-green-500  dark:bg-green-600',
+      'bg-green-500 dark:bg-green-600',
       'ring-green-200/50 dark:ring-green-800/50',
       'focus:ring-green-200/50 focus:dark:ring-green-900/50',
     ),
@@ -74,7 +74,7 @@ const categoryConfig = [
     title: 'Podcasts',
     button: cn(
       'text-blue-100 dark:text-blue-100',
-      'bg-blue-500  dark:bg-blue-600',
+      'bg-blue-500 dark:bg-blue-600',
       'ring-blue-200/50 dark:ring-blue-800/50',
       'focus:ring-blue-200/50 focus:dark:ring-blue-900/50',
     ),
@@ -91,7 +91,7 @@ const categoryConfig = [
     title: 'Talks',
     button: cn(
       'text-teal-100 dark:text-teal-100',
-      'bg-teal-500  dark:bg-teal-600',
+      'bg-teal-500 dark:bg-teal-600',
       'ring-teal-200/50 dark:ring-teal-600/50',
       'focus:ring-teal-200/50 focus:dark:ring-teal-900/50',
     ),
@@ -108,7 +108,7 @@ const categoryConfig = [
     title: 'Projects',
     button: cn(
       'text-purple-100 dark:text-purple-100',
-      'bg-purple-500  dark:bg-purple-600',
+      'bg-purple-500 dark:bg-purple-600',
       'ring-purple-200/50 dark:ring-purple-600/50',
       'focus:ring-purple-200/50 focus:dark:ring-purple-900/50',
     ),
