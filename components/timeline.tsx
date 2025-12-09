@@ -349,7 +349,7 @@ export function Timeline() {
               <div className="flex items-center flex-wrap xl:flex-row-reverse print:hidden">
                 <Link
                   className={cn(
-                    'rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:text-blue-200 xl:mr-2',
+                    'rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:text-blue-200',
                     nodeColor.button,
                   )}
                   href={slug}
