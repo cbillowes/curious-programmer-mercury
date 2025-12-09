@@ -294,7 +294,7 @@ export default async function HomePage() {
               so I share the gems I uncover along the way. ✨
             </p>
           </div>
-          <div className="max-w-5xl mx-auto space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
+          <div className="max-w-5xl px-5 mx-auto space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
             <Tags
               heading="Soft Skills"
               tags={[
