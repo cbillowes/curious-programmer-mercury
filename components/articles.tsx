@@ -101,7 +101,7 @@ export function Articles({
                 <Link href={slug}>{title}</Link>
               </h3>
               {courseTitle && <h4 className="my-2 font-bold">{courseTitle}</h4>}
-              <div className="flex items-center mb-3 space-x-3">
+              <div className="flex items-center space-x-3">
                 <ImageContainer
                   width={48}
                   height={48}
