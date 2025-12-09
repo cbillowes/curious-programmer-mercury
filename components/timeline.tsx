@@ -15,36 +15,129 @@ import {
 } from 'react-icons/fa';
 import { FaApple, FaLinux, FaPrint, FaWindows } from 'react-icons/fa6';
 
-const color = {
-  education: {
-    button: 'bg-pink-800 text-pink-100',
+const defaultCategory = 'Career';
+
+const categoryConfig = [
+  {
+    key: 'Education',
+    title: 'Qualifications',
+    button: cn(
+      'text-pink-100 dark:text-pink-100',
+      'bg-pink-500  dark:bg-pink-600',
+      'ring-pink-200/50 dark:ring-pink-800/50',
+      'focus:ring-pink-200/50 focus:dark:ring-pink-900/50',
+    ),
+    hover: cn(
+      'hover:text-pink-100 dark:hover:text-pink-100',
+      'hover:bg-pink-600 dark:hover:bg-pink-600',
+      'hover:ring-pink-100/50 hover:dark:ring-pink-700/50',
+      'hover:focus:ring-pink-200/50 hover:focus:dark:ring-pink-700/50',
+    ),
     heading: 'text-pink-500',
   },
-  career: {
-    button: 'bg-orange-700 text-orange-100',
+  {
+    key: 'Career',
+    title: 'Career',
+    button: cn(
+      'text-orange-100 dark:text-orange-100',
+      'bg-orange-500  dark:bg-orange-600',
+      'ring-orange-200/50 dark:ring-orange-800/50',
+      'focus:ring-orange-200/50 focus:dark:ring-orange-900/50',
+    ),
+    hover: cn(
+      'hover:text-orange-100 dark:hover:text-orange-100',
+      'hover:bg-orange-600 dark:hover:bg-orange-600',
+      'hover:ring-orange-100/50 hover:dark:ring-orange-700/50',
+      'hover:focus:ring-orange-200/50 hover:focus:dark:ring-orange-700/50',
+    ),
     heading: 'text-orange-500',
   },
-  testimonial: {
-    button: 'bg-green-800 text-green-100',
+  {
+    key: 'Testimonial',
+    title: 'Testimonials',
+    button: cn(
+      'text-green-100 dark:text-green-100',
+      'bg-green-500  dark:bg-green-600',
+      'ring-green-200/50 dark:ring-green-800/50',
+      'focus:ring-green-200/50 focus:dark:ring-green-900/50',
+    ),
+    hover: cn(
+      'hover:text-green-100 dark:hover:text-green-100',
+      'hover:bg-green-600 dark:hover:bg-green-600',
+      'hover:ring-green-100/50 hover:dark:ring-green-700/50',
+      'hover:focus:ring-green-200/50 hover:focus:dark:ring-green-700/50',
+    ),
     heading: 'text-green-500',
   },
-  podcast: {
-    button: 'bg-blue-800 text-blue-100',
+  {
+    key: 'Podcast',
+    title: 'Podcasts',
+    button: cn(
+      'text-blue-100 dark:text-blue-100',
+      'bg-blue-500  dark:bg-blue-600',
+      'ring-blue-200/50 dark:ring-blue-800/50',
+      'focus:ring-blue-200/50 focus:dark:ring-blue-900/50',
+    ),
+    hover: cn(
+      'hover:text-blue-100 dark:hover:text-blue-100',
+      'hover:bg-blue-600 dark:hover:bg-blue-600',
+      'hover:ring-blue-100/50 hover:dark:ring-blue-700/50',
+      'hover:focus:ring-blue-200/50 hover:focus:dark:ring-blue-700/50',
+    ),
     heading: 'text-blue-500',
   },
-  talk: {
-    button: 'bg-teal-800 text-teal-100',
+  {
+    key: 'Talk',
+    title: 'Talks',
+    button: cn(
+      'text-teal-100 dark:text-teal-100',
+      'bg-teal-500  dark:bg-teal-600',
+      'ring-teal-200/50 dark:ring-teal-600/50',
+      'focus:ring-teal-200/50 focus:dark:ring-teal-900/50',
+    ),
+    hover: cn(
+      'hover:text-teal-100 dark:hover:text-teal-100',
+      'hover:bg-teal-600 dark:hover:bg-teal-600',
+      'hover:ring-teal-100/50 hover:dark:ring-teal-700/50',
+      'hover:focus:ring-teal-200/50 hover:focus:dark:ring-teal-700/50',
+    ),
     heading: 'text-teal-500',
   },
-  project: {
-    button: 'bg-purple-800 text-purple-100',
+  {
+    key: 'Project',
+    title: 'Projects',
+    button: cn(
+      'text-purple-100 dark:text-purple-100',
+      'bg-purple-500  dark:bg-purple-600',
+      'ring-purple-200/50 dark:ring-purple-600/50',
+      'focus:ring-purple-200/50 focus:dark:ring-purple-900/50',
+    ),
+    hover: cn(
+      'hover:text-purple-100 dark:hover:text-purple-100',
+      'hover:bg-purple-600 dark:hover:bg-purple-600',
+      'hover:ring-purple-100/50 hover:dark:ring-purple-700/50',
+      'hover:focus:ring-purple-200/50 hover:focus:dark:ring-purple-700/50',
+    ),
     heading: 'text-purple-500',
   },
-  publication: {
-    button: 'bg-yellow-300 text-yellow-900',
+  {
+    key: 'Publication',
+    title: 'Publications',
+    button: cn(
+      'text-yellow-900 dark:text-yellow-900',
+      'bg-yellow-200  dark:bg-yellow-300',
+      'ring-yellow-200/50 dark:ring-yellow-800/50',
+      'focus:ring-yellow-200/50 focus:dark:ring-yellow-900/50',
+    ),
+    hover: cn(
+      'hover:text-yellow-900 dark:hover:text-yellow-900',
+      'hover:bg-yellow-200 dark:hover:bg-yellow-300',
+      'hover:ring-yellow-100/50 hover:dark:ring-yellow-800/50',
+      'hover:focus:ring-yellow-200/50 hover:focus:dark:ring-yellow-800/50',
+    ),
     heading: 'text-yellow-300',
   },
-};
+];
 
 function ResumeIcon({
   category,
@@ -151,23 +244,42 @@ function DisplayDates({
   );
 }
 
+function getCategoryConfig(category: string) {
+  return (
+    categoryConfig.find((c) => c.key === category) ??
+    categoryConfig.find((c) => c.key === defaultCategory)!
+  );
+}
+
+function getCategoryConfigByTitle(title: string) {
+  return (
+    categoryConfig.find((c) => c.title === title) ??
+    categoryConfig.find((c) => c.key === defaultCategory)!
+  );
+}
+
 function PillarButton({
-  className,
+  current,
   children,
   onClick,
 }: {
-  className?: string;
+  current: string;
   children: ReactNode;
-  onClick: () => void;
+  onClick: (category: string) => void;
 }) {
+  const config = getCategoryConfigByTitle(children?.toString() ?? '');
+  const isActive = current === config.key;
   return (
     <Button
       title={`Filter by ${children}`}
       className={cn(
-        'm-1 hover:ring-5 hover:ring-black/20 dark:hover:ring-white/10 focus:ring-black/20 focus:dark:ring-white/10 bg-black text-white dark:bg-white dark:text-black cursor-pointer hover:text-white',
-        className,
+        'transition-colors duration-200 ease-in-out',
+        'cursor-pointer m-1 ring-5 hover:ring-5 focus:ring-5 ring-gray-200/50 dark:ring-gray-700/50',
+        'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100',
+        isActive && config?.button,
+        config?.hover,
       )}
-      onClick={onClick}
+      onClick={() => onClick(config.key)}
     >
       {children}
     </Button>
@@ -175,63 +287,38 @@ function PillarButton({
 }
 
 export function Timeline() {
-  const [category, setCategory] = useState('Career');
+  const [category, setCategory] = useState(defaultCategory);
   const items = getResume().filter(
     (resume) => resume.resume.category === category,
   );
   return (
     <div>
       <div className="pt-8 text-center mx-auto leading-loose print:hidden flex justify-center items-center gap-2 flex-wrap">
-        <PillarButton
-          className={category === 'Career' ? color.career.button : ''}
-          onClick={() => setCategory('Career')}
-        >
+        <PillarButton current={category} onClick={setCategory}>
           Career
         </PillarButton>
-        <PillarButton
-          className={cn(category === 'Education' ? color.education.button : '')}
-          onClick={() => setCategory('Education')}
-        >
+        <PillarButton current={category} onClick={setCategory}>
           Qualifications
         </PillarButton>
-        <PillarButton
-          className={cn(
-            category === 'Testimonial' ? color.testimonial.button : '',
-          )}
-          onClick={() => setCategory('Testimonial')}
-        >
+        <PillarButton current={category} onClick={setCategory}>
           Testimonials
         </PillarButton>
-        <PillarButton
-          className={cn(category === 'Podcast' ? color.podcast.button : '')}
-          onClick={() => setCategory('Podcast')}
-        >
+        <PillarButton current={category} onClick={setCategory}>
           Podcasts
         </PillarButton>
-        <PillarButton
-          className={cn(category === 'Talk' ? color.talk.button : '')}
-          onClick={() => setCategory('Talk')}
-        >
+        <PillarButton current={category} onClick={setCategory}>
           Talks
         </PillarButton>
-        <PillarButton
-          className={cn(category === 'Project' ? color.project.button : '')}
-          onClick={() => setCategory('Project')}
-        >
+        <PillarButton current={category} onClick={setCategory}>
           Projects
         </PillarButton>
-        <PillarButton
-          className={cn(
-            category === 'Publication' ? color.publication.button : '',
-          )}
-          onClick={() => setCategory('Publication')}
-        >
+        <PillarButton current={category} onClick={setCategory}>
           Publications
         </PillarButton>
         <Button
           title="Print Resume"
           className={cn(
-            'bg-black text-white dark:bg-white dark:text-black cursor-pointer hover:text-white',
+            'bg-gray-700 text-white dark:bg-white dark:text-black cursor-pointer hover:text-white',
           )}
           onClick={() => window.print()}
         >
@@ -255,12 +342,8 @@ export function Timeline() {
           logo,
           os,
         } = node.resume;
-        const nodeColor =
-          color[
-            (
-              node.resume.category || 'Career'
-            ).toLowerCase() as keyof typeof color
-          ];
+        const category = node.resume.category ?? 'Career';
+        const config = getCategoryConfig(category);
         return (
           <section
             key={index}
@@ -269,7 +352,7 @@ export function Timeline() {
             <div className="border-color-3 border-none xl:border-dashed xl:w-2/3 xl:mr-8 xl:text-right xl:border-r xl:pr-8">
               <div
                 className={cn(
-                  `mb-2 rounded-full size-8 float-right p-2 ${nodeColor.button}`,
+                  `mb-2 rounded-full size-8 float-right p-2 ${config.button}`,
                 )}
               >
                 <ResumeIcon category={category} />
@@ -279,14 +362,14 @@ export function Timeline() {
                 <h2 className="text-xl mt-2 xl:mt-0 md:text-2xl font-semibold font-alt-sans">
                   <ResumeIcon
                     category={category}
-                    className={`text-4xl rounded-full p-2 mr-1 ${nodeColor.button} inline xl:hidden`}
+                    className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden`}
                   />
                   <Link
                     href={slug}
                     title={`${jobTitle} at ${company}`}
                     className="font-bold"
                   >
-                    <span className={nodeColor.heading}>{jobTitle}</span>
+                    <span className={config.heading}>{jobTitle}</span>
                     <br />
                     <span>{company}</span>
                   </Link>
@@ -295,11 +378,11 @@ export function Timeline() {
               {name && (
                 <>
                   <h2
-                    className={`text-lg mt-2 xl:mt-0 md:text-2xl font-bold font-alt-sans ${nodeColor.heading}`}
+                    className={`text-lg mt-2 xl:mt-0 md:text-2xl font-bold font-alt-sans ${config.heading}`}
                   >
                     <ResumeIcon
                       category={category}
-                      className={`text-4xl rounded-full p-2 mr-1 ${nodeColor.button} inline xl:hidden`}
+                      className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden`}
                     />
                     <Link href={slug} title={name}>
                       {name}
@@ -330,7 +413,7 @@ export function Timeline() {
                     )}
                   </>
                 </div>
-                {category === 'Testimonial' && (
+                {category === 'testimonial' && (
                   <>
                     <h4 className="font-bold">{description}</h4>
                   </>
@@ -350,7 +433,7 @@ export function Timeline() {
                 <Link
                   className={cn(
                     'rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:text-blue-200',
-                    nodeColor.button,
+                    config.button,
                   )}
                   href={slug}
                   title={`Read more about my time at ${company}`}
@@ -367,9 +450,9 @@ export function Timeline() {
                     height={128}
                     src={`/logos/${logo}`}
                     alt={company ?? name ?? 'Logo'}
-                    className={category === 'Testimonial' ? 'rounded-full' : ''}
+                    className={category === 'testimonial' ? 'rounded-full' : ''}
                     containerClassName={`bg-white rounded-lg px-3 py-2 flex items-center justify-center ${
-                      category === 'Testimonial' ? 'rounded-full' : ''
+                      category === 'testimonial' ? 'rounded-full' : ''
                     }`}
                     priority={true}
                     fill={false}
