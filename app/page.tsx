@@ -184,7 +184,7 @@ export default async function HomePage() {
               <span className="text-transparent bg-clip-text bg-linear-to-r to-blue-600 from-green-400">
                 empathy
               </span>{' '}
-              &amp; crafting solutions with{' '}
+              &amp; crafting software with{' '}
               <span className="text-transparent bg-clip-text bg-linear-to-r to-pink-600 from-violet-400">
                 precision
               </span>
