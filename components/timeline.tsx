@@ -17,31 +17,31 @@ import { FaApple, FaLinux, FaPrint, FaWindows } from 'react-icons/fa6';
 
 const color = {
   education: {
-    button: 'bg-pink-500 text-white dark:bg-pink-500 dark:text-white',
+    button: 'bg-pink-800 text-pink-100',
     heading: 'text-pink-500',
   },
   career: {
-    button: 'bg-orange-500 text-white dark:bg-orange-500 dark:text-white',
+    button: 'bg-orange-700 text-orange-100',
     heading: 'text-orange-500',
   },
   testimonial: {
-    button: 'bg-green-500 text-white dark:bg-green-500 dark:text-white',
+    button: 'bg-green-800 text-green-100',
     heading: 'text-green-500',
   },
   podcast: {
-    button: 'bg-blue-500 text-white dark:bg-blue-500 dark:text-white',
+    button: 'bg-blue-800 text-blue-100',
     heading: 'text-blue-500',
   },
   talk: {
-    button: 'bg-teal-500 text-white dark:bg-teal-500 dark:text-white',
+    button: 'bg-teal-800 text-teal-100',
     heading: 'text-teal-500',
   },
   project: {
-    button: 'bg-purple-500 text-white dark:bg-purple-500 dark:text-white',
+    button: 'bg-purple-800 text-purple-100',
     heading: 'text-purple-500',
   },
   publication: {
-    button: 'bg-yellow-300 text-black dark:bg-yellow-300 dark:text-black',
+    button: 'bg-yellow-300 text-yellow-900',
     heading: 'text-yellow-300',
   },
 };
