@@ -123,7 +123,9 @@ export function Articles({
                 </div>
               </div>
               <p className="mb-3 text-gray-500 dark:text-gray-400">
-                {abstract}
+                {abstract.length > 160
+                  ? abstract.slice(0, 157) + '...'
+                  : abstract}
               </p>
               <div className="flex gap-2 items-center justify-start">
                 <Bookmark
