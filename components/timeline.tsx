@@ -361,22 +361,21 @@ export function Timeline() {
             </div>
             <div className="hidden xl:flex xl:w-1/3 relative items-start justify-center xl:justify-start xl:text-right print:hidden">
               <div className="text-center">
-                <div className="pr-3 pt-3">
-                  {logo && (
-                    <ImageContainer
-                      width={128}
-                      height={128}
-                      src={`/logos/${logo}`}
-                      alt={company ?? name ?? 'Logo'}
-                      containerClassName={`bg-white rounded-lg px-3 py-2 flex items-center justify-center ${
-                        category === 'Testimonial' ? 'rounded-full' : ''
-                      }`}
-                      priority={true}
-                      fill={false}
-                    />
-                  )}
-                </div>
-                <div className="w-full xl:w-48 pr-3 pt-3 text-sm text-left print:hidden">
+                {logo && (
+                  <ImageContainer
+                    width={128}
+                    height={128}
+                    src={`/logos/${logo}`}
+                    alt={company ?? name ?? 'Logo'}
+                    className={category === 'Testimonial' ? 'rounded-full' : ''}
+                    containerClassName={`bg-white rounded-lg px-3 py-2 flex items-center justify-center ${
+                      category === 'Testimonial' ? 'rounded-full' : ''
+                    }`}
+                    priority={true}
+                    fill={false}
+                  />
+                )}
+                <div className="w-full xl:w-48 pr-3 pt-3 text-sm text-left leading-loose print:hidden">
                   {tech &&
                     tech.map((t, i) => (
                       <span key={t}>
