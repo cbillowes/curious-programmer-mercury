@@ -374,7 +374,7 @@ export function Timeline() {
                     />
                   )}
                 </div>
-                <div className="w-full xl:w-48 pr-3 pt-3 text-sm text-center print:hidden">
+                <div className="w-full xl:w-48 pr-3 pt-3 text-sm text-left print:hidden">
                   {tech &&
                     tech.map((t, i) => (
                       <span key={t}>
