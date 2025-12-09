@@ -27,13 +27,13 @@ export function ScrollProgress({ children }: { children: ReactNode }) {
 
   return (
     <div>
-      <div className="fixed top-16 left-0 w-full h-1 bg-gray-200 z-50">
+      <div className="fixed top-16 left-0 w-full h-1 bg-gray-200 z-50 print:hidden">
         <div
           className="h-full bg-blue-600 transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
-      <div className="fixed top-18 right-4 bg-white text-gray-900 text-xs py-1 font-bold px-2 p-0 rounded-md shadow-lg border border-gray-200 z-50">
+      <div className="fixed top-18 right-4 bg-white text-gray-900 text-xs py-1 font-bold px-2 p-0 rounded-md shadow-lg border border-gray-200 z-50 print:hidden">
         {Math.round(scrollProgress)}%
       </div>
       {children}
