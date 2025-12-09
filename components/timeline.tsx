@@ -264,7 +264,7 @@ export function Timeline() {
         return (
           <section
             key={index}
-            className="relative w-full md:mt-3 md:mb-3 p-5 flex justify-center flex-col-reverse xl:flex-row"
+            className="relative w-full md:mt-10 md:mb-3 pr-5 flex justify-center flex-col-reverse xl:flex-row"
           >
             <div className="border-color-3 border-none xl:border-dashed xl:w-2/3 xl:mx-8 xl:text-right xl:border-r xl:pr-8">
               <div
