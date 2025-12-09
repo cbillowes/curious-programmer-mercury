@@ -158,7 +158,7 @@ export async function generateMetadata() {
   });
 }
 
-export default async function Home() {
+export default async function HomePage() {
   const bookmarks = await getBookmarks();
   const likes = await getLikes();
   return (
