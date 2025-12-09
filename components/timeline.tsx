@@ -2,6 +2,7 @@
 
 import { ReactNode, useState } from 'react';
 import { Button } from 'flowbite-react';
+import { Resume } from '@/.content-collections/generated';
 import { ImageContainer } from '@/components/image-container';
 import { Link } from '@/components/link';
 import { getResume } from '@/lib/resume';
@@ -18,6 +19,22 @@ import { FaApple, FaLinux, FaPrint, FaWindows } from 'react-icons/fa6';
 const defaultCategory = 'Career';
 
 const categoryConfig = [
+  {
+    key: 'All',
+    title: 'All',
+    button: cn(
+      'text-indigo-100 dark:text-indigo-100',
+      'bg-indigo-500 dark:bg-indigo-600',
+      'ring-indigo-200/50 dark:ring-indigo-800/50',
+      'focus:ring-indigo-200/50 focus:dark:ring-indigo-900/50',
+    ),
+    hover: cn(
+      'hover:text-indigo-100 dark:hover:text-indigo-100',
+      'hover:bg-indigo-600 dark:hover:bg-indigo-600',
+      'hover:ring-indigo-100/50 hover:dark:ring-indigo-700/50',
+      'hover:focus:ring-indigo-200/50 hover:focus:dark:ring-indigo-700/50',
+    ),
+  },
   {
     key: 'Education',
     title: 'Qualifications',
@@ -286,46 +303,14 @@ function PillarButton({
   );
 }
 
-export function Timeline() {
-  const [category, setCategory] = useState(defaultCategory);
-  const items = getResume().filter(
-    (resume) => resume.resume.category === category,
-  );
+function filterItemsByCategory(category: string) {
+  return getResume().filter((item) => item.resume.category === category);
+}
+
+function Section({ heading, items }: { heading: string; items: Resume[] }) {
   return (
-    <div>
-      <div className="pt-8 text-center mx-auto leading-loose print:hidden flex justify-center items-center gap-2 flex-wrap">
-        <PillarButton current={category} onClick={setCategory}>
-          Career
-        </PillarButton>
-        <PillarButton current={category} onClick={setCategory}>
-          Qualifications
-        </PillarButton>
-        <PillarButton current={category} onClick={setCategory}>
-          Testimonials
-        </PillarButton>
-        <PillarButton current={category} onClick={setCategory}>
-          Podcasts
-        </PillarButton>
-        <PillarButton current={category} onClick={setCategory}>
-          Talks
-        </PillarButton>
-        <PillarButton current={category} onClick={setCategory}>
-          Projects
-        </PillarButton>
-        <PillarButton current={category} onClick={setCategory}>
-          Publications
-        </PillarButton>
-        <Button
-          title="Print Resume"
-          className={cn(
-            'cursor-pointer',
-            'ring-5 hover:ring-5 focus:ring-5 ring-gray-200/50 dark:ring-white/20',
-          )}
-          onClick={() => window.print()}
-        >
-          <FaPrint className="inline" />
-        </Button>
-      </div>
+    <section className="my-8 print:my-4">
+      <h2 className="text-center border-b border-gray-400 dark:border-gray-700 pb-4 uppercase font-bold">{heading}</h2>
       {items.map((node, index) => {
         const { slug } = node;
         const {
@@ -343,8 +328,8 @@ export function Timeline() {
           logo,
           os,
         } = node.resume;
-        const category = node.resume.category ?? 'Career';
-        const config = getCategoryConfig(category);
+        const currentCategory = node.resume.category ?? 'Career';
+        const config = getCategoryConfig(currentCategory);
         return (
           <section
             key={index}
@@ -356,13 +341,13 @@ export function Timeline() {
                   `mb-2 rounded-full size-8 float-right p-2 ${config.button}`,
                 )}
               >
-                <ResumeIcon category={category} />
+                <ResumeIcon category={currentCategory} />
               </div>
               <div className="clear-right"></div>
               {company && (
-                <h2 className="text-xl mt-2 xl:mt-0 md:text-2xl font-semibold font-alt-sans">
+                <h3 className="text-xl mt-2 xl:mt-0 md:text-2xl font-semibold font-alt-sans">
                   <ResumeIcon
-                    category={category}
+                    category={currentCategory}
                     className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden`}
                   />
                   <Link
@@ -374,21 +359,21 @@ export function Timeline() {
                     <br />
                     <span>{company}</span>
                   </Link>
-                </h2>
+                </h3>
               )}
               {name && (
                 <>
-                  <h2
+                  <h3
                     className={`text-lg mt-2 xl:mt-0 md:text-2xl font-bold font-alt-sans ${config.heading}`}
                   >
                     <ResumeIcon
-                      category={category}
+                      category={currentCategory}
                       className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden`}
                     />
                     <Link href={slug} title={name}>
                       {name}
                     </Link>
-                  </h2>
+                  </h3>
                   <h3 className="font-black font-alt-sans">{jobTitle}</h3>
                 </>
               )}
@@ -398,7 +383,7 @@ export function Timeline() {
                     <DisplayDates
                       start={start}
                       end={end}
-                      category={category}
+                      category={currentCategory}
                       className="opacity-80 text-right"
                     />
                     {(location || type || arrangement) && (
@@ -414,7 +399,7 @@ export function Timeline() {
                     )}
                   </>
                 </div>
-                {category === 'testimonial' && (
+                {currentCategory === 'testimonial' && (
                   <>
                     <h4 className="font-bold">{description}</h4>
                   </>
@@ -451,9 +436,11 @@ export function Timeline() {
                     height={128}
                     src={`/logos/${logo}`}
                     alt={company ?? name ?? 'Logo'}
-                    className={category === 'testimonial' ? 'rounded-full' : ''}
+                    className={
+                      currentCategory === 'testimonial' ? 'rounded-full' : ''
+                    }
                     containerClassName={`bg-white rounded-lg px-3 py-2 flex items-center justify-center ${
-                      category === 'testimonial' ? 'rounded-full' : ''
+                      currentCategory === 'testimonial' ? 'rounded-full' : ''
                     }`}
                     priority={true}
                     fill={false}
@@ -473,6 +460,72 @@ export function Timeline() {
           </section>
         );
       })}
+    </section>
+  );
+}
+
+export function Timeline() {
+  const [category, setCategory] = useState(defaultCategory);
+  const config = getCategoryConfig(category);
+  return (
+    <div>
+      <div className="pt-8 text-center mx-auto leading-loose print:hidden flex justify-center items-center gap-2 flex-wrap">
+        <PillarButton current={category} onClick={setCategory}>
+          All
+        </PillarButton>
+        <PillarButton current={category} onClick={setCategory}>
+          Career
+        </PillarButton>
+        <PillarButton current={category} onClick={setCategory}>
+          Qualifications
+        </PillarButton>
+        <PillarButton current={category} onClick={setCategory}>
+          Testimonials
+        </PillarButton>
+        <PillarButton current={category} onClick={setCategory}>
+          Podcasts
+        </PillarButton>
+        <PillarButton current={category} onClick={setCategory}>
+          Talks
+        </PillarButton>
+        <PillarButton current={category} onClick={setCategory}>
+          Projects
+        </PillarButton>
+        <PillarButton current={category} onClick={setCategory}>
+          Publications
+        </PillarButton>
+        <Button
+          title="Print Resume"
+          className={cn(
+            'cursor-pointer',
+            'ring-5 hover:ring-5 focus:ring-5 ring-gray-200/50 dark:ring-white/20',
+          )}
+          onClick={() => window.print()}
+        >
+          <FaPrint className="inline" />
+        </Button>
+      </div>
+      {category === 'All' && (
+        <>
+          <Section heading="Career" items={filterItemsByCategory('Career')} />
+          <Section
+            heading="Qualifications"
+            items={filterItemsByCategory('Education')}
+          />
+          <Section
+            heading="Projects"
+            items={filterItemsByCategory('Project')}
+          />
+        </>
+      )}
+      {category !== 'All' && (
+        <>
+          <Section
+            heading={config.title}
+            items={filterItemsByCategory(category)}
+          />
+        </>
+      )}
     </div>
   );
 }
