@@ -366,7 +366,7 @@ export function Timeline() {
                       height={128}
                       src={`/logos/${logo}`}
                       alt={company ?? name ?? 'Logo'}
-                      className={`mx-auto bg-white rounded-lg px-3 py-2 object-contain ${
+                      containerClassName={`bg-white rounded-lg px-3 py-2 flex items-center justify-center ${
                         category === 'Testimonial' ? 'rounded-full' : ''
                       }`}
                       priority={true}
