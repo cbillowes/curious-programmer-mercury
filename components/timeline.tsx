@@ -229,6 +229,7 @@ export function Timeline() {
           Publications
         </PillarButton>
         <Button
+          title="Print Resume"
           className={cn(
             'bg-black text-white dark:bg-white dark:text-black cursor-pointer hover:text-white',
           )}
