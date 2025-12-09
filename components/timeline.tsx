@@ -318,7 +318,8 @@ export function Timeline() {
         <Button
           title="Print Resume"
           className={cn(
-            'bg-gray-700 text-white dark:bg-white dark:text-black cursor-pointer hover:text-white',
+            'cursor-pointer',
+            'ring-5 hover:ring-5 focus:ring-5 ring-gray-200/50 dark:ring-white/20',
           )}
           onClick={() => window.print()}
         >
