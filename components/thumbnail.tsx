@@ -34,6 +34,7 @@ export function Thumbnail({
         width={width ?? 200}
         height={height ?? 150}
         className={className}
+        containerClassName="w-full!"
         src={src}
         alt={alt}
       />
