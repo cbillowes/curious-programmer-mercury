@@ -12,6 +12,17 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import { SiLevelsdotfyi } from 'react-icons/si';
 import { GiDramaMasks } from 'react-icons/gi';
 
+export async function generateMetadata() {
+  return getPageMetadata({
+    title: 'Resume',
+    description:
+      'A highly accomplished and passionate polyglot full-stack software engineer with 20 years of experience delivering impactful digital solutions.',
+    slug: '/resume',
+    image: '/hero/headshot.webp',
+    type: 'website',
+  });
+}
+
 const Pillar = ({
   icon,
   title,
@@ -26,14 +37,17 @@ const Pillar = ({
   return (
     <aside>
       <div
-        className={cn('flex justify-center items-center mb-4 py-3', className)}
+        className={cn(
+          'flex justify-center items-center py-2 print:p-0',
+          className,
+        )}
       >
-        <div className=" w-10 h-10 text-3xl">{icon}</div>
-        <h3 className="mb-2 pt-1 text-xl font-bold dark:text-white text-gray-900">
+        <div className="w-10 h-10 text-3xl print:hidden">{icon}</div>
+        <h3 className="text-xl font-bold dark:text-white text-gray-900 print:text-sm">
           {title}
         </h3>
       </div>
-      <ul className="my-6 lg:mb-0 space-y-4">
+      <ul className="my-6 lg:mb-0 space-y-4 print:my-2">
         {items?.map((item) => (
           <li key={item} className="flex space-x-2.5">
             <svg
@@ -60,35 +74,28 @@ const Pillar = ({
 
 function ContactNavItems() {
   return (
-    <>
-      <span className="flex items-center justify-start space-x-2">
-        <FaSpider className="size-4" />
-        <Link href="https://curiousprogrammer.dev">curiousprogrammer.dev</Link>
-      </span>
-      <span className="flex items-center justify-start space-x-2">
-        <FaGithub className="size-4" />
-        <Link href="https://github.com/cbillowes">github.com/cbillowes</Link>
-      </span>
-      <span className="flex items-center justify-start space-x-2">
-        <FaLinkedinIn className="size-4" />
-        <Link href="https://linkedin.com/in/cbouwer">
-          linkedin.com/in/cbouwer
-        </Link>
-      </span>
+    <div className="text-center max-w-4xl mx-auto">
+      <div className="flex items-center justify-center gap-2 mx-auto my-2">
+        <span className="flex items-center justify-start space-x-2">
+          <FaSpider className="size-4" />
+          <Link href="https://curiousprogrammer.dev">
+            curiousprogrammer.dev
+          </Link>
+        </span>
+        <span className="flex items-center justify-start space-x-2">
+          <FaGithub className="size-4" />
+          <Link href="https://github.com/cbillowes">github.com/cbillowes</Link>
+        </span>
+        <span className="flex items-center justify-start space-x-2">
+          <FaLinkedinIn className="size-4" />
+          <Link href="https://linkedin.com/in/cbouwer">
+            linkedin.com/in/cbouwer
+          </Link>
+        </span>
+      </div>
       <p className="text-center">Grand Baie, Mauritius &middot; Remote</p>
-    </>
+    </div>
   );
-}
-
-export async function generateMetadata() {
-  return getPageMetadata({
-    title: 'Resume',
-    description:
-      'A highly accomplished and passionate polyglot full-stack software engineer with 20 years of experience delivering impactful digital solutions.',
-    slug: '/resume',
-    image: '/hero/headshot.webp',
-    type: 'website',
-  });
 }
 
 export default function ResumePage() {
@@ -105,15 +112,20 @@ export default function ResumePage() {
             containerClassName="mx-auto"
             priority={true}
           />
-          <PageHeading>Clarice Bouwer</PageHeading>
-          <h3 className="text-lg font-semibold">
+          <div className="print:hidden">
+            <PageHeading>Clarice Bouwer</PageHeading>
+          </div>
+          <div className="hidden print:block">
+            <h1 className="text-lg font-bold print:text-base">Clarice Bouwer</h1>
+          </div>
+          <h2 className="text-lg font-semibold print:text-base">
             Senior Software Engineer at Arity Craft Limited
-          </h3>
-          <nav className="flex md:hidden mb-2 flex-col justify-center items-start space-x-4 space-y-4">
+          </h2>
+          <nav className="flex mb-2 flex-col justify-center items-start space-x-4 space-y-4">
             <ContactNavItems />
           </nav>
         </section>
-        <section className="max-w-3xl mx-auto mt-4">
+        <section className="max-w-3xl mx-auto mt-4 print:m-0">
           <div>
             <p className="mb-4 leading-relaxed text-lg">
               A seasoned polyglot full-stack software engineer specializing in
@@ -135,7 +147,7 @@ export default function ResumePage() {
             </p>
           </div>
         </section>
-        <aside className="max-w-5xl px-5 mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3">
+        <aside className="max-w-5xl px-5 mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3 print:mt-5">
           <Pillar
             title="Experience"
             icon={<SiLevelsdotfyi />}

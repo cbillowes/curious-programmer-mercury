@@ -307,10 +307,20 @@ function filterItemsByCategory(category: string) {
   return getResume().filter((item) => item.resume.category === category);
 }
 
-function Section({ heading, items }: { heading: string; items: Resume[] }) {
+function Section({
+  heading,
+  items,
+  className,
+}: {
+  heading: string;
+  items: Resume[];
+  className: string;
+}) {
   return (
-    <section className="my-8 print:my-4">
-      <h2 className="text-center border-b border-gray-400 dark:border-gray-700 pb-4 uppercase font-bold">{heading}</h2>
+    <section className={cn('my-8 print:my-4', className)}>
+      <h2 className="text-center border-b border-gray-400 dark:border-gray-700 pb-4 uppercase font-bold print:pb-2">
+        {heading}
+      </h2>
       {items.map((node, index) => {
         const { slug } = node;
         const {
@@ -338,7 +348,7 @@ function Section({ heading, items }: { heading: string; items: Resume[] }) {
             <div className="border-color-3 border-none xl:border-dashed xl:w-2/3 xl:mr-8 xl:text-right xl:border-r xl:pr-8">
               <div
                 className={cn(
-                  `mb-2 rounded-full size-8 float-right p-2 ${config.button}`,
+                  `mb-2 rounded-full size-8 float-right p-2 ${config.button} print:hidden`,
                 )}
               >
                 <ResumeIcon category={currentCategory} />
@@ -348,15 +358,18 @@ function Section({ heading, items }: { heading: string; items: Resume[] }) {
                 <h3 className="text-xl mt-2 xl:mt-0 md:text-2xl font-semibold font-alt-sans">
                   <ResumeIcon
                     category={currentCategory}
-                    className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden`}
+                    className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden print:hidden`}
                   />
                   <Link
                     href={slug}
                     title={`${jobTitle} at ${company}`}
                     className="font-bold"
                   >
-                    <span className={config.heading}>{jobTitle}</span>
-                    <br />
+                    <span className={config.heading}>
+                      {jobTitle}
+                      <span className="hidden print:inline"> @ </span>
+                    </span>
+                    <br className="print:hidden" />
                     <span>{company}</span>
                   </Link>
                 </h3>
@@ -368,7 +381,7 @@ function Section({ heading, items }: { heading: string; items: Resume[] }) {
                   >
                     <ResumeIcon
                       category={currentCategory}
-                      className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden`}
+                      className={`text-4xl rounded-full p-2 mr-1 ${config.button} inline xl:hidden print:hidden`}
                     />
                     <Link href={slug} title={name}>
                       {name}
@@ -507,20 +520,47 @@ export function Timeline() {
       </div>
       {category === 'All' && (
         <>
-          <Section heading="Career" items={filterItemsByCategory('Career')} />
           <Section
+            className="print:block"
+            heading="Career"
+            items={filterItemsByCategory('Career')}
+          />
+          <Section
+            className="print:block"
             heading="Qualifications"
             items={filterItemsByCategory('Education')}
           />
           <Section
+            className="print:hidden"
             heading="Projects"
             items={filterItemsByCategory('Project')}
+          />
+          <Section
+            className="print:hidden"
+            heading="Podcasts"
+            items={filterItemsByCategory('Podcast')}
+          />
+          <Section
+            className="print:hidden"
+            heading="Talks"
+            items={filterItemsByCategory('Talk')}
+          />
+          <Section
+            className="print:hidden"
+            heading="Publications"
+            items={filterItemsByCategory('Publication')}
+          />
+          <Section
+            className="print:hidden"
+            heading="Testimonials"
+            items={filterItemsByCategory('Testimonial')}
           />
         </>
       )}
       {category !== 'All' && (
         <>
           <Section
+            className="print:block"
             heading={config.title}
             items={filterItemsByCategory(category)}
           />
