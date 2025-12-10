@@ -105,6 +105,7 @@ export function Preview({
           {slug && <Bookmark bookmarks={bookmarks} slug={slug} />}
           {slug && <Like likes={likes} slug={slug} />}
           <Link
+            role="button"
             className={cn(
               'bg-pink-600 text-white rounded py-1 px-3 transform shadow-md hover:bg-blue-600 hover:scale-105 transition-all duration-300',
               isEven ? 'xl:mr-2' : 'xl:ml-4',

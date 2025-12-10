@@ -143,6 +143,7 @@ export function Articles({
                   }
                 />
                 <Link
+                  role="button"
                   title={title}
                   href={slug}
                   className="inline-flex gap-2 items-center font-medium text-pink-600 hover:text-pink-800 dark:text-pink-500 hover:dark:text-pink-600 hover:no-underline"
