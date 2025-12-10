@@ -3,6 +3,7 @@ import { withContentCollections } from '@content-collections/next';
 import withFlowbiteReact from 'flowbite-react/plugin/nextjs';
 
 const nextConfig: NextConfig = {
+  productionBrowserSourceMaps: true,
   images: {
     remotePatterns: [
       {
