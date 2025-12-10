@@ -92,23 +92,8 @@ export async function GET() {
       number,
     }),
   );
-  const coursePages = getCoursePages().map(
-    ({ slug, title, abstract, cover, tags, date, content, number }) => ({
-      objectID: slug,
-      date,
-      title,
-      tags,
-      abstract,
-      slug,
-      keywords: getKeywords(content),
-      imageUrl: getPathWithDomain(cover),
-      number,
-    }),
-  );
-  const data = [...articles, ...scribbles, ...courses, ...coursePages].sort(
-    (a, b) => {
-      return a.number - b.number;
-    },
-  );
+  const data = [...articles, ...scribbles, ...courses].sort((a, b) => {
+    return a.number - b.number;
+  });
   return NextResponse.json(data);
 }
