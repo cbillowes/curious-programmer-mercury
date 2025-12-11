@@ -5,6 +5,7 @@ import { Button } from 'flowbite-react';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
 import { Container } from '@/components/container';
+import { useRouter } from 'next/navigation';
 
 export function Error({
   error,
@@ -13,9 +14,19 @@ export function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const router = useRouter();
+
   useEffect(() => {
     console.error(error);
   }, [error]);
+
+  if (error.message.includes('Access token has expired.')) {
+    router.push(
+      '/handler/sign-in?after_auth_return_to=' +
+        encodeURIComponent(window.location.pathname),
+    );
+    return null;
+  }
 
   return (
     <Page>
