@@ -59,7 +59,7 @@ export function toProperCase(value: string) {
 export function slugify(str: string): string {
   return str
     .toLowerCase()
-    .replace(/[',\.\?\!]+/gi, '')
+    .replace(/[',\?\!]+/gi, '')
     .replace(/[^a-z0-9]+/gi, '-');
 }
 
