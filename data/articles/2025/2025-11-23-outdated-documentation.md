@@ -5,7 +5,7 @@ date: 2025-11-23 00:00:00
 tags:
 - Documentation
 - Productivity
-- Processes
+- Process
 creditSource: Freepik AI
 creditLink: https://www.freepik.com/
 ---
