@@ -8,6 +8,7 @@ import * as emoji from 'node-emoji';
 import { Badge, Tooltip } from 'flowbite-react';
 import { GifPlayer } from '@/components/gif-player';
 import { CodeBlock, CodeInline } from '@/components/code-block';
+import { ArticleImage } from '@/components/article-image';
 import { Link } from '@/components/link';
 import { Alert } from '@/components/alert';
 import { cn } from '@/lib/utils';
@@ -75,7 +76,10 @@ function HeadingLink({
         className="heading-anchor text-black! dark:text-white! cursor-pointer"
         aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
       >
-        <Tooltip content={copied ? 'Link copied!' : 'Copy link to heading'} className="z-50">
+        <Tooltip
+          content={copied ? 'Link copied!' : 'Copy link to heading'}
+          className="z-50"
+        >
           <a href={`#${id}`}>
             <FaLink className="text-gray-800 dark:text-gray-100 opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
           </a>
@@ -198,6 +202,9 @@ export function Markdown({ content }: { content: string }) {
               const word = children.replace('pronounce:', '').trim();
               return <CodeInline language="">{word}</CodeInline>;
             }
+            if (children.startsWith('img:')) {
+              return <ArticleImage attributes={children} />;
+            }
           }
           const language = getLanguageFromClassName(className);
           const title = getTitleFromClassName(className);
@@ -205,7 +212,9 @@ export function Markdown({ content }: { content: string }) {
           return !inline && language ? (
             <div className="mb-4">
               <CodeBlock language={language} title={title}>
-                {String(children).replace(/\n$/, '').replace(/```.\s*$/, '```')}
+                {String(children)
+                  .replace(/\n$/, '')
+                  .replace(/```.\s*$/, '```')}
               </CodeBlock>
             </div>
           ) : (
