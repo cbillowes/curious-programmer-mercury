@@ -15,8 +15,10 @@ export async function addToLikes(slug: string) {
 }
 
 export async function getLikes() {
-  const user = await stackServerApp.getUser();
-  if (!user) return [];
+  const user = await stackServerApp.getUser({
+    or: 'anonymous',
+  });
+  if (!user?.id) return [];
   return db
     .select()
     .from(favorites)
