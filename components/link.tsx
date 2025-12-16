@@ -52,7 +52,7 @@ export function Link(props: Props) {
             className={cn('inline-flex items-center gap-1', className)}
             target="_blank"
             rel="noreferrer nofollow"
-            href={`${href}?utm_source=curious_programmer.dev&utm_medium=referral&utm_campaign=external_link`}
+            href={`${href}?utm_source=curiousprogrammer.dev&utm_medium=referral&utm_campaign=external_link`}
           >
             {children}
             {!hideExternal && (
