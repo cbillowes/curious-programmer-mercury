@@ -6,30 +6,45 @@ import { stackServerApp } from '@/stack/server';
 import { eq, and, desc } from 'drizzle-orm';
 
 export async function addToBookmarks(slug: string) {
-  const user = await stackServerApp.getUser();
-  if (!user) throw new Error('Not authenticated');
-  await db.insert(bookmarks).values({
-    slug,
-    userId: user.id,
-  });
+  try {
+    const user = await stackServerApp.getUser();
+    if (!user) throw new Error('Not authenticated');
+    await db.insert(bookmarks).values({
+      slug,
+      userId: user.id,
+    });
+  } catch (error) {
+    console.error('Failed to add bookmark.', error);
+    throw new Error('Could not add to bookmarks. Please try again later.');
+  }
 }
 
 export async function getBookmarks() {
-  const user = await stackServerApp.getUser({
-    or: 'anonymous',
-  });
-  if (!user?.id) return [];
-  return db
-    .select()
-    .from(bookmarks)
-    .where(eq(bookmarks.userId, user.id))
-    .orderBy(desc(bookmarks.dateAdded));
+  try {
+    const user = await stackServerApp.getUser({
+      or: 'anonymous',
+    });
+    if (!user?.id) return [];
+    return db
+      .select()
+      .from(bookmarks)
+      .where(eq(bookmarks.userId, user.id))
+      .orderBy(desc(bookmarks.dateAdded));
+  } catch (error) {
+    console.error('Failed to fetch bookmarks.', error);
+    return [];
+  }
 }
 
 export async function deleteBookmark(slug: string) {
-  const user = await stackServerApp.getUser();
-  if (!user) throw new Error('Not authenticated');
-  await db
-    .delete(bookmarks)
-    .where(and(eq(bookmarks.userId, user.id), eq(bookmarks.slug, slug)));
+  try {
+    const user = await stackServerApp.getUser();
+    if (!user) throw new Error('Not authenticated');
+    await db
+      .delete(bookmarks)
+      .where(and(eq(bookmarks.userId, user.id), eq(bookmarks.slug, slug)));
+  } catch (error) {
+    console.error('Failed to delete bookmark.', error);
+    throw new Error('Could not delete bookmark. Please try again later.');
+  }
 }

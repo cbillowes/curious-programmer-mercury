@@ -34,19 +34,25 @@ export function Bookmark({
 
   const handleBookmark = async () => {
     setIsBusy(true);
-    const result = await fetch('/api/bookmark/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ slug, bookmark: !isBookmarked }),
-    });
-    const { message, added } = await result.json();
-    setContent(message);
-    setIsBookmarked(added);
-    setIsBusy(false);
-    if (onChange) {
-      onChange(added);
+    try {
+      const result = await fetch('/api/bookmark/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ slug, bookmark: !isBookmarked }),
+      });
+      const { message, added } = await result.json();
+      setContent(message);
+      setIsBookmarked(added);
+      if (onChange) {
+        onChange(added);
+      }
+    } catch (error) {
+      console.error(error);
+      setContent('An error occurred. Please try again later.');
+    } finally {
+      setIsBusy(false);
     }
   };
 
