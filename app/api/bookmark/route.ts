@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     }
   } else {
     return NextResponse.json({
-      message: 'You need to be logged in',
+      message: 'You need to be signed in',
       added: false,
     });
   }
