@@ -82,6 +82,14 @@ export function Markdown({ content }: { content: string }) {
             </HeadingLink>
           );
         },
+        h4: ({ children }) => {
+          const id = getHeadingId(children);
+          return (
+            <HeadingLink id={id} className="mb-4">
+              <h4>{children}</h4>
+            </HeadingLink>
+          );
+        },
         p: ({ children }) => (
           <div className="paragraph mb-4 leading-7">{children}</div>
         ),

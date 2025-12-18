@@ -58,6 +58,22 @@ export function Summary({ summary, text }: { summary?: string; text: string }) {
                   </div>
                 );
               },
+              h4: ({ children }) => {
+                const id = getHeadingId(children);
+                return (
+                  <div className="ml-16">
+                    <HeadingLink id={id}>
+                      <a href={`#${id}`} onClick={() => setIsOpen(false)}>
+                        {children}
+                      </a>
+                    </HeadingLink>
+                  </div>
+                );
+              },
+              h5: () => <></>,
+              h6: () => <></>,
+              strong: () => <></>,
+              em: () => <></>,
               span: () => <></>,
               div: () => <></>,
               p: () => <></>,
