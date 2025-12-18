@@ -1,7 +1,7 @@
 import { allArticles } from 'content-collections';
 
 export function getArticles() {
-  return allArticles;
+  return allArticles.sort((a, b) => b.number - a.number);
 }
 
 export function getArticlesByYear(year: number) {

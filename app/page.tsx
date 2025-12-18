@@ -1,6 +1,6 @@
 import { getArticles } from '@/lib/articles';
 import { Link } from '@/components/link';
-import { FaNodeJs } from 'react-icons/fa';
+import { FaMagic, FaNodeJs } from 'react-icons/fa';
 import {
   FaGithub,
   FaLinkedin,
@@ -18,6 +18,7 @@ import { ReactNode } from 'react';
 import { TbTools } from 'react-icons/tb';
 import { BiCodeCurly } from 'react-icons/bi';
 import { ImageContainer } from '@/components/image-container';
+import { Badge } from 'flowbite-react';
 
 function Socials() {
   return (
@@ -159,8 +160,10 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
+  const articles = getArticles();
   const bookmarks = await getBookmarks();
   const likes = await getLikes();
+  const latestArticle = articles[0];
   return (
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900 py-5">
@@ -178,6 +181,20 @@ export default async function HomePage() {
               <div className="flex gap-4 ml-4 flex-wrap">
                 <Socials />
               </div>
+            </div>
+            <div className="flex items-center gap-2 mb-4">
+              <Link
+                href={latestArticle.slug}
+                className="rounded-3xl flex gap-2 items-center justify-center ring-4 ring-pink-900 bg-pink-600 text-pink-100 px-3 py-1 w-fit font-medium text-xs"
+              >
+                <FaMagic /> Latest article
+              </Link>
+              <Link
+                href={latestArticle.slug}
+                className="text-xs font-medium text-gray-600 dark:text-gray-300 hover:underline"
+              >
+                {latestArticle.title}
+              </Link>
             </div>
             <h1 className="max-w-5xl mb-8 text-4xl font-extrabold tracking-tighter lg:leading-16 md:text-5xl xl:text-6xl text-black dark:text-white">
               Leading teams with{' '}
