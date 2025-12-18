@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { getHeadingId, HeadingLink } from '@/components/heading-link';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { useState } from 'react';
+import { FaListOl } from 'react-icons/fa6';
 
 export function Summary({ summary, text }: { summary?: string; text: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,9 +17,9 @@ export function Summary({ summary, text }: { summary?: string; text: string }) {
     <div>
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-2 right-2"
+        className="fixed bottom-2 right-2 rounded-full"
       >
-        TL;DR
+        <FaListOl aria-label="Table of Contents" />
       </Button>
       <Modal
         ref={modalRef}
