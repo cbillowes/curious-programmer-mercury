@@ -30,10 +30,7 @@ export function Summary({ summary, text }: { summary?: string; text: string }) {
       >
         <ModalHeader>Table of Contents</ModalHeader>
         <ModalBody>
-          <div>{summary}</div>
-          <div className="mt-4">
-            <strong>Table of Contents</strong>
-          </div>
+          <div className="mb-2">{summary}</div>
           <ReactMarkdown
             components={{
               h2: ({ children }) => {
