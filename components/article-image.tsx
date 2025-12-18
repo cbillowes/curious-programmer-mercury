@@ -10,7 +10,6 @@ function parseAttributes(attributes: string) {
 
 export function ArticleImage({ attributes }: { attributes: string }) {
   const { src, title, credit, creditLink } = parseAttributes(attributes);
-  console.log(src, title, credit, creditLink);
 
   if (!src) return null;
 
