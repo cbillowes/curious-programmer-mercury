@@ -1,18 +1,17 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import * as emoji from 'node-emoji';
-import { Badge, Tooltip } from 'flowbite-react';
+import { Badge } from 'flowbite-react';
 import { GifPlayer } from '@/components/gif-player';
+import { HeadingLink, getHeadingId } from '@/components/heading-link';
 import { CodeBlock, CodeInline } from '@/components/code-block';
 import { ArticleImage } from '@/components/article-image';
 import { Link } from '@/components/link';
 import { Alert } from '@/components/alert';
 import { cn } from '@/lib/utils';
-import { FaLink } from 'react-icons/fa6';
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
@@ -47,50 +46,6 @@ function Tag({ tag }: { tag: string }) {
   );
 }
 
-function getHeadingId(children: string | ReactNode) {
-  return typeof children === 'string'
-    ? children.replace(/\s+/g, '-').toLowerCase()
-    : '';
-}
-
-function HeadingLink({
-  id,
-  children,
-}: {
-  id: string;
-  children: string | ReactNode;
-}) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    const url = window.location.href.split('#')[0];
-    await navigator.clipboard.writeText(`${url}#${id}`);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <div className="heading flex items-center justify-start gap-2">
-      <button
-        onClick={handleCopy}
-        className="heading-anchor text-black! dark:text-white! cursor-pointer"
-        aria-label={copied ? 'Link copied!' : 'Copy link to heading'}
-      >
-        <Tooltip
-          content={copied ? 'Link copied!' : 'Copy link to heading'}
-          className="z-50"
-        >
-          <a href={`#${id}`}>
-            <FaLink className="text-gray-800 dark:text-gray-100 opacity-50 size-4 mb-4 cursor-pointer hover:opacity-100" />
-          </a>
-        </Tooltip>
-      </button>
-      <a id={id} className="heading"></a>
-      {children}
-    </div>
-  );
-}
-
 function getLanguageFromClassName(className: string | undefined) {
   if (!className) return '';
   const match = /language-(\w+)/.exec(className);
@@ -114,7 +69,7 @@ export function Markdown({ content }: { content: string }) {
         h2: ({ children }) => {
           const id = getHeadingId(children);
           return (
-            <HeadingLink id={id}>
+            <HeadingLink id={id} className="mb-4">
               <h2>{children}</h2>
             </HeadingLink>
           );
@@ -122,7 +77,7 @@ export function Markdown({ content }: { content: string }) {
         h3: ({ children }) => {
           const id = getHeadingId(children);
           return (
-            <HeadingLink id={id}>
+            <HeadingLink id={id} className="mb-4">
               <h3>{children}</h3>
             </HeadingLink>
           );

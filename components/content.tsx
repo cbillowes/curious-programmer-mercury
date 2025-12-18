@@ -19,6 +19,7 @@ import { Bookmark } from '@/components/bookmark';
 import { Like } from '@/components/like';
 import { StickyHeader } from '@/components/sticky-header';
 import { ImageContainer } from '@/components/image-container';
+import { Summary } from '@/components/summary';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { cn, toProperCase } from '@/lib/utils';
 import { RiArticleLine, RiPagesLine } from 'react-icons/ri';
@@ -257,6 +258,8 @@ export function ArticleContent({
     featured,
     timeToRead,
     date,
+    abstract,
+    summary,
     content,
     next,
     previous,
@@ -286,6 +289,7 @@ export function ArticleContent({
       <ShareWidget title={title} url={slug} />
       <Navigation previous={previous} next={next} />
       <Comments />
+      <Summary summary={summary ?? abstract} text={content} />
     </article>
   );
 }
