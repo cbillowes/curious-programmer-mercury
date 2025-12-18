@@ -535,6 +535,8 @@ export function CoursePageContent({
     timeToRead,
     date,
     modified,
+    summary,
+    abstract,
     content,
     next,
     previous,
@@ -587,6 +589,7 @@ export function CoursePageContent({
       {title && slug && <ShareWidget title={title} url={slug} />}
       <Navigation previous={previous} next={next} />
       <Comments />
+      <Summary summary={summary ?? abstract} text={content} />
     </article>
   );
 }
