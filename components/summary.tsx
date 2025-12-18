@@ -28,7 +28,7 @@ export function Summary({ summary, text }: { summary?: string; text: string }) {
         onClose={() => setIsOpen(false)}
         className="z-100"
       >
-        <ModalHeader>Summary</ModalHeader>
+        <ModalHeader>Table of Contents</ModalHeader>
         <ModalBody>
           <div>{summary}</div>
           <div className="mt-4">
