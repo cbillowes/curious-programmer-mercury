@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { Badge, useThemeMode } from 'flowbite-react';
+import { Mermaid } from '@/components/mermaid';
 import { BiCheck, BiCopy } from 'react-icons/bi';
 import {
   materialLight,
@@ -26,6 +27,10 @@ export function CodeBlock({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  if (language === 'mermaid') {
+    return <Mermaid content={children} />;
+  }
 
   return (
     <div>

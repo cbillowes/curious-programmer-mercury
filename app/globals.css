@@ -246,3 +246,17 @@ body {
     @apply leading-tight! text-xs! mb-1;
   }
 }
+
+/* Mermaid overrides */
+
+#article .mermaid {
+  @apply border-2 border-gray-700;
+}
+
+#article .mermaid {
+  @apply bg-green-200;
+}
+
+#article .mermaid div {
+  @apply bg-transparent!;
+}
