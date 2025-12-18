@@ -159,3 +159,9 @@ export function getPageMetadata({
     },
   };
 }
+
+export function getSignInUrlWithReturnTo() {
+  const path = window.location.pathname;
+  const encodedReturnTo = encodeURIComponent(path);
+  return `/handler/sign-in?after_auth_return_to=${encodedReturnTo}`;
+}
