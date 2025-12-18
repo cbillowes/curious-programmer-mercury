@@ -11,7 +11,7 @@ import { headers } from 'next/headers';
 import { stackServerApp } from '@/stack/server';
 
 function getPageSlug(slug: string, number: string, pageSlug: string) {
-  return `/courses/${slug}/${number.padStart(2, '0')}/${pageSlug}`;
+  return `/courses/${slug}/${number}/${pageSlug}`;
 }
 
 type Props = {
