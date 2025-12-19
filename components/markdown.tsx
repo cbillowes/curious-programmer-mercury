@@ -108,6 +108,13 @@ export function Markdown({ content }: { content: string }) {
             />
           );
         },
+        table: ({ children }) => (
+          <div className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl overflow-x-auto my-4">
+            <table className="w-full border-collapse md:table">
+              {children}
+            </table>
+          </div>
+        ),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         code: ({ inline, className, children }: any) => {
           if (typeof children === 'string') {
