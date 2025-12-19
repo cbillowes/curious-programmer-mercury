@@ -18,7 +18,6 @@ import { ReactNode } from 'react';
 import { TbTools } from 'react-icons/tb';
 import { BiCodeCurly } from 'react-icons/bi';
 import { ImageContainer } from '@/components/image-container';
-import { Badge } from 'flowbite-react';
 
 function Socials() {
   return (
