@@ -84,7 +84,6 @@ const Type = ({ type, to, number, inline, featured }: TypeProps) => {
 };
 
 function PageStickyHeader({
-  number,
   title,
   type,
   to,
@@ -99,7 +98,7 @@ function PageStickyHeader({
   return (
     <StickyHeader>
       <div className="flex items-center gap-2 py-2">
-        <Type type={type} to={to} number={number} inline={true} />
+        <Type type={type} to={to} inline={true} />
         <h1 className="text-sm! font-extrabold tracking-tighter dark:text-white">
           {title}
         </h1>
