@@ -33,7 +33,7 @@ export default async function ScribblesPage() {
       <Page>
         <Container>
           <PageHeading>Scribbles</PageHeading>
-          <div className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto px-5">
+          <div className="max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto px-5">
             {data
               .sort((a, b) => b.number - a.number)
               .map(({ slug, title, number, featured }) => (

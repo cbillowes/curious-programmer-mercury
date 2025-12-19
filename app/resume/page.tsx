@@ -74,7 +74,7 @@ const Pillar = ({
 
 function ContactNavItems() {
   return (
-    <div className="text-center max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto">
+    <div className="text-center max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto">
       <div className="flex items-center justify-center gap-2 mx-auto my-2 flex-wrap">
         <span className="flex items-center justify-start space-x-2">
           <FaSpider className="size-4" />
@@ -147,7 +147,7 @@ export default function ResumePage() {
             </p>
           </div>
         </section>
-        <aside className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3 print:mt-5">
+        <aside className="max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3 print:mt-5">
           <Pillar
             title="Experience"
             icon={<SiLevelsdotfyi />}
@@ -188,7 +188,7 @@ export default function ResumePage() {
             ]}
           />
         </aside>
-        <main className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto">
+        <main className="max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto">
           <Timeline />
         </main>
       </Container>

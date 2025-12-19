@@ -16,7 +16,7 @@ export async function generateMetadata() {
 export default function Handler() {
   return (
     <Page>
-      <div className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto px-5 py-8">
+      <div className="max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto px-5 py-8">
         <StackHandler fullPage />
       </div>
     </Page>

@@ -166,7 +166,7 @@ export default async function HomePage() {
   return (
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900 py-5">
-        <div className="px-4 sm:px-32 grid max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
+        <div className="px-4 sm:px-32 grid max-w-sm md:max-w-3xl lg:max-w-5xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <div className="lg:hidden flex items-center justify-start mb-4 md:mb-0">
               <ImageContainer
@@ -195,7 +195,7 @@ export default async function HomePage() {
                 {latestArticle.title}
               </Link>
             </div>
-            <h1 className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mb-8 text-4xl font-extrabold tracking-tighter lg:leading-16 md:text-5xl xl:text-6xl text-black dark:text-white">
+            <h1 className="max-w-sm md:max-w-3xl lg:max-w-5xl mb-8 text-4xl font-extrabold tracking-tighter lg:leading-16 md:text-5xl xl:text-6xl text-black dark:text-white">
               Leading teams with{' '}
               <span className="text-transparent bg-clip-text bg-linear-to-r to-blue-600 from-green-400">
                 empathy
@@ -206,7 +206,7 @@ export default async function HomePage() {
               </span>
               .
             </h1>
-            <p className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg dark:text-gray-300">
+            <p className="max-w-sm md:max-w-3xl lg:max-w-5xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg dark:text-gray-300">
               A highly accomplished and passionate polyglot full-stack software
               engineer with {new Date().getFullYear() - 2005} years of
               experience delivering impactful digital solutions across diverse
@@ -301,7 +301,7 @@ export default async function HomePage() {
       <hr className="dark:border-t-blue-900 border-t-blue-400" />
       <section className="bg-blue-600 dark:bg-blue-950">
         <div className="py-8 px-4 mx-auto max-w-7xl sm:py-16 lg:px-6">
-          <div className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto mb-8 lg:mb-16">
+          <div className="max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto mb-8 lg:mb-16">
             <h2 className="mt-8 mb-4 lg:mb-6 text-3xl font-extrabold tracking-tighter leading-tight text-white md:text-4xl">
               I learn things, then I share knowledge
             </h2>
@@ -310,7 +310,7 @@ export default async function HomePage() {
               so I share the gems I uncover along the way. ✨
             </p>
           </div>
-          <div className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
+          <div className="max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 xl:gap-12 md:space-y-0">
             <Tags
               heading="Soft Skills"
               tags={[
@@ -349,7 +349,7 @@ export default async function HomePage() {
         aria-label="Related articles"
         className="py-8 bg-white dark:bg-gray-900 lg:py-16 antialiased"
       >
-        <div className="px-4 mx-auto w-full max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl">
+        <div className="px-4 mx-auto w-full max-w-sm md:max-w-3xl lg:max-w-5xl">
           <h2 className="mt-8 mb-4 lg:mb-8 text-3xl font-extrabold tracking-tighter leading-tight text-gray-900 dark:text-white md:text-4xl">
             Featured articles
           </h2>

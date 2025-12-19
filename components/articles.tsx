@@ -48,7 +48,7 @@ export function Articles({
   };
 
   return (
-    <div className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
+    <div className="max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
       {content.map((c) => {
         const {
           slug,

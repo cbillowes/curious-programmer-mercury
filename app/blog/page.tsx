@@ -32,7 +32,7 @@ export default async function BlogPage() {
     <Page>
       <Container>
         <PageHeading>Blog</PageHeading>
-        <div className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto px-5">
+        <div className="max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto px-5">
           {data
             .sort((a, b) => b.number - a.number)
             .map(({ slug, title, number, featured }) => (
