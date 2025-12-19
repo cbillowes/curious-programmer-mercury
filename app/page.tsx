@@ -169,7 +169,7 @@ export default async function HomePage() {
       <section className="bg-gray-50 dark:bg-gray-900 py-5">
         <div className="px-4 sm:px-32 grid max-w-5xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
-            <div className="lg:hidden flex items-center justify-start">
+            <div className="lg:hidden flex items-center justify-start mb-4">
               <ImageContainer
                 width={32}
                 height={32}
@@ -185,7 +185,7 @@ export default async function HomePage() {
             <div className="flex items-center gap-2 mb-4">
               <Link
                 href={latestArticle.slug}
-                className="rounded-3xl flex gap-2 items-center justify-center ring-4 ring-pink-900 bg-pink-600 text-pink-100 px-3 py-1 w-fit font-medium text-xs"
+                className="rounded-3xl flex gap-2 items-center justify-center ring-4 ring-pink-900 bg-pink-600 text-pink-100 px-3 py-1 w-fit font-medium text-xs whitespace-nowrap"
               >
                 <FaMagic /> Latest article
               </Link>
