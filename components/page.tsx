@@ -1,22 +1,11 @@
 'use client';
 
-import { useEffect, useState, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Backdrop } from '@/components/backdrop';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 
 export function Page({ children }: { children: ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <div>
       <Header />
