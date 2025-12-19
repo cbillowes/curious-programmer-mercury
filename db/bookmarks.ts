@@ -21,10 +21,8 @@ export async function addToBookmarks(slug: string) {
 
 export async function getBookmarks() {
   try {
-    const user = await stackServerApp.getUser({
-      or: 'anonymous',
-    });
-    if (!user?.id) return [];
+    const user = await stackServerApp.getUser();
+    if (!user) return [];
     return db
       .select()
       .from(bookmarks)
