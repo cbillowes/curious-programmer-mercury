@@ -1,7 +1,7 @@
 'use client';
 
 import Joyride, { CallBackProps, STATUS, Step } from 'react-joyride';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 const STORAGE_KEY = 'cp:tutorial:v1:dismissed';
 
@@ -16,6 +16,7 @@ function dismiss() {
   localStorage.setItem(STORAGE_KEY, 'true');
 }
 
+// Polls using rAF (fast, cheap) until predicate is true or timeout
 function waitFor(predicate: () => boolean, timeoutMs = 8000) {
   return new Promise<boolean>((resolve) => {
     const start = performance.now();
@@ -30,8 +31,13 @@ function waitFor(predicate: () => boolean, timeoutMs = 8000) {
   });
 }
 
+function isLoadingBeaconGone() {
+  return !document.querySelector('[data-beacon="loading"]');
+}
+
 export function Tour() {
   const [run, setRun] = useState(false);
+  const startedRef = useRef(false);
 
   const steps: Step[] = useMemo(
     () => [
@@ -71,25 +77,13 @@ export function Tour() {
 
     (async () => {
       if (dismissed()) return;
+      if (startedRef.current) return;
 
-      // Wait for any route loading UI to disappear
-      const loadingGone = await waitFor(
-        () => !document.querySelector('[data-beacon="loading"]'),
-        10000,
-      );
-      if (!loadingGone || cancelled) return;
+      // Wait for loading beacon to disappear
+      const loadingGone = await waitFor(isLoadingBeaconGone, 15000);
+      if (cancelled || !loadingGone) return;
 
-      // Wait for first step target to exist
-      const firstTarget = steps[0]?.target;
-      if (typeof firstTarget !== 'string') return;
-
-      const targetReady = await waitFor(
-        () => !!document.querySelector(firstTarget),
-        10000,
-      );
-
-      if (!targetReady || cancelled) return;
-
+      startedRef.current = true;
       setRun(true);
     })();
 
@@ -101,6 +95,7 @@ export function Tour() {
   const onCallback = (data: CallBackProps) => {
     const finished =
       data.status === STATUS.FINISHED || data.status === STATUS.SKIPPED;
+
     if (finished) {
       dismiss();
       setRun(false);
