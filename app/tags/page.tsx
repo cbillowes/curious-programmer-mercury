@@ -21,7 +21,7 @@ export default async function TagsPage() {
     <Page>
       <Container>
         <PageHeading>Tags</PageHeading>
-        <div className="flex flex-wrap gap-4 justify-center mt-8">
+        <div className="flex flex-wrap gap-2 justify-start md:justify-center mt-8">
           {tags.map((tag) => (
             <div key={tag.tag} className="mb-1">
               <a
