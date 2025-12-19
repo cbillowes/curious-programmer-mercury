@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { ImageContainer } from '@/components/image-container';
 import { useThemeMode } from 'flowbite-react';
+import { ImageContainer } from '@/components/image-container';
+import GitHubButton from 'react-github-btn';
 
 export function Footer() {
   const { mode } = useThemeMode();
@@ -25,6 +26,25 @@ export function Footer() {
           Curious Programmer
           <br /> A curious place for a curious mind. Made with ❤️ with Next.js.
         </p>
+        <div className="flex justify-center gap-2 mb-2">
+          <GitHubButton
+            href="https://github.com/cbillowes"
+            data-color-scheme={mode}
+            data-size="large"
+            aria-label="Follow @cbillowes on GitHub"
+          >
+            Follow @cbillowes
+          </GitHubButton>
+          <GitHubButton
+            href="https://github.com/cbillowes/curious-programmer-mercury"
+            data-color-scheme={mode}
+            data-icon="octicon-star"
+            data-size="large"
+            aria-label="Star cbillowes/curious-programmer-mercury on GitHub"
+          >
+            Star
+          </GitHubButton>
+        </div>
         <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
           <li>
             <a
