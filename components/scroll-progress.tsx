@@ -122,6 +122,7 @@ export function ScrollProgress({ children }: { children: ReactNode }) {
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(scrollProgress)}
+        data-tour="page-scroll"
       >
         <div
           className="h-full bg-blue-600 transition-all duration-150 ease-out pointer-events-none"
