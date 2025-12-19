@@ -22,7 +22,7 @@ export function Hero({
         src={image}
         alt={title ?? 'Hero image'}
         className="h-[250px] md:h-[700px] object-cover"
-        containerClassName="w-full!"
+        containerClassName="w-full! h-[250px]! md:h[700px]!"
         priority={true}
         fill={true}
       />
