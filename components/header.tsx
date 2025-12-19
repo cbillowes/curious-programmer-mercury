@@ -125,7 +125,7 @@ function ToggleSidebar({
 export function Header() {
   const app = useStackApp();
   const active = typeof window !== 'undefined' ? window.location.pathname : '';
-  const sidebar = localStorage.getItem('sidebar');
+  const sidebar = typeof window !== 'undefined' && localStorage.getItem('sidebar');
   const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
   const { mode, toggleMode } = useThemeMode();
   const user = useAuth();
