@@ -166,9 +166,9 @@ export default async function HomePage() {
   return (
     <Page>
       <section className="bg-gray-50 dark:bg-gray-900 py-5">
-        <div className="px-4 sm:px-32 grid max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div className="px-4 sm:px-32 grid max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl xl:px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
-            <div className="lg:hidden flex items-center justify-start mb-4">
+            <div className="lg:hidden flex items-center justify-start mb-4 md:mb-0">
               <ImageContainer
                 width={32}
                 height={32}
