@@ -41,7 +41,7 @@ export function Link(props: Props) {
     router.push(href);
   };
 
-  if (typeof href === 'string' && href.startsWith('http')) {
+  if ((typeof href === 'string' && href.startsWith('http')) || props.target === '_blank') {
     return (
       <div className="inline-flex">
         <Tooltip content={showTooltip && title}>
