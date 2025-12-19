@@ -36,7 +36,7 @@ export function Comments() {
   return (
     <div>
       <div className="mt-4" ref={commentsRef} />
-      <p className="text-xs text-center mt-2 opacity-70 leading-loose">
+      <div className="text-xs text-center mt-2 opacity-70 leading-loose">
         By commenting, you automatically agree to the{' '}
         <Link
           href="/community"
@@ -58,7 +58,7 @@ export function Comments() {
           Privacy Policy
         </Link>
         .
-      </p>
+      </div>
     </div>
   );
 }
