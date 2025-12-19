@@ -74,8 +74,8 @@ const Pillar = ({
 
 function ContactNavItems() {
   return (
-    <div className="text-center max-w-4xl mx-auto">
-      <div className="flex items-center justify-center gap-2 mx-auto my-2">
+    <div className="text-center max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto">
+      <div className="flex items-center justify-center gap-2 mx-auto my-2 flex-wrap">
         <span className="flex items-center justify-start space-x-2">
           <FaSpider className="size-4" />
           <Link href="https://curiousprogrammer.dev">
