@@ -17,7 +17,7 @@ export function Summary({ summary, text }: { summary?: string; text: string }) {
     <div>
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-2 right-2 rounded-full"
+        className="fixed bottom-2 right-2 rounded-full z-100"
       >
         <FaListOl aria-label="Table of Contents" />
       </Button>

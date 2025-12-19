@@ -192,7 +192,7 @@ function Author() {
 
 function PageTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h1 className="text-5xl font-extrabold tracking-tighter mb-3 lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-5xl print:text-black">
+    <h1 className="text-5xl font-extrabold tracking-tighter mb-3 lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-5xl print:text-black">
       {children}
     </h1>
   );
