@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useThemeMode } from 'flowbite-react';
+import { Link } from './link';
 
 export function Comments() {
   const { mode } = useThemeMode();
@@ -32,5 +33,32 @@ export function Comments() {
     };
   }, [mode]);
 
-  return <div className="mt-4" ref={commentsRef} />;
+  return (
+    <div>
+      <div className="mt-4" ref={commentsRef} />
+      <p className="text-xs text-center mt-2 opacity-70 leading-loose">
+        By commenting, you automatically agree to the{' '}
+        <Link
+          href="/community"
+          className="border-b"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Community Guidelines"
+        >
+          Community Guidelines
+        </Link>{' '}
+        and{' '}
+        <Link
+          href="/privacy"
+          className="border-b"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Privacy Policy"
+        >
+          Privacy Policy
+        </Link>
+        .
+      </p>
+    </div>
+  );
 }
