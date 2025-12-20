@@ -48,7 +48,7 @@ export function Footer() {
         <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
           <li>
             <a
-              href="https://curiousprogrammer.dev/privacy"
+              href="/privacy"
               className="mr-4 hover:underline md:mr-6 "
             >
               Privacy policy
@@ -56,7 +56,7 @@ export function Footer() {
           </li>
           <li>
             <a
-              href="https://curiousprogrammer.dev/community"
+              href="/community"
               className="mr-4 hover:underline md:mr-6"
             >
               Community guidelines
