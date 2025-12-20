@@ -7,7 +7,7 @@ creditLink: https://unsplash.com/photos/mP7aPSUm7aE
 creditSource: unsplash
 tags:
   - Technical
-  - Mac
+  - MacOS
 ---
 
 Hooray, I now have a new MacBook Pro! I never thought the day would come where that would happen.

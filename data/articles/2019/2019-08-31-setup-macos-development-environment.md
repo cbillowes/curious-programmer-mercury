@@ -7,7 +7,7 @@ creditLink: https://unsplash.com/photos/zFOm6KzA-7g
 creditSource: unsplash
 tags:
   - Technical
-  - Mac
+  - MacOS
 ---
 
 > **Note:** I am running macOS Mojave on a 2.8 GHz Intel Core i7 with 16 GB 2133 MHz LPDDR3 RAM.
