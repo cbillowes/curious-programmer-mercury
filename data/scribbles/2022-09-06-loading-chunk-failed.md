@@ -7,7 +7,7 @@ creditSource: Wikipedia
 creditLink: https://en.wikipedia.org/wiki/File:Webpack.svg
 tags:
   - Technical
-  - Node
+  - Node.js
   - JavaScript
   - Webpack
 abstract: >

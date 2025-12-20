@@ -8,7 +8,7 @@ creditLink: https://en.wikipedia.org/wiki/File:Webpack.svg
 tags:
   - Technical
   - npm
-  - Node
+  - Node.js
   - Webpack
   - JavaScript
 abstract: >

@@ -7,7 +7,7 @@ creditLink: https://en.wikipedia.org/wiki/Npm_(software)#/media/File:Npm-logo.sv
 tags:
   - Technical
   - Tools
-  - Node
+  - Node.js
   - JavaScript
   - Terminal
 abstract: >
