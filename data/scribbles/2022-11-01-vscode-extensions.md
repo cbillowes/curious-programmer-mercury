@@ -7,7 +7,7 @@ creditLink: https://commons.wikimedia.org/wiki/File:Visual_Studio_Code_1.35_icon
 tags:
   - Technical
   - Productivity
-  - Visual Studio Code
+  - VS Code
 abstract: >
   A list of Visual Studio Code extensions that I use on a daily basis to improve productivity and
   make life easier as a developer and blogger.
