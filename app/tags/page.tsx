@@ -7,8 +7,11 @@ import {
 import { Container } from '@/components/container';
 import { Page } from '@/components/page';
 import { PageHeading } from '@/components/page-heading';
-import { getCategories, getSubCategories, getTagsBySubCategory } from '@/data/tags';
-import { getTags } from '@/lib/tags';
+import {
+  getCategories,
+  getSubCategories,
+  getTagsBySubCategory,
+} from '@/data/tags';
 import { getPageMetadata } from '@/lib/utils';
 
 export async function generateMetadata() {
@@ -23,18 +26,23 @@ export async function generateMetadata() {
 }
 
 export default async function TagsPage() {
-  const tags = getTags();
   const categories = getCategories();
 
   return (
     <Page>
       <Container>
         <PageHeading>Tags</PageHeading>
+        <p className="text-center opacity-80 text-sm mb-4 max-w-3xl mx-auto">
+          I write about a variety of topics related to software development,
+          including technical and soft skills. To help you find content that
+          interests you, I use tags to categorize my articles. Browse the tags
+          below to discover articles on specific topics.
+        </p>
         <div className="px-4 sm:px-32 max-w-sm md:max-w-3xl lg:max-w-5xl xl:px-4 py-8 mx-auto">
           <Accordion alwaysOpen={true}>
             {categories.map((category) => (
               <AccordionPanel key={category}>
-                <AccordionTitle>{category}</AccordionTitle>
+                <AccordionTitle className="font-bold">{category}</AccordionTitle>
                 <AccordionContent>
                   {getSubCategories(category).map((subCategory) => (
                     <div key={subCategory.name} className="mb-6 mt-4">
