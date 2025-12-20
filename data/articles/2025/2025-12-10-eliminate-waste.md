@@ -2,6 +2,7 @@
 title: Strategies to reduce or eliminate waste in software engineering
 cover: eliminate-waste.webp
 date: 2025-12-10 00:00:00
+featured: true
 tags:
 - Mindset
 - Productivity
