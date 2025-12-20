@@ -18,11 +18,11 @@ export function Hero({
     <div className="relative print:hidden">
       <ImageContainer
         width={1920}
-        height={700}
+        height={600}
         src={image}
         alt={title ?? 'Hero image'}
-        className="h-[250px] md:h-[700px] object-cover"
-        containerClassName="w-full! h-[250px]! md:h[700px]!"
+        className="h-[250px] md:h-[600px] object-cover"
+        containerClassName="w-full! h-[250px]! md:h-[650px]!"
         priority={true}
         fill={true}
       />
