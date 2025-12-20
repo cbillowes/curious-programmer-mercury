@@ -6,7 +6,7 @@ tags:
   - Technical
   - Datomic
   - Database
-  - Cheat sheet
+  - Cheat Sheet
 ---
 
 Get started with the essentials of Datomic from installing Datomic, running a transactor, working with the Datomic console, running the Datomic REPL, creating and restoring a database, creating a schema and furnishing it with data.

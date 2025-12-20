@@ -6,7 +6,7 @@ tags:
   - Technical
   - Datomic
   - Database
-  - Cheat sheet
+  - Cheat Sheet
 ---
 
 In this post I work through querying the [Datomic MusicBrainz](https://github.com/Datomic/mbrainz-sample) sample database. The example queries are grabbed from the [Datomic Docs](https://docs.datomic.com/on-prem/query.html). _If you want to get started with Datomic, check out the [previous post](/blog/datomic-cheat-sheet-series-getting-started) in the series._

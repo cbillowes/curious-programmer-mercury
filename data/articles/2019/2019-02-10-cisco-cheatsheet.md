@@ -9,7 +9,7 @@ tags:
   - Technical
   - Terminal
   - Cisco
-  - Cheat sheet
+  - Cheat Sheet
 ---
 
 Cisco Adaptive Security Appliancy is known as the Cisco ASA. It

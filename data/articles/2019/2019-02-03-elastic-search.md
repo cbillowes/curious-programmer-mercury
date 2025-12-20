@@ -9,7 +9,7 @@ creditSource: PNGWAVE
 tags:
   - Technical
   - Terminal
-  - Cheat sheet
+  - Cheat Sheet
   - Linux
 ---
 

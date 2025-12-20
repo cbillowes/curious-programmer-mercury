@@ -6,7 +6,7 @@ tags:
   - Technical
   - Datomic
   - Database
-  - Cheat sheet
+  - Cheat Sheet
 ---
 
 In this post I work through transactions. The example queries are grabbed from the [Datomic Docs](https://docs.datomic.com/on-prem/transactions.html). _If you want to get started with Datomic, check out the [first post](/blog/datomic-cheat-sheet-series-getting-started/) in the series. If you want to see other queries, then check out [part 1](/blog/datomic-cheat-sheet-series-queries-part-1/) and [part 2](/blog/datomic-cheat-sheet-series-queries-part-2/). If you want to set up query rules then check out [part 3](/blog/datomic-cheat-sheet-series-queries-part-3-rules/). If you want to learn more about pull then check out [part 4](/blog/datomic-cheat-sheat-series-queries-part-4/)._
