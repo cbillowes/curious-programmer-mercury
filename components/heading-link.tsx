@@ -5,7 +5,7 @@ import { FaLink } from 'react-icons/fa6';
 
 export function getHeadingId(children: string | ReactNode) {
   return typeof children === 'string'
-    ? children.replace(/\s+/g, '-').toLowerCase()
+    ? children.replace(/[^A-Za-z0-9-]+/gi, '-').toLowerCase()
     : '';
 }
 
