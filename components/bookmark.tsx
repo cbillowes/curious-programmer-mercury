@@ -1,9 +1,10 @@
 'use client';
 
-import { cn, getSignInUrlWithReturnTo } from '@/lib/utils';
+import { useEffect, useState } from 'react';
 import { Button, Spinner, Tooltip } from 'flowbite-react';
 import { useStackApp } from '@stackframe/stack';
-import { useEffect, useState } from 'react';
+import { cn, getSignInUrlWithReturnTo } from '@/lib/utils';
+import { IS_DEV } from '@/lib/config';
 import { FaBookmark } from 'react-icons/fa6';
 import { FiBookmark } from 'react-icons/fi';
 
@@ -49,7 +50,7 @@ export function Bookmark({
         onChange(added);
       }
     } catch (error) {
-      console.error(error);
+      if (IS_DEV) console.error(error);
       setContent('An error occurred. Please try again later.');
     } finally {
       setIsBusy(false);

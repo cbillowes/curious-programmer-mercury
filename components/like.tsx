@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Button, Spinner, Tooltip } from 'flowbite-react';
 import { useStackApp } from '@stackframe/stack';
 import { cn, getSignInUrlWithReturnTo } from '@/lib/utils';
+import { IS_DEV } from '@/lib/config';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 
 export function Like({
@@ -46,7 +47,7 @@ export function Like({
         onChange(added);
       }
     } catch (error) {
-      console.error(error);
+      if (IS_DEV) console.error(error);
       setContent('An error occurred. Please try again later.');
     } finally {
       setIsBusy(false);

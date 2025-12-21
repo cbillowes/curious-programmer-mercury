@@ -5,3 +5,4 @@ export const WEBSITE_URL =
 export const STACK_PROJECT_ID = process.env.NEXT_PUBLIC_STACK_PROJECT_ID!;
 export const STACK_PUBLISHABLE_CLIENT_KEY =
   process.env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY!;
+export const IS_DEV = process.env.NEXT_ENVIRONMENT === 'dev';

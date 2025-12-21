@@ -7,6 +7,7 @@ import { PageHeading } from '@/components/page-heading';
 import { Container } from '@/components/container';
 import { useRouter } from 'next/navigation';
 import { getSignInUrlWithReturnTo } from '@/lib/utils';
+import { IS_DEV } from '@/lib/config';
 
 export function Error({
   error,
@@ -18,7 +19,7 @@ export function Error({
   const router = useRouter();
 
   useEffect(() => {
-    console.error(error);
+    if (IS_DEV) console.error(error);
   }, [error]);
 
   if (error.message.includes('Access token has expired.')) {
