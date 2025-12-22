@@ -30,7 +30,10 @@ export function ArticleImage({ attributes }: { attributes: string }) {
           {credit && creditLink ? (
             <span>
               Credit:{' '}
-              <a href={creditLink} className="underline">
+              <a
+                href={`${creditLink}?utm_source=curiousprogrammer.dev`}
+                className="underline"
+              >
                 {credit}
               </a>
             </span>
