@@ -7,7 +7,6 @@ import { stackServerApp } from '@/stack/server';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { flowbiteTheme } from '@/components/theme';
 import { ProgressBar } from '@/components/progress-bar';
-import { Tour } from '@/components/tour';
 import { CookieBanner } from '@/components/cookie-banner';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { WebVitals } from '@/app/web-vitals';
@@ -42,7 +41,6 @@ export default async function RootLayout({
             <ProgressBar>
               <ThemeProvider theme={flowbiteTheme}>
                 <StackTheme>
-                  <Tour />
                   <ScrollProgress>{children}</ScrollProgress>
                   <CookieBanner value={cookieConsent?.value} />
                 </StackTheme>

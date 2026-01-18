@@ -6,7 +6,6 @@ import { useStackApp } from '@stackframe/stack';
 import { Link } from '@/components/link';
 import { Search } from '@/components/search';
 import { Avatar, AvatarDropdown } from '@/components/avatar';
-import { triggerTour } from '@/components/tour';
 import { useAuth } from '@/hooks/use-auth';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { getGroup, sidebarItems } from '@/data/sidebar';
@@ -114,7 +113,6 @@ function ToggleSidebar({
       aria-expanded={isOpen}
       className="print:hidden p-2 text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       onClick={toggle}
-      data-tour="nav"
     >
       {!isOpen && <HiMenuAlt1 aria-label="Open side menu" className="size-6" />}
       {isOpen && <MdClose aria-label="Close side menu" className="size-6" />}
@@ -167,13 +165,12 @@ export function Header() {
                 <button
                   className="mr-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-lg p-2.5"
                   onClick={toggleMode}
-                  data-tour="theme-toggle"
                 >
                   <span className="sr-only">Toggle theme</span>
                   {mode === 'dark' && <FaSun />}
                   {mode !== 'dark' && <FaMoon />}
                 </button>
-                <div data-tour="account">
+                <div>
                   <AvatarDropdown />
                 </div>
               </div>
@@ -211,14 +208,6 @@ export function Header() {
                       </li>
                     );
                   })}
-                  <li>
-                    <button
-                      className="w-[255px] text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 px-4 space-2 flex items-center py-2 mx-2 gap-2 cursor-pointer"
-                      onClick={triggerTour}
-                    >
-                      Take the tour
-                    </button>
-                  </li>
                 </ul>
                 <div className="py-4 bg-white dark:bg-gray-800 border-t border-b border-gray-200 dark:border-gray-700">
                   <MenuItemLink
