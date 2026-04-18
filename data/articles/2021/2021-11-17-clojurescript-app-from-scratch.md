@@ -76,7 +76,6 @@ OpenJDK 64-Bit Server VM Temurin-11.0.13+8 (build 11.0.13+8, mixed mode)
    ```
 
 1. Create the file structure.
-
    - **resources/public/index.html** <- the main HTML file
    - **src/example_app/core.cljs** <- the main ClojureScript file
    - **dev.cljs.edn** <- Figwheel's configuration file

@@ -3,8 +3,7 @@ title: Prettify with Tailwind CSS
 parent: /courses/jamstack
 date: 2022-10-23
 modified: 2022-11-01
-abstract:
-  Make a beautiful UI by adding Tailwind CSS to your User Interface.
+abstract: Make a beautiful UI by adding Tailwind CSS to your User Interface.
 ---
 
 `youtube:https://www.youtube.com/embed/UBOj6rqRUME`

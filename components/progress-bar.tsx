@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
+import { useEffect } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import NProgress from "nprogress";
+
+import "nprogress/nprogress.css";
 
 NProgress.configure({
   showSpinner: false,
@@ -25,17 +26,17 @@ export function ProgressBar({ children }: { children: React.ReactNode }) {
 
       if (
         href !== currentUrl &&
-        target.href.indexOf('#') === -1 &&
-        !target.href.startsWith('http')
+        target.href.indexOf("#") === -1 &&
+        !target.href.startsWith("http")
       ) {
         NProgress.start();
       }
     };
 
     const handleMutation = () => {
-      const anchors = document.querySelectorAll('a[href]');
+      const anchors = document.querySelectorAll("a[href]");
       anchors.forEach((anchor) => {
-        anchor.addEventListener('click', handleAnchorClick as EventListener);
+        anchor.addEventListener("click", handleAnchorClick as EventListener);
       });
     };
 
@@ -51,9 +52,9 @@ export function ProgressBar({ children }: { children: React.ReactNode }) {
 
     return () => {
       observer.disconnect();
-      const anchors = document.querySelectorAll('a[href]');
+      const anchors = document.querySelectorAll("a[href]");
       anchors.forEach((anchor) => {
-        anchor.removeEventListener('click', handleAnchorClick as EventListener);
+        anchor.removeEventListener("click", handleAnchorClick as EventListener);
       });
     };
   }, [pathname, searchParams]);

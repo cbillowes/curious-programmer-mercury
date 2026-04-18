@@ -1,5 +1,6 @@
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import Image from "next/image";
+
+import { cn } from "@/lib/utils";
 
 export function ImageContainer({
   width,
@@ -22,7 +23,7 @@ export function ImageContainer({
 }) {
   return (
     <div
-      className={cn('relative max-w-full', containerClassName)}
+      className={cn("relative max-w-full", containerClassName)}
       style={{
         width: `${width}px`,
         height: `${height}px`,
@@ -33,7 +34,7 @@ export function ImageContainer({
         height={!fill ? height : undefined}
         src={src}
         alt={alt}
-        className={cn(fill ? 'object-cover' : 'object-contain', className)}
+        className={cn(fill ? "object-cover" : "object-contain", className)}
         priority={priority}
         fill={fill}
       />

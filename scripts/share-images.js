@@ -1,6 +1,6 @@
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+const sharp = require("sharp");
+const fs = require("fs");
+const path = require("path");
 
 const fromPath = process.argv[2];
 const toPath = process.argv[3];
@@ -8,7 +8,7 @@ const toPath = process.argv[3];
 console.log(`🧪 Processing images for social sharing from: ${fromPath} to ${toPath}...`);
 
 function processImage(image) {
-  const toExt = '.jpg';
+  const toExt = ".jpg";
   // Get extension from image path
   const ext = path.extname(image).toLowerCase();
   const basename = path.basename(image);
@@ -20,21 +20,21 @@ function processImage(image) {
     return;
   }
 
-  if (['.DS_Store'].includes(basename)) {
+  if ([".DS_Store"].includes(basename)) {
     console.log(`⏭️ Skipping file: ${image}`);
     return;
   }
 
   sharp(image)
-    .toFormat('jpeg')
+    .toFormat("jpeg")
     .jpeg({ quality: 80 })
     .resize(400, 400, {
-      fit: 'cover',
-      background: { r: 0, g: 0, b: 0, alpha: 0 }
+      fit: "cover",
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
     })
     .toFile(outputJpg, (err) => {
       if (err) {
-        console.error('❌ Conversion failed for ', outputJpg, err);
+        console.error("❌ Conversion failed for ", outputJpg, err);
       } else {
         console.log(`✅ Jpg generated from webp: ${outputJpg}`);
       }
@@ -43,7 +43,7 @@ function processImage(image) {
 
 function traverseDirectory(dir) {
   const files = fs.readdirSync(dir);
-  files.forEach(file => {
+  files.forEach((file) => {
     const fullPath = path.join(dir, file);
     const stats = fs.statSync(fullPath);
     if (stats.isDirectory()) {
@@ -61,9 +61,9 @@ if (!fs.existsSync(toPath)) {
 
 const stats = fs.statSync(fromPath);
 if (stats.isDirectory()) {
-  traverseDirectory(fromPath)
+  traverseDirectory(fromPath);
 } else {
   processImage(fromPath);
 }
 
-console.log('✅ Optimizing images script completed.');
+console.log("✅ Optimizing images script completed.");

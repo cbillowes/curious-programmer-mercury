@@ -1,6 +1,6 @@
 ---
-title: 'How I got my article published'
-cover: 'https://picsum.photos/1600/800/?image=1073'
+title: "How I got my article published"
+cover: "https://picsum.photos/1600/800/?image=1073"
 date: 2016-08-13 19:45:00 +0200
 tags:
   - Mindset

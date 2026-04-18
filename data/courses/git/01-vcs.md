@@ -3,8 +3,7 @@ title: Version Control Systems
 parent: /courses/git
 date: 2022-10-10
 modified: 2022-10-15
-abstract:
-  To understand Git, you need to understand what a Version Control System is.
+abstract: To understand Git, you need to understand what a Version Control System is.
   In this chapter, we will cover how things used to work before Version Control Systems,
   then we will learn what Version Control Systems are, why they are useful to us
   and get exposed to the different types of popular options that we can use.

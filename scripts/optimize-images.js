@@ -1,6 +1,6 @@
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+const sharp = require("sharp");
+const fs = require("fs");
+const path = require("path");
 
 const fromPath = process.argv[2];
 const toPath = process.argv[3];
@@ -10,11 +10,11 @@ console.log(`🧪 Optimizing images from ${fromPath} to ${toPath}...`);
 
 function optimizeWebp(filename, newFilename) {
   sharp(filename)
-    .toFormat('webp')
+    .toFormat("webp")
     .webp({ quality })
     .toFile(newFilename, (err) => {
       if (err) {
-        console.error('❌ Conversion failed for ', filename, err);
+        console.error("❌ Conversion failed for ", filename, err);
       } else {
         console.log(`✅ Webp generated: ${filename}`);
       }
@@ -23,11 +23,11 @@ function optimizeWebp(filename, newFilename) {
 
 function optimizeGif(filename, newFilename) {
   sharp(filename)
-    .toFormat('gif')
+    .toFormat("gif")
     .gif({ quality })
     .toFile(newFilename, (err) => {
       if (err) {
-        console.error('❌ Conversion failed for ', filename, err);
+        console.error("❌ Conversion failed for ", filename, err);
       } else {
         console.log(`✅ Gif generated: ${filename}`);
       }
@@ -36,11 +36,11 @@ function optimizeGif(filename, newFilename) {
 
 function optimizePng(filename, newFilename) {
   sharp(filename)
-    .toFormat('png')
+    .toFormat("png")
     .png({ quality })
     .toFile(newFilename, (err) => {
       if (err) {
-        console.error('❌ Conversion failed for ', filename, err);
+        console.error("❌ Conversion failed for ", filename, err);
       } else {
         console.log(`✅ Png generated: ${filename}`);
       }
@@ -49,11 +49,11 @@ function optimizePng(filename, newFilename) {
 
 function optimizeJpg(filename, newFilename) {
   sharp(filename)
-    .toFormat('jpeg')
+    .toFormat("jpeg")
     .jpeg({ quality })
     .toFile(newFilename, (err) => {
       if (err) {
-        console.error('❌ Conversion failed for ', filename, err);
+        console.error("❌ Conversion failed for ", filename, err);
       } else {
         console.log(`✅ Jpg generated: ${filename}`);
       }
@@ -65,28 +65,28 @@ function optimizeImage(filename) {
   const basename = path.basename(filename);
   const tempFilename = filename.replace(basename, `temp_${basename}`);
 
-  if (basename.startsWith('temp_')) {
+  if (basename.startsWith("temp_")) {
     console.log(`⏭️ Skipping temp file: ${filename}`);
     return;
   }
 
-  if (['.DS_Store'].includes(basename)) {
+  if ([".DS_Store"].includes(basename)) {
     console.log(`⏭️ Skipping file: ${filename}`);
     return;
   }
 
   switch (ext) {
-    case '.webp':
+    case ".webp":
       optimizeWebp(filename, tempFilename);
       break;
-    case '.gif':
+    case ".gif":
       optimizeGif(filename, tempFilename);
       break;
-    case '.png':
+    case ".png":
       optimizePng(filename, tempFilename);
       break;
-    case '.jpg':
-    case '.jpeg':
+    case ".jpg":
+    case ".jpeg":
       optimizeJpg(filename, tempFilename);
       break;
     default:
@@ -96,7 +96,7 @@ function optimizeImage(filename) {
 
 function traverseDirectory(dir) {
   const files = fs.readdirSync(dir);
-  files.forEach(file => {
+  files.forEach((file) => {
     const fullPath = path.join(dir, file);
     const stats = fs.statSync(fullPath);
     if (stats.isDirectory()) {
@@ -114,9 +114,9 @@ if (!fs.existsSync(toPath)) {
 
 const stats = fs.statSync(fromPath);
 if (stats.isDirectory()) {
-  traverseDirectory(fromPath)
+  traverseDirectory(fromPath);
 } else {
   optimizeImage(fromPath);
 }
 
-console.log('✅ Optimizing images script completed.');
+console.log("✅ Optimizing images script completed.");

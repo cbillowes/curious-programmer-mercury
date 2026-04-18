@@ -2,8 +2,7 @@
 title: Add a progress bar to your blog
 parent: /courses/nextjs-blog
 date: 2025-12-02
-abstract:
-  In this chapter, you will learn how to add a progress bar to your blog to improve user experience when navigating between pages.
+abstract: In this chapter, you will learn how to add a progress bar to your blog to improve user experience when navigating between pages.
 ---
 
 There is a bit of a lag when navigating between pages.

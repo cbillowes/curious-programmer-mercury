@@ -1,12 +1,13 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Button, Spinner, Tooltip } from 'flowbite-react';
-import { useStackApp } from '@stackframe/stack';
-import { cn, getSignInUrlWithReturnTo } from '@/lib/utils';
-import { IS_DEV } from '@/lib/config';
-import { FaBookmark } from 'react-icons/fa6';
-import { FiBookmark } from 'react-icons/fi';
+import { useEffect, useState } from "react";
+import { useStackApp } from "@stackframe/stack";
+import { Button, Spinner, Tooltip } from "flowbite-react";
+import { FaBookmark } from "react-icons/fa6";
+import { FiBookmark } from "react-icons/fi";
+
+import { IS_DEV } from "@/lib/config";
+import { cn, getSignInUrlWithReturnTo } from "@/lib/utils";
 
 export function Bookmark({
   slug,
@@ -19,9 +20,7 @@ export function Bookmark({
 }) {
   const stackApp = useStackApp();
   const bookmarked = bookmarks.includes(slug);
-  const [content, setContent] = useState(
-    bookmarked ? 'Bookmarked' : 'Add to your bookmarks',
-  );
+  const [content, setContent] = useState(bookmarked ? "Bookmarked" : "Add to your bookmarks");
   const [isBookmarked, setIsBookmarked] = useState(bookmarked);
   const [isBusy, setIsBusy] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -36,10 +35,10 @@ export function Bookmark({
   const handleBookmark = async () => {
     setIsBusy(true);
     try {
-      const result = await fetch('/api/bookmark/', {
-        method: 'POST',
+      const result = await fetch("/api/bookmark/", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ slug, bookmark: !isBookmarked }),
       });
@@ -51,7 +50,7 @@ export function Bookmark({
       }
     } catch (error) {
       if (IS_DEV) console.error(error);
-      setContent('An error occurred. Please try again later.');
+      setContent("An error occurred. Please try again later.");
     } finally {
       setIsBusy(false);
     }
@@ -59,16 +58,13 @@ export function Bookmark({
 
   if (!isSignedIn) {
     return (
-      <Tooltip
-        content="You need to be signed in to bookmark this"
-        placement="top"
-      >
+      <Tooltip content="You need to be signed in to bookmark this" placement="top">
         <Button
           href={getSignInUrlWithReturnTo()}
           color="alternative"
           size="xs"
           className={cn(
-            'cursor-pointer inline-flex gap-2 items-center font-medium text-gray-900 dark:text-white',
+            "inline-flex cursor-pointer items-center gap-2 font-medium text-gray-900 dark:text-white",
           )}
         >
           <FiBookmark aria-label="Bookmark this" size={16} />
@@ -84,8 +80,8 @@ export function Bookmark({
         color="alternative"
         size="xs"
         className={cn(
-          'cursor-pointer inline-flex gap-2 items-center font-medium text-gray-900 dark:text-white',
-          isBookmarked && 'text-gray-900 dark:text-white',
+          "inline-flex cursor-pointer items-center gap-2 font-medium text-gray-900 dark:text-white",
+          isBookmarked && "text-gray-900 dark:text-white",
         )}
       >
         {isBusy ? (

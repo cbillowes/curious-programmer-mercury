@@ -2,8 +2,7 @@
 title: Create a sitemap
 parent: /courses/nextjs-blog
 date: 2025-12-02
-abstract:
-  In this chapter, you will learn how to create a sitemap for your blog to improve SEO and help search engines crawl your site more effectively.
+abstract: In this chapter, you will learn how to create a sitemap for your blog to improve SEO and help search engines crawl your site more effectively.
 ---
 
 Expose a `sitemap.xml` file to your Next.js blog to help search engines discover your pages more efficiently.

@@ -179,13 +179,13 @@ curl -X GET "http://localhost:5601/app/kibana"
 
 ```yml
 # The URLs of the Elasticsearch instances to use for all your queries.
-elasticsearch.hosts: ['http://localhost:9200']
+elasticsearch.hosts: ["http://localhost:9200"]
 
 # Enables you to specify a path to mount Kibana at if you are running behind a proxy.
 # Use the `server.rewriteBasePath` setting to tell Kibana if it should remove the basePath
 # from requests it receives, and to prevent a deprecation warning at startup.
 # This setting cannot end in a slash.
-server.basePath: '/kibana'
+server.basePath: "/kibana"
 
 # Specifies whether Kibana should rewrite requests that are prefixed with
 # `server.basePath` or require that they are rewritten by your reverse proxy.

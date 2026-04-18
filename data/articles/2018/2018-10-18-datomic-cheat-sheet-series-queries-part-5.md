@@ -1,6 +1,6 @@
 ---
-title: 'Datomic Cheat Sheet Series - Queries (Part 5) - Transactions'
-cover: 'clojure.jpg'
+title: "Datomic Cheat Sheet Series - Queries (Part 5) - Transactions"
+cover: "clojure.jpg"
 date: 2018-10-18 04:54:00 +0200
 tags:
   - Technical

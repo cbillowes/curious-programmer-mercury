@@ -19,8 +19,7 @@ resume:
     - Distributed Systems
     - CQRS
     - DevOps
-  summary:
-    Real-world experience about all architecture positions from monolithic to event-driven microservices architecture.
+  summary: Real-world experience about all architecture positions from monolithic to event-driven microservices architecture.
 ---
 
 ## Certification

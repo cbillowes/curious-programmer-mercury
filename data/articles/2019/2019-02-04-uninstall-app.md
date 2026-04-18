@@ -1,5 +1,5 @@
 ---
-title: 'Uninstall an app from the terminal'
+title: "Uninstall an app from the terminal"
 date: 2019-02-04 13:10:00 +0200
 tags:
   - Technical

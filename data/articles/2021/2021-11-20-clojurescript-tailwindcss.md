@@ -147,11 +147,7 @@ Create a `postcss.config.js` file in your project root directory.
 ```javascript
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ],
+  plugins: [require("postcss-import"), require("tailwindcss"), require("autoprefixer")],
 };
 ```
 

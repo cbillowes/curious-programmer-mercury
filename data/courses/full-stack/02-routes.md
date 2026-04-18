@@ -3,8 +3,7 @@ title: Route to different pages in the application
 parent: /courses/full-stack
 date: 2022-11-02
 modified: 2022-11-13
-abstract:
-  In this chapter, you will use the react-router-dom to manage your routes
+abstract: In this chapter, you will use the react-router-dom to manage your routes
   and navigate to different pages using a navigation bar component.
 ---
 

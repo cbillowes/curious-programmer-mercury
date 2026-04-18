@@ -1,46 +1,43 @@
-import { NextResponse } from 'next/server';
-import { getArticles } from '@/lib/articles';
-import { getScribbles } from '@/lib/scribbles';
-import { getCoursePages, getCourses } from '@/lib/courses';
+import { NextResponse } from "next/server";
+
+import { getArticles } from "@/lib/articles";
+import { getCoursePages, getCourses } from "@/lib/courses";
+import { getScribbles } from "@/lib/scribbles";
 
 const stopWords = new Set([
-  'the',
-  'and',
-  'that',
-  'have',
-  'for',
-  'not',
-  'with',
-  'you',
-  'this',
-  'but',
-  'from',
-  'they',
-  'his',
-  'she',
-  'which',
-  'will',
-  'there',
-  'their',
-  'what',
-  'about',
-  'when',
-  'your',
-  'it',
+  "the",
+  "and",
+  "that",
+  "have",
+  "for",
+  "not",
+  "with",
+  "you",
+  "this",
+  "but",
+  "from",
+  "they",
+  "his",
+  "she",
+  "which",
+  "will",
+  "there",
+  "their",
+  "what",
+  "about",
+  "when",
+  "your",
+  "it",
   "it's",
 ]);
 
-function getPathWithDomain(path: string = '/hero/default-01.jpg') {
-  const shareImage = path
-    .replace('/hero/', '/share/')
-    .replace(/\.[^/.]+$/, '.jpg');
-  return path.startsWith('http')
-    ? shareImage
-    : `https://curiousprogrammer.dev${shareImage}`;
+function getPathWithDomain(path: string = "/hero/default-01.jpg") {
+  const shareImage = path.replace("/hero/", "/share/").replace(/\.[^/.]+$/, ".jpg");
+  return path.startsWith("http") ? shareImage : `https://curiousprogrammer.dev${shareImage}`;
 }
 
-function getKeywords(content: string = '') {
-  const normalized = content.toLowerCase().replace(/[^a-z0-9\']/g, ' ');
+function getKeywords(content: string = "") {
+  const normalized = content.toLowerCase().replace(/[^a-z0-9\']/g, " ");
   const words = normalized.split(/ /g).filter((word) => word.length > 3);
   const wordCount: Record<string, number> = {};
   words.forEach((word) => {

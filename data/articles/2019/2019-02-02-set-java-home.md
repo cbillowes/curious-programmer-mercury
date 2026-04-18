@@ -1,5 +1,5 @@
 ---
-title: 'Set $JAVA_HOME in Linux'
+title: "Set $JAVA_HOME in Linux"
 date: 2019-02-02 05:00:00 +0200
 tags:
   - Technical

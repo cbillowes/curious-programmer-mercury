@@ -3,8 +3,7 @@ title: Connect the frontend to the backend
 parent: /courses/full-stack
 date: 2022-11-03
 modified: 2022-11-14
-abstract:
-  In this chapter, you will learn to whitelist your frontend domain to combat CORS when
+abstract: In this chapter, you will learn to whitelist your frontend domain to combat CORS when
   communicating between the frontend and backend server API.
   You will also interact with the API by updating some of your frontend components.
 ---

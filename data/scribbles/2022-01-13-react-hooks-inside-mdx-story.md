@@ -20,11 +20,7 @@ abstract: >
 <Story name="With hooks">
   {() => {
     const [count, setCount] = useState(0);
-    return (
-      <button onClick={() => setCount(count + 1)}>
-        Clicked {count} time(s)
-      </button>
-    );
+    return <button onClick={() => setCount(count + 1)}>Clicked {count} time(s)</button>;
   }}
 </Story>
 ```

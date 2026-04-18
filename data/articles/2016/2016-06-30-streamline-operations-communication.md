@@ -1,6 +1,6 @@
 ---
-title: 'Streamline operations communication'
-cover: 'https://picsum.photos/1600/800/?image=119'
+title: "Streamline operations communication"
+cover: "https://picsum.photos/1600/800/?image=119"
 date: 2016-06-30 22:36:38 +0200
 tags:
   - Productivity
@@ -12,7 +12,7 @@ tags:
 Teams cannot focus on sprint work when there are multiple communication channels
 filtering into the team at any given point in time.
 
-![Communications flow](./multiple-channels.jpg 'Communication from external sources directly entering the team')
+![Communications flow](./multiple-channels.jpg "Communication from external sources directly entering the team")
 _Source of image: Clarice Bouwer_
 
 This form of communication can occur for many reasons:
@@ -38,7 +38,7 @@ Your team could introduce a rotating support role where one technical person
 handles all incoming requests for that sprint and filters it into the team
 if necessary.
 
-![Communications flow](./support-person.jpg 'Communication from external sources directly to the support role in the team')
+![Communications flow](./support-person.jpg "Communication from external sources directly to the support role in the team")
 _Source of image: Clarice Bouwer_
 
 Based on the nature of the queries entering the team, an escalation process
@@ -67,7 +67,7 @@ that handles the bulk of the support role for you.
 Here an escalation process is highly recommended so that the operations team
 knows when and which teams to filter queries to.
 
-![Communications flow](./operations-team.jpg 'Communication from external sources directly to the operations team escalating ad-hoc queries')
+![Communications flow](./operations-team.jpg "Communication from external sources directly to the operations team escalating ad-hoc queries")
 _Source of image: Clarice Bouwer_
 
 It is important to liaise with the operations team and guide them with incorrect

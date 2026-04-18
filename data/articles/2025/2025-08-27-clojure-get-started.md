@@ -3,8 +3,8 @@ title: "Getting started with Clojure using the Clojure CLI tools on MacOS"
 cover: clojure-main.webp
 date: 2025-08-27 00:00:00
 tags:
-- Clojure
-- MacOS
+  - Clojure
+  - MacOS
 creditSource: ChatGPT-4o
 creditLink: https://chatgpt.com/
 ---
@@ -194,9 +194,9 @@ myworkspace/
 
 Use the following `poly` commands to create new lego blocks in your application.
 
-| Command | Description |
-|---------|-------------|
-| workspace | Create a new Polylith workspace |
-| component | Create a standalone component |
-| base | Create a base (API entrypoint) that uses components |
-| project | Create a deployable project that uses bases and components |
+| Command   | Description                                                |
+| --------- | ---------------------------------------------------------- |
+| workspace | Create a new Polylith workspace                            |
+| component | Create a standalone component                              |
+| base      | Create a base (API entrypoint) that uses components        |
+| project   | Create a deployable project that uses bases and components |

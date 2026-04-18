@@ -89,7 +89,7 @@ self-harm, and so on, are all self-destructive coping mechanisms.
 These mechanisms only deepens the pain both physically and emotionally
 and come at a negative cost.
 
-![Poster](./negative-reinforcing-loop-past.jpg 'Negative reinforcing loop')
+![Poster](./negative-reinforcing-loop-past.jpg "Negative reinforcing loop")
 
 Think about it. If you are obsessively dwelling on the past, you are missing out
 on what is happening right now. You miss out on all the good things happening
@@ -120,7 +120,7 @@ That means that:
 You **cannot change what is outside of your control**. You can control your
 actions, behavior and attitude.
 
-![Poster](./negative-reinforcing-loop-victim.jpg 'Negative reinforcing loop')
+![Poster](./negative-reinforcing-loop-victim.jpg "Negative reinforcing loop")
 
 Blaming others or the situation and getting angry doesn't alleviate your pain
 and suffering. It just makes it worse because you can't change it. Another
@@ -143,7 +143,7 @@ Tell yourself phrases like:
 
 ## Distraction plan
 
-![Poster](./keep-calm-relax.jpg 'Keep calm')
+![Poster](./keep-calm-relax.jpg "Keep calm")
 
 You can temporarily distract yourself from the overwhelming pain. Focus
 on something that can help you calm down. It's like those silly calm down posters,
@@ -241,7 +241,7 @@ healthier way.
 
 ## Relaxation plan
 
-![Poster](./keep-calm-distract.jpg 'Keep calm')
+![Poster](./keep-calm-distract.jpg "Keep calm")
 
 When you are relaxed, your body feels good. Your heart beats slowly and your
 blood pressure is reduced.
@@ -374,7 +374,7 @@ and [Google Books](https://books.google.co.za/books/about/The_Dialectical_Behavi
 - [Nature sounds or ambiance](https://www.calmsound.com/),
   Calmsound - Free nature sounds, the oasis of relaxation.
 
-[negative-reinforcing-loop-past]: /images/rewire-your-brain-3/negative-reinforcing-loop-past.jpg 'I think about the past ↔ I regret thinking about the past'
-[negative-reinforcing-loop-victim]: /images/rewire-your-brain-3/negative-reinforcing-loop-victim.jpg 'Blame, anger and criticize ↔ Pain and suffering'
-[keep-calm-distract]: /images/rewire-your-brain-3/keep-calm-distract.jpg 'Keep calm and distract yourself'
-[keep-calm-relax]: /images/rewire-your-brain-3/keep-calm-relax.jpg 'Keep calm and Relax and Soothe Yourself'
+[negative-reinforcing-loop-past]: /images/rewire-your-brain-3/negative-reinforcing-loop-past.jpg "I think about the past ↔ I regret thinking about the past"
+[negative-reinforcing-loop-victim]: /images/rewire-your-brain-3/negative-reinforcing-loop-victim.jpg "Blame, anger and criticize ↔ Pain and suffering"
+[keep-calm-distract]: /images/rewire-your-brain-3/keep-calm-distract.jpg "Keep calm and distract yourself"
+[keep-calm-relax]: /images/rewire-your-brain-3/keep-calm-relax.jpg "Keep calm and Relax and Soothe Yourself"

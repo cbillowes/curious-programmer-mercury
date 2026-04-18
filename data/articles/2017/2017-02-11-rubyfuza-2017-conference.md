@@ -1,6 +1,6 @@
 ---
-title: 'Rubyfuza 2017 Conference'
-cover: 'https://picsum.photos/1600/800/?image=0'
+title: "Rubyfuza 2017 Conference"
+cover: "https://picsum.photos/1600/800/?image=0"
 date: 2017-02-11 23:00:00 +0200
 tags:
   - Mindset

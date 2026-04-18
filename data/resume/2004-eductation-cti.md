@@ -15,8 +15,7 @@ resume:
     - C#
     - VB.NET
     - SQL
-  summary:
-    Computer Science - Internet Development (2004) - 86% (Bursary Awarded)
+  summary: Computer Science - Internet Development (2004) - 86% (Bursary Awarded)
 ---
 
 Completed a Diploma in Computer Science: Internet Development with an 86% average, gaining a comprehensive foundation in full-stack web development principles. This program equipped me with the skills to design, develop, and deploy web applications, and provided a strong understanding of software development methodologies

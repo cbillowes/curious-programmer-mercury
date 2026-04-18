@@ -1,7 +1,7 @@
 ---
-title: 'Defusing Stressful Emotions'
+title: "Defusing Stressful Emotions"
 date: 2017-07-03 19:05:39 +0200
-cover: 'https://picsum.photos/1600/800/?image=1074'
+cover: "https://picsum.photos/1600/800/?image=1074"
 tags:
   - Mindset
 ---

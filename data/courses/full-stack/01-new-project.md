@@ -3,8 +3,7 @@ title: Create a new React web application
 parent: /courses/full-stack
 date: 2022-11-02
 modified: 2022-11-14
-abstract:
-  React is currently claimed to be the most popular JavaScript library out there.
+abstract: React is currently claimed to be the most popular JavaScript library out there.
   In this chapter, you will learn more about getting started with React,
   create your React application and the basic pages and components required for this course.
 ---

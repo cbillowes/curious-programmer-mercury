@@ -1,14 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { liteClient as algoliasearch } from 'algoliasearch/lite';
-import {
-  InstantSearch,
-  UseSearchBoxProps,
-  useInstantSearch,
-  useSearchBox,
-} from 'react-instantsearch';
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { liteClient as algoliasearch } from "algoliasearch/lite";
 import {
   Alert,
   Modal,
@@ -17,13 +12,19 @@ import {
   ModalHeader,
   Spinner,
   TextInput,
-} from 'flowbite-react';
-import { ImageContainer } from '@/components/image-container';
-import { ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY } from '@/lib/config';
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { FaSearch } from 'react-icons/fa';
-import { FiCommand } from 'react-icons/fi';
-import { FaAlgolia } from 'react-icons/fa6';
+} from "flowbite-react";
+import { FaSearch } from "react-icons/fa";
+import { FaAlgolia } from "react-icons/fa6";
+import { FiCommand } from "react-icons/fi";
+import {
+  InstantSearch,
+  useInstantSearch,
+  useSearchBox,
+  UseSearchBoxProps,
+} from "react-instantsearch";
+
+import { ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY } from "@/lib/config";
+import { ImageContainer } from "@/components/image-container";
 
 const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
 
@@ -45,12 +46,12 @@ function Hit({
   return (
     <div>
       <Link href={slug} onClick={onNavigate}>
-        <div className="py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg mb-2 flex items-center gap-4 cursor-pointer">
+        <div className="mb-2 flex cursor-pointer items-center gap-4 rounded-lg py-2 hover:bg-gray-100 dark:hover:bg-gray-700">
           {imageUrl && (
             <ImageContainer
               width={200}
               height={80}
-              className="rounded-md hidden md:block"
+              className="hidden rounded-md md:block"
               src={imageUrl}
               alt={title}
               priority={true}
@@ -58,16 +59,13 @@ function Hit({
             />
           )}
           <div>
-            <h2 className="text-lg text-pink-600 font-bold">{title}</h2>
+            <h2 className="text-lg font-bold text-pink-600">{title}</h2>
             <p className="text-gray-700 dark:text-gray-300">
               {(abstract ?? excerpt)?.substring(0, 250)}
             </p>
             <div>
               {tags?.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-sm text-gray-500 dark:text-gray-400 mr-2"
-                >
+                <span key={tag} className="mr-2 text-sm text-gray-500 dark:text-gray-400">
                   #{tag}
                 </span>
               ))}
@@ -79,9 +77,7 @@ function Hit({
   );
 }
 
-function CustomSearchBox(
-  props: UseSearchBoxProps & { onNavigate: () => void },
-) {
+function CustomSearchBox(props: UseSearchBoxProps & { onNavigate: () => void }) {
   const { onNavigate } = props;
   const { query, refine } = useSearchBox(props);
   const { status, error, results } = useInstantSearch();
@@ -90,11 +86,8 @@ function CustomSearchBox(
 
   return (
     <div className="w-full">
-      <div
-        role="search"
-        className="w-full flex items-center gap-2 mb-4 relative"
-      >
-        <div className="flex items-center gap-2 w-full">
+      <div role="search" className="relative mb-4 flex w-full items-center gap-2">
+        <div className="flex w-full items-center gap-2">
           <TextInput
             ref={inputRef}
             autoComplete="off"
@@ -112,26 +105,21 @@ function CustomSearchBox(
             }}
             autoFocus
             onKeyDown={(e) => {
-              if (e.key === 'Enter') {
+              if (e.key === "Enter") {
                 refine(inputValue);
               }
             }}
           />
         </div>
       </div>
-      {['loading', 'stalled'].includes(status) ? (
-        <Spinner
-          aria-label="Loading..."
-          className="w-full flex justify-center items-center"
-        />
+      {["loading", "stalled"].includes(status) ? (
+        <Spinner aria-label="Loading..." className="flex w-full items-center justify-center" />
       ) : (
         <div>
           {error && <Alert color="red">Error: {error.message}</Alert>}
-          {results && results.hits.length === 0 && (
-            <Alert color="yellow">No results found.</Alert>
-          )}
+          {results && results.hits.length === 0 && <Alert color="yellow">No results found.</Alert>}
           {results && results.hits.length > 0 && (
-            <div className="max-h-80 overflow-scroll mb-8">
+            <div className="mb-8 max-h-80 overflow-scroll">
               {results.hits.map((hit) => (
                 <Hit key={hit.objectID} hit={hit} onNavigate={onNavigate} />
               ))}
@@ -155,19 +143,19 @@ export function Search() {
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setIsOpen((x) => !x);
       }
     };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
   return (
     <InstantSearch indexName="Pages" searchClient={searchClient}>
       <button
-        className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-lg p-2.5"
+        className="flex items-center gap-2 rounded-lg p-2.5 text-lg text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center text-sm text-gray-400 dark:text-gray-500">
@@ -183,14 +171,14 @@ export function Search() {
           onClose={() => setIsOpen(false)}
           className="text-black dark:text-white"
         >
-          <ModalHeader className="border-gray-200 dark:border-gray-800 pb-0">
+          <ModalHeader className="border-gray-200 pb-0 dark:border-gray-800">
             Search for something
           </ModalHeader>
           <ModalBody className="max-h-[400px] overflow-hidden px-4 py-2 pb-8">
             <CustomSearchBox onNavigate={() => setIsOpen(false)} />
           </ModalBody>
           <ModalFooter className="px-4 py-4">
-            <p className="text-gray-500 dark:text-gray-400 flex items-center gap-1 justify-end w-full text-md">
+            <p className="text-md flex w-full items-center justify-end gap-1 text-gray-500 dark:text-gray-400">
               Powered by <FaAlgolia /> AlgoliaSearch
             </p>
           </ModalFooter>

@@ -1,7 +1,7 @@
 ---
 featured: true
-title: 'The imposter within'
-cover: 'https://picsum.photos/1600/800/?image=680'
+title: "The imposter within"
+cover: "https://picsum.photos/1600/800/?image=680"
 date: 2016-11-13 11:23:10 +0200
 tags:
   - Mindset
@@ -178,7 +178,6 @@ to share let me know."
 ## References
 
 1.  <a id="footnote-1-ref"></a>**About Imposter Syndrome** ([Navigate back](#footnote-1))
-
     - [Imposter Syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome) _Wikipedia_
     - [The Impostor Syndrome](https://www.youtube.com/watch?v=vLpqq0ljawE)
       _GOTO 2016 presentation_, Gitte Klitgaard
@@ -196,7 +195,6 @@ to share let me know."
     DOI: 10.5860/crl12-423
 
 3.  <a id="footnote-3-ref"></a>**Techniques to deal with self-doubt** ([Navigate back](#footnote-3))<br/>
-
     - [10 Powerful Ways to Overcome Self-Doubt So You Can Move Forward in Life](http://www.positivityblog.com/index.php/2015/12/16/overcome-self-doubt/)
       _The Positivity Blog_, Henrik Edberg
     - [Tweet](https://twitter.com/Rubberduck203/status/795798471727087619)

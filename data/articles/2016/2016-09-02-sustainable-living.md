@@ -1,6 +1,6 @@
 ---
-title: 'Sustainable living'
-cover: 'https://picsum.photos/1600/800/?image=1039'
+title: "Sustainable living"
+cover: "https://picsum.photos/1600/800/?image=1039"
 date: 2016-09-02 21:50:36 +0200
 tags:
   - Mindset

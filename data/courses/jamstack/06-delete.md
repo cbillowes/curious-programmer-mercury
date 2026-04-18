@@ -2,8 +2,7 @@
 title: Delete data from collection
 parent: /courses/jamstack
 date: 2022-10-23
-abstract:
-  Create the feature that will delete a todo task from the collection.
+abstract: Create the feature that will delete a todo task from the collection.
 ---
 
 ## Handler

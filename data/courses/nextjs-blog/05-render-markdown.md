@@ -2,8 +2,7 @@
 title: Render Markdown in your blog pages
 parent: /courses/nextjs-blog
 date: 2025-11-30
-abstract:
-  In this chapter, you will learn how to elegantly render Markdown content in your Next.js blog post pages.
+abstract: In this chapter, you will learn how to elegantly render Markdown content in your Next.js blog post pages.
 ---
 
 You will notice that your Markdown content is rendered as plain text when using `dangerouslySetInnerHTML`.

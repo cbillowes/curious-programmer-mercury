@@ -1,11 +1,12 @@
-import { Container } from '@/components/container';
-import { Page } from '@/components/page';
-import { PageHeading } from '@/components/page-heading';
-import { Preview } from '@/components/preview';
-import { getByTag, prettifyTag } from '@/lib/tags';
-import { getPageMetadata } from '@/lib/utils';
-import { getBookmarks } from '@/db/bookmarks';
-import { getLikes } from '@/db/likes';
+import { getBookmarks } from "@/db/bookmarks";
+import { getLikes } from "@/db/likes";
+
+import { getByTag, prettifyTag } from "@/lib/tags";
+import { getPageMetadata } from "@/lib/utils";
+import { Container } from "@/components/container";
+import { Page } from "@/components/page";
+import { PageHeading } from "@/components/page-heading";
+import { Preview } from "@/components/preview";
 
 type Props = {
   params: {
@@ -19,11 +20,11 @@ export async function generateMetadata({ params }: Props) {
     tag,
   )} with curated articles and insights.`;
   return getPageMetadata({
-    title: prettifyTag(tag) ?? 'Tag',
+    title: prettifyTag(tag) ?? "Tag",
     description,
     slug: `/tag/${tag}`,
-    image: '/hero/tag.webp',
-    type: 'website',
+    image: "/hero/tag.webp",
+    type: "website",
   });
 }
 

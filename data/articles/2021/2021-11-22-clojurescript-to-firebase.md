@@ -60,7 +60,6 @@ set up the GitHub Action to deploy to Firebase Hosting.
    ```
 
 1. Follow the prompts
-
    1. Create a new or use an existing Firebase project.
 
    1. Creates a service account in your Firebase project with

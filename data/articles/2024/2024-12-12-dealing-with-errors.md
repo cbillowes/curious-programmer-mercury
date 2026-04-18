@@ -1,5 +1,5 @@
 ---
-title: 'Owning the Chaos: A Simple Guide to Tackling Obscure Errors'
+title: "Owning the Chaos: A Simple Guide to Tackling Obscure Errors"
 cover: errors.webp
 featured: true
 date: 2024-12-12
@@ -79,7 +79,6 @@ Even seasoned engineers don't know everything—experience doesn’t make you om
 1. **Triage** by spotting common or related errors. Can you identify patterns, are errors originating from the same source? Is there a trend in timing or frequency? Which errors are blocking or affecting the users and how?
 
 1. **Mark** them by the level of urgency based on the impact you have determined. Do this to the best of your abilities:
-
    - 🚨: Critical (affects core functionality or many users)
    - ⚠️: High (significant, but not blocking)
    - 🟡: Medium (minor but recurring issues)
@@ -87,7 +86,6 @@ Even seasoned engineers don't know everything—experience doesn’t make you om
    - ⁉️: Unknown (you are not sure)
 
 1. **Communicate** by starting a thread for each error:
-
    - Share a summary of your findings to help others understand the context.
    - Give a brief summary of the error, if you know what it is.
    - Provide links to articles, resources, wikis, code where applicable.

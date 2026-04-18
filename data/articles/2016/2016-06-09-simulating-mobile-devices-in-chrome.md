@@ -47,7 +47,6 @@ used to achieve this but is beyond the scope of this topic.
 
     - You could use shortcuts, but make sure the focus is on the Developer Tools
       window and not the browser window for it to work.
-
       - Windows: `Ctrl` + `Shift` + `M`
       - Mac: `Cmd` + `Shift` + `M`
 
@@ -62,7 +61,7 @@ These controls give you the ability to test your web page across a variety of
 devices or directly interact with the responsive nature of it. You can change
 the device, width, height, zoom and orientation _(if height is present)_.
 
-![Screenshot](./viewport-controls.jpg 'iPad device selected through the Viewport controls')
+![Screenshot](./viewport-controls.jpg "iPad device selected through the Viewport controls")
 _Source of image: Screenshot of viewport controls in Chrome Developer Tools_
 
 ### Configure devices
@@ -81,7 +80,7 @@ You can get a comprehensive list from
 > it takes to draw a single pixel used by CSS. The more screen pixels used, the
 > sharper the image. You should be able to distinguish the difference between standard, HiDPI and Retina displays.
 
-![Screenshot](./emulated-devices.jpg 'Selected Galaxy Note 3 and Galaxy Note II in emulated devices to add them to the list of devices')
+![Screenshot](./emulated-devices.jpg "Selected Galaxy Note 3 and Galaxy Note II in emulated devices to add them to the list of devices")
 _Source of image: Screenshot of emulated devices in Chrome_
 
 ## Media queries
@@ -89,7 +88,7 @@ _Source of image: Screenshot of emulated devices in Chrome_
 You can use the media query inspector by clicking on **Show media queries** in
 the vertical three dot menu at the top-right corner of the Viewport controls.
 
-![Screenshot](./show-media-queries.jpg 'Media queries inspector on iPad display')
+![Screenshot](./show-media-queries.jpg "Media queries inspector on iPad display")
 _Source of image: Screenshot of media queries in the Chrome Developer Tools_
 
 The media queries for the web page are detected and displayed as colored bars.
@@ -165,7 +164,7 @@ override geolocation coordinates and device orientation accelerometer data.
 Click on the vertical three dot menu at the top-right corner of the Developer Tools
 window > **More tools > Sensors**.
 
-![Screenshot](./sensors.jpg 'Enabled emulate geolocation coordinates and device orientation selected in sensors tab with default data')
+![Screenshot](./sensors.jpg "Enabled emulate geolocation coordinates and device orientation selected in sensors tab with default data")
 _Source of image: Screenshot of emulating selected sensors in the Chrome Developer Tools_
 
 Find out more about [emulating sensors](https://developer.chrome.com/docs/devtools/device-mode/).

@@ -22,13 +22,13 @@ Let's break it down:
 - pkill sends a termination signal (`SIGTERM`) to matching processes
 
 - `-f` matches against the full command line, not just the process name — so it finds processes where next dev appears anywhere in the command string
-This kills any process running next dev, which is the Next.js development server
+  This kills any process running next dev, which is the Next.js development server
 
 - `2>/dev/null` Redirects stderr (file descriptor 2 - see below) to /dev/null (the void)
-Suppresses the error message pkill prints when no matching process is found — keeps output clean whether or not a server was actually running
+  Suppresses the error message pkill prints when no matching process is found — keeps output clean whether or not a server was actually running
 
 - `; echo "..."` The `;` runs the echo unconditionally (regardless of pkill's exit code)
-Prints a confirmation message so you know the command ran
+  Prints a confirmation message so you know the command ran
 
 ---
 
@@ -36,11 +36,11 @@ Prints a confirmation message so you know the command ran
 
 In Unix, every process gets three standard file descriptors opened automatically:
 
-| FD | Name | Default destination |
-|----|------|------------------|
-| 0  | stdin | keyboard input |
-| 1  | stdout | terminal (normal output) |
-| 2  | stderr | terminal (error output) |
+| FD  | Name   | Default destination      |
+| --- | ------ | ------------------------ |
+| 0   | stdin  | keyboard input           |
+| 1   | stdout | terminal (normal output) |
+| 2   | stderr | terminal (error output)  |
 
 FD 2 (stderr) is where programs write error messages and diagnostics — separate from regular output so you can redirect them independently.
 

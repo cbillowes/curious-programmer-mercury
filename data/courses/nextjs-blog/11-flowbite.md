@@ -2,8 +2,7 @@
 title: Style your blog with Flowbite
 parent: /courses/nextjs-blog
 date: 2025-12-02
-abstract:
-  In this chapter, you will learn how to make your blog look pretty with Flowbite components.
+abstract: In this chapter, you will learn how to make your blog look pretty with Flowbite components.
 ---
 
 [Flowbite](https://flowbite.com/) is a popular open-source library of UI components built with Tailwind CSS.

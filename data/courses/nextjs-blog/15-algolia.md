@@ -2,8 +2,7 @@
 title: Implement Algolia autocomplete search
 parent: /courses/nextjs-blog
 date: 2025-12-02
-abstract:
-  In this chapter, you will learn how to add Algolia search to your blog.
+abstract: In this chapter, you will learn how to add Algolia search to your blog.
 ---
 
 [Algolia](https://www.algolia.com/) is a powerful hosted search engine that provides real-time search and discovery capabilities.

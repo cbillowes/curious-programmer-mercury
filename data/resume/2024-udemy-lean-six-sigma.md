@@ -17,8 +17,7 @@ resume:
     - Lean Principles
     - Waste Reduction
     - Leadership
-  summary:
-    Learned to lead a change process in an organization, design a system of natural work and management teams who engage in continuous improvement, eliminate waste and engage team members in on-going process of continuous improvement (kaizen), and insights into lean culture (Toyota Production System).
+  summary: Learned to lead a change process in an organization, design a system of natural work and management teams who engage in continuous improvement, eliminate waste and engage team members in on-going process of continuous improvement (kaizen), and insights into lean culture (Toyota Production System).
 ---
 
 ## Certification

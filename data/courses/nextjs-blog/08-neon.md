@@ -2,8 +2,7 @@
 title: Set up the Neon database
 parent: /courses/nextjs-blog
 date: 2025-12-01
-abstract:
-  You may want to add a database to store likes on your blog posts for authenticated users.
+abstract: You may want to add a database to store likes on your blog posts for authenticated users.
   In this chapter, you'll set up a Neon database and use Drizzle ORM to interact with it.
 ---
 

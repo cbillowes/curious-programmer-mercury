@@ -1,6 +1,6 @@
 ---
-title: 'HTML5 structural semantics'
-cover: 'https://picsum.photos/1600/800/?image=36'
+title: "HTML5 structural semantics"
+cover: "https://picsum.photos/1600/800/?image=36"
 date: 2016-06-17 12:02:38 +0200
 tags:
   - Technical
@@ -42,8 +42,8 @@ table of contents, site navigation, a search form or any relevant logos and so o
 <header>
   <h1>Alliance vs Horde</h1>
   <p>
-    Which side are you on? The Alliance or the Horde? Both sides have equally
-    captivating stories to tell.
+    Which side are you on? The Alliance or the Horde? Both sides have equally captivating stories to
+    tell.
   </p>
 </header>
 ```
@@ -63,9 +63,7 @@ contain:
 - related references.
 
 ```html
-<footer>
-  The content on the World of Warcraft Wiki is licensed under CC-BY-SA.
-</footer>
+<footer>The content on the World of Warcraft Wiki is licensed under CC-BY-SA.</footer>
 ```
 
 **Note**: It doesn’t affect the document outline as it isn’t considered
@@ -115,8 +113,8 @@ independently distributed or reused such as:
     </p>
   </header>
   <p>
-    The Horde is made up of Orcs, Forsaken, Tauren, Trolls, Blood Elves,
-    Goblins, and most recently, Pandaren (Huojin).
+    The Horde is made up of Orcs, Forsaken, Tauren, Trolls, Blood Elves, Goblins, and most recently,
+    Pandaren (Huojin).
   </p>
 </article>
 ```
@@ -139,16 +137,14 @@ on a theme or context such as:
   <section>
     <h1>King of the Alliance</h1>
     <p>
-      The Supreme Allied Commander of the humans, also known as the king. This
-      title is typically given to a hereditary, male monarch of a nation, region
-      or state.
+      The Supreme Allied Commander of the humans, also known as the king. This title is typically
+      given to a hereditary, male monarch of a nation, region or state.
     </p>
   </section>
   <section>
     <h1>Warchief of the Horde</h1>
     <p>
-      Similar to the king of the humans, the Warchief is the military leader of
-      the Orcish Horde.
+      Similar to the king of the humans, the Warchief is the military leader of the Orcish Horde.
     </p>
   </section>
 </article>
@@ -175,8 +171,8 @@ but relates to its surrounding content such as:
 <aside>
   <h1>Warcraft: The Beginning</h1>
   <p>
-    A movie directed by Duncan Jones, produced by Legendary Pictures, and
-    distributed by Universal Pictures.
+    A movie directed by Duncan Jones, produced by Legendary Pictures, and distributed by Universal
+    Pictures.
   </p>
 </aside>
 ```
@@ -231,7 +227,7 @@ flowchart to help save time when making these decisions. They provide an
 "easy-to-understand HTML5 sectioning element flowchart to
 help you get to grips with some of the new elements in HTML5."
 
-![Analogy](./html5-doctor-flowchart.jpg 'HTML5 Sectioning Flowchart')
+![Analogy](./html5-doctor-flowchart.jpg "HTML5 Sectioning Flowchart")
 _Source of image: [HTML5 Doctor](http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf)_
 
 ---

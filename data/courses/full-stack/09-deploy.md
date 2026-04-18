@@ -3,8 +3,7 @@ title: Deployment
 parent: /courses/full-stack
 date: 2022-11-08
 modified: 2022-11-14
-abstract:
-  In this chapter, you will deploy your application to AppEngine on Google Cloud Platform.
+abstract: In this chapter, you will deploy your application to AppEngine on Google Cloud Platform.
 ---
 
 ## Objectives

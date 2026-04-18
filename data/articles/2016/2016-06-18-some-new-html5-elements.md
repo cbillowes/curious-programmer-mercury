@@ -1,6 +1,6 @@
 ---
-title: 'Some new HTML5 elements'
-cover: 'https://picsum.photos/1600/800/?image=526'
+title: "Some new HTML5 elements"
+cover: "https://picsum.photos/1600/800/?image=526"
 date: 2016-06-18 13:26:44 +0200
 tags:
   - Technical
@@ -37,9 +37,8 @@ or `footer` elements.
 <main>
   <h1>Warcraft: The Beginning</h1>
   <p>
-    The peaceful realm of Azeroth stands on the brink of war as its civilization
-    faces a fearsome race of invaders: orc warriors fleeing their dying home to
-    colonize another.
+    The peaceful realm of Azeroth stands on the brink of war as its civilization faces a fearsome
+    race of invaders: orc warriors fleeing their dying home to colonize another.
   </p>
   <p>Source snippet from <cite>IMDB</cite>.</p>
 </main>
@@ -58,9 +57,8 @@ provide additional information to a user.
 <details>
   <summary>World of Warcraft has a Wiki</summary>
   <p>
-    Check out the community driven World of Warcraft wiki at
-    http://wowwiki.wikia.com/wiki/ to find out more about the Horde and the
-    Alliance.
+    Check out the community driven World of Warcraft wiki at http://wowwiki.wikia.com/wiki/ to find
+    out more about the Horde and the Alliance.
   </p>
 </details>
 ```
@@ -85,10 +83,7 @@ particular context like highlighting keywords from a search result.
 ```html
 <h1>Search Results</h1>
 <p>You searched for "spoilers"</p>
-<p>
-  Beware of <mark>spoilers</mark> when reading up on the "Warcraft: The
-  Beginning" movie.
-</p>
+<p>Beware of <mark>spoilers</mark> when reading up on the "Warcraft: The Beginning" movie.</p>
 ```
 
 <p>

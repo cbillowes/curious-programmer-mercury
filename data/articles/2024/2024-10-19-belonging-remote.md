@@ -52,7 +52,7 @@ Remote work comes with a fair share of technical glitches that can make interact
 
 ### Lack of visual cues = Misunderstandings
 
-In an office, you can see people’s body language and facial expressions, which helps you understand their tone and meaning. But in a remote setting, these visual cues are often lost, especially if cameras are off. This can lead to misunderstandings, and it’s easy to feel disconnected or misread someone’s mood.  Awkward silences, talking over people, and the dreaded _“Can you hear me?”_ can make it simply annoying.
+In an office, you can see people’s body language and facial expressions, which helps you understand their tone and meaning. But in a remote setting, these visual cues are often lost, especially if cameras are off. This can lead to misunderstandings, and it’s easy to feel disconnected or misread someone’s mood. Awkward silences, talking over people, and the dreaded _“Can you hear me?”_ can make it simply annoying.
 
 > **Solution: Use video and be clear in your communication.**
 

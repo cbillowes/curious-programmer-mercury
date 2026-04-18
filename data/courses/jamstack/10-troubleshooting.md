@@ -3,8 +3,7 @@ title: Troubleshooting
 parent: /courses/jamstack
 date: 2022-10-24
 modified: 2022-11-01
-abstract:
-  Some things to know if you get stuck with something.
+abstract: Some things to know if you get stuck with something.
 ---
 
 ## Astra DB

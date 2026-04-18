@@ -1,7 +1,7 @@
 ---
-title:  "Detecting a value anywhere in a SQL database"
-cover: 'https://picsum.photos/1600/800/?image=532'
-date:   2015-06-23
+title: "Detecting a value anywhere in a SQL database"
+cover: "https://picsum.photos/1600/800/?image=532"
+date: 2015-06-23
 tags:
   - TSQL
 creditLink: https://picsum.photos
@@ -12,7 +12,7 @@ credit: Picsum Photos
 
 This is a post that I have ported from an old blog (Published on: Jul 24, 2012): Life is good when I can help someone out with a problem, their code, or finding a needle in a haystack (among other things of course). Thanks to the lovely catalog views jam-packed with all the descriptive goodness of metadata pertaining to any database available to my very own fingertips, I was able to help out – and life is good :)
 
-I needed to help a colleague find the table (and column) containing a specific value. About 6 years ago or so I was stuck with a similar need to such a script – I had a null value that broke my web application due to a third party tool not having the ability to fathom a null value. Trying to track down this null would be a tedious task and my understanding of SQL back then was shockingly non-existent. I had a database administrator as a boyfriend that passed on a script to me that I have long since then lost in the virtual realm of cyber storage. I understood the just of the script but never the inner workings – until I needed to find the needle in the haystack again not so long ago and I had to do it without his help. This is when the sys.* views and I become good friends.
+I needed to help a colleague find the table (and column) containing a specific value. About 6 years ago or so I was stuck with a similar need to such a script – I had a null value that broke my web application due to a third party tool not having the ability to fathom a null value. Trying to track down this null would be a tedious task and my understanding of SQL back then was shockingly non-existent. I had a database administrator as a boyfriend that passed on a script to me that I have long since then lost in the virtual realm of cyber storage. I understood the just of the script but never the inner workings – until I needed to find the needle in the haystack again not so long ago and I had to do it without his help. This is when the sys.\* views and I become good friends.
 
 - sys.databases
 - sys.tables
@@ -28,7 +28,7 @@ The cool thing about these catalog views is that you can query them. (Well obvio
 To start this approach we need to know what tables are in the database and map each column to its respective table. To do so, I wrote the simple script below:
 
 {% highlight sql %}
-SELECT * FROM sys.tables t
+SELECT \* FROM sys.tables t
 INNER JOIN sys.columns c ON c.object_id = t.object_id
 {% endhighlight %}
 
@@ -39,7 +39,7 @@ SELECT 'SELECT ''' + t.name + ''' AS [Table], [' + c.name + '] FROM [' + t.name 
 INNER JOIN sys.columns c ON c.object_id = t.object_id
 {% endhighlight %}
 
-Note:  MyValue is the known value you are looking for.
+Note: MyValue is the known value you are looking for.
 
 Our script is almost done but notice how running the generated script now generates a SELECT statement per column per table (in a specific database). The problem with the above script (in this case) is that we are looking for a string value so if we had to run this script and execute the generated scripts, we’d get a bunch of errors with date, integer, bit, uniqueidentifier and other data fields that do not accept the string value we are searching for. We could either cast the column in the where clause to a varchar or we can simply filter on specific system types. For the purpose of this post, I have decided to filter on system types as below:
 

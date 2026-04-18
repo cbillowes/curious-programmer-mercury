@@ -1,9 +1,10 @@
-import { Page } from '@/components/page';
-import { Container } from '@/components/container';
-import { ResumeContent } from '@/components/content';
-import { getResumeBySlug } from '@/lib/resume';
-import { notFound } from 'next/navigation';
-import { getPageMetadata } from '@/lib/utils';
+import { notFound } from "next/navigation";
+
+import { getResumeBySlug } from "@/lib/resume";
+import { getPageMetadata } from "@/lib/utils";
+import { Container } from "@/components/container";
+import { ResumeContent } from "@/components/content";
+import { Page } from "@/components/page";
 
 type Props = {
   params: {
@@ -16,11 +17,11 @@ export async function generateMetadata({ params }: Props) {
   const data = getResumeBySlug(slug);
   if (data) {
     return getPageMetadata({
-      title: data.resume?.company ?? data.resume?.name ?? 'Resume',
-      description: data.resume?.summary ?? '',
+      title: data.resume?.company ?? data.resume?.name ?? "Resume",
+      description: data.resume?.summary ?? "",
       slug: data.slug,
       image: data.share,
-      type: 'article',
+      type: "article",
     });
   }
 }

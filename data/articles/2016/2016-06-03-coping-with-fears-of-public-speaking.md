@@ -1,6 +1,6 @@
 ---
-title: 'Coping with fears of public speaking'
-cover: 'https://picsum.photos/1600/800/?image=633'
+title: "Coping with fears of public speaking"
+cover: "https://picsum.photos/1600/800/?image=633"
 date: 2016-06-03 21:23:59 +0200
 tags:
   - Comfort Zone

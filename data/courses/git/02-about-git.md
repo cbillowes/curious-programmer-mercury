@@ -2,8 +2,7 @@
 title: About Git
 parent: /courses/git
 date: 2022-10-10
-abstract:
-  In this chapter we get introduced to Git, the most popular open-source version control system in the world.
+abstract: In this chapter we get introduced to Git, the most popular open-source version control system in the world.
 ---
 
 ## Introduction

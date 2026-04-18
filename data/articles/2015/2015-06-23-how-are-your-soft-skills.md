@@ -1,7 +1,7 @@
 ---
-title:  "How are your soft sills?"
-cover: 'https://picsum.photos/1600/800/?image=532'
-date:   2015-06-23
+title: "How are your soft sills?"
+cover: "https://picsum.photos/1600/800/?image=532"
+date: 2015-06-23
 tags:
   - Values
   - Continuous Improvement

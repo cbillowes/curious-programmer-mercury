@@ -3,9 +3,9 @@ title: Is outdated documentation hurting your process?
 cover: outdated-documentation.webp
 date: 2025-11-23 00:00:00
 tags:
-- Documentation
-- Productivity
-- Process
+  - Documentation
+  - Productivity
+  - Process
 creditSource: Freepik AI
 creditLink: https://www.freepik.com/
 ---

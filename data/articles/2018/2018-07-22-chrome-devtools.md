@@ -1,6 +1,6 @@
 ---
-title: 'A Trilogy About the Chrome DevTools in Many Parts'
-date: '2018-07-22'
+title: "A Trilogy About the Chrome DevTools in Many Parts"
+date: "2018-07-22"
 tags:
   - Technical
   - Chrome DevTools
@@ -61,7 +61,7 @@ I pasted the following code into my snippet.
 
 ```javascript
 (function () {
-  var greetings = ['Galaxy', 'World', 'Moon', 'Exception'];
+  var greetings = ["Galaxy", "World", "Moon", "Exception"];
   greetings.map(function (greeting) {
     greet(greeting);
   });
@@ -69,11 +69,11 @@ I pasted the following code into my snippet.
 
 function greet(greet) {
   switch (greet) {
-    case 'World':
-      console.log('Hello World!');
+    case "World":
+      console.log("Hello World!");
       break;
-    case 'Exception':
-      throw 'Simulating that something went horribly wrong.';
+    case "Exception":
+      throw "Simulating that something went horribly wrong.";
     default:
       console.warn(`I want Hello World not Hello ${greet}.`);
   }

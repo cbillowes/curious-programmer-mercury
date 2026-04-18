@@ -1,6 +1,6 @@
-import { addToLikes, deleteLike } from '@/db/likes';
-import { stackServerApp } from '@/stack/server';
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
+import { addToLikes, deleteLike } from "@/db/likes";
+import { stackServerApp } from "@/stack/server";
 
 export async function POST(request: Request) {
   const { slug, like } = await request.json();
@@ -10,19 +10,19 @@ export async function POST(request: Request) {
       if (like) {
         await addToLikes(slug);
         return NextResponse.json({
-          message: 'Liked',
+          message: "Liked",
           added: true,
         });
       } else {
         await deleteLike(slug);
         return NextResponse.json({
-          message: 'Removed',
+          message: "Removed",
           added: false,
         });
       }
     } else {
       return NextResponse.json({
-        message: 'You need to be signed in',
+        message: "You need to be signed in",
         added: false,
       });
     }

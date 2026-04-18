@@ -1,20 +1,21 @@
-import { Articles } from '@/components/articles';
-import { Container } from '@/components/container';
-import { Page } from '@/components/page';
-import { PageHeading } from '@/components/page-heading';
-import { getBookmarks } from '@/db/bookmarks';
-import { getLikes } from '@/db/likes';
-import { getArticles } from '@/lib/articles';
-import { getPageMetadata } from '@/lib/utils';
+import { getBookmarks } from "@/db/bookmarks";
+import { getLikes } from "@/db/likes";
+
+import { getArticles } from "@/lib/articles";
+import { getPageMetadata } from "@/lib/utils";
+import { Articles } from "@/components/articles";
+import { Container } from "@/components/container";
+import { Page } from "@/components/page";
+import { PageHeading } from "@/components/page-heading";
 
 export async function generateMetadata() {
   return getPageMetadata({
-    title: 'Not Found',
+    title: "Not Found",
     description:
-      'The page you are looking for could not be found. Explore featured articles instead.',
-    slug: '/404',
-    image: '/hero/home.png',
-    type: 'website',
+      "The page you are looking for could not be found. Explore featured articles instead.",
+    slug: "/404",
+    image: "/hero/home.png",
+    type: "website",
   });
 }
 
@@ -25,9 +26,7 @@ export default async function NotFoundPage() {
     <Page>
       <Container>
         <PageHeading>Whoopsie!</PageHeading>
-        <p className="text-center text-lg">
-          Cannot find what you are looking for.
-        </p>
+        <p className="text-center text-lg">Cannot find what you are looking for.</p>
         {
           <Articles
             bookmarks={bookmarks.map((b) => b.slug)}

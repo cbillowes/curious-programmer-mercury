@@ -1,4 +1,4 @@
-import { allScribbles } from 'content-collections';
+import { allScribbles } from "content-collections";
 
 export function getScribbles() {
   return allScribbles.sort((a, b) => {

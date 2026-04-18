@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Link } from '@/components/link';
+import { Link } from "@/components/link";
 
 export function Credit({
   credit,
@@ -13,7 +13,7 @@ export function Credit({
 }) {
   return (
     creditLink && (
-      <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white text-sm rounded z-50">
+      <div className="bg-opacity-50 absolute right-2 bottom-2 z-50 rounded bg-black text-sm text-white">
         <Link
           href={creditLink}
           className="cursor-pointer px-4 py-2"
@@ -21,7 +21,7 @@ export function Credit({
           hideExternal={true}
           showTooltip={false}
         >
-          {credit} {credit && creditSource && ' | '} {creditSource}
+          {credit} {credit && creditSource && " | "} {creditSource}
         </Link>
       </div>
     )

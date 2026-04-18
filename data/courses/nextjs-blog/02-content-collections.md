@@ -2,8 +2,7 @@
 title: Create content with Content Collections
 parent: /courses/nextjs-blog
 date: 2025-11-30
-abstract:
-  You can now get started with writing content in Markdown.
+abstract: You can now get started with writing content in Markdown.
   In this chapter, you will learn how to set up Content Collections - a powerful content management system (CMS) for Next.js.
 ---
 

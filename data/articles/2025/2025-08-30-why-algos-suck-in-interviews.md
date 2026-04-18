@@ -3,8 +3,8 @@ title: "Why the hiring process feels so broken"
 cover: bad-interviews.webp
 date: 2025-08-30 00:00:00
 tags:
-- Interviews
-- Career
+  - Interviews
+  - Career
 creditSource: ChatGPT-4o
 creditLink: https://chatgpt.com/
 ---

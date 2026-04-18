@@ -9,8 +9,7 @@ tags:
   - Productivity
 creditSource: freepik.com
 creditLink: https://www.freepik.com/pikaso/ai-image-generator
-abstract:
-  When people feel connected, they work better together, trust each other, and have a clearer sense of direction.
+abstract: When people feel connected, they work better together, trust each other, and have a clearer sense of direction.
 ---
 
 ## TL;DR
@@ -45,13 +44,13 @@ Trust makes people more likely to share ideas, offer help, or admit when they’
 
 To build trust, you need to be reliable, communicate transparently, and show that you’re there for the team. Trust grows from small, consistent actions—like admitting when you’re wrong, asking for help when you need it, and offering help when you can. It’s like building a bridge, one brick at a time.
 
-If you can’t be trusted within your team, then you’re coasting, and the team’s progress will suffer. Teams are only as strong as their weakest link. Don’t be *that* link.
+If you can’t be trusted within your team, then you’re coasting, and the team’s progress will suffer. Teams are only as strong as their weakest link. Don’t be _that_ link.
 
 ### Purpose: The ‘why’ behind it all
 
 Belonging gives people the sense that they’re working toward a common goal. If you’re rowing a boat with no idea where you’re headed, you’ll either stop rowing or head in the wrong direction. But when you know the destination, you row with purpose—not straight into an iceberg.
 
-When people understand the *why* behind their work, they’re more invested. They’re less likely to step on each other’s toes or duplicate efforts. Without purpose, it’s like throwing a party and no one knows if they’re supposed to bring snacks or a karaoke machine. With purpose, everyone knows their role, and the party actually happens.
+When people understand the _why_ behind their work, they’re more invested. They’re less likely to step on each other’s toes or duplicate efforts. Without purpose, it’s like throwing a party and no one knows if they’re supposed to bring snacks or a karaoke machine. With purpose, everyone knows their role, and the party actually happens.
 
 Purpose is key in satisfying our deeper needs, like esteem and self-actualization (hello, Maslow’s hierarchy!). It helps us feel accomplished, respected, and drives us to fulfill our potential. If you haven’t found your purpose in the team yet, ask yourself—what can you do to discover it?
 
@@ -61,7 +60,7 @@ Finding purpose in a software development team means understanding how your work
 
 Teams that feel connected communicate openly, and that’s the magic that reduces misunderstandings. It’s the difference between a well-coordinated group dance and five people flailing around to different tunes. Without communication? Total mess.
 
-When people belong, they ask questions, clarify instructions, and give feedback without fear of judgment. This openness turns chaos into productivity. It’s like finally getting the instructions for that IKEA* furniture—you might not understand all the pieces at first, but with clear directions, you’re on your way to a (mostly) functional bookshelf.
+When people belong, they ask questions, clarify instructions, and give feedback without fear of judgment. This openness turns chaos into productivity. It’s like finally getting the instructions for that IKEA\* furniture—you might not understand all the pieces at first, but with clear directions, you’re on your way to a (mostly) functional bookshelf.
 
 ## Psychological safety: The foundation of belonging
 
@@ -77,7 +76,7 @@ So, the next time your team’s in disarray, ask yourself: Do people feel like t
 
 ---
 
-*IKEA is a Swedish company known for selling affordable, flat-packed furniture and home goods that customers assemble themselves.
+\*IKEA is a Swedish company known for selling affordable, flat-packed furniture and home goods that customers assemble themselves.
 
 ## References
 

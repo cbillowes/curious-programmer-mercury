@@ -1,8 +1,8 @@
-import { Credit } from '@/components/credit';
-import { ImageContainer } from '@/components/image-container';
+import { Credit } from "@/components/credit";
+import { ImageContainer } from "@/components/image-container";
 
 export function Hero({
-  image = 'default-01.jpg',
+  image = "default-01.jpg",
   title,
   credit,
   creditSource,
@@ -20,17 +20,13 @@ export function Hero({
         width={1920}
         height={600}
         src={image}
-        alt={title ?? 'Hero image'}
-        className="h-[250px] md:h-[600px] object-cover"
+        alt={title ?? "Hero image"}
+        className="h-[250px] object-cover md:h-[600px]"
         containerClassName="w-full! h-[250px]! md:h-[650px]!"
         priority={true}
         fill={true}
       />
-      <Credit
-        credit={credit}
-        creditSource={creditSource}
-        creditLink={creditLink}
-      />
+      <Credit credit={credit} creditSource={creditSource} creditLink={creditLink} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 ---
-title: 'Setting up my environment in Fedora - Customizing my shell'
+title: "Setting up my environment in Fedora - Customizing my shell"
 date: 2018-10-20 18:30:03 +0200
 tags:
   - Technical

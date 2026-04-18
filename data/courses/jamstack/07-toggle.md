@@ -3,8 +3,7 @@ title: Toggle the completion status of the task
 parent: /courses/jamstack
 date: 2022-10-23
 modified: 2022-11-01
-abstract:
-  Create the feature that will update a todo task in the collection.
+abstract: Create the feature that will update a todo task in the collection.
 ---
 
 ## Handler

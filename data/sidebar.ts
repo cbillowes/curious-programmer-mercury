@@ -1,12 +1,12 @@
-import { getScribbleYears } from '@/lib/scribbles';
+import { getScribbleYears } from "@/lib/scribbles";
 
 export const sidebarItems = [
-  { to: '/', name: 'Home' },
-  { to: '/resume', name: 'Resume' },
+  { to: "/", name: "Home" },
+  { to: "/resume", name: "Resume" },
   {
-    name: 'Blog',
+    name: "Blog",
     items: [
-      { to: '/blog', name: 'All' },
+      { to: "/blog", name: "All" },
       ...new Array(new Date().getFullYear() + 1 - 2015)
         .fill(0)
         .map((_, i) => ({ to: `/blog/${2015 + i}`, name: 2015 + i }))
@@ -15,29 +15,29 @@ export const sidebarItems = [
     ],
   },
   {
-    name: 'Scribbles',
+    name: "Scribbles",
     items: [
-      { to: '/scribbles', name: 'All' },
+      { to: "/scribbles", name: "All" },
       ...getScribbleYears().map((year) => ({
         to: `/scribbles/${year}`,
         name: year.toString(),
       })),
     ],
   },
-  { to: '/courses', name: 'Courses' },
-  { to: '/tags', name: 'Tags' },
+  { to: "/courses", name: "Courses" },
+  { to: "/tags", name: "Tags" },
   {
-    name: 'Connect with me',
+    name: "Connect with me",
     items: [
-      { to: 'https://www.linkedin.com/in/cbouwer/', name: 'LinkedIn' },
-      { to: 'https://github.com/cbillowes', name: 'GitHub' },
+      { to: "https://www.linkedin.com/in/cbouwer/", name: "LinkedIn" },
+      { to: "https://github.com/cbillowes", name: "GitHub" },
     ],
   },
   {
-    name: 'Legalities',
+    name: "Legalities",
     items: [
-      { to: '/privacy', name: 'Privacy' },
-      { to: '/community', name: 'Community guidelines' },
+      { to: "/privacy", name: "Privacy" },
+      { to: "/community", name: "Community guidelines" },
     ],
   },
 ];

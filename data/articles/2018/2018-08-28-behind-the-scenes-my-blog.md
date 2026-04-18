@@ -1,5 +1,5 @@
 ---
-title: 'Behind the Scenes: My Blog'
+title: "Behind the Scenes: My Blog"
 date: 2018-08-28 05:20:00 +0200
 tags:
   - Technical

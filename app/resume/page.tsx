@@ -1,25 +1,26 @@
-import Image from 'next/image';
-import { ReactNode } from 'react';
-import { Page } from '@/components/page';
-import { Container } from '@/components/container';
-import { PageHeading } from '@/components/page-heading';
-import { Link } from '@/components/link';
-import { ImageContainer } from '@/components/image-container';
-import { Timeline } from '@/components/timeline';
-import { cn, getPageMetadata } from '@/lib/utils';
-import { FaCheckCircle, FaSpider } from 'react-icons/fa';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
-import { SiLevelsdotfyi } from 'react-icons/si';
-import { GiDramaMasks } from 'react-icons/gi';
+import { ReactNode } from "react";
+import Image from "next/image";
+import { FaCheckCircle, FaSpider } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+import { GiDramaMasks } from "react-icons/gi";
+import { SiLevelsdotfyi } from "react-icons/si";
+
+import { cn, getPageMetadata } from "@/lib/utils";
+import { Container } from "@/components/container";
+import { ImageContainer } from "@/components/image-container";
+import { Link } from "@/components/link";
+import { Page } from "@/components/page";
+import { PageHeading } from "@/components/page-heading";
+import { Timeline } from "@/components/timeline";
 
 export async function generateMetadata() {
   return getPageMetadata({
-    title: 'Resume',
+    title: "Resume",
     description:
-      'A highly accomplished and passionate polyglot full-stack software engineer with 20 years of experience delivering impactful digital solutions.',
-    slug: '/resume',
-    image: '/hero/headshot.webp',
-    type: 'website',
+      "A highly accomplished and passionate polyglot full-stack software engineer with 20 years of experience delivering impactful digital solutions.",
+    slug: "/resume",
+    image: "/hero/headshot.webp",
+    type: "website",
   });
 }
 
@@ -36,22 +37,15 @@ const Pillar = ({
 }) => {
   return (
     <aside>
-      <div
-        className={cn(
-          'flex justify-center items-center py-2 print:p-0',
-          className,
-        )}
-      >
-        <div className="w-10 h-10 text-3xl print:hidden">{icon}</div>
-        <h3 className="text-xl font-bold dark:text-white text-gray-900 print:text-sm">
-          {title}
-        </h3>
+      <div className={cn("flex items-center justify-center py-2 print:p-0", className)}>
+        <div className="h-10 w-10 text-3xl print:hidden">{icon}</div>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white print:text-sm">{title}</h3>
       </div>
-      <ul className="my-6 lg:mb-0 space-y-4 print:my-2">
+      <ul className="my-6 space-y-4 lg:mb-0 print:my-2">
         {items?.map((item) => (
           <li key={item} className="flex space-x-2.5">
             <svg
-              className={cn('shrink-0 w-5 h-5', className)}
+              className={cn("h-5 w-5 shrink-0", className)}
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -62,9 +56,7 @@ const Pillar = ({
                 clipRule="evenodd"
               ></path>
             </svg>
-            <span className="leading-relaxed text-gray-500 dark:text-gray-400">
-              {item}
-            </span>
+            <span className="leading-relaxed text-gray-500 dark:text-gray-400">{item}</span>
           </li>
         ))}
       </ul>
@@ -74,13 +66,11 @@ const Pillar = ({
 
 function ContactNavItems() {
   return (
-    <div className="text-center max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto">
-      <div className="flex items-center justify-center gap-2 mx-auto my-2 flex-wrap">
+    <div className="mx-auto max-w-sm text-center md:max-w-3xl lg:max-w-5xl">
+      <div className="mx-auto my-2 flex flex-wrap items-center justify-center gap-2">
         <span className="flex items-center justify-start space-x-2">
           <FaSpider className="size-4" />
-          <Link href="https://curiousprogrammer.dev">
-            curiousprogrammer.dev
-          </Link>
+          <Link href="https://curiousprogrammer.dev">curiousprogrammer.dev</Link>
         </span>
         <span className="flex items-center justify-start space-x-2">
           <FaGithub className="size-4" />
@@ -88,9 +78,7 @@ function ContactNavItems() {
         </span>
         <span className="flex items-center justify-start space-x-2">
           <FaLinkedinIn className="size-4" />
-          <Link href="https://linkedin.com/in/cbouwer">
-            linkedin.com/in/cbouwer
-          </Link>
+          <Link href="https://linkedin.com/in/cbouwer">linkedin.com/in/cbouwer</Link>
         </span>
       </div>
       <p className="text-center">Grand Baie, Mauritius &middot; Remote</p>
@@ -108,7 +96,7 @@ export default function ResumePage() {
             height={96}
             src="/headshot.webp"
             alt="Head shot of Clarice Bouwer"
-            className="rounded-full mb-4 border-4 border-white"
+            className="mb-4 rounded-full border-4 border-white"
             containerClassName="mx-auto"
             priority={true}
           />
@@ -121,41 +109,36 @@ export default function ResumePage() {
           <h2 className="text-lg font-semibold print:text-base">
             Senior Software Engineer at Arity Craft Limited
           </h2>
-          <nav className="flex mb-2 flex-col justify-center items-start space-x-4 space-y-4">
+          <nav className="mb-2 flex flex-col items-start justify-center space-y-4 space-x-4">
             <ContactNavItems />
           </nav>
         </section>
-        <section className="max-w-3xl mx-auto mt-4 print:m-0">
+        <section className="mx-auto mt-4 max-w-3xl print:m-0">
           <div>
-            <p className="mb-4 leading-relaxed text-lg">
-              A seasoned polyglot full-stack software engineer specializing in
-              web development with 20 years of experience delivering digital
-              solutions across industries such as media, event registration,
-              cloud, virtualization, and InsureTech.
+            <p className="mb-4 text-lg leading-relaxed">
+              A seasoned polyglot full-stack software engineer specializing in web development with
+              20 years of experience delivering digital solutions across industries such as media,
+              event registration, cloud, virtualization, and InsureTech.
             </p>
-            <p className="mb-4 leading-relaxed text-lg">
-              Recently co-led a remote team of 15 at Cloudsure Limited and
-              Simply Financial Services, building a next-generation digital life
-              insurance platform on a Clojure-based Polylith architecture
-              spanning more than 15 repositories.
+            <p className="mb-4 text-lg leading-relaxed">
+              Recently co-led a remote team of 15 at Cloudsure Limited and Simply Financial
+              Services, building a next-generation digital life insurance platform on a
+              Clojure-based Polylith architecture spanning more than 15 repositories.
             </p>
-            <p className="mb-4 leading-relaxed text-lg">
-              Proven track record highlights innovation, systems thinking, and
-              empathetic leadership in guiding high-performing teams. Dedicated
-              to writing elegant code, fostering strong development practices,
-              and creating exceptional user experiences.
+            <p className="mb-4 text-lg leading-relaxed">
+              Proven track record highlights innovation, systems thinking, and empathetic leadership
+              in guiding high-performing teams. Dedicated to writing elegant code, fostering strong
+              development practices, and creating exceptional user experiences.
             </p>
           </div>
         </section>
-        <aside className="max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto mt-12 mb-2 grid md:grid-cols-3 gap-8 print:grid-cols-3 print:mt-5">
+        <aside className="mx-auto mt-12 mb-2 grid max-w-sm gap-8 px-5 md:max-w-3xl md:grid-cols-3 lg:max-w-5xl print:mt-5 print:grid-cols-3">
           <Pillar
             title="Experience"
             icon={<SiLevelsdotfyi />}
-            className="text-pink-600 ring-pink-400 ring-2 rounded-full"
+            className="rounded-full text-pink-600 ring-2 ring-pink-400"
             items={[
-              `${
-                new Date().getFullYear() - 2005
-              } years of professional experience`,
+              `${new Date().getFullYear() - 2005} years of professional experience`,
               `Diverse skill set and industry exposure in web development`,
               `UX & DevX centric approach to building products`,
               `Team collaboration and leadership`,
@@ -165,7 +148,7 @@ export default function ResumePage() {
           <Pillar
             title="Attributes"
             icon={<FaCheckCircle />}
-            className="text-green-600 ring-green-400 ring-2 rounded-full"
+            className="rounded-full text-green-600 ring-2 ring-green-400"
             items={[
               `Curious, adaptable, and quick learner`,
               `Creative problem solver with a growth mindset`,
@@ -178,7 +161,7 @@ export default function ResumePage() {
           <Pillar
             title="Values"
             icon={<GiDramaMasks />}
-            className="text-blue-600 ring-blue-400 ring-2 rounded-full"
+            className="rounded-full text-blue-600 ring-2 ring-blue-400"
             items={[
               `Deliver high-value solutions while reducing waste`,
               `Full ownership of work, accountability and exceed expectations`,
@@ -188,7 +171,7 @@ export default function ResumePage() {
             ]}
           />
         </aside>
-        <main className="max-w-sm md:max-w-3xl lg:max-w-5xl px-5 mx-auto">
+        <main className="mx-auto max-w-sm px-5 md:max-w-3xl lg:max-w-5xl">
           <Timeline />
         </main>
       </Container>

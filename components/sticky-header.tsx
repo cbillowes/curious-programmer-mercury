@@ -1,5 +1,6 @@
-import { useState, useEffect, ReactNode, useRef } from 'react';
-import { cn } from '@/lib/utils';
+import { ReactNode, useEffect, useRef, useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 export function StickyHeader({ children }: { children: ReactNode }) {
   const [isStuck, setIsStuck] = useState(false);
@@ -12,7 +13,7 @@ export function StickyHeader({ children }: { children: ReactNode }) {
         // When sentinel is NOT visible, the sticky component is stuck
         setIsStuck(!entry.isIntersecting);
       },
-      { threshold: [0], rootMargin: '0px' },
+      { threshold: [0], rootMargin: "0px" },
     );
 
     if (sentinelRef.current) {
@@ -33,10 +34,10 @@ export function StickyHeader({ children }: { children: ReactNode }) {
       <div
         ref={stickyRef}
         className={cn(
-          'print:hidden max-w-3xl mx-auto sticky top-18 left-0 right-0 z-40 sticky:bg-gray-50 dark:sticky:bg-gray-900',
+          "sticky:bg-gray-50 dark:sticky:bg-gray-900 sticky top-18 right-0 left-0 z-40 mx-auto max-w-3xl print:hidden",
           isStuck
-            ? 'bg-gray-50 dark:bg-gray-900 outline-3 outline-gray-50 dark:outline-gray-900 block'
-            : 'hidden',
+            ? "block bg-gray-50 outline-3 outline-gray-50 dark:bg-gray-900 dark:outline-gray-900"
+            : "hidden",
         )}
       >
         {children}

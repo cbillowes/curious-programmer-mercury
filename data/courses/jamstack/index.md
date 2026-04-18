@@ -13,8 +13,7 @@ tags:
   - Tailwind CSS
   - Tutorial
   - Intermediate
-abstract:
-  You will be exposed to various web technologies in this course.
+abstract: You will be exposed to various web technologies in this course.
   Dive right in to the code and develop a simple, overrated and primitive todo app
   to cover the concepts of each tech in the chosen stack.
 cover: jamstack.png

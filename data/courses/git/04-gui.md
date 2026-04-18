@@ -3,8 +3,7 @@ title: Graphical User Interfaces
 parent: /courses/git
 date: 2022-10-10
 modified: 2022-10-17
-abstract:
-  In this chapter we cover a few popular Graphical User Interface (GUIs)
+abstract: In this chapter we cover a few popular Graphical User Interface (GUIs)
   that you can use for Git.
 ---
 

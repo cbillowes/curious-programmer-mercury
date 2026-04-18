@@ -1,13 +1,14 @@
-import { Page } from '@/components/page';
-import { Container } from '@/components/container';
-import { CourseContent } from '@/components/content';
-import { getCourseBySlug } from '@/lib/courses';
-import { notFound } from 'next/navigation';
-import { Hero } from '@/components/hero';
-import { getPageMetadata } from '@/lib/utils';
-import { getBookmarks } from '@/db/bookmarks';
-import { getLikes } from '@/db/likes';
-import { stackServerApp } from '@/stack/server';
+import { notFound } from "next/navigation";
+import { getBookmarks } from "@/db/bookmarks";
+import { getLikes } from "@/db/likes";
+import { stackServerApp } from "@/stack/server";
+
+import { getCourseBySlug } from "@/lib/courses";
+import { getPageMetadata } from "@/lib/utils";
+import { Container } from "@/components/container";
+import { CourseContent } from "@/components/content";
+import { Hero } from "@/components/hero";
+import { Page } from "@/components/page";
 
 type Props = {
   params: {
@@ -21,10 +22,10 @@ export async function generateMetadata({ params }: Props) {
   if (data) {
     return getPageMetadata({
       title: data.title,
-      description: data.abstract ?? '',
+      description: data.abstract ?? "",
       slug: data.slug,
       image: data.cover,
-      type: 'article',
+      type: "article",
     });
   }
 }

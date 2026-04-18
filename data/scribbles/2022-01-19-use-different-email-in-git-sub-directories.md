@@ -18,13 +18,13 @@ abstract: >
 I want to override my personal email address I use for Git with my work
 email address in my work directory without manually changing it each time.
 
-```text:title=~/path/to/work/directory/.gitconfig
+````text:title=~/path/to/work/directory/.gitconfig
 # any customization/overrides can be added here
 [user]
         name = Clarice Bouwer
         email = clarice@example.com
         ```
-```
+````
 
 ```text:title=~/.gitconfig
 [includeIf "gitdir:~/path/to/work/directory/"]

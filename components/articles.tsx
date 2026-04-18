@@ -1,19 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import NextLink from 'next/link';
-import { Tooltip } from 'flowbite-react';
-import { Article, Course, Scribble } from '@/.content-collections/generated';
-import { Ribbon } from '@/components/ribbon';
-import { Link } from '@/components/link';
-import { Thumbnail } from '@/components/thumbnail';
-import { Metadata } from '@/components/metadata';
-import { Bookmark } from '@/components/bookmark';
-import { Type } from '@/components/type';
-import { Like } from '@/components/like';
-import { ImageContainer } from '@/components/image-container';
-import { getCoursePageBySlug } from '@/lib/courses';
-import { FaArrowRight, FaStar } from 'react-icons/fa6';
+import { useState } from "react";
+import NextLink from "next/link";
+import { Article, Course, Scribble } from "@/.content-collections/generated";
+import { Tooltip } from "flowbite-react";
+import { FaArrowRight, FaStar } from "react-icons/fa6";
+
+import { getCoursePageBySlug } from "@/lib/courses";
+import { Bookmark } from "@/components/bookmark";
+import { ImageContainer } from "@/components/image-container";
+import { Like } from "@/components/like";
+import { Link } from "@/components/link";
+import { Metadata } from "@/components/metadata";
+import { Ribbon } from "@/components/ribbon";
+import { Thumbnail } from "@/components/thumbnail";
+import { Type } from "@/components/type";
 
 export function Articles({
   data,
@@ -40,15 +41,12 @@ export function Articles({
 
   const handleContentChange = (added: boolean, slug: string) => {
     if (!added) {
-      setContent(
-        (prev) =>
-          prev.filter((content) => content.slug !== slug) as typeof prev,
-      );
+      setContent((prev) => prev.filter((content) => content.slug !== slug) as typeof prev);
     }
   };
 
   return (
-    <div className="max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 mt-6">
+    <div className="mx-auto mt-6 grid max-w-sm grid-cols-1 gap-4 md:max-w-3xl md:grid-cols-2 lg:max-w-5xl xl:grid-cols-3">
       {content.map((c) => {
         const {
           slug,
@@ -66,17 +64,17 @@ export function Articles({
         } = c;
         if (!slug) return null;
 
-        let courseTitle = '';
-        if (type === 'page' && c.parent) {
-          courseTitle = getCoursePageBySlug(slug)?.course?.title ?? '';
+        let courseTitle = "";
+        if (type === "page" && c.parent) {
+          courseTitle = getCoursePageBySlug(slug)?.course?.title ?? "";
         }
         return (
           <article
             key={slug}
-            className="relative mx-auto w-full bg-white rounded-lg shadow-md border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
+            className="relative mx-auto w-full rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-800 dark:bg-gray-800"
           >
             <Ribbon>#{number}</Ribbon>
-            <NextLink href={slug ?? '#'}>
+            <NextLink href={slug ?? "#"}>
               {showType && (
                 <div className="absolute top-3 left-3 z-10">
                   <Type type={type} showType={false} className="scale-75" />
@@ -87,7 +85,7 @@ export function Articles({
                   width={320}
                   height={200}
                   src={cover}
-                  alt={title ?? 'Hero image'}
+                  alt={title ?? "Hero image"}
                   credit={credit}
                   creditLink={creditLink}
                   creditSource={creditSource}
@@ -114,39 +112,29 @@ export function Articles({
                 <div className="font-medium text-black dark:text-white">
                   <div>Clarice Bouwer</div>
                   <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                    <Metadata
-                      date={date}
-                      timeToRead={timeToRead}
-                      type="article"
-                    />
+                    <Metadata date={date} timeToRead={timeToRead} type="article" />
                   </div>
                 </div>
               </div>
               <p className="mb-3 text-gray-500 dark:text-gray-400">
-                {abstract.length > 160
-                  ? abstract.slice(0, 157) + '...'
-                  : abstract}
+                {abstract.length > 160 ? abstract.slice(0, 157) + "..." : abstract}
               </p>
-              <div className="flex gap-2 items-center justify-start">
+              <div className="flex items-center justify-start gap-2">
                 <Bookmark
                   bookmarks={bookmarks}
                   slug={slug}
-                  onChange={(added) =>
-                    filterOnBookmarkChange && handleContentChange(added, slug)
-                  }
+                  onChange={(added) => filterOnBookmarkChange && handleContentChange(added, slug)}
                 />
                 <Like
                   likes={likes}
                   slug={slug}
-                  onChange={(added) =>
-                    filterOnLikeChange && handleContentChange(added, slug)
-                  }
+                  onChange={(added) => filterOnLikeChange && handleContentChange(added, slug)}
                 />
                 <Link
                   role="button"
                   title={title}
                   href={slug}
-                  className="inline-flex gap-2 items-center font-medium text-pink-600 hover:text-pink-800 dark:text-pink-500 hover:dark:text-pink-600 hover:no-underline"
+                  className="inline-flex items-center gap-2 font-medium text-pink-600 hover:text-pink-800 hover:no-underline dark:text-pink-500 hover:dark:text-pink-600"
                 >
                   Read more
                   <FaArrowRight />

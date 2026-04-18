@@ -2,8 +2,7 @@
 title: Add rich custom components in your Markdown
 parent: /courses/nextjs-blog
 date: 2025-11-30
-abstract:
-  In this chapter, you will learn how to create rich custom components that you can embed directly from your Markdown files to make your pages more engaging.
+abstract: In this chapter, you will learn how to create rich custom components that you can embed directly from your Markdown files to make your pages more engaging.
 ---
 
 Let's say you want to add emojis, custom alerts, render tags as badges, add callouts, or even embed interactive components directly in your blog posts in pure Markdown.

@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 
 type Props = {
   params: {
@@ -10,7 +10,5 @@ type Props = {
 
 export default async function CoursePagePage({ params }: Props) {
   const { slug, number, pageSlug } = await params;
-  return redirect(
-    `/courses/${slug}/${number}/${pageSlug}`,
-  );
+  return redirect(`/courses/${slug}/${number}/${pageSlug}`);
 }

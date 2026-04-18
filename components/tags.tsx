@@ -1,5 +1,5 @@
-import { Link } from '@/components/link';
-import { cn, slugify } from '@/lib/utils';
+import { cn, slugify } from "@/lib/utils";
+import { Link } from "@/components/link";
 
 type TagProps = {
   tag: string;
@@ -18,10 +18,7 @@ export function Tag({ tag, prefix, className, redirect }: TagProps) {
       </span>
     );
   return (
-    <Link
-      href={`/tag/${slugify(tag)}`}
-      className={className}
-    >
+    <Link href={`/tag/${slugify(tag)}`} className={className}>
       {prefix}
       {tag}
     </Link>
@@ -35,30 +32,25 @@ type TagsProps = {
   additionalClasses?: string;
 };
 
-export function Tags({
-  tags,
-  isButton,
-  redirect,
-  additionalClasses,
-}: TagsProps) {
+export function Tags({ tags, isButton, redirect, additionalClasses }: TagsProps) {
   if (tags && tags.length === 0) return <span></span>;
 
-  const prefix = isButton ? '' : '#';
+  const prefix = isButton ? "" : "#";
 
   return (
     tags && (
-      <div className="flex justify-center flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {tags.map((tag, index) => (
           <Tag
             key={index}
             tag={tag}
             className={cn(
-              'transition-colors',
+              "transition-colors",
               isButton &&
-                'py-1 bg-yellow-300 text-yellow-900 px-4 rounded mx-1 mt-4 inline-block hover:text-white hover:bg-pink-600',
+                "mx-1 mt-4 inline-block rounded bg-yellow-300 px-4 py-1 text-yellow-900 hover:bg-pink-600 hover:text-white",
               !isButton &&
-                'ml-2 text-black dark:text-white leading-loose hover:text-pink-600 hover:dark:text-pink-400',
-              redirect && 'cursor-pointer',
+                "ml-2 leading-loose text-black hover:text-pink-600 dark:text-white hover:dark:text-pink-400",
+              redirect && "cursor-pointer",
               additionalClasses,
             )}
             prefix={prefix}

@@ -1,5 +1,5 @@
 ---
-title: 'Minimum Waiting Time: A Greedy Algorithm Explained with Candy'
+title: "Minimum Waiting Time: A Greedy Algorithm Explained with Candy"
 cover: candy.webp
 date: 2024-12-16
 tags:
@@ -44,25 +44,25 @@ Now we have an array of 5 elements: `[ 3, 2, 1, 2, 6 ]`.
 
 ```javascript
 function minimumWaitingTime(times) {
-    // Step 1: Sort the array in ascending order
-    // The arrays are sorted in ascending order to
-    // ensure that the smaller tasks are handled first.
-    times.sort((a, b) => a - b);
+  // Step 1: Sort the array in ascending order
+  // The arrays are sorted in ascending order to
+  // ensure that the smaller tasks are handled first.
+  times.sort((a, b) => a - b);
 
-    // Step 2: Calculate the total waiting time
-    // As each task is handled, the cumulative
-    // waiting time increases.
-    let cumulativeTime = 0;
-    // The cumulative times are added together to
-    // compute the total waiting time.
-    let totalWaitingTime = 0;
+  // Step 2: Calculate the total waiting time
+  // As each task is handled, the cumulative
+  // waiting time increases.
+  let cumulativeTime = 0;
+  // The cumulative times are added together to
+  // compute the total waiting time.
+  let totalWaitingTime = 0;
 
-    for (let i = 0; i < times.length - 1; i++) {
-        cumulativeTime += times[i];
-        totalWaitingTime += cumulativeTime;
-    }
+  for (let i = 0; i < times.length - 1; i++) {
+    cumulativeTime += times[i];
+    totalWaitingTime += cumulativeTime;
+  }
 
-    return totalWaitingTime;
+  return totalWaitingTime;
 }
 
 // Example usage

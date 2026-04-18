@@ -2,8 +2,7 @@
 title: Upgrade your dependencies
 parent: /courses/nextjs-blog
 date: 2025-12-02
-abstract:
-  In this chapter, you will learn how to automatically upgrade your project dependencies using npm-check-updates.
+abstract: In this chapter, you will learn how to automatically upgrade your project dependencies using npm-check-updates.
 ---
 
 You will notice that over time your packages will become outdated.

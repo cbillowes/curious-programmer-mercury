@@ -3,8 +3,7 @@ title: Installation
 parent: /courses/git
 date: 2022-10-10
 modified: 2022-10-15
-abstract:
-  Git is software that will run on your machine.
+abstract: Git is software that will run on your machine.
   In this chapter we will install and configure Git.
 ---
 

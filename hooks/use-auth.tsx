@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useUser } from '@stackframe/stack';
+import { useUser } from "@stackframe/stack";
 
 export function useAuth() {
   const user = useUser();

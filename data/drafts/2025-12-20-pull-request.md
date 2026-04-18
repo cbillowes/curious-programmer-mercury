@@ -3,13 +3,13 @@ title: Engineering a practical code change management process with version contr
 cover: block-tree-with-green-ticks.webp
 date: 2025-12-20 00:00:00
 tags:
-- Git
-- Version Control
-- Productivity
-- Process
-- Continuous Delivery
-- Continuous Improvement
-- Accountability
+  - Git
+  - Version Control
+  - Productivity
+  - Process
+  - Continuous Delivery
+  - Continuous Improvement
+  - Accountability
 creditSource: Freepik AI
 creditLink: https://www.freepik.com/
 abstract: >

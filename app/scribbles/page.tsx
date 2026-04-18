@@ -1,24 +1,25 @@
-import { notFound } from 'next/navigation';
-import { Container } from '@/components/container';
-import { Page } from '@/components/page';
-import { PageHeading } from '@/components/page-heading';
-import { Link } from '@/components/link';
-import { FeaturedBadge } from '@/components/articles';
-import { Bookmark } from '@/components/bookmark';
-import { Like } from '@/components/like';
-import { getBookmarks } from '@/db/bookmarks';
-import { getLikes } from '@/db/likes';
-import { getScribbles } from '@/lib/scribbles';
-import { getPageMetadata } from '@/lib/utils';
+import { notFound } from "next/navigation";
+import { getBookmarks } from "@/db/bookmarks";
+import { getLikes } from "@/db/likes";
+
+import { getScribbles } from "@/lib/scribbles";
+import { getPageMetadata } from "@/lib/utils";
+import { FeaturedBadge } from "@/components/articles";
+import { Bookmark } from "@/components/bookmark";
+import { Container } from "@/components/container";
+import { Like } from "@/components/like";
+import { Link } from "@/components/link";
+import { Page } from "@/components/page";
+import { PageHeading } from "@/components/page-heading";
 
 export async function generateMetadata() {
   return getPageMetadata({
-    title: 'Scribbles',
+    title: "Scribbles",
     description:
-      'Short snippets of thoughts and musings on programming and technology for software engineering.',
-    slug: '/scribbles',
-    image: '/hero/scribbles.webp',
-    type: 'website',
+      "Short snippets of thoughts and musings on programming and technology for software engineering.",
+    slug: "/scribbles",
+    image: "/hero/scribbles.webp",
+    type: "website",
   });
 }
 
@@ -33,23 +34,20 @@ export default async function ScribblesPage() {
       <Page>
         <Container>
           <PageHeading>Scribbles</PageHeading>
-          <div className="max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto px-5">
+          <div className="mx-auto max-w-sm px-5 md:max-w-3xl lg:max-w-5xl">
             {data
               .sort((a, b) => b.number - a.number)
               .map(({ slug, title, number, featured }) => (
                 <div
                   key={slug}
-                  className="px-4 border-b border-dashed flex justify-between items-center hover:bg-pink-600 hover:text-white"
+                  className="flex items-center justify-between border-b border-dashed px-4 hover:bg-pink-600 hover:text-white"
                 >
-                  <Link href={slug} className="py-4 block w-full">
+                  <Link href={slug} className="block w-full py-4">
                     #{number}. {title}
                   </Link>
                   <div className="flex items-center gap-2">
                     <FeaturedBadge featured={featured} />
-                    <Bookmark
-                      bookmarks={bookmarks.map((b) => b.slug)}
-                      slug={slug}
-                    />
+                    <Bookmark bookmarks={bookmarks.map((b) => b.slug)} slug={slug} />
                     <Like likes={likes.map((l) => l.slug)} slug={slug} />
                   </div>
                 </div>

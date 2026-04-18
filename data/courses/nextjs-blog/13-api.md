@@ -2,8 +2,7 @@
 title: Asynchronous likes with Next.js API routes
 parent: /courses/nextjs-blog
 date: 2025-12-02
-abstract:
-  In this chapter, you will learn how to asynchronously like and unlike components using Next.js API routes.
+abstract: In this chapter, you will learn how to asynchronously like and unlike components using Next.js API routes.
 ---
 
 The page currently refreshes after you have liked a post. :confused:

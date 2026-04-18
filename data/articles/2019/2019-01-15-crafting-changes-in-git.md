@@ -71,7 +71,7 @@ There are multiple ways to breakdown changes into smaller commits:
 `git diff layout.scss` will give you the diff for that file. You
 will notice some seriously stylish changes that I have made.
 
-![Git diff](./git-diff.png 'Git diff')
+![Git diff](./git-diff.png "Git diff")
 
 Quickly check the status of the file in `git status` and see that
 it is already **staged**. This file must not be committed in its
@@ -118,7 +118,7 @@ status screen which is like `git status` on steroids.
 
 You are presented with a bunch of options that will aid you on
 your journey. Let's take a look at them:
-![Git interactive mode options](./git-interactive.png 'Git interactive mode options')
+![Git interactive mode options](./git-interactive.png "Git interactive mode options")
 
 `What now>` is the base prompt patiently awaiting your commands.
 Type in any of the numbers or letters below:
@@ -127,7 +127,6 @@ Type in any of the numbers or letters below:
 
 2. `2` or `u` lets you stage files. When you select it, it will
    show files that have not been staged. This is equivalent to `git add <file>`
-
    - If there are none you will stay in the `What Now>` prompt. If there
      are files to be staged then you will enter the `Update>>` prompt.
    - Enter the numbers of the files or the highlighted letters and press

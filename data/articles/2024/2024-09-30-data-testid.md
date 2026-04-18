@@ -8,8 +8,7 @@ tags:
   - Web Development
 creditSource: ChatGPT
 creditLink: https://chatgpt.com/
-abstract:
-  Learn how the data-testid attribute improves automated testing by providing
+abstract: Learn how the data-testid attribute improves automated testing by providing
   stable element identification in web apps, ensuring reliable tests even with
   evolving UI designs. Ideal for developers aiming to enhance
   test durability and consistency.
@@ -138,18 +137,8 @@ Testing form behavior without relying on how it looks visually or is structured 
 
 ```html
 <form data-testid="login-form" onsubmit="handleLogin(event)">
-  <input
-    data-testid="email-input"
-    type="email"
-    placeholder="Enter email"
-    required
-  />
-  <input
-    data-testid="password-input"
-    type="password"
-    placeholder="Enter password"
-    required
-  />
+  <input data-testid="email-input" type="email" placeholder="Enter email" required />
+  <input data-testid="password-input" type="password" placeholder="Enter password" required />
   <button data-testid="login-button" type="submit">Login</button>
 </form>
 ```

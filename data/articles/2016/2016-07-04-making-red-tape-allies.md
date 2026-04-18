@@ -1,6 +1,6 @@
 ---
-title: 'Making red-tape allies'
-cover: 'https://picsum.photos/1600/800/?image=1020'
+title: "Making red-tape allies"
+cover: "https://picsum.photos/1600/800/?image=1020"
 date: 2016-07-04 20:34:56 +0200
 tags:
   - Productivity

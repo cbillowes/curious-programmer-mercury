@@ -1,5 +1,5 @@
 ---
-title: 'Setting up my environment in Fedora - Creating backups'
+title: "Setting up my environment in Fedora - Creating backups"
 date: 2018-10-20 18:30:01 +0200
 tags:
   - Technical

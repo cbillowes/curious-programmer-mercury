@@ -1,6 +1,6 @@
 ---
-title: 'The horror behind design'
-cover: 'https://picsum.photos/1600/800/?image=21'
+title: "The horror behind design"
+cover: "https://picsum.photos/1600/800/?image=21"
 date: 2016-06-15 00:04:33 +0200
 tags:
   - Productivity

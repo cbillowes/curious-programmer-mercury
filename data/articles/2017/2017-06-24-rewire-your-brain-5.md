@@ -32,7 +32,7 @@ It also describes the effects each stage has on your feelings, thinking,
 performance and physiology. The principles in this model can help you
 improve how you process change <sup id="footnote-2">[2](#footnote-2-ref)</sup>.
 
-![Graph](./satir-change-graph.png 'Virginia Satir Change Curve')
+![Graph](./satir-change-graph.png "Virginia Satir Change Curve")
 _Source of image: [Flicker](https://www.flickr.com/photos/jurgenappelo/5201852636). This illustration is adapted from the book [Management 3.0](http://www.management30.com)._
 
 > Life is not what it's supposed to be. It's what it is.
@@ -116,7 +116,7 @@ Emery sums it up elegantly by saying that:
 - With time, the newness fades, and the New Status Quo becomes a Late Status Quo.
 - And the change cycle begins again.
 
-![Cycle](./satir-change-model-cycle.png 'The Satir Change Process Model Cycle')
+![Cycle](./satir-change-model-cycle.png "The Satir Change Process Model Cycle")
 _Source of image: Corporate Programmer_
 
 ## My final thoughts
@@ -172,11 +172,11 @@ can impact us and how we can get to a point where we can thrive.
 
 <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="\_blank">CC 3.0 BY</a></div>
 
-[satir-change-graph]: /images/rewire-your-brain-5/satir-change-graph.png 'Virginia Satir Change Curve'
-[late-status-quo]: /images/rewire-your-brain-5/late-status-quo.png 'The Late Status Quo'
-[foreign-element]: /images/rewire-your-brain-5/foreign-element.png 'The Foreign Element'
-[chaos]: /images/rewire-your-brain-5/chaos.png 'The Stage of Chaos'
-[transforming-idea]: /images/rewire-your-brain-5/transforming-idea.png 'The Transforming Idea'
-[practice]: /images/rewire-your-brain-5/practice.png 'Practice & Integration'
-[new-status-quo]: /images/rewire-your-brain-5/new-status-quo.png 'The New Status Quo'
-[satir-change-model-cycle]: /images/rewire-your-brain-5/satir-change-model-cycle.png 'Virginia Satir Change Curve'
+[satir-change-graph]: /images/rewire-your-brain-5/satir-change-graph.png "Virginia Satir Change Curve"
+[late-status-quo]: /images/rewire-your-brain-5/late-status-quo.png "The Late Status Quo"
+[foreign-element]: /images/rewire-your-brain-5/foreign-element.png "The Foreign Element"
+[chaos]: /images/rewire-your-brain-5/chaos.png "The Stage of Chaos"
+[transforming-idea]: /images/rewire-your-brain-5/transforming-idea.png "The Transforming Idea"
+[practice]: /images/rewire-your-brain-5/practice.png "Practice & Integration"
+[new-status-quo]: /images/rewire-your-brain-5/new-status-quo.png "The New Status Quo"
+[satir-change-model-cycle]: /images/rewire-your-brain-5/satir-change-model-cycle.png "Virginia Satir Change Curve"

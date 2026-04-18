@@ -1,6 +1,6 @@
 ---
-title: 'The ego barrier'
-cover: 'https://picsum.photos/1600/800/?image=34'
+title: "The ego barrier"
+cover: "https://picsum.photos/1600/800/?image=34"
 date: 2016-06-29 20:24:42 +0200
 tags:
   - Mindset

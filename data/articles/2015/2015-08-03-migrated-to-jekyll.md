@@ -1,7 +1,7 @@
 ---
-title:  "Migrated to Jekyll"
-cover: 'https://picsum.photos/1600/800/?image=532'
-date:   2015-08-03
+title: "Migrated to Jekyll"
+cover: "https://picsum.photos/1600/800/?image=532"
+date: 2015-08-03
 tags:
   - WordPress
   - Jekyll

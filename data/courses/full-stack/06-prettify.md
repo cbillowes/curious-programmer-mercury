@@ -3,8 +3,7 @@ title: Prettify your web application with Tailwind CSS
 parent: /courses/full-stack
 date: 2022-11-04
 modified: 2022-11-14
-abstract:
-  Tailwind CSS is an open source CSS framework.
+abstract: Tailwind CSS is an open source CSS framework.
   The main feature of this library is that, unlike other CSS frameworks like Bootstrap,
   it does not provide a series of predefined classes for elements such as buttons or tables.
   In this chapter, you will install, configure and use it in your components.
@@ -383,7 +382,7 @@ const Rating = ({ title, value, max, onRated }) => {
 export default Rating;
 ```
 
-![Rating component](./assets/rating.png 'Screenshot of the component')
+![Rating component](./assets/rating.png "Screenshot of the component")
 
 Lastly, the comments listing component can be spruced up a little.
 

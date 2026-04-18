@@ -1,7 +1,7 @@
 ---
-title:  "Is your skill set out-dated?"
-cover: 'https://picsum.photos/1600/800/?image=532'
-date:   2015-06-19
+title: "Is your skill set out-dated?"
+cover: "https://picsum.photos/1600/800/?image=532"
+date: 2015-06-19
 tags:
   - Skills
   - Continuous Improvement

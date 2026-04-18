@@ -2,8 +2,7 @@
 title: Enrich your content
 parent: /courses/nextjs-blog
 date: 2025-11-30
-abstract:
-  Enrich your Content Collections metadata with additional metadata fields.
+abstract: Enrich your Content Collections metadata with additional metadata fields.
   In this chapter, you will learn how to generate a slug, and configure next & previous navigation, reading time, and a hero image.
 ---
 

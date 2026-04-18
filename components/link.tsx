@@ -1,22 +1,20 @@
-'use client';
+"use client";
 
-import { ComponentProps } from 'react';
-import { useRouter } from 'next/navigation';
-import NextLink from 'next/link';
-import NProgress from 'nprogress';
-import { Tooltip as FlowbiteTooltip } from 'flowbite-react';
-import { cn } from '@/lib/utils';
-import { RiExternalLinkLine } from 'react-icons/ri';
+import { ComponentProps } from "react";
+import NextLink from "next/link";
+import { useRouter } from "next/navigation";
+import { Tooltip as FlowbiteTooltip } from "flowbite-react";
+import NProgress from "nprogress";
+import { RiExternalLinkLine } from "react-icons/ri";
 
-type Props = ComponentProps<'a'> & {
+import { cn } from "@/lib/utils";
+
+type Props = ComponentProps<"a"> & {
   hideExternal?: boolean;
   showTooltip?: boolean;
 };
 
-function Tooltip(props: {
-  content?: React.ReactNode;
-  children: React.ReactNode;
-}) {
+function Tooltip(props: { content?: React.ReactNode; children: React.ReactNode }) {
   const { content, children } = props;
   if (!content) return <>{children}</>;
   return <FlowbiteTooltip content={content}>{children}</FlowbiteTooltip>;
@@ -41,7 +39,7 @@ export function Link(props: Props) {
     router.push(href);
   };
 
-  if ((typeof href === 'string' && href.startsWith('http')) || props.target === '_blank') {
+  if ((typeof href === "string" && href.startsWith("http")) || props.target === "_blank") {
     return (
       <div className="inline-flex">
         <Tooltip content={showTooltip && title}>
@@ -49,14 +47,14 @@ export function Link(props: Props) {
             {...rest}
             aria-label={title}
             title={title}
-            className={cn('inline-flex items-center gap-1', className)}
+            className={cn("inline-flex items-center gap-1", className)}
             target="_blank"
             rel="noreferrer nofollow"
             href={`${href}?utm_source=curiousprogrammer.dev&utm_medium=referral&utm_campaign=external_link`}
           >
             {children}
             {!hideExternal && (
-              <RiExternalLinkLine className="opacity-50 size-4 text-black dark:text-white cursor-pointer" />
+              <RiExternalLinkLine className="size-4 cursor-pointer text-black opacity-50 dark:text-white" />
             )}
           </a>
         </Tooltip>
@@ -71,7 +69,7 @@ export function Link(props: Props) {
           {...rest}
           aria-label={title}
           title={title}
-          href={href ?? '#'}
+          href={href ?? "#"}
           className={className}
           onClick={handleClick}
         >

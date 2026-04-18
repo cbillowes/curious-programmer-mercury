@@ -1,4 +1,4 @@
-import { allArticles } from 'content-collections';
+import { allArticles } from "content-collections";
 
 export function getArticles() {
   return allArticles.sort((a, b) => b.number - a.number);

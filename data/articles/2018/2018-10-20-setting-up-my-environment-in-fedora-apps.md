@@ -1,5 +1,5 @@
 ---
-title: 'Setting up my environment in Fedora - Installing apps'
+title: "Setting up my environment in Fedora - Installing apps"
 date: 2018-10-20 18:30:04 +0200
 tags:
   - Technical

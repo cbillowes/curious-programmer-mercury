@@ -1,6 +1,6 @@
 ---
 title: Practice what you preach
-cover: 'https://picsum.photos/1600/800/?image=129'
+cover: "https://picsum.photos/1600/800/?image=129"
 date: 2017-05-19 18:29:22 +0200
 tags:
   - Mindset

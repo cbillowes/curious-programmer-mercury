@@ -1,6 +1,6 @@
 ---
-title: 'Datomic Cheat Sheet Series - Getting Started'
-cover: 'clojure.jpg'
+title: "Datomic Cheat Sheet Series - Getting Started"
+cover: "clojure.jpg"
 date: 2018-09-06 06:00:00 +0200
 tags:
   - Technical

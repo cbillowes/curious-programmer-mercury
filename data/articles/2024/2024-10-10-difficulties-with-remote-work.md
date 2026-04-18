@@ -29,7 +29,7 @@ Remote work sounds like a dream, but it’s not without its pitfalls. In this ar
 ## Maturity
 
 Maturity isn’t necessarily about age; it’s more about professional, personal, and emotional growth.
-Sounds lofty, but really, it’s just the ability to handle responsibilities, work independently, and communicate effectively—speak up rather than bottle it all up. It’s not just about getting the job done; it’s about getting it done *well* and on time.
+Sounds lofty, but really, it’s just the ability to handle responsibilities, work independently, and communicate effectively—speak up rather than bottle it all up. It’s not just about getting the job done; it’s about getting it done _well_ and on time.
 
 Simply put: adulting. It’s that mythical state we’re all supposed to have mastered by now. Spoiler alert—it’s hard.
 
@@ -63,7 +63,7 @@ Since it’s easy for people to feel disconnected without regular in-person inte
 
 One effective approach is organizing virtual coffee breaks or happy hours where the team can relax and chat about things unrelated to work. These informal sessions give everyone a chance to connect on a personal level, breaking down some of the isolation that can come with remote work.
 
-Another option is hosting online games or trivia competitions—whether it’s something light like *Skribbl.io* (watch out for that domain name) or a more engaging game like *Jackbox*, these activities allow for some friendly competition and plenty of laughs. The key is to create spaces where people can interact casually, just as they would in a traditional office environment.
+Another option is hosting online games or trivia competitions—whether it’s something light like _Skribbl.io_ (watch out for that domain name) or a more engaging game like _Jackbox_, these activities allow for some friendly competition and plenty of laughs. The key is to create spaces where people can interact casually, just as they would in a traditional office environment.
 
 You can also get a bit more creative with activities that encourage personal sharing or collaboration. Setting up a virtual “show and tell” session, for instance, lets team members showcase their hobbies, cool gadgets, or even something they’ve learned recently. It’s a simple way to get to know each other better and opens up conversations that go beyond project updates.
 
@@ -72,7 +72,7 @@ Similarly, organizing team wellness challenges or collaborative playlists helps 
 ## Communication
 
 I’ve seen firsthand how hard it can be for people to speak up.
-Frustratingly so, as if there's an invisible barrier of fear, uncertainty, and doubt swirling like a cyclone, sucker-punching them in the gut, stopping them from reaching out. But here’s the thing: the consequences of *not* speaking up are often far worse.
+Frustratingly so, as if there's an invisible barrier of fear, uncertainty, and doubt swirling like a cyclone, sucker-punching them in the gut, stopping them from reaching out. But here’s the thing: the consequences of _not_ speaking up are often far worse.
 
 Being shy or introverted doesn’t help either. I’ve learned that if you want to grow and improve, you have to punch your comfort zone in the face.
 

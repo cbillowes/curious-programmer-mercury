@@ -11,8 +11,7 @@ tags:
   - Communication
 creditSource: DALL-E
 creditLink: https://chatgpt.com/
-abstract:
-  Overcoming imposter syndrome as a software engineer and team lead. Learn how to reframe self-doubt, lead with confidence, and grow beyond your fears.
+abstract: Overcoming imposter syndrome as a software engineer and team lead. Learn how to reframe self-doubt, lead with confidence, and grow beyond your fears.
 ---
 
 ## TL;DR
@@ -94,4 +93,3 @@ I'm basing this article on my experience with imposter syndrome.
 A big shoutout to [Cedric Poilly](https://www.linkedin.com/in/cedpoilly/)! I finally had the chance to meet Cedric at one of the [front-end developer meetups](https://frontend.mu/meetup/58) back in September 2024. We got into a conversation about how imposter syndrome would make a great topic to share with the community, and the idea stuck. So, Cedric, thank you for the inspiration and the nudge to write this article—you rock!
 
 Thank you for taking the time to read this article! I'd love to hear your thoughts. Pop them in the comments below :point_down:
-

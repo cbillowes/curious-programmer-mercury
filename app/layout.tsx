@@ -1,25 +1,27 @@
-import { Suspense } from 'react';
-import { cookies } from 'next/headers';
-import { ThemeModeScript, ThemeProvider } from 'flowbite-react';
-import { StackProvider, StackTheme } from '@stackframe/stack';
-import { Open_Sans, Fira_Code } from 'next/font/google';
-import { stackServerApp } from '@/stack/server';
-import { GoogleAnalytics } from '@next/third-parties/google';
-import { flowbiteTheme } from '@/components/theme';
-import { ProgressBar } from '@/components/progress-bar';
-import { CookieBanner } from '@/components/cookie-banner';
-import { ScrollProgress } from '@/components/scroll-progress';
-import { WebVitals } from '@/app/web-vitals';
-import './globals.css';
+import { Suspense } from "react";
+import { Fira_Code, Open_Sans } from "next/font/google";
+import { cookies } from "next/headers";
+import { stackServerApp } from "@/stack/server";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { StackProvider, StackTheme } from "@stackframe/stack";
+import { ThemeModeScript, ThemeProvider } from "flowbite-react";
+
+import { CookieBanner } from "@/components/cookie-banner";
+import { ProgressBar } from "@/components/progress-bar";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { flowbiteTheme } from "@/components/theme";
+import { WebVitals } from "@/app/web-vitals";
+
+import "./globals.css";
 
 const openSans = Open_Sans({
-  variable: '--font-open-sans',
-  subsets: ['latin'],
+  variable: "--font-open-sans",
+  subsets: ["latin"],
 });
 
 const firaCode = Fira_Code({
-  variable: '--font-fira-code',
-  subsets: ['latin'],
+  variable: "--font-fira-code",
+  subsets: ["latin"],
 });
 
 export default async function RootLayout({
@@ -28,7 +30,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
-  const cookieConsent = cookieStore.get('cookie-consent');
+  const cookieConsent = cookieStore.get("cookie-consent");
 
   return (
     <html lang="en" suppressHydrationWarning>

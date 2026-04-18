@@ -3,8 +3,8 @@ title: "Working with Clojure dependencies"
 cover: clojure-deps.webp
 date: 2025-08-28 00:00:00
 tags:
-- Clojure
-- deps.edn
+  - Clojure
+  - deps.edn
 creditSource: ChatGPT-4o
 creditLink: https://chatgpt.com/
 ---

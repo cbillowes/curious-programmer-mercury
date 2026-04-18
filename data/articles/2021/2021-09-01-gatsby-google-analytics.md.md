@@ -37,7 +37,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          'GA-TRACKING_ID', // Google Analytics / GA
+          "GA-TRACKING_ID", // Google Analytics / GA
         ],
         // This object gets passed directly to the gtag config command.
         // This config will be shared across all trackingIds.
@@ -70,14 +70,14 @@ component while outbound links use the `gatsby-plugin-google-gtag` plugin's
 Here is the crux of my plugin:
 
 ```javascript
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
+import React from "react";
+import { Link } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
+import PropTypes from "prop-types";
 
 const trackClickEvent = (data) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'click', data);
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "click", data);
   }
 };
 
@@ -86,7 +86,7 @@ const Anchor = ({ to, title, children }) => {
 
   if (!to) return <span title={title}>{children}</span>;
 
-  if (to && to.startsWith('/')) {
+  if (to && to.startsWith("/")) {
     return (
       <Link to={to} title={title} onClick={() => trackClickEvent(trackingData)}>
         {children}
@@ -122,8 +122,8 @@ to come up with anything else to track :unamused: but that's probably a good thi
 ```js
 const trackOnClick = (data) => {
   // Guard against SSR && make sure that the gtag exists globally
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'click', data);
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "click", data);
   }
 };
 ```

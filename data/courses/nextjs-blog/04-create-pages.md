@@ -2,8 +2,7 @@
 title: Create your post pages
 parent: /courses/nextjs-blog
 date: 2025-11-30
-abstract:
-  In this chapter, you will learn how to create the necessary pages to view your blog listing and posts.
+abstract: In this chapter, you will learn how to create the necessary pages to view your blog listing and posts.
 ---
 
 You are now ready to render all your posts on a listing page, and create the ability to view each one.

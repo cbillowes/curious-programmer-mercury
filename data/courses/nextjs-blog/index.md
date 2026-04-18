@@ -11,8 +11,7 @@ tags:
   - Netlify
   - Flowbite
   - Tutorial
-abstract:
-  Create a blog in Next.js with Content Collections, Stack Auth, Neon, Netlify, Flowbite, and more.
+abstract: Create a blog in Next.js with Content Collections, Stack Auth, Neon, Netlify, Flowbite, and more.
 cover: next-course.webp
 credit: Clarice Bouwer
 creditLink: https://www.photopea.com/

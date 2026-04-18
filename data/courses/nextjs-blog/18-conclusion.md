@@ -2,8 +2,7 @@
 title: You're ready to launch your Next.js blog
 parent: /courses/nextjs-blog
 date: 2025-12-02
-abstract:
-  In this chapter, you finalize your blog and prepare it for launch.
+abstract: In this chapter, you finalize your blog and prepare it for launch.
 ---
 
 Congratulations!

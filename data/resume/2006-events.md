@@ -21,8 +21,7 @@ resume:
     - CSS
     - JavaScript
     - Photoshop
-  summary:
-    Microsoft needed a custom branded platform to manage event attendees across multiple large-scale conferences in South Africa and Dubai. I led the UX design and full-stack development, integrating secure payment gateways, ensuring 99.9% uptime, and delivering a seamless experience for thousands of attendees.
+  summary: Microsoft needed a custom branded platform to manage event attendees across multiple large-scale conferences in South Africa and Dubai. I led the UX design and full-stack development, integrating secure payment gateways, ensuring 99.9% uptime, and delivering a seamless experience for thousands of attendees.
 ---
 
 - Delivered a custom branded attendee management platform for Microsoft events such as Tech-Ed, Partner Summit, DevDays, and TechDays across South Africa and Dubai, enabling large-scale event operations.

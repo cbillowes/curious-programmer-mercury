@@ -1,8 +1,8 @@
 ---
-title: 'People oriented software'
-cover: 'https://picsum.photos/1600/800/?image=395'
+title: "People oriented software"
+cover: "https://picsum.photos/1600/800/?image=395"
 date: 2016-05-16 23:11:32 +0200
-category: 'tech'
+category: "tech"
 tags:
   - Mindset
   - Relationships

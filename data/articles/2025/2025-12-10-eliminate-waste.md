@@ -4,12 +4,12 @@ cover: eliminate-waste.webp
 date: 2025-12-10 00:00:00
 featured: true
 tags:
-- Mindset
-- Productivity
-- Process
-- Continuous Learning
-- Systems Thinking
-- Lean
+  - Mindset
+  - Productivity
+  - Process
+  - Continuous Learning
+  - Systems Thinking
+  - Lean
 creditSource: Freepik AI
 creditLink: https://www.freepik.com/
 abstract: >

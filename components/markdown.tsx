@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import * as emoji from 'node-emoji';
-import { Badge } from 'flowbite-react';
-import { GifPlayer } from '@/components/gif-player';
-import { HeadingLink, getHeadingId } from '@/components/heading-link';
-import { CodeBlock, CodeInline } from '@/components/code-block';
-import { ArticleImage } from '@/components/article-image';
-import { Link } from '@/components/link';
-import { Alert } from '@/components/alert';
-import { cn } from '@/lib/utils';
+import { Badge } from "flowbite-react";
+import * as emoji from "node-emoji";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
+
+import { cn } from "@/lib/utils";
+import { Alert } from "@/components/alert";
+import { ArticleImage } from "@/components/article-image";
+import { CodeBlock, CodeInline } from "@/components/code-block";
+import { GifPlayer } from "@/components/gif-player";
+import { getHeadingId, HeadingLink } from "@/components/heading-link";
+import { Link } from "@/components/link";
 
 function YouTubeEmbed({ url }: { url: string }) {
   // Extract video ID from various YouTube URL formats
   const getVideoId = (url: string) => {
-    const regExp =
-      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
     return match && match[2].length === 11 ? match[2] : null;
   };
@@ -27,9 +27,9 @@ function YouTubeEmbed({ url }: { url: string }) {
   if (!videoId) return <p>Invalid YouTube URL</p>;
 
   return (
-    <div className="relative w-full pb-[56.25%] my-4">
+    <div className="relative my-4 w-full pb-[56.25%]">
       <iframe
-        className="absolute top-0 left-0 w-full h-full rounded-lg"
+        className="absolute top-0 left-0 h-full w-full rounded-lg"
         src={`https://www.youtube.com/embed/${videoId}`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
@@ -40,22 +40,22 @@ function YouTubeEmbed({ url }: { url: string }) {
 
 function Tag({ tag }: { tag: string }) {
   return (
-    <Badge className="bg-pink-600! text-pink-100! text-lg rounded-md px-4 hover:bg-blue-600!">
+    <Badge className="rounded-md bg-pink-600! px-4 text-lg text-pink-100! hover:bg-blue-600!">
       {tag}
     </Badge>
   );
 }
 
 function getLanguageFromClassName(className: string | undefined) {
-  if (!className) return '';
+  if (!className) return "";
   const match = /language-(\w+)/.exec(className);
-  return match ? match[1] : '';
+  return match ? match[1] : "";
 }
 
 function getTitleFromClassName(className: string | undefined) {
-  if (!className) return '';
+  if (!className) return "";
   const match = /:title=([\w\/\.\-\[\]]+)/.exec(className);
-  return match ? match[1] : '';
+  return match ? match[1] : "";
 }
 
 export function Markdown({ content }: { content: string }) {
@@ -90,89 +90,72 @@ export function Markdown({ content }: { content: string }) {
             </HeadingLink>
           );
         },
-        p: ({ children }) => (
-          <div className="paragraph mb-4 leading-7">{children}</div>
-        ),
-        a: ({ href, children }) => <Link href={href ?? ''}>{children}</Link>,
+        p: ({ children }) => <div className="paragraph mb-4 leading-7">{children}</div>,
+        a: ({ href, children }) => <Link href={href ?? ""}>{children}</Link>,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         img: ({ src, alt }: any) => {
-          const imageUrl = src.startsWith('http')
-            ? src
-            : src.replace('./', '/articles/');
+          const imageUrl = src.startsWith("http") ? src : src.replace("./", "/articles/");
           return (
             // eslint-disable-next-line @next/next/no-img-element
-            <img
-              className="max-w-full rounded-lg my-4 mx-auto"
-              alt={alt ?? ''}
-              src={imageUrl}
-            />
+            <img className="mx-auto my-4 max-w-full rounded-lg" alt={alt ?? ""} src={imageUrl} />
           );
         },
         table: ({ children }) => (
-          <div className="max-w-sm md:max-w-3xl lg:max-w-5xl overflow-x-auto my-4">
-            <table className="w-full border-collapse md:table">
-              {children}
-            </table>
+          <div className="my-4 max-w-sm overflow-x-auto md:max-w-3xl lg:max-w-5xl">
+            <table className="w-full border-collapse md:table">{children}</table>
           </div>
         ),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         code: ({ inline, className, children }: any) => {
-          if (typeof children === 'string') {
-            if (children.startsWith('youtube:')) {
-              return (
-                <YouTubeEmbed url={children.replace('youtube:', '').trim()} />
-              );
+          if (typeof children === "string") {
+            if (children.startsWith("youtube:")) {
+              return <YouTubeEmbed url={children.replace("youtube:", "").trim()} />;
             }
-            if (children.startsWith('gif:')) {
-              const filename = `/articles/${children.split(':')[1]}`;
-              const caption = children.split(':caption=')[1] || 'GIF animation';
+            if (children.startsWith("gif:")) {
+              const filename = `/articles/${children.split(":")[1]}`;
+              const caption = children.split(":caption=")[1] || "GIF animation";
               if (!filename) return null;
               return (
                 <GifPlayer
                   src={filename}
-                  still={filename.replace('.gif', '-still.png')}
+                  still={filename.replace(".gif", "-still.png")}
                   alt={caption}
                 />
               );
             }
-            if (children.startsWith('alert:')) {
-              const alert = children.replace('alert:', '').trim();
-              const type = alert.split(':')[0].split('=')[1];
-              const message = alert.split(':').slice(1).join(':').trim();
+            if (children.startsWith("alert:")) {
+              const alert = children.replace("alert:", "").trim();
+              const type = alert.split(":")[0].split("=")[1];
+              const message = alert.split(":").slice(1).join(":").trim();
               return <Alert type={type} message={message} />;
             }
-            if (children.startsWith('tags:')) {
-              const tags = children.replace('tags:', '').trim().split(',');
+            if (children.startsWith("tags:")) {
+              const tags = children.replace("tags:", "").trim().split(",");
               return (
-                <div className="flex flex-wrap gap-2 my-4">
+                <div className="my-4 flex flex-wrap gap-2">
                   {tags.map((tag) => (
                     <Tag key={tag.trim()} tag={tag.trim()} />
                   ))}
                 </div>
               );
             }
-            if (children.startsWith('badge:')) {
-              const attributes = children.replace('badge:', '').trim();
-              const [className, text] = attributes
-                .split(',')
-                .map((s) => s.trim());
+            if (children.startsWith("badge:")) {
+              const attributes = children.replace("badge:", "").trim();
+              const [className, text] = attributes.split(",").map((s) => s.trim());
               return (
                 <Badge
                   color={className}
-                  className={cn(
-                    'inline rounded-md px-2',
-                    className.replace('className=', ''),
-                  )}
+                  className={cn("inline rounded-md px-2", className.replace("className=", ""))}
                 >
-                  {text.replace('text=', '')}
+                  {text.replace("text=", "")}
                 </Badge>
               );
             }
-            if (children.startsWith('pronounce:')) {
-              const word = children.replace('pronounce:', '').trim();
+            if (children.startsWith("pronounce:")) {
+              const word = children.replace("pronounce:", "").trim();
               return <CodeInline language="">{word}</CodeInline>;
             }
-            if (children.startsWith('img:')) {
+            if (children.startsWith("img:")) {
               return <ArticleImage attributes={children} />;
             }
           }
@@ -183,8 +166,8 @@ export function Markdown({ content }: { content: string }) {
             <div className="mb-4">
               <CodeBlock language={language} title={title}>
                 {String(children)
-                  .replace(/\n$/, '')
-                  .replace(/```.\s*$/, '```')}
+                  .replace(/\n$/, "")
+                  .replace(/```.\s*$/, "```")}
               </CodeBlock>
             </div>
           ) : (

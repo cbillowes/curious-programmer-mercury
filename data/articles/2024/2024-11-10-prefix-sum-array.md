@@ -123,28 +123,27 @@ Alex's eyes widened. _"That's brilliant! It's like having a calculator that only
 Eager to try this out, Alex wrote the code:
 
 ```javascript
-
 function buildPrefixSum(arr) {
-    const prefix = Array(arr.length).fill(0);
-    prefix[0] = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        prefix[i] = prefix[i - 1] + arr[i];
-    }
-    return prefix;
+  const prefix = Array(arr.length).fill(0);
+  prefix[0] = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    prefix[i] = prefix[i - 1] + arr[i];
+  }
+  return prefix;
 }
 
 function rangeSum(prefix, start, end) {
-    if (start === 0) {
-        return prefix[end];
-    } else {
-        return prefix[end] - prefix[start - 1];
-    }
+  if (start === 0) {
+    return prefix[end];
+  } else {
+    return prefix[end] - prefix[start - 1];
+  }
 }
 
 // Example usage:
 const arr = [2, 4, 6, 8, 10];
 const prefix = buildPrefixSum(arr);
-console.log(rangeSum(prefix, 1, 3));  // Output: 18
+console.log(rangeSum(prefix, 1, 3)); // Output: 18
 ```
 
 Running the code, Alex confirmed that the function returned the correct sums almost instantly, even for large arrays.

@@ -1,6 +1,6 @@
-import { getArticles } from '@/lib/articles';
-import { getCoursePages, getCourses } from '@/lib/courses';
-import { getScribbles } from '@/lib/scribbles';
+import { getArticles } from "@/lib/articles";
+import { getCoursePages, getCourses } from "@/lib/courses";
+import { getScribbles } from "@/lib/scribbles";
 
 export function getContent() {
   const articles = getArticles();

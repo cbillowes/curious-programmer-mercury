@@ -2,8 +2,7 @@
 title: Set up dark mode theming
 parent: /courses/nextjs-blog
 date: 2025-12-04
-abstract:
-  In this chapter, you will learn how to implement dark mode theming in your Next.js blog.
+abstract: In this chapter, you will learn how to implement dark mode theming in your Next.js blog.
 ---
 
 To enhance the user experience of your blog, you can implement dark mode theming.

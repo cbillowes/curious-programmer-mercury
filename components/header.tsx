@@ -1,18 +1,19 @@
-'use client';
+"use client";
 
-import { ReactNode, useState } from 'react';
-import { useThemeMode } from 'flowbite-react';
-import { useStackApp } from '@stackframe/stack';
-import { Link } from '@/components/link';
-import { Search } from '@/components/search';
-import { Avatar, AvatarDropdown } from '@/components/avatar';
-import { useAuth } from '@/hooks/use-auth';
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { getGroup, sidebarItems } from '@/data/sidebar';
-import { cn } from '@/lib/utils';
-import { FaCode, FaMoon, FaSun } from 'react-icons/fa6';
-import { HiMenuAlt1 } from 'react-icons/hi';
-import { MdClose } from 'react-icons/md';
+import { ReactNode, useState } from "react";
+import { getGroup, sidebarItems } from "@/data/sidebar";
+import { useAuth } from "@/hooks/use-auth";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { useStackApp } from "@stackframe/stack";
+import { useThemeMode } from "flowbite-react";
+import { FaCode, FaMoon, FaSun } from "react-icons/fa6";
+import { HiMenuAlt1 } from "react-icons/hi";
+import { MdClose } from "react-icons/md";
+
+import { cn } from "@/lib/utils";
+import { Avatar, AvatarDropdown } from "@/components/avatar";
+import { Link } from "@/components/link";
+import { Search } from "@/components/search";
 
 function MenuItemLink({
   active,
@@ -31,9 +32,9 @@ function MenuItemLink({
     <Link
       href={to}
       className={cn(
-        'w-[255px] text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 px-4 space-2 flex items-center py-2 mx-2 gap-2',
+        "group space-2 mx-2 flex w-[255px] items-center gap-2 rounded-lg px-4 py-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900",
         active === to &&
-          'bg-primary-600 text-primary-200 hover:bg-pink-500 dark:hover:bg-pink-500 hover:text-white',
+          "bg-primary-600 text-primary-200 hover:bg-pink-500 hover:text-white dark:hover:bg-pink-500",
         className,
       )}
     >
@@ -59,17 +60,15 @@ function MenuItemDropdown({
   active: string;
 }) {
   const [expand, setExpand] = useState(name === getGroup(active)?.name);
-  const id = name.replace(/\s+/g, '-').toLowerCase();
+  const id = name.replace(/\s+/g, "-").toLowerCase();
 
   return (
     <>
       <button
         type="button"
         className={cn(
-          'w-[255px] text-base text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 group dark:text-gray-200 space-2 flex items-center justify-between px-4 py-2 ml-2 mr-2 gap-2',
-          expand
-            ? 'bg-gray-100 dark:bg-gray-700'
-            : 'hover:bg-gray-100 dark:hover:bg-gray-700',
+          "group space-2 mr-2 ml-2 flex w-[255px] items-center justify-between gap-2 rounded-lg px-4 py-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900",
+          expand ? "bg-gray-100 dark:bg-gray-700" : "hover:bg-gray-100 dark:hover:bg-gray-700",
         )}
         aria-controls={id}
         data-collapse-toggle={id}
@@ -78,7 +77,7 @@ function MenuItemDropdown({
         {icon}
         <span className="flex-0 text-left whitespace-nowrap">{name}</span>
         <svg
-          className={cn('w-6 h-6', expand ? 'transform rotate-180' : '')}
+          className={cn("h-6 w-6", expand ? "rotate-180 transform" : "")}
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +89,7 @@ function MenuItemDropdown({
           ></path>
         </svg>
       </button>
-      <ul id={id} className={cn('py-2 space-y-2', expand ? 'block' : 'hidden')}>
+      <ul id={id} className={cn("space-y-2 py-2", expand ? "block" : "hidden")}>
         {items.map((item) => (
           <div key={item.to}>
             <MenuItemLink {...item} active={active} className="pl-6" />
@@ -101,17 +100,11 @@ function MenuItemDropdown({
   );
 }
 
-function ToggleSidebar({
-  isOpen,
-  toggle,
-}: {
-  isOpen: boolean;
-  toggle: () => void;
-}) {
+function ToggleSidebar({ isOpen, toggle }: { isOpen: boolean; toggle: () => void }) {
   return (
     <button
       aria-expanded={isOpen}
-      className="print:hidden p-2 text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+      className="cursor-pointer rounded p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700 dark:focus:ring-gray-700 print:hidden"
       onClick={toggle}
     >
       {!isOpen && <HiMenuAlt1 aria-label="Open side menu" className="size-6" />}
@@ -122,16 +115,16 @@ function ToggleSidebar({
 
 export function Header() {
   const app = useStackApp();
-  const active = typeof window !== 'undefined' ? window.location.pathname : '';
-  const sidebar = typeof window !== 'undefined' && localStorage.getItem('sidebar');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === 'open');
+  const active = typeof window !== "undefined" ? window.location.pathname : "";
+  const sidebar = typeof window !== "undefined" && localStorage.getItem("sidebar");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(sidebar === "open");
   const { mode, toggleMode } = useThemeMode();
   const user = useAuth();
 
   const toggleSidebarState = () => {
     const newState = !isSidebarOpen;
     setIsSidebarOpen(newState);
-    localStorage.setItem('sidebar', newState ? 'open' : 'closed');
+    localStorage.setItem("sidebar", newState ? "open" : "closed");
   };
 
   const sidebarRef = useClickOutside<HTMLDivElement>(() => {
@@ -141,34 +134,28 @@ export function Header() {
 
   return (
     <>
-      <nav className="print:hidden fixed w-full bg-white border-b border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700 backdrop-blur-2xl z-100">
-        <div className="max-w-sm md:max-w-3xl lg:max-w-5xl mx-auto">
+      <nav className="fixed z-100 w-full border-b border-gray-200/50 bg-white backdrop-blur-2xl dark:border-gray-700 dark:bg-gray-800/50 print:hidden">
+        <div className="mx-auto max-w-sm md:max-w-3xl lg:max-w-5xl">
           <div className="px-3 py-3 lg:px-5 lg:pl-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center justify-start">
-                <ToggleSidebar
-                  isOpen={isSidebarOpen}
-                  toggle={toggleSidebarState}
-                />
-                <Link href="/" className="flex ml-2 md:mr-4">
-                  <span className="self-center text-lg sm:text-xl whitespace-nowrap text-gray-900 dark:text-white font-light print:text-black hidden sm:block">
-                    {`{ `} curious{' '}
-                    <strong className="font-bold">programmer</strong> {` }`}
+                <ToggleSidebar isOpen={isSidebarOpen} toggle={toggleSidebarState} />
+                <Link href="/" className="ml-2 flex md:mr-4">
+                  <span className="hidden self-center text-lg font-light whitespace-nowrap text-gray-900 sm:block sm:text-xl dark:text-white print:text-black">
+                    {`{ `} curious <strong className="font-bold">programmer</strong> {` }`}
                   </span>
-                  <span className="block sm:hidden font-black text-3xl">
-                    {'{ }'}
-                  </span>
+                  <span className="block text-3xl font-black sm:hidden">{"{ }"}</span>
                 </Link>
               </div>
-              <div className="print:hidden flex items-center gap-2">
+              <div className="flex items-center gap-2 print:hidden">
                 <Search />
                 <button
-                  className="mr-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-lg p-2.5"
+                  className="mr-2 rounded-lg p-2.5 text-lg text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                   onClick={toggleMode}
                 >
                   <span className="sr-only">Toggle theme</span>
-                  {mode === 'dark' && <FaSun />}
-                  {mode !== 'dark' && <FaMoon />}
+                  {mode === "dark" && <FaSun />}
+                  {mode !== "dark" && <FaMoon />}
                 </button>
                 <div>
                   <AvatarDropdown />
@@ -181,35 +168,27 @@ export function Header() {
       {isSidebarOpen && (
         <div
           ref={sidebarRef}
-          className="print:hidden h-screen w-72 pt-17 fixed top-1 left-0 bottom-0 font-normal duration-75 lg:flex transition-width z-50"
+          className="transition-width fixed top-1 bottom-0 left-0 z-50 h-screen w-72 pt-17 font-normal duration-75 lg:flex print:hidden"
           aria-label="Sidebar"
         >
-          <div className="relative flex flex-col flex-1 min-h-0 pt-10 bg-white/50 border-r border-gray-200 dark:bg-gray-800/50 dark:border-gray-700 h-screen backdrop-blur-2xl overflow-scroll">
-            <div className="flex flex-col flex-1 pb-28 overflow-y-auto scrollbar scrollbar-w-2 scrollbar-thumb-rounded-[0.1667rem] scrollbar-thumb-slate-200 scrollbar-track-gray-400 dark:scrollbar-thumb-slate-900 dark:scrollbar-track-gray-800">
+          <div className="relative flex h-screen min-h-0 flex-1 flex-col overflow-scroll border-r border-gray-200 bg-white/50 pt-10 backdrop-blur-2xl dark:border-gray-700 dark:bg-gray-800/50">
+            <div className="scrollbar scrollbar-w-2 scrollbar-thumb-rounded-[0.1667rem] scrollbar-thumb-slate-200 scrollbar-track-gray-400 dark:scrollbar-thumb-slate-900 dark:scrollbar-track-gray-800 flex flex-1 flex-col overflow-y-auto pb-28">
               <div className="flex-1 space-y-1">
-                <ul className="px-2 pb-2 space-y-2">
+                <ul className="space-y-2 px-2 pb-2">
                   {sidebarItems.map(({ items = [], ...rest }) => {
                     return (
                       <li key={rest.name} className="relative">
                         {items.length === 0 && (
-                          <MenuItemLink
-                            {...rest}
-                            active={active}
-                            to={rest.to ?? ''}
-                          />
+                          <MenuItemLink {...rest} active={active} to={rest.to ?? ""} />
                         )}
                         {items.length > 0 && (
-                          <MenuItemDropdown
-                            {...rest}
-                            active={active}
-                            items={items}
-                          />
+                          <MenuItemDropdown {...rest} active={active} items={items} />
                         )}
                       </li>
                     );
                   })}
                 </ul>
-                <div className="py-4 bg-white dark:bg-gray-800 border-t border-b border-gray-200 dark:border-gray-700">
+                <div className="border-t border-b border-gray-200 bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
                   <MenuItemLink
                     active={active}
                     to="https://github.com/cbillowes/curious-programmer-mercury"
@@ -218,10 +197,7 @@ export function Header() {
                   />
                 </div>
                 {user && (
-                  <Link
-                    className="py-4 px-4 flex justify-start"
-                    href={app.urls.accountSettings}
-                  >
+                  <Link className="flex justify-start px-4 py-4" href={app.urls.accountSettings}>
                     <Avatar />
                   </Link>
                 )}

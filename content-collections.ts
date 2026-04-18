@@ -1,12 +1,13 @@
-import { defineCollection, defineConfig } from '@content-collections/core';
-import readingTime from 'reading-time';
-import { z } from 'zod';
-import { extractExcerpt, slugify, toHeroImageUrl } from '@/lib/utils';
+import { defineCollection, defineConfig } from "@content-collections/core";
+import readingTime from "reading-time";
+import { z } from "zod";
+
+import { extractExcerpt, slugify, toHeroImageUrl } from "@/lib/utils";
 
 const articles = defineCollection({
-  name: 'articles',
-  directory: 'data/articles',
-  include: '**/*.md',
+  name: "articles",
+  directory: "data/articles",
+  include: "**/*.md",
   schema: z.object({
     slug: z.string().optional(),
     title: z.string(),
@@ -37,8 +38,8 @@ const articles = defineCollection({
       date: new Date(doc.date),
       timeToRead: Math.ceil(readingTime(doc.content).minutes),
       abstract: doc.abstract ?? extractExcerpt(doc.content),
-      cover: toHeroImageUrl('hero', doc.cover),
-      type: 'article' as const,
+      cover: toHeroImageUrl("hero", doc.cover),
+      type: "article" as const,
       number: idx + 1,
       previous: {
         slug: toSlug(previous.slug ?? previous.title),
@@ -55,9 +56,9 @@ const articles = defineCollection({
 });
 
 const courses = defineCollection({
-  name: 'courses',
-  directory: 'data/courses',
-  include: '**/*.md',
+  name: "courses",
+  directory: "data/courses",
+  include: "**/*.md",
   schema: z.object({
     title: z.string(),
     slug: z.string().optional(),
@@ -83,21 +84,19 @@ const courses = defineCollection({
     const docs = await meta.collection.documents();
     const course = doc.index
       ? doc
-      : docs.find(
-          (d) => d.index === true && `/courses/${d.slug}` === doc.parent,
-        );
+      : docs.find((d) => d.index === true && `/courses/${d.slug}` === doc.parent);
     const courses = docs
       .filter((d) => d.index === true)
       .sort((a, b) => a._meta.filePath.localeCompare(b._meta.filePath));
     const pages = docs
-      .filter((d) => d.parent === toSlug(course?.slug ?? course?.title ?? ''))
+      .filter((d) => d.parent === toSlug(course?.slug ?? course?.title ?? ""))
       .sort((a, b) => a._meta.filePath.localeCompare(b._meta.filePath));
     const modified = doc.modified && new Date(doc.modified);
     const abstract = doc.abstract ?? extractExcerpt(doc.content);
-    const cover = toHeroImageUrl('hero', course?.cover);
+    const cover = toHeroImageUrl("hero", course?.cover);
 
     const toPageSlug = (idx: number, slug: string) => {
-      const number = (idx + 1).toString().padStart(2, '0');
+      const number = (idx + 1).toString().padStart(2, "0");
       return `/courses/${course?.slug}/${number}/${slugify(slug)}`;
     };
 
@@ -114,7 +113,7 @@ const courses = defineCollection({
         timeToRead: Math.ceil(readingTime(page.content).minutes),
         abstract: extractExcerpt(page.content, 160),
         cover,
-        type: 'page' as const,
+        type: "page" as const,
         course: course ?? undefined,
         pages: undefined,
         number: idx + 1,
@@ -132,9 +131,7 @@ const courses = defineCollection({
     };
 
     if (doc.index) {
-      const idx = courses.findIndex(
-        (d) => doc._meta.filePath === d._meta.filePath,
-      );
+      const idx = courses.findIndex((d) => doc._meta.filePath === d._meta.filePath);
       const previous = idx > 0 ? courses[idx - 1] : courses[courses.length - 1];
       const next = idx < courses.length - 1 ? courses[idx + 1] : courses[0];
       const timeToRead = pages
@@ -150,7 +147,7 @@ const courses = defineCollection({
         timeToRead,
         abstract,
         cover,
-        type: 'course' as const,
+        type: "course" as const,
         course: undefined,
         previous: {
           slug: toSlug(previous.slug ?? previous.title),
@@ -170,9 +167,9 @@ const courses = defineCollection({
 });
 
 const resume = defineCollection({
-  name: 'resume',
-  directory: 'data/resume',
-  include: '**/*.md',
+  name: "resume",
+  directory: "data/resume",
+  include: "**/*.md",
   schema: z.object({
     slug: z.string(),
     share: z.string(),
@@ -206,9 +203,9 @@ const resume = defineCollection({
 });
 
 const scribbles = defineCollection({
-  name: 'scribbles',
-  directory: 'data/scribbles',
-  include: '**/*.md',
+  name: "scribbles",
+  directory: "data/scribbles",
+  include: "**/*.md",
   schema: z.object({
     title: z.string(),
     slug: z.string().optional(),
@@ -237,8 +234,8 @@ const scribbles = defineCollection({
       date: new Date(doc.date),
       timeToRead: Math.ceil(readingTime(doc.content).minutes),
       abstract: doc.abstract ?? extractExcerpt(doc.content, 160),
-      cover: toHeroImageUrl('hero', doc.cover),
-      type: 'scribble' as const,
+      cover: toHeroImageUrl("hero", doc.cover),
+      type: "scribble" as const,
       number: idx + 1,
       previous: {
         slug: toSlug(previous.slug ?? previous.title),

@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import { Button, Modal, ModalBody, ModalHeader } from 'flowbite-react';
-import ReactMarkdown from 'react-markdown';
-import { getHeadingId, HeadingLink } from '@/components/heading-link';
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { useState } from 'react';
-import { FaListOl } from 'react-icons/fa6';
+import { useState } from "react";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { Button, Modal, ModalBody, ModalHeader } from "flowbite-react";
+import { FaListOl } from "react-icons/fa6";
+import ReactMarkdown from "react-markdown";
+
+import { getHeadingId, HeadingLink } from "@/components/heading-link";
 
 export function Summary({ summary, text }: { summary?: string; text: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +16,7 @@ export function Summary({ summary, text }: { summary?: string; text: string }) {
 
   return (
     <div>
-      <Button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-2 right-2 rounded-full z-100"
-      >
+      <Button onClick={() => setIsOpen(true)} className="fixed right-2 bottom-2 z-100 rounded-full">
         <FaListOl aria-label="Table of Contents" />
       </Button>
       <Modal

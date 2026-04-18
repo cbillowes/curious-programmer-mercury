@@ -1,5 +1,5 @@
 ---
-title: 'Building a Monitoring Display with a Rock64'
+title: "Building a Monitoring Display with a Rock64"
 date: 2018-07-12 22:12:00 +0200
 tags:
   - Technical

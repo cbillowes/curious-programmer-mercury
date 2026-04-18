@@ -48,12 +48,8 @@
           "tableFrom": "favorites",
           "tableTo": "users_sync",
           "schemaTo": "neon_auth",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }

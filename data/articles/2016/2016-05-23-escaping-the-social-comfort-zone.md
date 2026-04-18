@@ -1,8 +1,8 @@
 ---
-title: 'Escaping the social comfort zone'
-cover: 'https://picsum.photos/1600/800/?image=1070'
+title: "Escaping the social comfort zone"
+cover: "https://picsum.photos/1600/800/?image=1070"
 date: 2016-05-23 20:24:15 +0200
-category: 'tech'
+category: "tech"
 tags:
   - Comfort Zone
   - Personal Brand

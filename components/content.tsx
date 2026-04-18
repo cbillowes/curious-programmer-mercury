@@ -1,31 +1,27 @@
-'use client';
+"use client";
 
-import { ReactNode, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from 'flowbite-react';
-import {
-  Article,
-  Scribble,
-  Course,
-  Resume,
-} from '@/.content-collections/generated';
-import { Markdown } from '@/components/markdown';
-import { Metadata } from '@/components/metadata';
-import { Link } from '@/components/link';
-import { Tags } from '@/components/tags';
-import { ShareWidget } from '@/components/share';
-import { Comments } from '@/components/comments';
-import { Bookmark } from '@/components/bookmark';
-import { Like } from '@/components/like';
-import { StickyHeader } from '@/components/sticky-header';
-import { ImageContainer } from '@/components/image-container';
-import { Summary } from '@/components/summary';
-import { useClickOutside } from '@/hooks/use-click-outside';
-import { cn, toProperCase } from '@/lib/utils';
-import { RiArticleLine, RiPagesLine } from 'react-icons/ri';
-import { MdOutlineSchool } from 'react-icons/md';
-import { TbScribble } from 'react-icons/tb';
-import { FaBook, FaUser } from 'react-icons/fa6';
+import { ReactNode, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Article, Course, Resume, Scribble } from "@/.content-collections/generated";
+import { useClickOutside } from "@/hooks/use-click-outside";
+import { Alert, Modal, ModalBody, ModalHeader, Tooltip } from "flowbite-react";
+import { FaBook, FaUser } from "react-icons/fa6";
+import { MdOutlineSchool } from "react-icons/md";
+import { RiArticleLine, RiPagesLine } from "react-icons/ri";
+import { TbScribble } from "react-icons/tb";
+
+import { cn, toProperCase } from "@/lib/utils";
+import { Bookmark } from "@/components/bookmark";
+import { Comments } from "@/components/comments";
+import { ImageContainer } from "@/components/image-container";
+import { Like } from "@/components/like";
+import { Link } from "@/components/link";
+import { Markdown } from "@/components/markdown";
+import { Metadata } from "@/components/metadata";
+import { ShareWidget } from "@/components/share";
+import { StickyHeader } from "@/components/sticky-header";
+import { Summary } from "@/components/summary";
+import { Tags } from "@/components/tags";
 
 type IconProps = {
   icon: string;
@@ -34,13 +30,13 @@ type IconProps = {
 
 const Icon = ({ icon, ...rest }: IconProps) => {
   switch (icon) {
-    case 'article':
+    case "article":
       return <RiArticleLine {...rest} />;
-    case 'course':
+    case "course":
       return <MdOutlineSchool {...rest} />;
-    case 'scribble':
+    case "scribble":
       return <TbScribble {...rest} />;
-    case 'page':
+    case "page":
       return <RiPagesLine {...rest} />;
     default:
       return <></>;
@@ -61,21 +57,18 @@ const Type = ({ type, to, number, inline, featured }: TypeProps) => {
   return (
     <div
       className={cn(
-        'opacity-70 whitespace-nowrap',
-        inline ? 'text-left capitalize' : 'text-center my-3 uppercase',
+        "whitespace-nowrap opacity-70",
+        inline ? "text-left capitalize" : "my-3 text-center uppercase",
       )}
     >
       <Link href={to}>
         <Icon
           icon={type}
-          className={cn(
-            'inline-block text-4xl rounded',
-            inline ? 'text-sm' : 'p-2',
-          )}
+          className={cn("inline-block rounded text-4xl", inline ? "text-sm" : "p-2")}
           alt={title}
           title={title}
         />
-        {featured && 'Featured '}
+        {featured && "Featured "}
         {type}
       </Link>
       {number ? <>&nbsp;&middot; #{number}</> : <> &middot;</>}
@@ -99,9 +92,7 @@ function PageStickyHeader({
     <StickyHeader>
       <div className="flex items-center gap-2 py-2">
         <Type type={type} to={to} inline={true} />
-        <h1 className="text-sm! font-extrabold tracking-tighter dark:text-white">
-          {title}
-        </h1>
+        <h1 className="text-sm! font-extrabold tracking-tighter dark:text-white">{title}</h1>
         {extra}
       </div>
     </StickyHeader>
@@ -123,15 +114,15 @@ function Navigation({
 }) {
   if (!previous && !next) return;
   return (
-    <nav className="max-w-3xl mx-auto print:hidden">
+    <nav className="mx-auto max-w-3xl print:hidden">
       {previous && previous.slug && (
-        <div className="md:float-left flex w-full md:w-1/2 justify-center md:justify-start text-center md:text-left">
+        <div className="flex w-full justify-center text-center md:float-left md:w-1/2 md:justify-start md:text-left">
           <Tooltip content={previous.title} placement="bottom">
             <Link
               href={previous.slug}
-              className="text-sm hover:underline flex items-center justify-center w-full gap-2"
+              className="flex w-full items-center justify-center gap-2 text-sm hover:underline"
             >
-              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis">
+              <span className="w-64 overflow-hidden text-ellipsis whitespace-nowrap">
                 &larr; #{previous.number} - {previous.title}
               </span>
             </Link>
@@ -139,15 +130,15 @@ function Navigation({
         </div>
       )}
       {next && next.slug && (
-        <div className="md:float-right flex w-full md:w-1/2 justify-center md:justify-end">
+        <div className="flex w-full justify-center md:float-right md:w-1/2 md:justify-end">
           <Tooltip content={next.title} placement="bottom">
             <Link
               href={next.slug}
-              className="text-sm hover:underline flex items-center truncate overflow-hidden whitespace-nowrap text-ellipsis max-w-96 pt-2 md:pt-0 gap-2"
+              className="flex max-w-96 items-center gap-2 truncate overflow-hidden pt-2 text-sm text-ellipsis whitespace-nowrap hover:underline md:pt-0"
             >
-              <span className="w-64 overflow-hidden whitespace-nowrap text-ellipsis text-center md:text-right">
+              <span className="w-64 overflow-hidden text-center text-ellipsis whitespace-nowrap md:text-right">
                 #{next.number} - {next.title}
-              </span>{' '}
+              </span>{" "}
               <span>&rarr;</span>
             </Link>
           </Tooltip>
@@ -160,8 +151,8 @@ function Navigation({
 
 function Author() {
   return (
-    <aside className="max-w-3xl mx-auto flex items-center mt-8 mb-6 not-italic">
-      <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+    <aside className="mx-auto mt-8 mb-6 flex max-w-3xl items-center not-italic">
+      <div className="mr-3 inline-flex items-center text-sm text-gray-900 dark:text-white">
         <ImageContainer
           width={64}
           height={64}
@@ -173,14 +164,10 @@ function Author() {
           fill={false}
         />
         <div>
-          <a
-            href="/about"
-            rel="author"
-            className="text-lg font-bold text-gray-900 dark:text-white"
-          >
+          <a href="/about" rel="author" className="text-lg font-bold text-gray-900 dark:text-white">
             Clarice Bouwer
           </a>
-          <p className="font-medium tracking-tight text-base text-gray-500 dark:text-gray-400">
+          <p className="text-base font-medium tracking-tight text-gray-500 dark:text-gray-400">
             Senior Software Engineer
           </p>
         </div>
@@ -191,7 +178,7 @@ function Author() {
 
 function PageTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h1 className="text-5xl font-extrabold tracking-tighter mb-3 lg:mb-6 lg:text-7xl text-center dark:text-white mx-auto max-w-sm md:max-w-3xl lg:max-w-5xl print:text-black">
+    <h1 className="mx-auto mb-3 max-w-sm text-center text-5xl font-extrabold tracking-tighter md:max-w-3xl lg:mb-6 lg:max-w-5xl lg:text-7xl dark:text-white print:text-black">
       {children}
     </h1>
   );
@@ -205,31 +192,26 @@ function TableOfContents({ course }: { course: Course }) {
     <div>
       <div
         role="button"
-        className="flex items-center gap-1 text-sm opacity-70 cursor-pointer"
+        className="flex cursor-pointer items-center gap-1 text-sm opacity-70"
         onClick={() => setIsOpen(true)}
       >
         <FaBook />
         Table of Contents
       </div>
-      <Modal
-        ref={modalRef}
-        show={isOpen}
-        size="lg"
-        onClose={() => setIsOpen(false)}
-      >
+      <Modal ref={modalRef} show={isOpen} size="lg" onClose={() => setIsOpen(false)}>
         <ModalHeader>Table of Contents</ModalHeader>
         <ModalBody className="max-h-96">
           {course.pages?.map((page, index) => (
             <div
               key={index}
-              className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-2"
+              className="flex items-center justify-between border-b border-dashed py-2 hover:bg-pink-600"
             >
               <Link
                 href={page?.slug}
-                className="block w-full text-black! dark:text-white! hover:text-white! font-normal! px-4"
+                className="block w-full px-4 font-normal! text-black! hover:text-white! dark:text-white!"
                 onClick={() => setIsOpen(false)}
               >
-                {page && 'number' in page && page.number}. {page?.title}
+                {page && "number" in page && page.number}. {page?.title}
               </Link>
             </div>
           ))}
@@ -264,7 +246,7 @@ export function ArticleContent({
     previous,
   } = article;
   return (
-    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+    <article className="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full">
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4">
         <Type type={type} to="/blog" number={number} featured={featured} />
@@ -272,7 +254,7 @@ export function ArticleContent({
         <div className="text-center">
           <Metadata timeToRead={timeToRead} date={date} type={type} />
         </div>
-        <div className="flex justify-center items-center gap-2 mt-2">
+        <div className="mt-2 flex items-center justify-center gap-2">
           <Bookmark bookmarks={bookmarks} slug={slug} />
           <Like likes={likes} slug={slug} />
         </div>
@@ -282,7 +264,7 @@ export function ArticleContent({
         <Author />
       </header>
       <PageStickyHeader number={number} title={title} type={type} to="/blog" />
-      <section id="article" className="max-w-3xl mx-auto mb-8">
+      <section id="article" className="mx-auto mb-8 max-w-3xl">
         <Markdown content={content} />
       </section>
       <ShareWidget title={title} url={slug} />
@@ -304,7 +286,7 @@ export function ResumeContent({ resumePage }: { resumePage: Resume }) {
             width={112}
             height={112}
             src={`/logos/${resume.logo}`}
-            alt={resume.company ?? (resume.name || 'Logo')}
+            alt={resume.company ?? (resume.name || "Logo")}
             className="rounded-md bg-white p-2"
             containerClassName="mx-auto"
             priority={true}
@@ -313,12 +295,8 @@ export function ResumeContent({ resumePage }: { resumePage: Resume }) {
         )}
         <PageTitle>{resume.company ?? resume.name}</PageTitle>
       </header>
-      <PageStickyHeader
-        title={resume.company ?? ''}
-        type="resume"
-        to="/resume"
-      />
-      <section id="article" className="max-w-3xl mx-auto mb-8">
+      <PageStickyHeader title={resume.company ?? ""} type="resume" to="/resume" />
+      <section id="article" className="mx-auto mb-8 max-w-3xl">
         <Markdown content={resumePage.content} />
       </section>
     </article>
@@ -334,34 +312,18 @@ export function ScribbleContent({
   bookmarks: string[];
   likes: string[];
 }) {
-  const {
-    type,
-    slug,
-    number,
-    title,
-    tags,
-    timeToRead,
-    date,
-    content,
-    devTo,
-    next,
-    previous,
-  } = scribble;
+  const { type, slug, number, title, tags, timeToRead, date, content, devTo, next, previous } =
+    scribble;
   return (
-    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+    <article className="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full">
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4">
         <Type type={type} to="/scribbles" number={number} />
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
-          <Metadata
-            timeToRead={timeToRead}
-            date={date}
-            type={type}
-            link={devTo}
-          />
+          <Metadata timeToRead={timeToRead} date={date} type={type} link={devTo} />
         </div>
-        <div className="flex justify-center items-center gap-2 mt-2">
+        <div className="mt-2 flex items-center justify-center gap-2">
           <Bookmark bookmarks={bookmarks} slug={slug} />
           <Like likes={likes} slug={slug} />
         </div>
@@ -370,13 +332,8 @@ export function ScribbleContent({
         </div>
         <Author />
       </header>
-      <PageStickyHeader
-        number={number}
-        title={title}
-        type={type}
-        to="/scribbles"
-      />
-      <section id="article" className="max-w-3xl mx-auto mb-8">
+      <PageStickyHeader number={number} title={title} type={type} to="/scribbles" />
+      <section id="article" className="mx-auto mb-8 max-w-3xl">
         <Markdown content={content} />
       </section>
       <ShareWidget title={title} url={slug} />
@@ -413,7 +370,7 @@ export function CourseContent({
   } = course;
   const router = useRouter();
   return (
-    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+    <article className="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full">
       <Navigation previous={previous} next={next} />
       <header className="mb-2 lg:mb-4">
         <Type type={type} to="/courses" number={number} />
@@ -427,7 +384,7 @@ export function CourseContent({
           />
         </div>
         {slug && (
-          <div className="flex justify-center items-center gap-2 mt-2">
+          <div className="mt-2 flex items-center justify-center gap-2">
             <Bookmark bookmarks={bookmarks} slug={slug} />
             <Like likes={likes} slug={slug} />
           </div>
@@ -438,14 +395,9 @@ export function CourseContent({
         <Author />
       </header>
       {number && title && type && (
-        <PageStickyHeader
-          number={number}
-          title={title}
-          type={type}
-          to="/courses"
-        />
+        <PageStickyHeader number={number} title={title} type={type} to="/courses" />
       )}
-      <section id="article" className="max-w-3xl mx-auto mb-8">
+      <section id="article" className="mx-auto mb-8 max-w-3xl">
         {content && <Markdown content={content} />}
         <nav>
           <h2>Pages</h2>
@@ -456,24 +408,20 @@ export function CourseContent({
               additionalContent={
                 <div className="flex items-center gap-2">
                   <button
-                    className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
+                    className="cursor-pointer rounded-md bg-black px-4 py-1 text-white hover:bg-pink-500"
                     onClick={() => {
                       const returnTo = encodeURIComponent(course.slug);
-                      router.push(
-                        `/handler/sign-in?after_auth_return_to=${returnTo}`,
-                      );
+                      router.push(`/handler/sign-in?after_auth_return_to=${returnTo}`);
                     }}
                   >
                     Sign in
                   </button>
                   or
                   <button
-                    className="bg-black text-white px-4 py-1 rounded-md hover:bg-pink-500 cursor-pointer"
+                    className="cursor-pointer rounded-md bg-black px-4 py-1 text-white hover:bg-pink-500"
                     onClick={() => {
                       const returnTo = encodeURIComponent(course.slug);
-                      router.push(
-                        `/handler/sign-up?after_auth_return_to=${returnTo}`,
-                      );
+                      router.push(`/handler/sign-up?after_auth_return_to=${returnTo}`);
                     }}
                   >
                     Sign up
@@ -493,13 +441,13 @@ export function CourseContent({
               page && (
                 <div
                   key={index}
-                  className="hover:bg-pink-600 flex items-center justify-between border-b border-dashed py-4 px-4"
+                  className="flex items-center justify-between border-b border-dashed px-4 py-4 hover:bg-pink-600"
                 >
                   <Link
                     href={page.slug}
-                    className="block w-full text-black! dark:text-white! hover:text-white! font-normal!"
+                    className="block w-full font-normal! text-black! hover:text-white! dark:text-white!"
                   >
-                    {'number' in page && page.number}. {page.title}
+                    {"number" in page && page.number}. {page.title}
                   </Link>
                   <Bookmark bookmarks={bookmarks} slug={slug} />
                 </div>
@@ -541,7 +489,7 @@ export function CoursePageContent({
     previous,
   } = coursePage;
   return (
-    <article className="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+    <article className="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full">
       <Navigation previous={previous} next={next} />
       {number && title && type && (
         <PageStickyHeader
@@ -557,7 +505,7 @@ export function CoursePageContent({
         <PageTitle>{title}</PageTitle>
         <div className="text-center">
           {course && (
-            <div className="flex items-center gap-2 justify-center mb-2">
+            <div className="mb-2 flex items-center justify-center gap-2">
               <Link href={course.slug} className="block">
                 {course.title}
               </Link>
@@ -572,7 +520,7 @@ export function CoursePageContent({
           />
         </div>
         {slug && (
-          <div className="flex justify-center items-center gap-2 mt-2">
+          <div className="mt-2 flex items-center justify-center gap-2">
             <Bookmark bookmarks={bookmarks} slug={slug} />
             <Like likes={likes} slug={slug} />
           </div>
@@ -582,7 +530,7 @@ export function CoursePageContent({
         </div>
         <Author />
       </header>
-      <section id="article" className="max-w-3xl mx-auto mb-8">
+      <section id="article" className="mx-auto mb-8 max-w-3xl">
         {content && <Markdown content={content} />}
       </section>
       {title && slug && <ShareWidget title={title} url={slug} />}

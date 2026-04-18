@@ -1,7 +1,7 @@
 ---
 title: Rewire your brain (Part 1) - Introduction
 slug: rewire-your-brain-1
-cover: 'https://picsum.photos/1600/800/?image=883'
+cover: "https://picsum.photos/1600/800/?image=883"
 date: 2017-05-22 20:03:54 +0200
 tags:
   - Mindset

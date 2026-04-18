@@ -3,8 +3,7 @@ title: SSH
 parent: /courses/git
 date: 2022-10-14
 modified: 2022-10-17
-abstract:
-  In this chapter we will cover what the Secure Shell (SSH) Protocol is and
+abstract: In this chapter we will cover what the Secure Shell (SSH) Protocol is and
   how to generate and configure the necessary keys to connect to remote servers.
 ---
 

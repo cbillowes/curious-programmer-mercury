@@ -1,6 +1,6 @@
 ---
-title: 'Discovering fiddles'
-cover: 'https://picsum.photos/1600/800/?image=527'
+title: "Discovering fiddles"
+cover: "https://picsum.photos/1600/800/?image=527"
 date: 2016-06-19 19:13:00 +0200
 tags:
   - Technical
@@ -47,7 +47,7 @@ be created for any front end web experiment you wish you create.
 To find out more, you can [read about](https://codepen.io/hello/) CodePen and
 its super cool editor.
 
-![Screenshot](./codepen.jpg 'CodePen layout')
+![Screenshot](./codepen.jpg "CodePen layout")
 _Source of image: Screenshot of [CodePen](http://codepen.io/)_
 
 ### Layout
@@ -99,7 +99,7 @@ one:
 [JSFiddle](https://jsfiddle.net/) let's you test your front end web code
 with their online code editor.
 
-![Screenshot](./jsfiddle.jpg 'JSFiddle layout')
+![Screenshot](./jsfiddle.jpg "JSFiddle layout")
 _Source of image: Screenshot of [JSFiddle](http://jsfiddle.net/)_
 
 ### Layout
@@ -143,7 +143,7 @@ the original one.
 [StackOverflow](http://stackoverflow.com/) has added their own code snippet
 flavor to their answering platform for HTML, CSS and JavaScript.
 
-![Screenshot](./stackoverflow.jpg 'StackOverflow code snippet functionality')
+![Screenshot](./stackoverflow.jpg "StackOverflow code snippet functionality")
 _Source of image: Screenshot of [StackOverflow](http://stackoverflow.com/)_
 
 You can quickly write front end code from within the StackOverflow platform.
@@ -166,7 +166,7 @@ Oracle, PostgreSQL, SQLite and MS SQL Server.
 Check [this](http://sqlfiddle.com/about.html) out if you want to learn more
 about it.
 
-![Screenshot](./sqlfiddle.jpg 'SQL Fiddle layout')
+![Screenshot](./sqlfiddle.jpg "SQL Fiddle layout")
 _Source of image: Screenshot of [SQL Fiddle](http://sqlfiddle.com/)_
 
 ### Schema creation

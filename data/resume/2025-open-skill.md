@@ -20,8 +20,7 @@ resume:
     - Tailwind CSS
     - Firebase
     - Netlify
-  summary:
-    Architected and developed OpenSkill Pro, a resume optimization platform leveraging AI to bridge the gap between candidate profiles and employer expectations. Key features include resume parsing, marketability scoring, personalized feedback, and AI-assisted persona tailoring to match specific job descriptions and company profiles.
+  summary: Architected and developed OpenSkill Pro, a resume optimization platform leveraging AI to bridge the gap between candidate profiles and employer expectations. Key features include resume parsing, marketability scoring, personalized feedback, and AI-assisted persona tailoring to match specific job descriptions and company profiles.
 ---
 
 Architected and developed OpenSkill Pro, a resume optimization platform leveraging AI to bridge the gap between candidate profiles and employer expectations. Key features include resume parsing, marketability scoring, personalized feedback, and AI-assisted persona tailoring to match specific job descriptions and company profiles.

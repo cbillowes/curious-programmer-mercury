@@ -1,8 +1,8 @@
 ---
-title: 'Reignite the passion'
-cover: 'https://picsum.photos/1600/800/?image=1011'
+title: "Reignite the passion"
+cover: "https://picsum.photos/1600/800/?image=1011"
 date: 2016-05-26 22:21:22 +0200
-category: 'tech'
+category: "tech"
 tags:
   - Comfort Zone
   - Productivity

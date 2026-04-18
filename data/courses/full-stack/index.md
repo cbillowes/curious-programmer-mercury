@@ -13,8 +13,7 @@ tags:
   - GCP
   - Tailwind CSS
   - Intermediate
-abstract:
-  In this course you will build a review app using React and Tailwind CSS.
+abstract: In this course you will build a review app using React and Tailwind CSS.
   It will have rating and commenting features.
   You will connect to a MongoDB instance, use Firebase Authentication and
   host your app on AppEngine on the Google Cloud Platform

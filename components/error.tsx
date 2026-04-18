@@ -1,28 +1,23 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { Button } from 'flowbite-react';
-import { Page } from '@/components/page';
-import { PageHeading } from '@/components/page-heading';
-import { Container } from '@/components/container';
-import { useRouter } from 'next/navigation';
-import { getSignInUrlWithReturnTo } from '@/lib/utils';
-import { IS_DEV } from '@/lib/config';
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "flowbite-react";
 
-export function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+import { IS_DEV } from "@/lib/config";
+import { getSignInUrlWithReturnTo } from "@/lib/utils";
+import { Container } from "@/components/container";
+import { Page } from "@/components/page";
+import { PageHeading } from "@/components/page-heading";
+
+export function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   const router = useRouter();
 
   useEffect(() => {
     if (IS_DEV) console.error(error);
   }, [error]);
 
-  if (error.message.includes('Access token has expired.')) {
+  if (error.message.includes("Access token has expired.")) {
     router.push(getSignInUrlWithReturnTo());
     return null;
   }

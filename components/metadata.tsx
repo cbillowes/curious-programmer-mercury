@@ -1,5 +1,5 @@
-import { Link } from '@/components/link';
-import { toDateString } from '@/lib/utils';
+import { toDateString } from "@/lib/utils";
+import { Link } from "@/components/link";
 
 export function Metadata({
   type,
@@ -22,11 +22,9 @@ export function Metadata({
       <div>
         {date && <span>{toDateString(date)}</span>}
         &nbsp;&middot;&nbsp;
-        {timeToRead &&
-          type &&
-          ['article', 'scribble', 'chapter', 'resume'].indexOf(type) > -1 && (
-            <span>Estimated {timeToRead} minute read</span>
-          )}
+        {timeToRead && type && ["article", "scribble", "chapter", "resume"].indexOf(type) > -1 && (
+          <span>Estimated {timeToRead} minute read</span>
+        )}
       </div>
       {modified && <div>Modified on {toDateString(modified)}</div>}
       <Link>{link}</Link>

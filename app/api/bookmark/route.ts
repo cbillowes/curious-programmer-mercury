@@ -1,6 +1,6 @@
-import { addToBookmarks, deleteBookmark } from '@/db/bookmarks';
-import { stackServerApp } from '@/stack/server';
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
+import { addToBookmarks, deleteBookmark } from "@/db/bookmarks";
+import { stackServerApp } from "@/stack/server";
 
 export async function POST(request: Request) {
   const { slug, bookmark } = await request.json();
@@ -10,19 +10,19 @@ export async function POST(request: Request) {
       if (bookmark) {
         await addToBookmarks(slug);
         return NextResponse.json({
-          message: 'Added to your bookmarks',
+          message: "Added to your bookmarks",
           added: true,
         });
       } else {
         await deleteBookmark(slug);
         return NextResponse.json({
-          message: 'Removed from your bookmarks',
+          message: "Removed from your bookmarks",
           added: false,
         });
       }
     } else {
       return NextResponse.json({
-        message: 'You need to be signed in',
+        message: "You need to be signed in",
         added: false,
       });
     }

@@ -1,5 +1,5 @@
 ---
-title: 'The Silver Searcher'
+title: "The Silver Searcher"
 date: 2019-08-29 05:10:00 +0200
 tags:
   - Technical

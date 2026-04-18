@@ -1,12 +1,9 @@
-import {
-  allArticles,
-  allCourses,
-  allScribbles,
-} from '@/.content-collections/generated';
-import { slugify } from './utils';
-import { getArticles } from './articles';
-import { getScribbles } from './scribbles';
-import { getCourses } from './courses';
+import { allArticles, allCourses, allScribbles } from "@/.content-collections/generated";
+
+import { getArticles } from "./articles";
+import { getCourses } from "./courses";
+import { getScribbles } from "./scribbles";
+import { slugify } from "./utils";
 
 export function getTags() {
   const articles = allArticles.map((article) => article.tags || []);
@@ -31,16 +28,10 @@ export function prettifyTag(tag: string) {
 }
 
 export function getByTag(tag: string) {
-  const tagName = prettifyTag(tag) ?? '';
-  const articles = getArticles().filter((article) =>
-    article.tags?.includes(tagName),
-  );
-  const scribbles = getScribbles().filter((scribble) =>
-    scribble.tags?.includes(tagName),
-  );
-  const courses = getCourses().filter((course) =>
-    course.tags?.includes(tagName),
-  );
+  const tagName = prettifyTag(tag) ?? "";
+  const articles = getArticles().filter((article) => article.tags?.includes(tagName));
+  const scribbles = getScribbles().filter((scribble) => scribble.tags?.includes(tagName));
+  const courses = getCourses().filter((course) => course.tags?.includes(tagName));
   const combined = [...articles, ...scribbles, ...courses];
   return combined.sort((a, b) => {
     return b.number - a.number;

@@ -1,6 +1,6 @@
 ---
-title: 'Code katas'
-cover: 'https://picsum.photos/1600/800/?image=532'
+title: "Code katas"
+cover: "https://picsum.photos/1600/800/?image=532"
 date: 2016-08-13 19:44:42 +0200
 tags:
   - Productivity

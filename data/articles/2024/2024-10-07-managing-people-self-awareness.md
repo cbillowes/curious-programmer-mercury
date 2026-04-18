@@ -10,8 +10,7 @@ tags:
   - Personal Development
 creditSource: ChatGPT
 creditLink: https://chatgpt.com/
-abstract:
-  Learn how to develop self-awareness as a manager through reflection, feedback, and transparency. Improve your leadership skills by tracking progress and setting growth goals.
+abstract: Learn how to develop self-awareness as a manager through reflection, feedback, and transparency. Improve your leadership skills by tracking progress and setting growth goals.
 ---
 
 As a manager, I know my intrinsic leadership skills are just the beginning.
@@ -47,7 +46,6 @@ By analyzing your experiences, identifying patterns, and embracing transparency,
 - **Find Feedback**: Identify at least one person who will give you honest, constructive feedback.
 - **Daily Reflection**: Set aside time each day to reflect on your thoughts, actions, and interactions.
 - **Track Your Journey**: Use a journal to document:
-
   - Thoughts and feelings from the day.
   - Successes and setbacks.
   - Workplace challenges and conflicts.

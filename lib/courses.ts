@@ -1,9 +1,7 @@
-import { allCourses } from 'content-collections';
+import { allCourses } from "content-collections";
 
 export function getCourses() {
-  return allCourses
-    .filter((course) => course.index)
-    .sort((a, b) => b.number - a.number);
+  return allCourses.filter((course) => course.index).sort((a, b) => b.number - a.number);
 }
 
 export function getCoursePageBySlug(slug: string) {
@@ -11,7 +9,7 @@ export function getCoursePageBySlug(slug: string) {
 }
 
 export function getCoursePages() {
-  return allCourses.filter((page) => page.type === 'page');
+  return allCourses.filter((page) => page.type === "page");
 }
 
 export function getCoursePagesBySlug(slug: string) {

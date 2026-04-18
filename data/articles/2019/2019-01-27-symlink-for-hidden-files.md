@@ -1,5 +1,5 @@
 ---
-title: 'Create a symlink for hidden files'
+title: "Create a symlink for hidden files"
 date: 2019-01-27 11:00:00 +0200
 tags:
   - Technical

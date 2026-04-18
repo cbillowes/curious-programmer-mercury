@@ -1,4 +1,4 @@
-import { ImageContainer } from './image-container';
+import { ImageContainer } from "./image-container";
 
 function parseAttributes(attributes: string) {
   const src = attributes.match(/:src=([^|]+)/)?.[1] || null;
@@ -17,23 +17,20 @@ export function ArticleImage({ attributes }: { attributes: string }) {
     <div className="my-4 text-center">
       <ImageContainer
         src={src}
-        alt={title ?? 'Article Image'}
+        alt={title ?? "Article Image"}
         height={426}
         width={760}
         priority={true}
         fill={true}
       />
       {(title || credit) && (
-        <div className="text-sm opacity-80 mt-1">
+        <div className="mt-1 text-sm opacity-80">
           {title && <span>{title}</span>}
           {title && credit && <span> </span>}
           {credit && creditLink ? (
             <span>
-              Credit:{' '}
-              <a
-                href={`${creditLink}?utm_source=curiousprogrammer.dev`}
-                className="underline"
-              >
+              Credit:{" "}
+              <a href={`${creditLink}?utm_source=curiousprogrammer.dev`} className="underline">
                 {credit}
               </a>
             </span>

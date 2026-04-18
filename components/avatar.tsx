@@ -1,30 +1,21 @@
-import { useAuth } from '@/hooks/use-auth';
-import { useStackApp } from '@stackframe/stack';
+import { useAuth } from "@/hooks/use-auth";
+import { useStackApp } from "@stackframe/stack";
 import {
   Dropdown,
   DropdownDivider,
   DropdownHeader,
   DropdownItem,
   Avatar as FlowbiteAvatar,
-} from 'flowbite-react';
+} from "flowbite-react";
 
 export function Avatar() {
   const user = useAuth();
-  if (!user)
-    return <FlowbiteAvatar title="Sign in" rounded bordered size="sm" />;
+  if (!user) return <FlowbiteAvatar title="Sign in" rounded bordered size="sm" />;
   return (
-    <FlowbiteAvatar
-      title="Your user account"
-      img={user.avatar}
-      rounded
-      bordered
-      size="sm"
-    >
-      <div className="space-y-0 font-medium dark:text-white text-xs">
+    <FlowbiteAvatar title="Your user account" img={user.avatar} rounded bordered size="sm">
+      <div className="space-y-0 text-xs font-medium dark:text-white">
         <div>{user.displayName}</div>
-        <div className="text-xs text-gray-500 dark:text-gray-400 truncate w-28">
-          {user.email}
-        </div>
+        <div className="w-28 truncate text-xs text-gray-500 dark:text-gray-400">{user.email}</div>
       </div>
     </FlowbiteAvatar>
   );

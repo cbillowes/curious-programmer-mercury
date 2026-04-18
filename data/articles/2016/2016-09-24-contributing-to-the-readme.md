@@ -1,6 +1,6 @@
 ---
-title: 'Contributing to the README'
-cover: 'https://picsum.photos/1600/800/?image=528'
+title: "Contributing to the README"
+cover: "https://picsum.photos/1600/800/?image=528"
 date: 2016-09-24 15:00:49 +0200
 tags:
   - Communication

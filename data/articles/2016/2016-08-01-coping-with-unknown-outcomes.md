@@ -1,6 +1,6 @@
 ---
-title: 'Coping with unknown outcomes'
-cover: 'https://picsum.photos/1600/800/?image=639'
+title: "Coping with unknown outcomes"
+cover: "https://picsum.photos/1600/800/?image=639"
 date: 2016-08-01 20:54:23 +0200
 tags:
   - Mindset

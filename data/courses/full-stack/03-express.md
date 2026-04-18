@@ -3,8 +3,7 @@ title: Create the backend with ExpressJS
 parent: /courses/full-stack
 date: 2022-11-03
 modified: 2022-11-13
-abstract:
-  ExpressJS claims to be a fast, un-opinionated, minimalist web framework for Node.js.
+abstract: ExpressJS claims to be a fast, un-opinionated, minimalist web framework for Node.js.
   In this chapter, you will create a backend server with a dummy API that your frontend will connect to,
   create a test endpoint where your client says ping and the server says pong
   and then you will create an endpoint to rate reviews albeit it be in-memory for now.

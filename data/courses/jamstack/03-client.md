@@ -3,8 +3,7 @@ title: Connect to Astra DB using the client
 parent: /courses/jamstack
 date: 2022-10-23
 modified: 2022-11-01
-abstract:
-  Learn more about the Astra DB client, how to create it and how to pass environment variables to it.
+abstract: Learn more about the Astra DB client, how to create it and how to pass environment variables to it.
 ---
 
 ## Objectives

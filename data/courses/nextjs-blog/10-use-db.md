@@ -2,8 +2,7 @@
 title: Use your Neon database
 parent: /courses/nextjs-blog
 date: 2025-12-01
-abstract:
-  In this chapter, you will learn how to use your Neon database to get, set and remove likes on your blog.
+abstract: In this chapter, you will learn how to use your Neon database to get, set and remove likes on your blog.
 ---
 
 Now that Neon is set up, and you have Stack Auth authentication is enabled with access to a userId, you can start using your database to implement likes.

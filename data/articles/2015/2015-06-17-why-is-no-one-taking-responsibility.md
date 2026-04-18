@@ -1,7 +1,7 @@
 ---
-title:  "Why is no one taking responsibility?"
-cover: 'https://picsum.photos/1600/800/?image=532'
-date:   2015-06-17
+title: "Why is no one taking responsibility?"
+cover: "https://picsum.photos/1600/800/?image=532"
+date: 2015-06-17
 tags:
   - Values
   - Accountability
@@ -116,4 +116,4 @@ If teams believe business just expects, expects and expects but does’t provide
 
 > “Accountability isn’t simply a matter of reporting facts. If I know that I created 40 defects this week and accurately report that, I have been honest but not responsible. I have not completed my work in a way I can comfortably live with. I am not behaving in a way that builds relationships, relationships necessary for good software development. Extreme Programming is my way of working. Its principles and practices contribute to my ability to be accountable while developing. Accountability encourages me to do my best work. I resist the urge to take shortcuts or leave ugly code when I know others will see it and care.” – Kent Beck
 
-[accountability]:      http://www.threeriversinstitute.org/Accountability%20in%20Software%20Development.htm
+[accountability]: http://www.threeriversinstitute.org/Accountability%20in%20Software%20Development.htm

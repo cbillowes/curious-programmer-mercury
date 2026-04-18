@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Button, Spinner, Tooltip } from 'flowbite-react';
-import { useStackApp } from '@stackframe/stack';
-import { cn, getSignInUrlWithReturnTo } from '@/lib/utils';
-import { IS_DEV } from '@/lib/config';
-import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { useEffect, useState } from "react";
+import { useStackApp } from "@stackframe/stack";
+import { Button, Spinner, Tooltip } from "flowbite-react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+
+import { IS_DEV } from "@/lib/config";
+import { cn, getSignInUrlWithReturnTo } from "@/lib/utils";
 
 export function Like({
   slug,
@@ -18,7 +19,7 @@ export function Like({
 }) {
   const stackApp = useStackApp();
   const liked = likes.includes(slug);
-  const [content, setContent] = useState(liked ? 'Liked' : 'Add to your likes');
+  const [content, setContent] = useState(liked ? "Liked" : "Add to your likes");
   const [isLiked, setIsLiked] = useState(liked);
   const [isBusy, setIsBusy] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -33,10 +34,10 @@ export function Like({
   const handleLike = async () => {
     setIsBusy(true);
     try {
-      const result = await fetch('/api/like/', {
-        method: 'POST',
+      const result = await fetch("/api/like/", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ slug, like: !isLiked }),
       });
@@ -48,7 +49,7 @@ export function Like({
       }
     } catch (error) {
       if (IS_DEV) console.error(error);
-      setContent('An error occurred. Please try again later.');
+      setContent("An error occurred. Please try again later.");
     } finally {
       setIsBusy(false);
     }
@@ -62,7 +63,7 @@ export function Like({
           color="alternative"
           size="xs"
           className={cn(
-            'cursor-pointer inline-flex gap-2 items-center font-medium text-gray-900 dark:text-white',
+            "inline-flex cursor-pointer items-center gap-2 font-medium text-gray-900 dark:text-white",
           )}
         >
           <FaRegHeart aria-label="Like this" size={16} />
@@ -78,8 +79,8 @@ export function Like({
         color="alternative"
         size="xs"
         className={cn(
-          'cursor-pointer inline-flex gap-2 items-center font-medium text-gray-900 dark:text-white',
-          isLiked && 'text-gray-900 dark:text-white',
+          "inline-flex cursor-pointer items-center gap-2 font-medium text-gray-900 dark:text-white",
+          isLiked && "text-gray-900 dark:text-white",
         )}
       >
         {isBusy ? (

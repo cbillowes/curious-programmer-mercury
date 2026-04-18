@@ -1,5 +1,5 @@
 ---
-title: 'Logging to Graylog in Clojure'
+title: "Logging to Graylog in Clojure"
 date: 2018-11-30 21:30:00 +0200
 tags:
   - Technical

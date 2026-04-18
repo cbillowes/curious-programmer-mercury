@@ -1,6 +1,6 @@
 ---
-title: 'The rainbow in our storm sprint'
-cover: 'https://picsum.photos/1600/800/?image=903'
+title: "The rainbow in our storm sprint"
+cover: "https://picsum.photos/1600/800/?image=903"
 date: 2016-07-12 22:24:49 +0200
 tags:
   - Mindset

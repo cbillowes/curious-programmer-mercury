@@ -3,8 +3,7 @@ title: Netlify's serverless functions
 parent: /courses/jamstack
 date: 2022-10-23
 modified: 2022-10-31
-abstract:
-  Get a basic introduction to Netlify's serverless functions and
+abstract: Get a basic introduction to Netlify's serverless functions and
   prepare your repository for the upcoming code.
 ---
 

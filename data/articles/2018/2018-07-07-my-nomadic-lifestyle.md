@@ -1,6 +1,6 @@
 ---
-title: 'My Nomadic Lifestyle'
-cover: 'https://picsum.photos/1600/800/?image=1047'
+title: "My Nomadic Lifestyle"
+cover: "https://picsum.photos/1600/800/?image=1047"
 date: 2018-07-07 14:00:00 +0200
 tags:
   - Comfort Zone

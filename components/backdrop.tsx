@@ -1,13 +1,13 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export function Backdrop() {
   return (
-    <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none print:hidden">
-      <div className="w-full flex-none flex justify-end blur opacity-70">
+    <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center overflow-hidden print:hidden">
+      <div className="flex w-full flex-none justify-end opacity-70 blur">
         <Image
           src="/backdrop_1.png"
           alt="Gradient background"
-          className="w-full flex-none max-w-none dark:hidden"
+          className="w-full max-w-none flex-none dark:hidden"
           priority={true}
           height={1232}
           width={2880}
@@ -15,7 +15,7 @@ export function Backdrop() {
         <Image
           src="/backdrop_2.png"
           alt="Gradient background"
-          className="w-full flex-none max-w-none hidden dark:block"
+          className="hidden w-full max-w-none flex-none dark:block"
           priority={true}
           height={1232}
           width={2880}

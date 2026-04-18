@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, ReactNode, useRef, useCallback } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
 export function ScrollProgress({ children }: { children: ReactNode }) {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -19,29 +19,27 @@ export function ScrollProgress({ children }: { children: ReactNode }) {
       const scrollTop = window.scrollY;
 
       const scrollableHeight = documentHeight - windowHeight;
-      const progress =
-        scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+      const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
 
       setScrollProgress(progress);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToRatio = useCallback((ratio: number, smooth: boolean) => {
     const clamped = Math.max(0, Math.min(1, ratio));
 
-    const scrollableHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
 
     const targetScrollTop = clamped * Math.max(0, scrollableHeight);
 
     window.scrollTo({
       top: targetScrollTop,
-      behavior: smooth ? 'smooth' : 'auto',
+      behavior: smooth ? "smooth" : "auto",
     });
 
     setScrollProgress(clamped * 100);
@@ -72,7 +70,7 @@ export function ScrollProgress({ children }: { children: ReactNode }) {
   const handlePointerDown = useCallback(
     (e: React.PointerEvent<HTMLDivElement>) => {
       // Only primary button for mouse
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (e.pointerType === "mouse" && e.button !== 0) return;
 
       draggingRef.current = true;
 
@@ -115,8 +113,8 @@ export function ScrollProgress({ children }: { children: ReactNode }) {
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
-        className="fixed top-16 left-0 w-full h-2 bg-gray-200 z-50 print:hidden cursor-pointer"
-        style={{ touchAction: 'none' }} // important for mobile dragging
+        className="fixed top-16 left-0 z-50 h-2 w-full cursor-pointer bg-gray-200 print:hidden"
+        style={{ touchAction: "none" }} // important for mobile dragging
         role="slider"
         aria-label="Scroll progress"
         aria-valuemin={0}
@@ -124,12 +122,12 @@ export function ScrollProgress({ children }: { children: ReactNode }) {
         aria-valuenow={Math.round(scrollProgress)}
       >
         <div
-          className="h-full bg-blue-600 transition-all duration-150 ease-out pointer-events-none"
+          className="pointer-events-none h-full bg-blue-600 transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      <div className="fixed top-20 right-4 bg-white text-gray-900 text-xs py-1 font-bold px-2 p-0 rounded-md shadow-lg border border-gray-200 z-50 print:hidden">
+      <div className="fixed top-20 right-4 z-50 rounded-md border border-gray-200 bg-white p-0 px-2 py-1 text-xs font-bold text-gray-900 shadow-lg print:hidden">
         {Math.round(scrollProgress)}%
       </div>
 

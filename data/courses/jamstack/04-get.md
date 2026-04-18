@@ -2,8 +2,7 @@
 title: Get data from the collection
 parent: /courses/jamstack
 date: 2022-10-23
-abstract:
-  Connect to your Astra DB via the API that
+abstract: Connect to your Astra DB via the API that
   will call your Netlify serverless functions. You will get
   data from your Astra DB collection and display it on the UI.
 ---

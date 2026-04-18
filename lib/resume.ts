@@ -1,4 +1,4 @@
-import { allResumes } from 'content-collections';
+import { allResumes } from "content-collections";
 
 export function getResume() {
   return allResumes.sort((a, b) => {

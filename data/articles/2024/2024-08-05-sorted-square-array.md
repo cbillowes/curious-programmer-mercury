@@ -23,9 +23,7 @@ For example, given the array `[-7, -3, -1, 4, 8, 12]`, the output should be `[1,
 My initial solution was to iterate over the input array, square each number, and create a new array. Then, I sorted the new array and returned it. This was not the optimal solution.
 
 ```javascript
-return array
-    .map(i => i * i)
-    .sort((a, b) => a - b)
+return array.map((i) => i * i).sort((a, b) => a - b);
 ```
 
 ### Time Complexity
@@ -65,7 +63,6 @@ By using two pointers, we can solve this problem in O(n) time complexity and O(n
 - Move the pointers and repeating each step until finished.
 
 ```javascript
-
 const sortedSquares = new Array(array.length).fill(0);
 let leftPointer = 0;
 let rightPointer = array.length - 1;
@@ -134,18 +131,14 @@ Examples of sorting algorithms include:
 
 Choosing the right sorting algorithm depends on the specific requirements of your application, such as the size of the data, whether stability is important, memory constraints, and the nature of the data itself.
 
-| Scenario                                    | Algorithms                              |
-|---------------------------------------------|-----------------------------------------|
-| Small Datasets or Nearly Sorted Data        | Insertion Sort, Bubble Sort, Selection Sort |
-| Large Datasets with Stability Requirement   | Merge Sort, TimSort                     |
-| General Purpose with Good Average-Case Performance | QuickSort, TimSort                       |
-| In-Place Sorting with Guaranteed Performance | Heap Sort, Shell Sort                   |
-| Specialized Numeric Data                    | Counting Sort, Radix Sort, Bucket Sort  |
-
+| Scenario                                           | Algorithms                                  |
+| -------------------------------------------------- | ------------------------------------------- |
+| Small Datasets or Nearly Sorted Data               | Insertion Sort, Bubble Sort, Selection Sort |
+| Large Datasets with Stability Requirement          | Merge Sort, TimSort                         |
+| General Purpose with Good Average-Case Performance | QuickSort, TimSort                          |
+| In-Place Sorting with Guaranteed Performance       | Heap Sort, Shell Sort                       |
+| Specialized Numeric Data                           | Counting Sort, Radix Sort, Bucket Sort      |
 
 ## Resources
 
 - [How JavaScript sorts? TimSort algorithm](https://dev.to/bekmurzintimur/how-arrayprototypesort-works-3kcn)
-
-
-

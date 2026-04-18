@@ -2,8 +2,7 @@
 title: Set up Stack Auth for seamless authentication
 parent: /courses/nextjs-blog
 date: 2025-12-01
-abstract:
-  Get out-of-the-box authentication with Stack Auth.
+abstract: Get out-of-the-box authentication with Stack Auth.
   In this chapter, you will learn how to set up Stack Auth for your Next.js blog to enable user authentication.
 ---
 

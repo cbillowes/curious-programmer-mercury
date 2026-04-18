@@ -17,9 +17,7 @@ resume:
     - Lean Principles
     - Waste Reduction
     - Communication
-  summary:
-    Earned my Lean Six Sigma Green Belt certification under the mentorship of Professor Marcelo Fernandes, gaining proficiency in DMAIC and advanced process improvement methodologies. This equipped me with data-driven problem-solving, project management, and continuous improvement skills, enabling me to streamline workflows, enhance efficiency, and deliver measurable business impact.
-
+  summary: Earned my Lean Six Sigma Green Belt certification under the mentorship of Professor Marcelo Fernandes, gaining proficiency in DMAIC and advanced process improvement methodologies. This equipped me with data-driven problem-solving, project management, and continuous improvement skills, enabling me to streamline workflows, enhance efficiency, and deliver measurable business impact.
 ---
 
 Exploring the principles of Lean Six Sigma, the Green Belt certification offered by MF OPEX, under the mentorship of Professor Marcelo Fernandes, represents a pivotal step forward in operational excellence training. Equipped with an extensive curriculum blending advanced theories with hands-on application, participants not only deepen their understanding of process optimization, advanced data analysis, and project leadership but also become adept at spearheading Lean Six Sigma projects. Professor Fernandes' esteemed guidance enriches the program with cutting-edge methodologies, empowering learners to drive substantial improvements within their organizations. Serving as a significant milestone in professional development, this certification not only qualifies individuals to lead larger-scale projects but also instills the confidence and expertise needed to enact transformative change across diverse industry landscapes.

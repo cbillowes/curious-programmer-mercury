@@ -1,14 +1,15 @@
-import type { MetadataRoute } from 'next';
-import { getArticles } from '@/lib/articles';
-import { getCourses } from '@/lib/courses';
-import { getResume } from '@/lib/resume';
-import { getScribbles } from '@/lib/scribbles';
-import { WEBSITE_URL } from '@/lib/config';
+import type { MetadataRoute } from "next";
+
+import { getArticles } from "@/lib/articles";
+import { WEBSITE_URL } from "@/lib/config";
+import { getCourses } from "@/lib/courses";
+import { getResume } from "@/lib/resume";
+import { getScribbles } from "@/lib/scribbles";
 
 function getImageUrl(image: string | undefined) {
   if (!image) return undefined;
-  const url = image.startsWith('http') ? image : `${WEBSITE_URL}${image}`;
-  return url.replace(/&/g, '&amp;').replace(/\/hero\//, '/share/');
+  const url = image.startsWith("http") ? image : `${WEBSITE_URL}${image}`;
+  return url.replace(/&/g, "&amp;").replace(/\/hero\//, "/share/");
 }
 
 function getSitemapEntry(
@@ -20,7 +21,7 @@ function getSitemapEntry(
   return {
     url: `${WEBSITE_URL}${slug}`,
     lastModified: date ? new Date(date) : new Date(),
-    changeFrequency: 'yearly' as const,
+    changeFrequency: "yearly" as const,
     priority: 0.7,
     images: [getImageUrl(image)].filter(Boolean) as string[],
   };
@@ -44,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: WEBSITE_URL,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 1,
     },
     ...articles,

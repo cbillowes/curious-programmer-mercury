@@ -2,8 +2,7 @@
 title: Get started with Netlify
 parent: /courses/nextjs-blog
 date: 2025-12-01
-abstract:
-  In this chapter, you will learn how to create a Netlify account, and deploy your Next.js blog.
+abstract: In this chapter, you will learn how to create a Netlify account, and deploy your Next.js blog.
 ---
 
 Netlify is a popular platform for deploying static sites and serverless functions.

@@ -1,6 +1,6 @@
 ---
 title: Know your limits
-cover: 'https://picsum.photos/1600/800/?image=177'
+cover: "https://picsum.photos/1600/800/?image=177"
 date: 2017-05-12 21:02:04 +0200
 tags:
   - Mindset

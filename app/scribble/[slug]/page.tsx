@@ -1,14 +1,15 @@
-import { Page } from '@/components/page';
-import { Container } from '@/components/container';
-import { getScribblesByYearOrSlug } from '@/lib/scribbles';
-import { ScribbleContent } from '@/components/content';
-import { notFound } from 'next/navigation';
-import { Hero } from '@/components/hero';
-import { getPageMetadata } from '@/lib/utils';
-import { getBookmarks } from '@/db/bookmarks';
-import { getLikes } from '@/db/likes';
-import { PageHeading } from '@/components/page-heading';
-import { Preview } from '@/components/preview';
+import { notFound } from "next/navigation";
+import { getBookmarks } from "@/db/bookmarks";
+import { getLikes } from "@/db/likes";
+
+import { getScribblesByYearOrSlug } from "@/lib/scribbles";
+import { getPageMetadata } from "@/lib/utils";
+import { Container } from "@/components/container";
+import { ScribbleContent } from "@/components/content";
+import { Hero } from "@/components/hero";
+import { Page } from "@/components/page";
+import { PageHeading } from "@/components/page-heading";
+import { Preview } from "@/components/preview";
 
 type Props = {
   params: {
@@ -25,18 +26,18 @@ export async function generateMetadata({ params }: Props) {
         title: `Scribbles from ${slug}`,
         description: `Explore a collection of informal writings and musings penned in ${slug} by Curious Programmer.`,
         slug: `/scribbles/${slug}`,
-        image: '/scribbles.webp',
-        type: 'website',
+        image: "/scribbles.webp",
+        type: "website",
       });
     }
 
     return getPageMetadata({
       title: data.title,
-      description: data.abstract ?? '',
+      description: data.abstract ?? "",
       slug: data.slug,
       image: data.cover!,
       date: data.date,
-      type: 'article',
+      type: "article",
     });
   }
 }

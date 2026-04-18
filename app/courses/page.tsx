@@ -1,21 +1,22 @@
-import { notFound } from 'next/navigation';
-import { Container } from '@/components/container';
-import { Page } from '@/components/page';
-import { PageHeading } from '@/components/page-heading';
-import { Preview } from '@/components/preview';
-import { getBookmarks } from '@/db/bookmarks';
-import { getLikes } from '@/db/likes';
-import { getCourses } from '@/lib/courses';
-import { getPageMetadata } from '@/lib/utils';
+import { notFound } from "next/navigation";
+import { getBookmarks } from "@/db/bookmarks";
+import { getLikes } from "@/db/likes";
+
+import { getCourses } from "@/lib/courses";
+import { getPageMetadata } from "@/lib/utils";
+import { Container } from "@/components/container";
+import { Page } from "@/components/page";
+import { PageHeading } from "@/components/page-heading";
+import { Preview } from "@/components/preview";
 
 export async function generateMetadata() {
   return getPageMetadata({
-    title: 'Courses',
+    title: "Courses",
     description:
-      'Explore a range of courses from Git to GCP to up your game in software engineering.',
-    slug: '/courses',
-    image: '/hero/courses.webp',
-    type: 'website',
+      "Explore a range of courses from Git to GCP to up your game in software engineering.",
+    slug: "/courses",
+    image: "/hero/courses.webp",
+    type: "website",
   });
 }
 

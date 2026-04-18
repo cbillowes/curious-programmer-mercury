@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from 'flowbite-react';
+import { useState } from "react";
+import { Button } from "flowbite-react";
 
 export function CookieBanner({ value }: { value?: string }) {
-  const [show, setShow] = useState(value !== 'true');
+  const [show, setShow] = useState(value !== "true");
 
   function acceptCookies() {
     // Save in localStorage
-    localStorage.setItem('cookie-consent', 'true');
+    localStorage.setItem("cookie-consent", "true");
 
     // Tell the server (optional)
-    document.cookie = 'cookie-consent=true; path=/; max-age=31536000';
+    document.cookie = "cookie-consent=true; path=/; max-age=31536000";
 
     setShow(false);
   }
@@ -19,12 +19,9 @@ export function CookieBanner({ value }: { value?: string }) {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-1 left-1 right-1 bg-white dark:bg-black text-black dark:text-white p-4 rounded shadow-lg z-100">
-      <div className="max-w-3xl flex justify-between items-center mx-auto">
-        <p>
-          This website uses cookies to store preferences and enhance your
-          browsing experience.
-        </p>
+    <div className="fixed right-1 bottom-1 left-1 z-100 rounded bg-white p-4 text-black shadow-lg dark:bg-black dark:text-white">
+      <div className="mx-auto flex max-w-3xl items-center justify-between">
+        <p>This website uses cookies to store preferences and enhance your browsing experience.</p>
         <Button onClick={acceptCookies}>Okay</Button>
       </div>
     </div>

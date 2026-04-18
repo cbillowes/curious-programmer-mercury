@@ -1,6 +1,6 @@
 ---
-title: 'Clojure Buzzwords I am Learning'
-cover: 'clojure.jpg'
+title: "Clojure Buzzwords I am Learning"
+cover: "clojure.jpg"
 date: 2018-08-15 20:15:00 +0200
 tags:
   - Technical

@@ -3,8 +3,7 @@ title: Terminal
 parent: /courses/git
 date: 2022-10-15
 modified: 2022-10-15
-abstract:
-  You are going to be doing a lot of work in the terminal.
+abstract: You are going to be doing a lot of work in the terminal.
   In this chapter we cover how to get started with your terminal, navigate directory structures and execute popular commands.
 ---
 

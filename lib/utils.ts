@@ -1,28 +1,26 @@
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-import removeMd from 'remove-markdown';
-import { WEBSITE_URL } from './config';
-import path from 'path';
+import path from "path";
+import { clsx, type ClassValue } from "clsx";
+import removeMd from "remove-markdown";
+import { twMerge } from "tailwind-merge";
+
+import { WEBSITE_URL } from "./config";
 
 export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
 };
 
 export const toDateString = (date: Date) => {
-  return new Date(date).toLocaleDateString('en-MU', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return new Date(date).toLocaleDateString("en-MU", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
 
-export function extractExcerpt(
-  content: string,
-  maxLength: number = 160,
-): string {
+export function extractExcerpt(content: string, maxLength: number = 160): string {
   // Remove markdown
-  const text = removeMd(content).replace(/\s+/g, ' ').trim();
+  const text = removeMd(content).replace(/\s+/g, " ").trim();
 
   // If content is shorter than maxLength, return as is
   if (text.length <= maxLength) {
@@ -31,20 +29,17 @@ export function extractExcerpt(
 
   // Cut at maxLength and find last complete word
   let excerpt = text.slice(0, maxLength);
-  const lastSpace = excerpt.lastIndexOf(' ');
+  const lastSpace = excerpt.lastIndexOf(" ");
 
   if (lastSpace > 0) {
     excerpt = excerpt.slice(0, lastSpace);
   }
 
-  return excerpt + '...';
+  return excerpt + "...";
 }
 
-export function toHeroImageUrl(
-  path: string,
-  value: string = 'default-01.jpg',
-) {
-  if (value?.startsWith('http')) {
+export function toHeroImageUrl(path: string, value: string = "default-01.jpg") {
+  if (value?.startsWith("http")) {
     return value;
   }
   return `/${path}/${value}`;
@@ -59,80 +54,76 @@ export function toProperCase(value: string) {
 export function slugify(str: string): string {
   return str
     .toLowerCase()
-    .replace(/[',\?\!]+/gi, '')
-    .replace(/[^a-z0-9]+/gi, '-');
+    .replace(/[',\?\!]+/gi, "")
+    .replace(/[^a-z0-9]+/gi, "-");
 }
 
 export function slugifyTag(tag: string): string {
-  const slug = tag.replace(/\s+/g, '-').toLowerCase();
+  const slug = tag.replace(/\s+/g, "-").toLowerCase();
   return `/tag/${slug}`;
 }
 
 function getCanonicalUrl(slug: string): string {
-  if (slug.startsWith('http')) return slug;
-  const normalizedSlug = slug.startsWith('/') ? slug : `/${slug}`;
+  if (slug.startsWith("http")) return slug;
+  const normalizedSlug = slug.startsWith("/") ? slug : `/${slug}`;
   return `${WEBSITE_URL}${normalizedSlug}`;
 }
 
 function getImageType(url: string): string {
-  const extension = url.split('.').pop()?.toLowerCase() || '';
+  const extension = url.split(".").pop()?.toLowerCase() || "";
   switch (extension) {
-    case 'png':
-      return 'image/png';
-    case 'jpg':
-    case 'jpeg':
-      return 'image/jpeg';
-    case 'gif':
-      return 'image/gif';
-    case 'webp':
-      return 'image/webp';
+    case "png":
+      return "image/png";
+    case "jpg":
+    case "jpeg":
+      return "image/jpeg";
+    case "gif":
+      return "image/gif";
+    case "webp":
+      return "image/webp";
     default:
-      return 'image/*';
+      return "image/*";
   }
 }
 
 function getShareImageUrl(imagePath: string) {
   const ext = path.extname(imagePath);
-  const newBaseName = imagePath
-    .replace(ext, '.jpg')
-    .replace('/hero/', '/share/');
+  const newBaseName = imagePath.replace(ext, ".jpg").replace("/hero/", "/share/");
   return getCanonicalUrl(newBaseName);
 }
 
 export function getPageMetadata({
-  title = '',
-  description = '',
-  slug = '/',
-  image = 'default-01.jpg',
+  title = "",
+  description = "",
+  slug = "/",
+  image = "default-01.jpg",
   date,
-  type = 'website',
+  type = "website",
 }: {
   title?: string;
   description?: string;
   slug?: string;
   image?: string;
   date?: Date;
-  type: 'article' | 'website';
+  type: "article" | "website";
 }) {
   const canonicalUrl = getCanonicalUrl(slug);
   // These images are converted automatically through the share-images.js script registered in nodemon
   const imageUrl = getShareImageUrl(image);
   const imageType = getImageType(imageUrl);
   const pageTitle = `${title} | Curious Programmer${
-    title.length < 20 ? ' - A curious place for a curious mind' : ''
+    title.length < 20 ? " - A curious place for a curious mind" : ""
   }`;
 
   return {
     title: pageTitle,
-    authors: [{ name: 'Clarice Bouwer' }],
-    description: `${description.substring(0, 140)}${
-      description.length > 140 ? '...' : ''
-    }`,
+    authors: [{ name: "Clarice Bouwer" }],
+    description: `${description.substring(0, 140)}${description.length > 140 ? "..." : ""}`,
     imageUrl,
     url: canonicalUrl,
     type,
     openGraph: {
-      siteName: 'Curious Programmer',
+      siteName: "Curious Programmer",
       title: pageTitle,
       description,
       url: canonicalUrl,
@@ -149,7 +140,7 @@ export function getPageMetadata({
       publishedTime: date,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: pageTitle,
       description,
       images: [imageUrl],

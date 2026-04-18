@@ -1,5 +1,5 @@
 ---
-title: 'Setting up my environment in Fedora - Creating a boot disk'
+title: "Setting up my environment in Fedora - Creating a boot disk"
 date: 2018-10-20 18:30:02 +0200
 tags:
   - Technical
