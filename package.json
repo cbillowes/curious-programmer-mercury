@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "eslint",
     "search:index": "node ./scripts/search.js",
-    "images:optimize": "node ./scripts/optimize-images.js public/ public/ 80 && node ./scripts/rename-temp-images.js public/"
+    "images:optimize": "node ./scripts/optimize-images.js public/ public/ 80 && node ./scripts/rename-temp-images.js public/",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@docsearch/css": "4.6.2",
@@ -50,6 +52,7 @@
   "devDependencies": {
     "@content-collections/core": "0.15.0",
     "@content-collections/next": "0.2.11",
+    "@ianvs/prettier-plugin-sort-imports": "4.7.1",
     "@tailwindcss/postcss": "4",
     "@types/lodash": "4.17.24",
     "@types/node": "25.6.0",
@@ -64,6 +67,7 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.4",
     "nodemon": "3.1.14",
+    "prettier-plugin-tailwindcss": "0.7.2",
     "tailwindcss": "4",
     "typescript": "6",
     "zod": "4.3.6"
