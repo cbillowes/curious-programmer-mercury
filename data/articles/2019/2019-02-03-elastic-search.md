@@ -3,9 +3,6 @@ title: Migrate my search from Solr to Elasticsearch
 slug: migrage-my-search-from-solr-to-elasticsearch
 date: 2019-02-05 06:00:00 +0200
 cover: elastic.jpg
-credit: PNGWAVE
-creditLink: https://www.pngwave.com/png-clip-art-bvnpx
-creditSource: PNGWAVE
 tags:
   - Technical
   - Terminal
