@@ -255,5 +255,5 @@ const scribbles = defineCollection({
 });
 
 export default defineConfig({
-  collections: [articles, courses, resume, scribbles],
+  content: [articles, courses, resume, scribbles],
 });
