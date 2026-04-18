@@ -63,8 +63,6 @@
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.4",
-    "netlify": "25.0.0",
-    "netlify-cli": "25.0.0",
     "nodemon": "3.1.14",
     "tailwindcss": "4",
     "typescript": "6",
