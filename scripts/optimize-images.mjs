@@ -1,3 +1,4 @@
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
@@ -7,6 +8,15 @@ const quality = parseInt(process.argv[3]) || 80;
 const MAX_WIDTH = 2500;
 const SUPPORTED = new Set([".webp", ".gif", ".png", ".jpg", ".jpeg"]);
 
+function isTrackedByGit(filename) {
+  try {
+    execSync(`git ls-files --error-unmatch "${filename}"`, { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function processImage(filename) {
   const ext = path.extname(filename).toLowerCase();
   const basename = path.basename(filename, ext);
@@ -14,6 +24,11 @@ async function processImage(filename) {
 
   const webpOut = path.join(dir, `${basename}.webp`);
   const jpgOut = path.join(dir, `${basename}.jpg`);
+
+  if (isTrackedByGit(filename)) {
+    console.log(`⏭️  Skipping ${filename} (tracked by git)`);
+    return;
+  }
 
   try {
     const image = sharp(filename, { animated: true });
