@@ -16,12 +16,10 @@ function processImage(image) {
   const outputJpg = path.join(toPath, newBasename);
 
   if (fs.existsSync(outputJpg)) {
-    console.log(`✅ Image already exists: ${outputJpg}`);
     return;
   }
 
   if ([".DS_Store"].includes(basename)) {
-    console.log(`⏭️ Skipping file: ${image}`);
     return;
   }
 

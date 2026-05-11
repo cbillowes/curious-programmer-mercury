@@ -26,7 +26,12 @@ async function processImage(filename) {
   const jpgOut = path.join(dir, `${basename}.jpg`);
 
   if (isTrackedByGit(filename)) {
-    console.log(`⏭️  Skipping ${filename} (tracked by git)`);
+    return;
+  }
+
+  const needsWebp = webpOut !== filename && !fs.existsSync(webpOut);
+  const needsJpg = jpgOut !== filename && !fs.existsSync(jpgOut);
+  if (!needsWebp && !needsJpg) {
     return;
   }
 
@@ -44,9 +49,8 @@ async function processImage(filename) {
 
     const outputs = [];
 
-    // Skip an output format when its path equals the source — macOS blocks overwriting.
-    if (webpOut !== filename) outputs.push(["webp", webpOut, sharp(buffer, { animated: true }).webp({ quality })]);
-    if (jpgOut !== filename) outputs.push(["jpg", jpgOut, sharp(buffer).jpeg({ quality })]);
+    if (needsWebp) outputs.push(["webp", webpOut, sharp(buffer, { animated: true }).webp({ quality })]);
+    if (needsJpg) outputs.push(["jpg", jpgOut, sharp(buffer).jpeg({ quality })]);
 
     await Promise.all(
       outputs.map(async ([, outPath, pipeline]) => {

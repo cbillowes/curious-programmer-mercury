@@ -6,7 +6,6 @@ const gifPath = process.argv[2];
 
 function processGif(gifPath) {
   if (!gifPath || !gifPath.endsWith(".gif")) {
-    console.log("Not a GIF file, skipping...");
     process.exit(0);
   }
 

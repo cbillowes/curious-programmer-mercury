@@ -1,5 +1,7 @@
 {
   "ext": "gif,jpg,jpeg,png,webp",
   "watch": ["public/**/*"],
+  "ignore": ["public/share/**"],
+  "delay": 500,
   "exec": "node scripts/process-gifs.js public/articles/ && node scripts/share-images.js public/hero public/share && node scripts/optimize-images.mjs public/ 80"
 }
